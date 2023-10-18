@@ -20,3 +20,30 @@ Integrantes del equipo:
 *Víctor Francisco, Ramírez Diaz
 *Carlos Sebastian, Zavaleta
 *Rolando Andrés, Burelas
+
+##############################
+##    Antología Libros      ##
+##############################
+Sitios
+
+https://www.sbs.com.ar/
+
+Sitio web argentino muy agradable a la vista por sus colores, distribución de texto e imágenes, el menú parece bien organizado.
+El header se transforma al visualizar la parte de abajo de la página principal.
+tiene un botón para contactar por whatsapp
+
+https://www.libreriadonquijote.com.ar/
+
+Sitio web argentino, el menú header se transforma al ver la parte de abajo de la página. Tiene una gama de colores borravinos que contrasta con el blanco del sitio. Dentro del menú la opción categorías es muy extensa. Es agradable a la vista. 
+
+https://www.casadellibro.com/
+
+Sitio web español, dividido en categorías y temáticas. Se puede ver una calificación de los libros (según los lectores) y los precios están resaltados.
+
+https://www.buscalibre.com.ar/
+
+Sitio web de argentina, opciones para filtrar libros se pueden ver del lado izquierdo, como el año de edición, encuadernación, etc. Parece sobrecargado de información, o quizás los objetos y textos no están distribuidos, no parece tan agradable para el usuario.
+
+https://www.planetadelibros.com.ar/
+
+Sitio web de argentina, que posee un menú del lado izquierdo que se transforma al visualizar la parte de abajo de las páginas. Además posee videos promocionando los libros.
