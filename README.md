@@ -47,3 +47,7 @@ Sitio web de argentina, opciones para filtrar libros se pueden ver del lado izqu
 https://www.planetadelibros.com.ar/
 
 Sitio web de argentina, que posee un menú del lado izquierdo que se transforma al visualizar la parte de abajo de las páginas. Además posee videos promocionando los libros.
+
+https://cuspide.com/
+
+Sitio web Argentino de venta de libros perteneciente a una franquicia de muchos años y con librerias propias. El diseño de su barra de navegación y cabecera para visualización en dispositivos moviles es atractiva.
