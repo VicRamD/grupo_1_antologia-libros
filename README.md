@@ -13,13 +13,14 @@ No solo te ofrecemos acceso a una variedad de géneros y temas, sino que tambié
 -Cada libro que encuentres aquí es una puerta a un mundo nuevo, una aventura esperando a ser vivida y un conocimiento por descubrir.- 
 -Aquí, la literatura está al alcance de tu mano, y tu próxima historia ¡te espera con ansias!-
 
-Integrantes del equipo:
-*Luis Eduardo Murua Merlo 
-*Rocio Abigail, Amaya
-*Daiana Marisol, Lucero
-*Víctor Francisco, Ramírez Diaz
-*Carlos Sebastian, Zavaleta
-*Rolando Andrés, Burelas
+## Integrantes del equipo:
+
+* Luis Eduardo Murua Merlo 
+* Rocio Abigail, Amaya
+* Daiana Marisol, Lucero
+* Víctor Francisco, Ramírez Diaz
+* Carlos Sebastian, Zavaleta
+* Rolando Andrés, Burelas
 
 ##############################
 ##    Antología Libros      ##
