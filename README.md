@@ -14,13 +14,16 @@ No solo te ofrecemos acceso a una variedad de géneros y temas, sino que tambié
 -Aquí, la literatura está al alcance de tu mano, y tu próxima historia ¡te espera con ansias!-
 
 ## Integrantes del equipo:
+* __Rocio Abigail, Amaya__
 
-* Luis Eduardo Murua Merlo 
-* Rocio Abigail, Amaya
-* Daiana Marisol, Lucero
-* Víctor Francisco, Ramírez Diaz
-* Carlos Sebastian, Zavaleta
-* Rolando Andrés, Burelas
+* __Daiana Marisol, Lucero__
+
+* __Víctor Francisco, Ramírez Diaz__
+Estudiante de Ingeniería en Informática de la Universidad Nacional de Catamarca. Con conocimientos básicos de los lenguaje C, JAVA, Javascript y conocimientos básicos del paradigma orientado a objetos. Aspirando  a conseguir los conocimientos y habilidades para convertirse en desarrollador web.
+
+* __Carlos Sebastian, Zavaleta__
+
+* __Rolando Andrés, Burelas__
 
 ##############################
 ##    Antología Libros      ##
