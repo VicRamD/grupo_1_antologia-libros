@@ -28,6 +28,8 @@ Estudiante de Tecnicatura en Informática con cierta familiaridad en diversas he
 Estudiante de Ingeniería en Informática de la Universidad Nacional de Catamarca. Con conocimientos básicos de los lenguaje C, JAVA, Javascript y conocimientos básicos del paradigma orientado a objetos. Aspirando  a conseguir los conocimientos y habilidades para convertirse en desarrollador web.
 
 * __Carlos Sebastian, Zavaleta:__
+Analista de Sistemas y Lic en Informática. Trabajo en Salud y en un instituto de computación. Busco actualizarme, seguir aprendiendo, adaptarme a lo nuevo en programación para aplicarlo en el trabajo, o bien para buscar nuevos rumbos. Amante de los viajes, la montaña, Los maratones, el ajedrez, la tecnología y la vida sana.
+
 
 * __Rolando Andrés, Burelas:__
 Tecnico Universitario Industrial, graduado de la Facultad de Tecnologias y Cs Aplicadas, UNCa. Dedicado actualmente a
