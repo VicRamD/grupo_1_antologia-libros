@@ -24,6 +24,8 @@ Estudiante de Ingeniería en Informática de la Universidad Nacional de Catamarc
 * __Carlos Sebastian, Zavaleta:__
 
 * __Rolando Andrés, Burelas:__
+Tecnico Universitario Industrial, graduado de la Facultad de Tecnologias y Cs Aplicadas, UNCa. Dedicado actualmente a
+telecomunicaciones en un empresa naciona. Aspirado a conseguir conocimientos necesarios para ser un desarrolador web y abrir nuevos horizontes y oportunidades laborales.
 
 ##############################
 ##    Antología Libros      ##
