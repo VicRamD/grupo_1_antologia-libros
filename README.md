@@ -20,6 +20,7 @@ Aquí, la literatura está al alcance de tu mano, y tu próxima historia ¡te es
 ## Integrantes del equipo:
 
 * __Rocio Abigail, Amaya:__
+Soy estudiante en la Tecnicatura de Desarrollo de Software, pero mi camino comenzó apenas este año, por lo que no tengo sólidos conocimientos ni experiencia previa. Mi objetivo actual es adquirir los conocimientos y habilidades necesarios para poder desarrollarme profesionalmente. Comprendo que es un gran desafío, pero estoy dispuesto a enfrentarlo con dedicación y perseverancia.
 
 * __Daiana Marisol, Lucero:__
 Estudiante de Tecnicatura en Informática con cierta familiaridad en diversas herramientas y lenguajes referidos a la Programación Web, como así también habilidades en administración de redes y mantenimiento de equipos informáticos. Además, conocimiento intermedio en el idioma Inglés. Siempre comprometida con el aprendizaje continuo y la constante superación.
@@ -29,7 +30,6 @@ Estudiante de Ingeniería en Informática de la Universidad Nacional de Catamarc
 
 * __Carlos Sebastian, Zavaleta:__
 Analista de Sistemas y Lic en Informática. Trabajo en Salud y en un instituto de computación. Busco actualizarme, seguir aprendiendo, adaptarme a lo nuevo en programación para aplicarlo en el trabajo, o bien para buscar nuevos rumbos. Amante de los viajes, la montaña, Los maratones, el ajedrez, la tecnología y la vida sana.
-
 
 * __Rolando Andrés, Burelas:__
 Tecnico Universitario Industrial, graduado de la Facultad de Tecnologias y Cs Aplicadas, UNCa. Dedicado actualmente a
