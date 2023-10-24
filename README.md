@@ -62,3 +62,6 @@ Sitio web de argentina, que posee un menú del lado izquierdo que se transforma 
 https://cuspide.com/
 
 Sitio web Argentino de venta de libros perteneciente a una franquicia de muchos años y con librerias propias. El diseño de su barra de navegación y cabecera para visualización en dispositivos moviles es atractiva.
+
+**TABLERO DE TRABAJO:**
+[Link](https://trello.com/b/xhc1LQYN/sprint-2-html-css-g1 "Tablero Sprint 2").
