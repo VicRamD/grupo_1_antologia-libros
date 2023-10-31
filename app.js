@@ -14,3 +14,8 @@ server.listen(3030, () => {
 server.get('', (req, res) => {
     res.send('En construcción...');
 });
+
+server.get('/productCart', (req, res) => {
+    const pathCart = path.join(__dirname, '/views/productCart.html');
+    res.sendFile(pathCart);
+});

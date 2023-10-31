@@ -1,0 +1,157 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/*Header*/
+header {
+    background-color: #ffa074;
+}
+
+div.top-header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #ffa074;
+    padding: 2%;
+    justify-content: space-around;
+}
+
+div.burger-menu {
+    border-radius: 5px;
+    background-color: #F08080;
+    color: #FFF;
+    font-size: 20px;
+    height: 40px;
+    margin: 10px 0px 20px 0px;
+    padding: 10px;
+    /*width: 40px;*/
+    width: 15%;
+    margin: auto;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+div.logo {
+    order: 1;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+div.logo img{
+    width: 100%;
+}
+
+div.search-bar {
+    margin-top: 5px;
+    order: 10;
+    width: 100%;
+}
+
+div.search-bar form {
+    display: flex;
+    justify-content: center;
+}
+
+div.search-bar form input {
+    width: 90%;
+}
+
+div.search-bar form button {
+    width: 10%;
+}
+
+div.iconos {
+    order: 3;
+    width: 30%;
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    align-self: stretch;
+    /*padding: 2%;*/
+}
+
+div.iconos div.icono {
+    background-color: #F08080;
+    width: 45%;
+    border-radius: 50%;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.iconos div.icono a{
+    color: blue;
+}
+
+header nav {
+    display: none;
+}
+
+/* -------------  */
+
+
+/* tablets grandes y notebooks/laptops*/
+@media (min-width: 769px) {
+
+    /*header*/
+    div.burger-menu {
+        display: none;
+    }
+
+    div.logo {
+        width: 35%;
+    }
+
+    div.search-bar {
+        margin-top: 5px;
+        order: 2;
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    div.search-bar form{
+        width: 100%;
+    }
+
+    div.iconos {
+        width: 20%;
+    }
+
+    header nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        border: solid orangered 1px;
+    }
+
+    header nav ul{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    header nav ul li {
+        list-style-type: none;
+        width: 14%;
+        margin: 1%;
+        text-align: center;
+    }
+
+    header nav ul li a {
+        text-decoration: none;
+        text-align: center;
+        color: black;
+    }
+    
+    /* ---------- */
+}
