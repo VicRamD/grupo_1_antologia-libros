@@ -1,0 +1,103 @@
+main form {
+    border: solid gray 2px;
+    background-color: #DAF7A6;
+    padding: auto;
+}
+
+div.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    border-top: solid gray 1px;
+}
+
+div.img-cart {
+    width: 40%;
+    max-height: 120px;
+    text-align: center;
+    padding: 2px;
+}
+
+div.img-cart img {
+    width: 80%;
+    max-width: 122px;
+    height: 100%;
+}
+
+div.contenedor .datos{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 60%
+}
+
+div.contenedor .datos .titulo{
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+div.datos .cant-precio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+div.contenedor .datos div.botones-cantidad {
+    display: flex;
+    width: 32%;
+    justify-content: space-between;
+}
+
+.datos div.botones-cantidad .btn-cant {
+    width: 30%;
+}
+
+.datos div.botones-cantidad .inp-cantidad {
+    width: 40%
+}
+
+#label-cant {
+    display: none;
+}
+
+.datos .precio {
+    width: 32%;
+    align-self: center;
+}
+
+
+div.quitar {
+    background-color: grey;
+    width: 32%;
+    border-radius: 50%;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form div.total-pagar{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2px;
+}
+
+form div.total-pagar .total{
+    padding-left: 10%;
+    width: 55%;
+}
+
+form div.total-pagar .total-precio{
+    width: 35%;
+}
+
+form button[type="submit"] {
+    width: 100%;
+    height: 30px;
+    background-color: #ADF7A6;
+    border: solid gray 2px;
+}

@@ -97,6 +97,12 @@ header nav {
 
 /* -------------  */
 
+/* Main  */
+h1 {
+    font-size: 18px;
+    text-align: center;
+}
+
 
 /* tablets grandes y notebooks/laptops*/
 @media (min-width: 769px) {

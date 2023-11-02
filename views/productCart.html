@@ -6,6 +6,7 @@
     <title>Carrito de Compras</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/cartstyles.css">
 </head>
 <body>
     <header>
@@ -40,7 +41,52 @@
         </nav>    
     </header>
     <main>
-
+        <h1>En el carrito</h1>
+        <form>
+            <div class="contenedor">
+                <div class="img-cart">
+                    <img src="/images/ejemplo-libro.jpg" alt="libro en carro">
+                </div>
+                <div class="datos">
+                    <div class="titulo">Titulo</div>
+                    <div class="cant-precio">
+                        <div class="botones-cantidad">
+                            <input type="button" value="-" class="btn-cant">
+                            <label id="label-cant" for="cantidad">cantidad</label> 
+                            <input type="number" id="cantidad" class="inp-cantidad" value="1" min="0">
+                            <input type="button" value="+" class="btn-cant">
+                        </div>
+                        
+                        <div class="precio">$1111.00</div>
+                        <div class="quitar">X</div>
+                    </div>
+                </div>
+            </div>
+            <div class="contenedor">
+                <div class="img-cart">
+                    <img src="/images/ejemplo-libro.jpg" alt="libro en carro">
+                </div>
+                <div class="datos">
+                    <div class="titulo">Título</div>
+                    <div class="cant-precio">
+                        <div class="botones-cantidad">
+                            <input type="button" value="-" class="btn-cant">
+                            <label id="label-cant" for="cantidad">cantidad</label> 
+                            <input type="number" id="cantidad" class="inp-cantidad" value="1" min="0">
+                            <input type="button" value="+" class="btn-cant">
+                        </div>
+                        
+                        <div class="precio">$1111.00</div>
+                        <div class="quitar">X</div>
+                    </div>
+                </div>
+            </div>
+            <div class="total-pagar">
+                <div class="total">Total</div>
+                <div class="total-precio">$2222.00</div>
+            </div>
+            <button type="submit">Realizar Compra</button>
+        </form>
     </main>
     <footer>
         
