@@ -160,4 +160,10 @@ h1 {
     }
     
     /* ---------- */
+
+    /*Main*/
+    h1 {
+        font-size: 40px;
+        text-align: left;
+    }
 }
