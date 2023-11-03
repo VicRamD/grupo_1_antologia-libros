@@ -13,7 +13,7 @@ header {
 }
 
 div.top-header {
-    width: 90vw;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     background-color: #ffa074;
@@ -90,8 +90,12 @@ div.iconos div.icono {
     align-items: center;
 }
 
+div.iconos div.icono:nth-child(2):hover {
+    border: solid 1px greenyellow;
+}
+
 div.iconos div.icono a{
-    color: blue;
+    color: greenyellow;
 }
 
 header nav {
@@ -191,6 +195,29 @@ h1 {
     text-align: center;
 }
 
+/* Footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #EDBB99;
+}
+
+footer section {
+    width: 100%;
+    text-align: center;
+    margin: 2% 2%;
+    border: solid 1px salmon;
+    padding: 1%;
+}
+
+/* tablets grandes y notebooks/laptops*/
+@media (min-width: 481px) {
+
+    /*Footer*/
+    footer section {
+        width: 45%;
+    }
+}
 
 /* tablets grandes y notebooks/laptops*/
 @media (min-width: 769px) {
@@ -201,28 +228,28 @@ h1 {
     }
 
     div.logo {
-        width: 35vw;
+        width: 35%;
     }
 
     div.search-bar {
         margin-top: 5px;
         order: 2;
-        width: 40vw;
+        width: 40%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     div.search-bar form{
-        width: 100vw;
+        width: 100%;
     }
 
     div.iconos {
-        width: 20vw;
+        width: 20%;
     }
 
     header nav {
-        width: 100vw;
+        width: 100%;
         display: flex;
         justify-content: space-around;
         border: solid orangered 1px;
@@ -230,13 +257,13 @@ h1 {
 
     header nav ul{
         display: flex;
-        width: 100vw;
+        width: 100%;
         justify-content: space-around;
     }
 
     header nav ul li {
         list-style-type: none;
-        width: 14vw;
+        width: 14%;
         margin: 1%;
         text-align: center;
     }
@@ -248,6 +275,21 @@ h1 {
     }
     /* ---------- */
 
+<<<<<<< HEAD
+=======
+    /*Main*/
+    h1 {
+        font-size: 40px;
+        text-align: left;
+    }
+
+    /* Footer */
+
+    footer section {
+        width: 20%;
+    }
+
+>>>>>>> 655cbe1ca4d7a501354aa49d4c6e4a504fbe48b9
     /*Register*/ 
 
     .registro{
@@ -302,14 +344,12 @@ h1 {
         width: 40%;
     }
 
-    
-    
-
-
-
 
 }
+<<<<<<< HEAD
     
 
 
     
+=======
+>>>>>>> 655cbe1ca4d7a501354aa49d4c6e4a504fbe48b9
