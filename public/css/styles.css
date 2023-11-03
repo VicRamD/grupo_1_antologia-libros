@@ -184,6 +184,12 @@ section.apellido-nombre input, section.apellido-nombre label {
 
 
 
+/* Main  */
+h1 {
+    font-size: 18px;
+    text-align: center;
+}
+
 
 /* tablets grandes y notebooks/laptops*/
 @media (min-width: 769px) {
@@ -241,6 +247,7 @@ section.apellido-nombre input, section.apellido-nombre label {
     }
     /* ---------- */
 
+<<<<<<< HEAD
     /*Register*/ 
 
     main{
@@ -300,3 +307,11 @@ section.apellido-nombre input, section.apellido-nombre label {
 
 
     
+=======
+    /*Main*/
+    h1 {
+        font-size: 40px;
+        text-align: left;
+    }
+}
+>>>>>>> 5c9389184bc626b5fce70d94f9f9dca04d19c6bc

@@ -1,0 +1,248 @@
+main form {
+    border: solid gray 2px;
+    background-color: #DAF7A6;
+    padding: auto;
+}
+
+div.contenedor {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    border-top: dashed gray 2px;
+}
+
+div.btn-quitar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    order: 10;
+}
+
+div.quitar {
+    background-color: grey;
+    border-radius: 50%;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+div.cabeceras, div.fila-2 {
+    width: 100%;
+}
+
+div.cabeceras {
+    display: none;
+}
+
+div.fila-2 {
+    display: flex;
+    width: 100%;
+}
+
+div.img-cart {
+    order: 1;
+    width: 35%;
+    max-height: 120px;
+    text-align: center;
+    padding: 2px;
+}
+
+div.img-cart img {
+    width: 80%;
+    max-width: 122px;
+    height: 100%;
+}
+
+div.datos {
+    order: 2;
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.fila-2 .titulo{
+    width: 100%;
+    text-align: center;
+    align-self: center;
+}
+
+div.fila-2 .cant-precio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+div.cant-precio div.botones-cantidad {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+div.botones-cantidad .btn-cant {
+    width: 30%;
+    height: 45px;
+}
+
+div.botones-cantidad .inp-cantidad {
+    width: 40%;
+    height: 45px;
+}
+
+#label-cant {
+    display: none;
+}
+
+.cant-precio .precio {
+    display: none;
+}
+
+.cant-precio .subtotal {
+    width: 45%;
+    align-self: center;
+}
+
+form div.total-pagar{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2px;
+}
+
+form div.total-pagar .total{
+    padding-left: 10%;
+    width: 55%;
+    font-weight: bold;
+}
+
+form div.total-pagar .total-precio{
+    width: 35%;
+}
+
+form button[type="submit"] {
+    width: 100%;
+    height: 30px;
+    background-color: #ADF7A6;
+    border: solid gray 2px;
+}
+
+form button.submit {
+    width: 100%;
+}
+
+
+form button[type="button"] {
+    display: none;
+}
+
+form .btn-form {
+    display: flex;
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+/* tablets y smartphones grandes*/
+@media (min-width: 481px) {
+    div.btn-quitar {
+        order: 0;
+    }
+
+    div.cabeceras {
+        display: flex;
+    }
+
+    div.seccion-larga {
+        width: 55%;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    div.seccion {
+        width: 15%;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    div.img-cart {
+        width: 15%;
+        max-height: 120px;
+        text-align: center;
+        padding: 2px;
+    }
+
+    div.datos {
+        width: 65%;
+    }
+    
+    div.fila-2 .titulo{
+        width: 31%;
+        text-align: center;
+        align-self: center;
+    }
+
+    div.cant-precio div.precio {
+        display: block;
+        width: 33%;
+        text-align: center;
+        align-self: center;
+    }
+
+    div.fila-2 div.cant-precio {
+        width: 69%;
+        justify-content: flex-start;
+    }
+
+    div.cant-precio div.botones-cantidad {
+        width: 33%;
+    }
+
+    .cant-precio .subtotal {
+        width: 33%;
+        text-align: center;
+    }
+
+    form div.total-pagar{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    form div.total-pagar .total{
+        font-weight: bold;
+        width: 25%;
+    }
+    
+    form div.total-pagar .total-precio{
+        width: 15%;
+    }
+}
+
+/* tablets grandes y notebooks/laptops*/
+@media (min-width: 769px) {
+    form div.total-pagar .total{
+        font-weight: bold;
+        width: 20%;
+    }
+    
+    form div.total-pagar .total-precio{
+        width: 10%;
+    }
+
+    form button[type="button"] {
+        display: inline;
+        width: 25%;
+    }
+
+    form button.submit {
+        width: 25%;
+    }
+
+    form .btn-form {
+        justify-content: space-around;
+    }
+    
+}
