@@ -90,7 +90,7 @@ div.iconos div.icono {
     align-items: center;
 }
 
-div.iconos div.icono:nth-child(2) {
+div.iconos div.icono:nth-child(2):hover {
     border: solid 1px greenyellow;
 }
 
