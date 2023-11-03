@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.cdnfonts.com/css/verdana-pro-cond" rel="stylesheet">
+                     
+</head>
+<header>
+    <div class="top-header">
+        <div class="burger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+            <img src="/images/logo/logo_p_horizontal.png" alt="logo de Antología Libros">
+        </div>
+        <div class="search-bar">
+            <form method="get">
+                <input type="search" placeholder="buscar" name="search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div class="iconos">
+            <div class="icono"><i class="fas fa-user"></i></div>
+            <div class="icono"><a href="/productCart"><i class="fas fa-shopping-cart"></i></a></div>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a>Categorías</a></li>
+            <li><a>Educativos</a></li>
+            <li><a>Ficción</a></li>
+            <li><a>Top 100</a></li>
+            <li><a>Autores</a></li>
+            <li><a>Editoriales</a></li>
+            <li><a>Contacto</a></li>
+        </ul>
+    </nav>    
+</header>
+<main>
+<body class="body">
+    <div class="titulo">
+    <i class="fas fa-user-plus"></i> <h1>REGISTRO</h1>
+    </div>
+<form action="" class="contenedor-padre">
+    <section class="apellido-nombre">
+        <label for="name">Nombre:</label>
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="name" id="name">
+        <input type="text" name="apellido" id="apellido">
+    </section>
+    <div>
+    <label for="usuario">Usuario:</label>
+    </div>
+    <input type="text" name="usuario" id="usuario" placeholder="Introduzca un nombre de usuario.">
+    <div>
+    <label for="Email">E-mail: </label>
+    </div>
+    <input type="email" name="email" id="email">
+    <div>
+    <label for="contraseña">Contraseña:</label>
+    </div>
+    <input type="password" name="contraseña" id="contraseña" placeholder="Caracteres especiales, numero, mayusculas y minusculas.">
+    <div>
+    <label for="confirma">Contraseña nuevamente:</label>
+    </div>
+    <input type="password" name="confirmar" id="confirmar" placeholder="Repita su contraseña.">
+    <div class="btn-widht">
+    <input class="btn" type="submit" name="registrar" id="registrar" value="REGISTRARME.">
+    <input class="btn" type="submit" value="¿Ya tienes cuenta?">
+    </div>
+</form>
+</body>
+</main>
+</html>
