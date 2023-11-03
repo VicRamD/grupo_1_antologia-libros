@@ -8,9 +8,12 @@
 header {
     background-color: #ffa074;
 }
+.view{
+    width: 90%;
+}
 
 div.top-header {
-    width: 100%;
+    width: 90vw;
     display: flex;
     flex-wrap: wrap;
     background-color: #ffa074;
@@ -95,7 +98,91 @@ header nav {
     display: none;
 }
 
+
 /* -------------  */
+/*Register*/
+
+.body{
+    text-align: center;
+    margin-top: 2vw;
+    border: solid 2px;
+    border-top: solid 2px;
+
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    font-size: 3vw;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+}
+div.titulo i{
+    font-size: 10vw; 
+}
+
+.contenedor-padre{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    align-items: center;
+    font-family: 'Verdana Pro SemiBold', sans-serif;
+    margin-left: 5vw;
+    margin-bottom: 2vw;
+    border: solid 2px;
+    font-size: 3vw;
+}
+
+form.contenedor-padre input{
+    padding-bottom:10px;
+    width: 80vw;
+    font-size: 3vw;
+    border: solid black 2px;
+    margin-bottom: 20px;
+
+}
+
+div.btn-widht input{
+    width: 40vw;
+    justify-content: column;
+    font-size: 3vw;
+}
+
+.btn{
+    display: flex;
+    font-family: 'Verdana Pro Cond SemiBold', sans-serif;
+    border-radius: 20px;
+    background-color: #ffa074;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 3px rgb(0, 0, 0, 0.5), -5px -5px 2px rgb(0, 0, 0, 0.5) inset;
+    border: 2px solid;
+}
+
+.btn:hover{
+    background-color: #F08080;
+    cursor: pointer;
+}
+
+.apellido-nombre{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 80vw;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+
+section.apellido-nombre input, section.apellido-nombre label {
+    width: 49%;
+}
+
+
+
 
 
 /* tablets grandes y notebooks/laptops*/
@@ -107,28 +194,28 @@ header nav {
     }
 
     div.logo {
-        width: 35%;
+        width: 35vw;
     }
 
     div.search-bar {
         margin-top: 5px;
         order: 2;
-        width: 40%;
+        width: 40vw;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     div.search-bar form{
-        width: 100%;
+        width: 100vw;
     }
 
     div.iconos {
-        width: 20%;
+        width: 20vw;
     }
 
     header nav {
-        width: 100%;
+        width: 100vw;
         display: flex;
         justify-content: space-around;
         border: solid orangered 1px;
@@ -136,13 +223,13 @@ header nav {
 
     header nav ul{
         display: flex;
-        width: 100%;
+        width: 100vw;
         justify-content: space-around;
     }
 
     header nav ul li {
         list-style-type: none;
-        width: 14%;
+        width: 14vw;
         margin: 1%;
         text-align: center;
     }
@@ -152,6 +239,64 @@ header nav {
         text-align: center;
         color: black;
     }
-    
     /* ---------- */
+
+    /*Register*/ 
+
+    main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+    }
+
+    div.titulo i{
+        font-size: 55px; 
+    }
+
+    .contenedor-padre{
+        width: 60vw;
+        border: solid 2px;
+        font-size: 1.5rem;
+    }
+
+    
+    form.contenedor-padre input{
+    padding: 8px;
+    width: 90%;
+    font-size: 1.5rem;
+    border: solid black 2px;
+    }
+
+    .btn{
+        border-radius: 30px;
+        box-shadow: 5px 5px 3px rgb(0, 0, 0, 0.5), -5px -5px 2px rgb(0, 0, 0, 0.5) inset;
+        border: 1px solid;
+    }
+
+    div.btn-widht input{
+        width: 200px;
+        justify-content: column;
+        font-size: 1rem;
+    }
+
+    .apellido-nombre{
+        width: 100%;
+        margin-top: 30px;
+    }
+    section.apellido-nombre input, section.apellido-nombre label {
+        width: 40%;
+    }
+
+    
+    
+
+
+
+
 }
+    
+
+
+    
