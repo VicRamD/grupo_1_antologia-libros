@@ -103,6 +103,14 @@ h1 {
     text-align: center;
 }
 
+/* Footer */
+footer {
+    display: flex;
+}
+
+footer section {
+    width: 25%;
+}
 
 /* tablets grandes y notebooks/laptops*/
 @media (min-width: 769px) {
