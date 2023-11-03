@@ -114,13 +114,14 @@ header nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    font-size: 3vw;
+    font-size: 8vw;
     margin-top: 5vw;
     margin-bottom: 5vw;
 }
+
+
 div.titulo i{
-    font-size: 10vw; 
+    font-size: 8vw; 
 }
 
 .contenedor-padre{
@@ -247,10 +248,10 @@ h1 {
     }
     /* ---------- */
 
-<<<<<<< HEAD
     /*Register*/ 
 
-    main{
+    .registro{
+
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -258,14 +259,19 @@ h1 {
         font-size: 1rem;
     }
 
+    .titulo{
+        font: 1vw;
+    }
+
     div.titulo i{
-        font-size: 55px; 
+        font-size: 8vw; 
     }
 
     .contenedor-padre{
         width: 60vw;
         border: solid 2px;
         font-size: 1.5rem;
+        margin-left: 1vw;
     }
 
     
@@ -307,11 +313,3 @@ h1 {
 
 
     
-=======
-    /*Main*/
-    h1 {
-        font-size: 40px;
-        text-align: left;
-    }
-}
->>>>>>> 5c9389184bc626b5fce70d94f9f9dca04d19c6bc
