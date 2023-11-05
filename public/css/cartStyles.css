@@ -227,6 +227,13 @@ form .btn-form {
     main {
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    main h1 {
+        text-align: center;
+        display: block;
+        width: 100%;
     }
 
     main form {
