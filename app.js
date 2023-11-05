@@ -21,6 +21,12 @@ server.get('/register', (req,res) => {
     res.sendFile(register)
 })
 
+
+server.get('/productDetail', (req,res) => {
+    const pathDetail = path.join(__dirname, '/views/productDetail.html')
+    res.sendFile(pathDetail)
+})
+
 server.get('/productCart', (req, res) => {
     const pathCart = path.join(__dirname, '/views/productCart.html');
     res.sendFile(pathCart);
