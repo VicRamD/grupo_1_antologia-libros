@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(27, 27, 27);
+    background-image: url('/images/im-background-login.png');
+    background-size: cover;
+    background-position: center;  
+}
+
+.form-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+    padding: 10px;
+}
+
+.login-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50vw;
+
+    margin: 75px 20px 75px 20px;
+    /*border: 1px solid #ccc;*/
+    border-radius: 20px;
+    background-color: #5f9ea0eb;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+}
+
+.login-form div {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   padding: 10px;
+}
+
+.img-logo{
+    align-self: flex-start;
+    padding-left: 2px;
+}
+
+.img-logo img{
+    width: 100px;
+    height: auto;
+}
+
+.img-userLogin{
+    align-self: center;
+    margin-top: 0px; /* Reducción del espacio entre imágenes */
+}
+
+.img-userLogin img{
+    width: 50px;
+    height: auto;
+}
+
+.form-title {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.email input.email, 
+.password input.pass{
+    height: 35px;
+    font-style: italic;
+    font-size: 17px;
+    padding-left: 10px;
+}
+
+.forget{
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.forget:visited{
+    color: rgb(0, 0, 79);
+}
+
+.btn-login,
+.btn-noaccount {
+    font-family:Tahoma, Verdana, sans-serif;
+    border-radius: 20px;
+    padding: 8px 8px;
+    border-width: 1px;
+    background-color: rgb(197, 197, 197);
+    transition: box-shadow 500ms;
+}
+
+.btn-login:hover,
+.btn-noaccount:hover{
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+label[for="email"], label[for="password"] {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.login{
+    margin-top: 10px;
+    margin-bottom: 35px;
+    align-self: center;
+}
+
+.noaccount {
+    align-self: flex-start;
+}
+
+@media (max-width: 460px) {
+    .form-container{
+        padding: 2px;
+        height: 95vh;
+    }
+
+    .login-form {
+        padding: 8px;
+        margin: 15px 10px 15px 10px;
+        width: 90vw;
+    }
+
+    .img-logo img{
+        width: 70px;
+        height: auto;
+    }
+
+    .img-userLogin img{
+        width: 30px;
+        height: auto;
+    }
+
+    .form-title {
+        font-size: 17px;
+        margin-bottom: 12px;
+    }
+
+    div .email,
+    div .password{
+     padding: 7px;   
+
+    }
+
+    .email input.email, 
+    .password input.pass{
+    height: 4vh;
+    width: 80vw;
+    }
+}
+
+@media (min-width: 769px) {
+    .form-container{
+        padding: 7px;
+    }
+
+    .login-form {
+        margin: 5px 10px 5px 10px;
+        padding: 5px;
+        width: 50vw;
+    }
+
+    .img-logo img{
+        width: 120px;
+        height: auto;
+    }
+
+    label[for="email"], label[for="password"] {
+        font-size: 17px;
+    }
+
+    .forget{
+        font-size: 17px;
+    }
+}
