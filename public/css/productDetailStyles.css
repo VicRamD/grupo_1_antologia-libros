@@ -19,7 +19,7 @@
     text-align: center;
 }
 .box-info{
-    border: solid 1px #000;
+    border: solid 1px #2F2F2F;
     margin: 5px;
     background-color: whitesmoke;
 }
@@ -44,17 +44,20 @@ h1{
     font-weight: bold;
 }
 
-.info-data{
+.info-data, .sypnosis{
     text-align: left;
     margin-left: 10px;
     padding: 40px;
     line-height: 1;
 }
-.info-data h2{
-    text-align: center;
-    padding: 20px;
+.sypnosis h2{
+    margin-bottom: 20px;
 }
-.info-data p{
+.sypnosis p{
+    text-align: justify;
+}
+
+.info-data p {
     margin-bottom: 10px;
 }
 .info-data p span{
@@ -63,7 +66,7 @@ h1{
 
 .info-data a{
     text-decoration: none;
-    color: #000;
+    color: #2F2F2F;
 }
 .info-data a:hover{
     color: cadetblue;
@@ -87,13 +90,13 @@ h1{
     margin: 0 auto;
 }
 .info-button .button-buy{
-    background-color: rgb(42, 46, 47);
+    background-color: #2F2F2F;
     border: none;
     color: whitesmoke;
 }
 .info-button .button-cart{
     background-color:whitesmoke;
-    border: solid 1px #000;
+    border: solid 1px #2F2F2F;
     margin-bottom: 20px;
 }
 .box-info button:hover{
@@ -102,7 +105,10 @@ h1{
 }
 
 /*Recomendation*/
-h2{
+.recommendation{
+    margin-bottom: 50px;
+}
+.recommendation h2{
     text-align: center;
     padding: 10px;
 }
@@ -118,7 +124,7 @@ h2{
 }
 .card-product{
     width: 200px;
-    border: solid 1px rgb(42, 46, 47);
+    border: solid 1px #2F2F2F;
     text-align: center;
     margin: 5px;
     background-color: whitesmoke;
@@ -137,7 +143,7 @@ h2{
 }
 .card-info a{
     text-decoration: none;
-    color: #000;
+    color: #2F2F2F;
 }
 .card-info a:hover{
     color: cadetblue;
@@ -147,12 +153,12 @@ h2{
     padding: 10px;
     width: 100%;
 }
-.card-buy button:hover{
+.card button:hover{
     background-color: cadetblue;
     color: whitesmoke;
 }
 .card-buy .button-buy{
-    background-color: rgb(42, 46, 47);
+    background-color: #2F2F2F;
     border: none;
     color: whitesmoke;
 }
@@ -161,7 +167,7 @@ h2{
     border: none;
 }
 .card-more-products{
-    background-color: rgb(42, 46, 47);
+    background-color: #2F2F2F;
     color: whitesmoke;
     width: 100px;
     border: none;
@@ -169,6 +175,7 @@ h2{
     text-align: center;
     padding: 20px;
 }
+
 
 @media screen and (min-width: 768px) {
     .producto-detail {
