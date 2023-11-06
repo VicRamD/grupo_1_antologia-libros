@@ -12,8 +12,9 @@ server.listen(3030, () => {
     console.log("Servidor corriendo en http://localhost:3030/");
 });
 
-server.get('', (req, res) => {
-    res.send('En construcción...');
+server.get('/', (req, res) => {
+    const index = path.join(__dirname, 'views/index.html')
+    res.sendFile(index);
 });
 
 server.get('/register', (req,res) => {

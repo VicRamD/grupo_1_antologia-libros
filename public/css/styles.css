@@ -104,6 +104,133 @@ header nav {
 
 
 /* -------------  */
+
+
+/* Home */
+
+.libros_novedades h3{
+    border: salmon solid 2px;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 2%, 0%;
+    background-color: #EDBB99;
+
+}
+
+
+
+div.libros_novedades{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.price{
+    font-size: 18px;
+    width: 30%;
+}
+
+.discount{
+    width: 70%;
+}
+
+.discount,
+.description{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+h3,
+.description{
+    color: #666;
+}
+
+.description{
+    display: none;
+    margin-top: 20px;
+}
+
+section.banner img{
+    width: 100%;
+}
+
+main{
+    width: 90%;
+    margin: 0 auto;
+}
+
+main section article{
+    background-color: #fff;    
+    margin: 10px 0px;
+}
+
+main section article img{
+    width: 100%;
+}
+
+main section article i,
+.discount{
+    color: #39b54a;
+}
+
+main section article i{
+    display: block;
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #39b54a;
+    background-color: #FFF;
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+    top: -15px;
+}
+
+main section h3{
+    margin: 20px 0px;
+}
+
+
+
+
+
+main section div.libros{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+main section div.libros article{
+    width: 45%;
+}
+
+.price,
+.discount{
+    width: 50%;
+}
+
+
+@media (min-width: 769px){
+main section div.libros article{
+    width: 22%;
+}
+}
+
+
+article div.main-article{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    border-top: 1px solid #ebebeb;
+    position: relative;
+    padding: 15px;
+}
+
+
 /*Register*/
 
 .body{
@@ -111,7 +238,7 @@ header nav {
     margin-top: 2vw;
     border: solid 2px;
     border-top: solid 2px;
-
+    background-color:#4538b8;/*eee2db*/
 }
 
 .titulo{
