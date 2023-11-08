@@ -108,21 +108,31 @@ header nav {
 
 /* Home */
 
-.libros_novedades h3{
-    border: salmon solid 2px;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 2%, 0%;
-    background-color: #EDBB99;
-
-}
-
-
-
-div.libros_novedades{
+div.libros_titulares {
     display: flex;
     flex-wrap: wrap;
 }
+
+.libros_titulares h3{
+    font-size: 19px;
+    border: salmon solid 2px;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 2px;
+    margin: 0%, 0%;
+    background-color: #EDBB99;
+    width: 100%;
+}
+
+
+/* Para que rote el camioncito */
+main section div.libros article:hover i{
+    transform: rotate(-360deg);
+    color: red;
+}
+
 
 .price{
     font-size: 18px;
@@ -145,8 +155,7 @@ h3,
 }
 
 .description{
-    display: none;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 section.banner img{
@@ -159,7 +168,7 @@ main{
 }
 
 main section article{
-    background-color: #fff;    
+    background-color: #f3ecec;    
     margin: 10px 0px;
 }
 
@@ -173,7 +182,7 @@ main section article i,
 }
 
 main section article i{
-    display: block;
+    /*display: block;*/
     font-size: 16px;
     padding: 5px;
     width: 30px;
@@ -190,7 +199,9 @@ main section h3{
     margin: 20px 0px;
 }
 
-
+main section div.libros article:hover{
+    background-color: rgb(228, 163, 163);
+}
 
 
 
@@ -325,8 +336,14 @@ h1 {
 /* Footer */
 footer {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     background-color: #EDBB99;
+}
+
+footer .pie{
+    display: flex;
+    justify-content: space-between;
 }
 
 footer section {
