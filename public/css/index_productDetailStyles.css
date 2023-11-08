@@ -165,9 +165,12 @@ main section div.libros article:hover i{
     justify-content: space-between;
 }
 
-.button-cart,
+.button-cart {
+    width: 60%;
+    padding: 4px;
+}
 .button-buy {
-    width: 100%;
+    width: 40%;
     padding: 4px;
 }
 
