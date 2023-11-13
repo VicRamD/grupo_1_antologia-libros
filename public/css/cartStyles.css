@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 main form {
     border: solid gray 2px;
     background-color: #DAF7A6;
@@ -126,9 +132,20 @@ form div.total-pagar .total-precio{
 
 form button[type="submit"] {
     width: 100%;
+   /* height: 30px;*/
+/*    background-color: #ADF7A6;
+    border: solid gray 2px; */
+    background-color: #2F2F2F;
+    border: none;
+    color: whitesmoke;
+}
+
+form button[type="submit"].search-btn {
+    /*width: 100%; */
     height: 30px;
     background-color: #ADF7A6;
     border: solid gray 2px;
+    color: black;
 }
 
 form button.submit {
@@ -145,6 +162,38 @@ form .btn-form {
     margin-top: 2px;
     margin-bottom: 5px;
 }
+
+
+/* ----------------  */ 
+.info-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.info-button button{
+    display: block;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+.info-button .button-buy{
+    background-color: #2F2F2F;
+    border: none;
+    color: whitesmoke;
+}
+
+/*
+.info-button .button-cart{
+    background-color:whitesmoke;
+    border: solid 1px #2F2F2F;
+    margin-bottom: 20px;
+} */
+.info-button button:hover{
+    background-color: cadetblue;
+    color: whitesmoke;
+}
+/*  ------------------  */
+
 
 /* tablets y smartphones grandes*/
 @media (min-width: 481px) {
@@ -217,7 +266,7 @@ form .btn-form {
     }
     
     form div.total-pagar .total-precio{
-        width: 15%;
+        width: 18%;
     }
 }
 
@@ -242,20 +291,20 @@ form .btn-form {
 
     form div.total-pagar .total{
         font-weight: bold;
-        width: 20%;
+        width: 30%;
     }
     
     form div.total-pagar .total-precio{
-        width: 10%;
+        width: 15%;
     }
 
     form button[type="button"] {
         display: inline;
-        width: 25%;
+        width: 35%;
     }
 
     form button.submit {
-        width: 25%;
+        width: 35%;
     }
 
     form .btn-form {
@@ -263,3 +312,23 @@ form .btn-form {
     }
     
 }
+
+@media (min-width: 1280px) {
+    form button[type="button"] {
+        width: 25%;
+    }
+    
+    form button.submit {
+        width: 25%;
+    }
+
+    form div.total-pagar .total{
+        font-weight: bold;
+        width: 20%;
+    }
+
+    form div.total-pagar .total-precio{
+        width: 10%;
+    }
+}
+

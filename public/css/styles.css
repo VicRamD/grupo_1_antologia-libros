@@ -6,7 +6,8 @@
 
 /*Header*/
 header {
-    background-color: #ffa074;
+    /*background-color: #ffa074;*/
+    background-color: #20794a;
 }
 .view{
     width: 90%;
@@ -16,7 +17,8 @@ div.top-header {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    background-color: #ffa074;
+    /*background-color: #ffa074;*/
+    background-color: #2ba162;
     padding: 2%;
     justify-content: space-around;
 }
@@ -79,8 +81,9 @@ div.iconos {
 }
 
 div.iconos div.icono {
-    background-color: #F08080;
-    width: 45%;
+    /* background-color: #F08080;*/
+    background-color: #20794a;
+    /*width: 45%;*/
     border-radius: 50%;
     text-align: center;
     width: 40px;
@@ -88,6 +91,17 @@ div.iconos div.icono {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+div.iconos div.icono a {
+    width: 100%;
+    /*border-radius: 50%;*/
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 div.iconos div.icono:nth-child(2):hover {
@@ -397,27 +411,43 @@ footer section {
     header nav {
         width: 100%;
         display: flex;
+        max-height: 35px;
         justify-content: space-around;
-        border: solid orangered 1px;
+       /* border: solid #c3efd7 1px;*/
     }
 
     header nav ul{
         display: flex;
         width: 100%;
+        padding: 0px;
         justify-content: space-around;
     }
 
     header nav ul li {
         list-style-type: none;
         width: 14%;
-        margin: 1%;
-        text-align: center;
+        /*margin: 1% 0px;*/
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header nav ul li:hover {
+        background-color: cadetblue;
     }
 
     header nav ul li a {
         text-decoration: none;
         text-align: center;
         color: black;
+        font-size: 14px;
+    }
+
+    header nav ul li:hover a {
+        text-decoration: none;
+        text-align: center;
+        color: whitesmoke;
     }
     /* ---------- */
 
