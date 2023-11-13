@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/loginStyles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500&display=swap" rel="stylesheet">-->
     <link rel="icon" type="image/png" href="/images/logo/logo_icon.png">
     <title>Iniciar Sesión - ANTOLOGÍA Libros-</title>
 </head>
@@ -25,12 +28,12 @@
 
             <div class="email">
                 <label for="email">Email</label>
-                <input class="email" type="email" name="email" placeholder="  Ingrese su e-mail" id="email">
+                <input class="email" type="email" name="email" placeholder="Ingrese su e-mail" id="email">
             </div>
 
             <div class="password">
                 <label for="password">Contraseña</label>
-                <input class="pass" type="password" name="password" placeholder="  Ingrese su contraseña" id="password">
+                <input class="pass" type="password" name="password" placeholder="Ingrese su contraseña" id="password">
                 <a class="forget" href="">Olvidé mi contraseña</a><br>
                 <label for="remember">Recordar mi usuario
                 <input type="checkbox" name="remember"></label>
@@ -42,11 +45,19 @@
 
             <div class="noaccount">
                 <label for="noaccount">No tengo una cuenta</label>
-                <button class="btn-noaccount" type="button" name="noaccount">CREAR CUENTA</button>
+                <a href="./register"> <button class="btn-noaccount" type="button" name="noaccount">CREAR CUENTA</button></a>
             </div>
 
         </form>
     </div>
+
+    <footer>
+        <div class = "footer-container">
+            <p>ANTOLOGÍA Libros 2023 © - Todos los derechos reservados </p>
+        </div>
+    </footer>
     
 </body>
+
+
 </html>
