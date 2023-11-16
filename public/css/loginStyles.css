@@ -52,26 +52,25 @@ body {
 
 .img-userLogin{
     align-self: center;
-    margin-top: 0px; /* Reducción del espacio entre imágenes */
 }
 
 .img-userLogin img{
-    width: 50px;
+    width: 45px;
     height: auto;
 }
 
 .form-title {
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     margin-bottom: 15px;
 }
 
-.email input.email, 
+.email-section input.email, 
 .password input.pass{
-    height: 35px;
+    height: 30px;
     font-family: 'Poppins', sans-serif;
     font-style: italic;
-    font-size: 17px;
+    font-size: 15px;
     padding-left: 10px;
 }
 
@@ -87,7 +86,7 @@ body {
 .btn-login,
 .btn-noaccount {
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 12px;
     padding: 8px 8px;
     border-width: 1px;
     font-weight: bold;
@@ -108,8 +107,8 @@ label[for="email"], label[for="password"] {
 }
 
 .login{
-    margin-top: 10px;
-    margin-bottom: 35px;
+    margin-top: 7px;
+    margin-bottom: 20px;
     align-self: center;
 }
 
@@ -117,26 +116,24 @@ label[for="email"], label[for="password"] {
     align-self: flex-start;
 }
 
-footer{
+.footer-container{
     width: 100vw;
     height: 5vh;
     background-color: rgba(0, 0, 0, 0.726);
-}
-
-.footer-container{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     padding: 5px;
+    justify-content: center;
     }
 
 .footer-container p {
-    font-size: 14px;
+    font-size: 11px;
     color: whitesmoke;
     
 }
 
-@media (max-width: 460px) {
+@media (min-width: 460px) {
     
     .login-form {
         padding: 8px;
@@ -159,15 +156,15 @@ footer{
         margin-bottom: 12px;
     }
 
-    div .email,
+    div .email-section,
     div .password{
         padding: 7px;   
     }
 
-    .email input.email, 
+    .email-section input.email, 
     .password input.pass{
         height: 4vh;
-        width: 80vw;
+        width: 86vw;
     }
 
     .btn-login,
@@ -176,8 +173,7 @@ footer{
     }
 
     .footer-container p {
-        align-self: center;
-        font-size: 11px;
+        font-size: 13px;
     }
 }
 
@@ -186,7 +182,7 @@ footer{
     .login-form {
         margin: 5px 10px 5px 10px;
         padding: 5px;
-        width: 50vw;
+        width: 55vw;
     }
     
     .img-logo img{
@@ -194,14 +190,36 @@ footer{
         height: auto;
     }
 
+    .img-userLogin img{
+        width: 48px;
+        height: auto;
+    }
+    
+    .form-title{
+        font-size: 24px;
+    }
+
     label[for="email"], label[for="password"] {
         font-size: 19px;
     }
 
-    .forget{
-        font-size: 17px;
+    .email-section input.email, .password input.pass{
+        width: 53.5vw;
     }
 
+    .forget{
+        font-size: 16px;
+    }
+    
+    .btn-login,
+    .btn-noaccount {
+        font-size: 14px;
+    }
+
+    .footer-container{
+        justify-content: flex-start;
+    }
+    
     .footer-container p {
         padding: 5px 20px;
     }

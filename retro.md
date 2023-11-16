@@ -1,4 +1,4 @@
-### Starfish retrospective: ###
+### Starfish retrospective: Sprint 1 ###
 
 1. **Comenzar a Hacer:** 
 Hacer un comentario o reporte respecto a los avances cada 2 o 3 días, para mantener un mejor seguimiento de como vamos.
@@ -15,3 +15,24 @@ Llegar con todo sobre la fecha.
 
 1. **Dejar de Hacer:**
 En referencia al inciso 1, mantener poca o nula comunicación por varios días.
+
+### Starfish retrospective: Sprint 2 ###
+
+1. **Comenzar a Hacer:** 
+- Comunicación constante, o más seguida.
+- Reconocer al 100% qué fortalezas tiene cada uno (en lo que se desenvuelve mejor).
+- Tratar de realizar los requerimientos opcionales.
+
+1. **Hacer más:**
+- Reuniones que nos permiten ponernos de acuerdo en ciertos temas.
+
+1. **Continuar Haciendo:**
+- Cumplir con todos los requerimientos obligatorios.
+- Apoyo entre compañeros en correcciones y mejoras en código de tareas asignadas.
+- Trabajar todos los integrantes del grupo.
+
+1. **Hacer Menos:** 
+- Llegar con todo sobre la fecha de entrega; (no manejar bien los tiempos individuales).
+
+1. **Dejar de Hacer:**
+- No hacer saber a los compañeros del grupo, en varios días, cómo vamos con nuestras tareas.
