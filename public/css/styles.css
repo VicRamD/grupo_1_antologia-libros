@@ -104,7 +104,7 @@ div.iconos div.icono a {
     justify-content: center;
 }
 
-div.iconos div.icono:nth-child(2):hover {
+.iconos .icono:hover{
     border: solid 1px greenyellow;
 }
 
