@@ -6,9 +6,11 @@ const controller = {
 
     },
     create: (req, res) => {
-        res.render('products/productCreate', {operacion: 'create',});
+        res.render('products/productCreate');
     },
-
+    edit: (req, res) => {
+        res.render('products/productEdit');
+    },
 }
 
 module.exports = controller;
