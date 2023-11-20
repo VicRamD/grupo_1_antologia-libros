@@ -1,9 +1,13 @@
 const express = require('express');
 const { get } = require('http');
 const path = require('path');
+<<<<<<< HEAD
 const rutasMain = require('./routes/main.js')
 const rutasProduct = require ('./routes/productos.js')
 
+=======
+const productsRoutes = require('./routes/products');
+>>>>>>> 4f9578d2314b984ec7e1aa95f4e52d7109befbfa
 
 const server = express();
 
@@ -12,6 +16,7 @@ const pathPublic = path.join(__dirname, '/public');
 server.set('view engine', 'ejs')
 
 server.use(express.static(pathPublic));
+server.set('view engine', 'ejs');
 
 server.listen(3030, () => {
     console.log("Servidor corriendo en http://localhost:3030/");
@@ -31,6 +36,7 @@ server.use('/product', rutasProduct)
 //     res.sendFile(register)
 // })
 
+<<<<<<< HEAD
 // server.get('/login', (req, res) => {
 //     const pathLogin = path.join(__dirname, '/views/login.html');
 //     res.sendFile(pathLogin);
@@ -45,3 +51,13 @@ server.use('/product', rutasProduct)
 //     const pathCart = path.join(__dirname, '/views/productCart.html');
 //     res.sendFile(pathCart);
 // }); 
+=======
+server.get('/productCart', (req, res) => {
+    const pathCart = path.join(__dirname, '/views/productCart.html');
+    res.sendFile(pathCart);
+}); 
+
+// uso de router
+
+server.use('/products', productsRoutes);
+>>>>>>> 4f9578d2314b984ec7e1aa95f4e52d7109befbfa

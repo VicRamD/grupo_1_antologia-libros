@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/images/favicon_antologia.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antología : donde vive el saber</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cartStyles.css">
+    <link rel="stylesheet" href="../css/footerStyles.css">
+</head>
+<body>
+    <header>
+        <div class="top-header">
+            <div class="burger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="logo">
+                <img src="/images/logo/logo_p_horizontal.png" alt="logo de Antología Libros">
+            </div>
+            <div class="search-bar">
+                <form method="get">
+                    <input type="search" placeholder="buscar" name="search">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="iconos">
+                <div class="icono"><a href="/login"><i class="fas fa-user"></i></a></div>
+                <div class="icono"><a href="/productCart"><i class="fas fa-shopping-cart"></i></a></div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a>Categorías</a></li>
+                <li><a>Educativos</a></li>
+                <li><a>Ficción</a></li>
+                <li><a>Top 100</a></li>
+                <li><a>Autores</a></li>
+                <li><a>Editoriales</a></li>
+                <li><a>Contacto</a></li>
+            </ul>
+        </nav>    
+    </header>
+
+
+    <main>
+        <h1><% if (operacion === 'create') { %>
+                Registrar un nuevo libro
+            <% } else { %>
+                Editar libro
+            <% } %>
+        </h1>
+        <section class="formulario-CU">
+            <form method="POST">
+                <div class="form-body">
+                    <div class="form-group-ancho">
+                        <label for="title">Título</label>
+                        <input id="title" name="title" type="text" required>
+                    </div>
+
+                    <div class="form-group-ancho">
+                        <label for="abstract">Resumen</label>
+                        <textarea id="abstract" name="abstract" rows="6"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Autor</label>
+                        <input id="author" name="author" type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editorial">Editorial</label>
+                        <input id="editorial" name="editorial" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Imagen</label>
+                        <input id="image" name="image" type="file" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="genre" class="for-select">Género</label>
+                        <select name="genre" required>
+                            <option value="1">Ciencia Ficción</option>
+                            <option value="2">Ciencias Naturales</option>
+                            <option value="3">Ciencias Sociales</option>
+                            <option value="4">Para Niños</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="language">Idioma</label>
+                        <input id="language" name="language" type="text" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date" class="for-date">Fecha de Publicación</label>
+                        <input id="date" name="date" type="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn">ISBN</label>
+                        <input id="isbn" name="isbn" type="text" required>
+                    </div>
+                    <div class="form-group">
+                    </div>
+                </div>
+                <br>
+                <div class="info-button">
+                    <button type="button">Cancelar</button>
+                    <button type="submit" class="submit">Guardar</button>
+                </div>
+                
+            </form>
+        </section>
+    </main>
+
+    <footer class="box-footer" style="background-color: rgb(243, 160, 160); color: gray;">
+        <div class="box box-contact">
+            <img src="/images/logo/logo_p_horizontal.png" alt="">
+            <h3>REDES SOCIALES</h3>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-regular fa-envelope"></i>
+            <i class="fa-brands fa-twitter"></i>
+        </div>
+        <div class="box box-link">
+            <h3>Navegación</h3>
+            
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Quiénes Somos</a></li>
+                <li><a href="">Contactos</a></li>
+                <li><a href="/register">Registrarse</a></li>
+                <li><a href="/productCart">Carrito de Compras</a></li>
+                
+            </ul>
+        </div>
+
+        <div class="box box-link">
+            <h3>Medios de Pago</h3>
+            <ul>
+                <li><a href="">lorem impsu</a></li>
+                <li><a href="">lorem impsu</a></li>
+                <li><a href="">lorem impsu</a></li>
+                <li><a href="">lorem impsu</a></li>
+            </ul>
+        </div>
+
+        <div class="box box-link">
+            <h3>Contacto</h3>
+            <ul>
+                <li><a href="">+543834675532</a></li>
+                <li><a href="">+543834775643</a></li>
+                <li><a href="">Ventas@antologia-libros.com.ar</a></li>
+                <li><a href="">Sarmiento 516 1er Piso</a></li>
+            </ul>
+        </div>
+
+
+
+    </footer>
+</body>
+</html>
