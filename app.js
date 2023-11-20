@@ -1,12 +1,14 @@
 const express = require('express');
 const { get } = require('http');
 const path = require('path');
+const productsRoutes = require('./routes/products');
 
 const server = express();
 
 const pathPublic = path.join(__dirname, '/public');
 
 server.use(express.static(pathPublic));
+server.set('view engine', 'ejs');
 
 server.listen(3030, () => {
     console.log("Servidor corriendo en http://localhost:3030/");
@@ -36,3 +38,7 @@ server.get('/productCart', (req, res) => {
     const pathCart = path.join(__dirname, '/views/productCart.html');
     res.sendFile(pathCart);
 }); 
+
+// uso de router
+
+server.use('/products', productsRoutes);
