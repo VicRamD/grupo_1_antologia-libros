@@ -1,12 +1,12 @@
 let mainController = {
     index: function (req, res) {
-        res.render('index')
+        res.render('main/index')
     },
     login: function (req, res) {
-        res.render('login')
+        res.render('main/login')
     },
     register: function (req, res) {
-        res.render('register')
+        res.render('main/register')
     },
     
 }

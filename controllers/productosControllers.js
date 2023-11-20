@@ -1,10 +1,13 @@
 const productosControllers = {
     productDetail: function (req,res) {
-        res.render('productDetail')
+        res.render('products/productDetail')
     },
     productCart: function (req,res) {
-        res.render('productCart')
-    }
+        res.render('products/productCart')
+    },
+    create: (req, res) => {
+        res.render('products/productCreate', {operacion: 'create',});
+    },
 };
 
 module.exports = productosControllers;
