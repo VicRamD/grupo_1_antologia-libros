@@ -43,32 +43,32 @@
         </nav>    
     </header>
 
-
     <main>
-        <h1>Registrar un nuevo libro</h1>
+        <h1>Editando libro:</h1>
+        <h2><%= libro.id %>-<%= libro.title %></h2>
         <section class="formulario-CU">
             <form method="POST">
                 <div class="form-body">
                     <div class="form-group-ancho">
                         <label for="title">Título</label>
-                        <input id="title" name="title" type="text" required>
+                        <input id="title" name="title" type="text" value="<%= libro.title %>" required>
                     </div>
 
                     <div class="form-group-ancho">
                         <label for="abstract">Resumen</label>
-                        <textarea id="abstract" name="abstract" rows="6"></textarea>
+                        <textarea id="abstract" name="abstract" rows="6"><%= libro.abstract %></textarea>
                     </div>
                     <div class="form-group">
                         <label for="author">Autor</label>
-                        <input id="author" name="author" type="text" required>
+                        <input id="author" name="author" type="text" value="<%= libro.author %>" required>
                     </div>
                     <div class="form-group">
                         <label for="editorial">Editorial</label>
-                        <input id="editorial" name="editorial" type="text">
+                        <input id="editorial" name="editorial" type="text" value="<%= libro.editorial %>">
                     </div>
                     <div class="form-group">
                         <label for="image">Imagen</label>
-                        <input id="image" name="image" type="file" accept="image/*" required>
+                        <input id="image" name="image" type="file" accept="image/*">
                     </div>
                     <div class="form-group">
                         <label for="genre" class="for-select">Género</label>
@@ -77,24 +77,25 @@
                             <option value="2">Ciencias Naturales</option>
                             <option value="3">Ciencias Sociales</option>
                             <option value="4">Para Niños</option>
+                            <option value="5">Fantasía</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="language">Idioma</label>
-                        <input id="language" name="language" type="text" required>
+                        <input id="language" name="language" type="text" value="<%= libro.language %>" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="date" class="for-date">Fecha de Publicación</label>
-                        <input id="date" name="date" type="date">
+                        <input id="date" name="date" type="date" value="<%= libro.date %>">
                     </div>
                     <div class="form-group">
                         <label for="isbn">ISBN</label>
-                        <input id="isbn" name="isbn" type="text" required>
+                        <input id="isbn" name="isbn" type="text" value="<%= libro.isbn %>" required>
                     </div>
                     <div class="form-group">
                         <label for="price">Precio</label>
-                        <input id="price" name="price" type="number" required>
+                        <input id="price" name="price" type="number" value="<%= libro.price %>" required>
                     </div>
                 </div>
                 <br>
