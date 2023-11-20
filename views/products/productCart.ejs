@@ -6,41 +6,12 @@
     <title>Carrito de Compras</title>
     <link rel="icon" type="image/png" href="/images/favicon_antologia.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/cartstyles.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/cartstyles.css">
 </head>
 <body>
-    <header>
-        <div class="top-header">
-            <div class="burger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="logo">
-                <img src="/images/logo/logo_p_horizontal.png" alt="logo de Antología Libros">
-            </div>
-            <div class="search-bar">
-                <form method="get">
-                    <input type="search" placeholder="buscar" name="search">
-                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-            <div class="iconos">
-                <div class="icono"><i class="fas fa-user"></i></div>
-                <div class="icono"><a href="/productCart"><i class="fas fa-shopping-cart"></i></a></div>
-            </div>
-        </div>
-        <nav>
-            <ul>
-                <li><a>Categorías</a></li>
-                <li><a>Educativos</a></li>
-                <li><a>Ficción</a></li>
-                <li><a>Top 100</a></li>
-                <li><a>Autores</a></li>
-                <li><a>Editoriales</a></li>
-                <li><a>Contacto</a></li>
-            </ul>
-        </nav>    
-    </header>
+    <%- include('../partials/header.ejs') %>
+    
     <main>
         <h1>En el carrito</h1>
         <form>

@@ -21,39 +21,8 @@
         -->
 </head>
 <body>
-    <header>
-        <div class="top-header">
-            <div class="burger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="logo">
-                <img src="/images/logo/logo_p_horizontal.png" alt="logo de Antología Libros">
-            </div>
-            <div class="search-bar">
-                <form method="get">
-                    <input type="search" placeholder="buscar" name="search">
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-            <div class="iconos">
-                <div class="icono"><a href="/login"><i class="fas fa-user"></i></a></div>
-                <div class="icono"><a href="/productCart"><i class="fas fa-shopping-cart"></i></a></div>
-            </div>
-        </div>
-        <nav>
-            <ul>
-                <li><a>Categorías</a></li>
-                <li><a>Educativos</a></li>
-                <li><a>Ficción</a></li>
-                <li><a>Top 100</a></li>
-                <li><a>Autores</a></li>
-                <li><a>Editoriales</a></li>
-                <li><a>Contacto</a></li>
-            </ul>
-        </nav>    
-    </header>
-
-
+    <%- include('../partials/header.ejs') %>
+    
     <main>
         <section class="carrousel">
         <div class="container">
@@ -353,50 +322,7 @@
 </section>
 
     </main>
-    <footer class="box-footer" style="background-color: rgb(243, 160, 160); color: gray;">
-        <div class="box box-contact">
-            <img src="/images/logo/logo_p_horizontal.png" alt="">
-            <h3>REDES SOCIALES</h3>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-regular fa-envelope"></i>
-            <i class="fa-brands fa-twitter"></i>
-        </div>
-        <div class="box box-link">
-            <h3>Navegación</h3>
-            
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Quiénes Somos</a></li>
-                <li><a href="">Contactos</a></li>
-                <li><a href="/register">Registrarse</a></li>
-                <li><a href="/productCart">Carrito de Compras</a></li>
-                
-            </ul>
-        </div>
+    <%- include('../partials/footer.ejs') %>
 
-        <div class="box box-link">
-            <h3>Medios de Pago</h3>
-            <ul>
-                <li><a href="">lorem impsu</a></li>
-                <li><a href="">lorem impsu</a></li>
-                <li><a href="">lorem impsu</a></li>
-                <li><a href="">lorem impsu</a></li>
-            </ul>
-        </div>
-
-        <div class="box box-link">
-            <h3>Contacto</h3>
-            <ul>
-                <li><a href="">+543834675532</a></li>
-                <li><a href="">+543834775643</a></li>
-                <li><a href="">Ventas@antologia-libros.com.ar</a></li>
-                <li><a href="">Sarmiento 516 1er Piso</a></li>
-            </ul>
-        </div>
-
-
-
-    </footer>
 </body>
 </html>
