@@ -13,15 +13,17 @@
     background-color: cadetblue;
 }
 .box {
-    width: 50%;
+    width: 100%;
     padding: 20px;
 }
 .box h3{
     margin-bottom: 10px;
+    text-align: center;
 }
 .box-link li{
     margin-bottom: 5px;
     list-style: none;
+    text-align: center;
 }
 .box-link a{
     text-decoration: none;
@@ -47,6 +49,25 @@
 .box-contact i:hover{
     color: whitesmoke;
 }
+
+@media (min-width: 481px) {
+    .box {
+        width: 50%;
+        margin-top: 15px;
+      }
+
+    .box h3{
+        text-align: left;
+    }
+
+    .box h3.redes-sociales{
+        text-align: center;
+    }
+
+    .box-link li{
+        text-align: left;
+}
+
 
 @media (min-width: 768px) {
     .box {

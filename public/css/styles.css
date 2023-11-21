@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 .tabla-listado {
     border: #F08080 1px;
     background-color: #ebebeb;
@@ -15,6 +16,12 @@
 }
 
 
+=======
+body {
+    width: 100%;
+}
+
+>>>>>>> 47f6eb4f4f26a7c4a5558d5e7d83507076385df4
 /*Header*/
 header {
     /*background-color: #ffa074;*/
@@ -300,7 +307,7 @@ article div.main-article{
 
 
 div.titulo i{
-    font-size: 8vw; 
+    font-size: 8vw;
 }
 
 .contenedor-padre{
@@ -310,7 +317,7 @@ div.titulo i{
     align-items: center;
     font-family: 'Verdana Pro SemiBold', sans-serif;
     margin-left: 5vw;
-    margin-bottom: 2vw;
+    margin-bottom: 2vw; 
     border: solid 2px;
     font-size: 3vw;
 }
@@ -318,7 +325,7 @@ div.titulo i{
 form.contenedor-padre input{
     padding-bottom:10px;
     width: 80vw;
-    font-size: 3vw;
+    font-size: 3vw; 
     border: solid black 2px;
     margin-bottom: 20px;
 
@@ -384,14 +391,6 @@ footer {
 footer .pie{
     display: flex;
     justify-content: space-between;
-}
-
-footer section {
-    width: 100%;
-    text-align: center;
-    margin: 2% 2%;
-    border: solid 1px salmon;
-    padding: 1%;
 }
 
 /* tablets grandes y notebooks/laptops*/
@@ -499,11 +498,11 @@ footer section {
     }
 
     .titulo{
-        font: 1vw;
+       font: 1vw;
     }
 
     div.titulo i{
-        font-size: 8vw; 
+        font-size: 8vw;
     }
 
     .contenedor-padre{
