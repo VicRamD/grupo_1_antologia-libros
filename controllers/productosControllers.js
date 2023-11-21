@@ -1,4 +1,5 @@
 const libros = require('../models/libros');
+const categorias = require('../models/categorias');
 
 const productosControllers = {
 
@@ -22,7 +23,7 @@ const productosControllers = {
         res.render('products/productCart');
     },
     create: (req, res) => {
-        res.render('products/productCreate');
+        res.render('products/productCreate', {categorias: categorias});
     },
     edit: (req, res) => {
         let idLibro = parseInt(req.params.id);
@@ -32,7 +33,7 @@ const productosControllers = {
                 libroEditar = libro;
             }
         }
-        res.render('products/productEdit', {libro: libroEditar});
+        res.render('products/productEdit', {libro: libroEditar, categorias: categorias});
     },
 };
 
