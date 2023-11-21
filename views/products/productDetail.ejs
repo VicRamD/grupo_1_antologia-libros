@@ -15,17 +15,17 @@
 
     <main class="producto-detail">
         <div class="box-product product-img">
-            <img src="/images/ejemploLibro.png" alt="">
+            <img src="<%= libro.image %>" alt="">
         </div>
 
         <div class="box-product product-info">
             <div class="box-info product-buy">
-                <h1>TITULO DEL LIBRO</h1>
+                <h1><%= libro.title %></h1>
                 <hr>
                 <div class="info-data">
-                    <p><span>Autor: </span><a href="">Nombre del Autor</a></p>
-                    <p><span>Editorial: </span><a href="">Nombre de la Editorial</a></p>
-                    <p><span>Autor: </span> 0000 </p>
+                    <p><span>Autor: </span><a href=""><%= libro.author %></a></p>
+                    <p><span>Editorial: </span><a href=""><%= libro.editorial %></a></p>
+                    <p><span>ISBN: </span> <%= libro.isbn %> </p>
                     <div class="data-category">
                         <p><span>Categorias</span></p>
                         <ul>
@@ -39,7 +39,7 @@
                 <hr>
                 <h2></h2>
                 <div class="info-button">
-                    <h2>$$$</h2>
+                    <h2><%= libro.price %> ARS</h2>
                     <button class="button-buy">COMPRA AHORA</button>
                     <button class="button-cart">AGREGAR AL CARRITO</button>
                 </div>
@@ -48,7 +48,7 @@
             </div>
             <div class="box-info sypnosis">
                 <h2>SINOPSIS</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu euismod nunc. Nunc eget felis et elit elementum suscipit vel mattis nulla. Curabitur in suscipit enim, quis vehicula diam. Fusce vitae blandit eros, sit amet egestas mi. Integer vitae fermentum quam, eu semper neque. Etiam tortor nisi, pretium at rhoncus sit amet, pellentesque et libero. Duis rhoncus scelerisque nunc, euismod ornare nisl molestie eget. Mauris vestibulum purus congue lorem ornare malesuada. Suspendisse venenatis tincidunt sem nec bibendum. Sed ut tincidunt lacus. Vivamus efficitur vitae ante at laoreet. Donec leo massa, consequat vitae pretium sed, malesuada auctor turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse sit amet auctor turpis, eget placerat nulla. Phasellus consequat diam euismod, congue mauris a, accumsan sem. Fusce sed enim rhoncus, varius magna id, sollicitudin enim.</p>
+                <p><%= libro.abstract %></p>
             </div>
         </div>
     </main>
@@ -56,14 +56,14 @@
     <section class="recommendation">
         <hr>
         <div class="box-card">
-            <h2>MAS DEL MISMO AUTOR</h2>
+            <h2>MÁS DEL MISMO AUTOR</h2>
             <div class="card">
                 <div class="card-product">
                     <div class="card-info">
                     <img src="/images/ejemploLibro.png" alt="">
                     <hr>
-                    <h3><a href="">TITULO DEL LIBRO</a></h3>
-                    <p><a href="">Nombre del autor</a></p>
+                    <h3><a href="">TÍTULO DEL LIBRO</a></h3>
+                    <p><a href=""><%= libro.author %></a></p>
                     <p><a href="">Editorial</a></p>
                     </div>
                     <div class="card-buy">
@@ -77,24 +77,8 @@
                     <div class="card-info">
                     <img src="/images/ejemploLibro.png" alt="">
                     <hr>
-                    <h3><a href="">TITULO DEL LIBRO</a></h3>
-                    <p><a href="">Nombre del autor</a></p>
-                    <p><a href="">Editorial</a></p>
-                    </div>
-                    <hr>
-                    <div class="card-buy">
-                        <h3>$$$</h3>
-                        <button class="button-buy">COMPRA AHORA</button>
-                        <button class="button-cart">AGREGAR AL CARRITO</button>
-                    </div>
-                </div>
-    
-                <div class="card-product">
-                    <div class="card-info">
-                    <img src="/images/ejemploLibro.png" alt="">
-                    <hr>
-                    <h3><a href="">TITULO DEL LIBRO</a></h3>
-                    <p><a href="">Nombre del autor</a></p>
+                    <h3><a href="">TÍTULO DEL LIBRO</a></h3>
+                    <p><a href=""><%= libro.author %></a></p>
                     <p><a href="">Editorial</a></p>
                     </div>
                     <hr>
@@ -110,7 +94,7 @@
                     <img src="/images/ejemploLibro.png" alt="">
                     <hr>
                     <h3><a href="">TITULO DEL LIBRO</a></h3>
-                    <p><a href="">Nombre del autor</a></p>
+                    <p><a href=""><%= libro.author %></a></p>
                     <p><a href="">Editorial</a></p>
                     </div>
                     <hr>
@@ -121,21 +105,37 @@
                     </div>
                 </div>
     
-                <button class="card-more-products">VER MAS</button>
+                <div class="card-product">
+                    <div class="card-info">
+                    <img src="/images/ejemploLibro.png" alt="">
+                    <hr>
+                    <h3><a href="">TÍTULO DEL LIBRO</a></h3>
+                    <p><a href=""><%= libro.author %></a></p>
+                    <p><a href="">Editorial</a></p>
+                    </div>
+                    <hr>
+                    <div class="card-buy">
+                        <h3>$$$</h3>
+                        <button class="button-buy">COMPRA AHORA</button>
+                        <button class="button-cart">AGREGAR AL CARRITO</button>
+                    </div>
+                </div>
+    
+                <button class="card-more-products">VER MÁS</button>
                 
             </div>
     
         </div>
         <hr>
         <div class="box-card">
-            <h2>MAS BUSCADOS</h2>
+            <h2>MÁS BUSCADOS</h2>
             <div class="card">
     
                 <div class="card-product">
                     <div class="card-info">
                     <img src="/images/ejemploLibro.png" alt="">
                     <hr>
-                    <h3><a href="">TITULO DEL LIBRO</a></h3>
+                    <h3><a href="">TÍTULO DEL LIBRO</a></h3>
                     <p><a href="">Nombre del autor</a></p>
                     <p><a href="">Editorial</a></p>
                     </div>
@@ -151,7 +151,7 @@
                     <div class="card-info">
                     <img src="/images/ejemploLibro.png" alt="">
                     <hr>
-                    <h3><a href="">TITULO DEL LIBRO</a></h3>
+                    <h3><a href="">TÍTULO DEL LIBRO</a></h3>
                     <p><a href="">Nombre del autor</a></p>
                     <p><a href="">Editorial</a></p>
                     </div>
@@ -167,7 +167,7 @@
                     <div class="card-info">
                     <img src="/images/ejemploLibro.png" alt="">
                     <hr>
-                    <h3><a href="">TITULO DEL LIBRO</a></h3>
+                    <h3><a href="">TÍTULO DEL LIBRO</a></h3>
                     <p><a href="">Nombre del autor</a></p>
                     <p><a href="">Editorial</a></p>
                     </div>
@@ -183,7 +183,7 @@
                     <div class="card-info">
                     <img src="/images/ejemploLibro.png" alt="">
                     <hr>
-                    <h3><a href="">TITULO DEL LIBRO</a></h3>
+                    <h3><a href="">TÍTULO DEL LIBRO</a></h3>
                     <p><a href="">Nombre del autor</a></p>
                     <p><a href="">Editorial</a></p>
                     </div>
@@ -195,56 +195,13 @@
                     </div>
                 </div>
     
-                <button class="card-more-products">VER MAS</button>
+                <button class="card-more-products">VER MÁS</button>
 
             </div>
         </div>
     </section>
 
-    <footer class="box-footer">
-        <div class="box box-link">
-            <h3>ENLACE</h3>
-            <hr>
-            <ul>
-                <li><a href="">lorem impsu</a></li>
-                <li><a href="">lorem impsu</a></li>
-                <li><a href="">lorem impsu</a></li>
-                <li><a href="">lorem impsu</a></li>
-            </ul>
-        </div>
-
-        <div class="box box-link">
-            <h3>ENLACE</h3>
-            <hr>
-            <ul>
-                <li><a href="">lorem impsu</a></li>
-                <li><a href="">lorem impsu</a></li>
-                <li><a href="">lorem impsu</a></li>
-                <li><a href="">lorem impsu</a></li>
-            </ul>
-        </div>
-
-        <div class="box box-link">
-            <h3>ENLACE</h3>
-            <hr>
-            <ul>
-                <li><a href="">lorem impsu</a></li>
-                <li><a href="">lorem impsu</a></li>
-                <li><a href="">lorem impsu</a></li>
-                <li><a href="">lorem impsu</a></li>
-            </ul>
-        </div>
-
-        <div class="box box-contact">
-            <img src="/images/logo/logo_p_horizontal.png" alt="">
-            <h3>REDES SOCIALES</h3>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-regular fa-envelope"></i>
-            <i class="fa-brands fa-twitter"></i>
-        </div>
-
-    </footer>
+    <%- include('../partials/footer.ejs') %>
     
 </body>
 </html>

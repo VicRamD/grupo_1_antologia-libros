@@ -4,7 +4,6 @@ const path = require('path');
 const rutasMain = require('./routes/main.js')
 const rutasProduct = require ('./routes/productos.js')
 
-
 const server = express();
 
 const pathPublic = path.join(__dirname, '/public');
@@ -20,6 +19,9 @@ server.listen(3030, () => {
 server.use('/', rutasMain)
 server.use('/product', rutasProduct)
 
+server.get('*', (req,res) => {
+    res.send("-- ERROR, la ruta no es correcta --");
+});
 
 // server.get('/', (req, res) => {
 //     const index = path.join(__dirname, 'views/index.html')

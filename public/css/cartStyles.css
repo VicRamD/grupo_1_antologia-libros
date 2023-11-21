@@ -6,7 +6,7 @@
 
 main form {
     border: solid gray 2px;
-    background-color: #DAF7A6;
+    background-color: rgba(128, 128, 128, 0.201);   /* #DAF7A6;*/
     padding: auto;
     margin-bottom: 3%;
 }

@@ -7,7 +7,7 @@
 /*Header*/
 header {
     /*background-color: #ffa074;*/
-    background-color: #20794a;
+    background-color: cadetblue;
 }
 .view{
     width: 90%;
@@ -17,8 +17,9 @@ div.top-header {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    /*background-color: #ffa074;*/
-    background-color: #2ba162;
+    /*background-color: #ffa074;
+    background-color: #2ba162;*/
+    background-color: rgb(61, 107, 109);
     padding: 2%;
     justify-content: space-around;
 }
@@ -82,7 +83,7 @@ div.iconos {
 
 div.iconos div.icono {
     /* background-color: #F08080;*/
-    background-color: #20794a;
+    background-color: #dedede;
     /*width: 45%;*/
     border-radius: 50%;
     text-align: center;
@@ -105,11 +106,14 @@ div.iconos div.icono a {
 }
 
 .iconos .icono:hover{
-    border: solid 1px greenyellow;
+    border: solid 1px black;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.224);
+    /*border: solid 1px greenyellow;*/
 }
 
 div.iconos div.icono a{
-    color: greenyellow;
+    /*color: greenyellow;*/
+    color: black;
 }
 
 header nav {
@@ -129,14 +133,16 @@ div.libros_titulares {
 
 .libros_titulares h3{
     font-size: 19px;
-    border: salmon solid 2px;
+    border: cadetblue solid;
+    /*border: salmon solid 2px;*/
     flex-wrap: wrap;
     padding-top: 10px;
     padding-left: 4px;
     padding-right: 4px;
     padding-bottom: 2px;
     margin: 0%, 0%;
-    background-color: #EDBB99;
+    /*background-color: #EDBB99;*/
+    background-color: rgba(95, 158, 160, 0.742);
     width: 100%;
 }
 
@@ -216,11 +222,15 @@ main section h3{
 }
 
 main section div.libros article:hover{
-    background-color: rgb(228, 163, 163);
+    background-color: rgba(55, 98, 99, 0.377);
+    /*background-color: rgb(228, 163, 163);*/
 }
 
-
-
+main section div.libros article:hover h4,
+main section div.libros article:hover .discount {
+    font-weight: bold;
+}
+ 
 main section div.libros{
     display: flex;
     flex-direction: row;
@@ -265,7 +275,7 @@ article div.main-article{
     margin-top: 2vw;
     border: solid 2px;
     border-top: solid 2px;
-    background-color:#4538b8;/*eee2db*/
+    /*background-color:   #4538b8;eee2db*/
 }
 
 .titulo{
@@ -313,7 +323,9 @@ div.btn-widht input{
     display: flex;
     font-family: 'Verdana Pro Cond SemiBold', sans-serif;
     border-radius: 20px;
-    background-color: #ffa074;
+    background-color: rgba(82, 126, 128, 0.384);
+    color: #2f2f2f;
+    /*background-color: #ffa074;*/
     justify-content: center;
     align-items: center;
     box-shadow: 5px 5px 3px rgb(0, 0, 0, 0.5), -5px -5px 2px rgb(0, 0, 0, 0.5) inset;
@@ -321,8 +333,9 @@ div.btn-widht input{
 }
 
 .btn:hover{
-    background-color: #F08080;
+    background-color: rgba(63, 100, 101, 0.482);
     cursor: pointer;
+    
 }
 
 .apellido-nombre{
@@ -434,7 +447,7 @@ footer section {
     }
 
     header nav ul li:hover {
-        background-color: cadetblue;
+        background-color: rgb(61, 107, 109);
     }
 
     header nav ul li a {

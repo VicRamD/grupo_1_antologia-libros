@@ -1,9 +1,23 @@
 const libros = require('../models/libros');
 
 const productosControllers = {
-    detail: function (req,res) {
-        res.render('products/productDetail');
+
+    list: (req,res) => {
+        res.send("Estás en la ruta de productos");
     },
+    
+    detail: (req,res) => {
+
+        let idLibro = parseInt(req.params.id);
+        let libroVer;
+        for(let libro of libros){
+            if(libro.id === idLibro){
+                libroVer = libro;
+            }
+        }
+        res.render('products/productDetail', {libro: libroVer});
+    },
+    
     cart: function (req,res) {
         res.render('products/productCart');
     },
