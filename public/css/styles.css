@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+.tabla-listado {
+    border: #F08080 1px;
+    background-color: #ebebeb;
+    width: 100%;
+    border-spacing: 0;
+}
+.tabla-listado th,td {
+    border: #F08080 1px solid;
+}
+
+
 /*Header*/
 header {
     /*background-color: #ffa074;*/

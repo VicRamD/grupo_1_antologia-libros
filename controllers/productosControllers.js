@@ -1,9 +1,12 @@
 const libros = require('../models/libros');
 
 const productosControllers = {
-
     list: (req,res) => {
-        res.send("Estás en la ruta de productos");
+        //res.send("Estás en la ruta de productos");
+        res.render('products/productList', { libros: libros });
+    }, 
+    listBooks: (req,res) => {
+        res.render('products/productList');
     },
     
     detail: (req,res) => {

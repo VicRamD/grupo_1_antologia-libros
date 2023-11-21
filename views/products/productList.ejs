@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/images/favicon_antologia.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antología : donde vive el saber</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/cartStyles.css">
+    <link rel="stylesheet" href="/css/footerStyles.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+
+    <main>
+
+        
+            
+
+        
+
+        <h1>Listado de Libros:</h1>
+        <section class="formulario-CU">
+            <form method="POST">
+                <div class="form-body">
+                    <div class="form-group-ancho">
+                        <table class="tabla-listado">
+                            <tr>
+                                <th>id</th>
+                                <th>Título</th>
+                                <th>Autor</th>
+                                <th>Editorial</th>
+                                <th>género</th>
+                                <th>precio</th>
+                            </tr>
+                            <% libros.forEach(element => { %>
+                            <tr>
+                                <td><%=element.id%></td>
+                                <td><%=element.title%></td>
+                                <td><%=element.author%></td>
+                                <td><%=element.editorial%></td>
+                                <td><%=element.genre%></td>
+                                <td><%=element.price%></td>
+                            </tr>
+                            <% }) %>
+                            <tr></tr>
+                        </table>
+
+
+
+
+
+
+
+
+                       
+                    </div>
+
+                    
+                
+            </form>
+        </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>
