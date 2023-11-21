@@ -14,12 +14,6 @@
     <%- include('../partials/header.ejs') %>
 
     <main>
-
-        
-            
-
-        
-
         <h1>Listado de Libros:</h1>
         <section class="formulario-CU">
             <form method="POST">
@@ -40,7 +34,7 @@
                                 <td><%=element.title%></td>
                                 <td><%=element.author%></td>
                                 <td><%=element.editorial%></td>
-                                <td><%=element.genre%></td>
+                                <td><a href="http://">categorías</a></td>
                                 <td><%=element.price%></td>
                             </tr>
                             <% }) %>
