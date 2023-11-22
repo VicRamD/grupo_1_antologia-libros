@@ -31,7 +31,7 @@
                             <% libros.forEach(element => { %>
                             <tr>
                                 <td><%=element.id%></td>
-                                <td><%=element.title%></td>
+                                <td><a href = "/product/<%= element.id %>"><%=element.title%></a></td>
                                 <td><%=element.author%></td>
                                 <td><%=element.editorial%></td>
                                 <td><a href="http://">categorías</a></td>
