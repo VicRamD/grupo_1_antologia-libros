@@ -13,14 +13,6 @@ body {
     background-size: cover;
     background-position: center;
 }
-/*--------------------------*/
-form button[type="submit"] {
-    width: 100%;
-    /* height: 30px; */
-    background-color: #2F2F2F;
-    border: none;
-    color: whitesmoke;
-}
 
 .form-container{
     display: flex;
@@ -38,7 +30,7 @@ form button[type="submit"] {
     flex-direction: column;
     width: 70vw;
     /*border: 1px solid #ccc;*/
-    border-radius: 20px;
+    border-radius: 15px;
     background-color: #5f9ea0f5;
     box-shadow: 0 0 10px rgba(0, 0, 0, 2);
 }
@@ -93,37 +85,47 @@ form button[type="submit"] {
     color: rgb(0, 0, 79);
 }
 
-.btn-login,
-.btn-noaccount {
-    border-radius: 20px;
-    font-size: 12px;
-    padding: 8px 8px;
-    border-width: 1px;
-    font-weight: bold;
-    background-color: rgb(197, 197, 197);
-    transition: box-shadow 500ms;
-}
-.btn-noaccount{
-    margin-left: 8px;
-}
-.btn-login:hover,
-.btn-noaccount:hover{
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
 
 label[for="email"], label[for="password"] {
     font-size: 15px;
     font-weight: bold;
 }
 
-.login{
+.buttons-login{
     margin-top: 7px;
     margin-bottom: 20px;
-    align-self: center;
+    width: 100%;
+    padding: 0px;
 }
 
-.noaccount {
-    align-self: flex-start;
+.btn-login,
+.btn-noaccount {
+    /*border-radius: 20px;*/
+    width: 100%;
+    height: 30px;
+    font-size: 12px;
+    border-width: 1px;
+    font-weight: bold;
+    background-color: rgb(197, 197, 197);
+    transition: box-shadow 600ms;
+}
+
+/*--------------------------*/
+.btn-login{
+    height: 45px;
+    /* height: 30px; */
+    background-color: #2F2F2F;
+    border: none;
+    color: whitesmoke;
+}
+
+/*--------------------------*/
+
+.btn-login:hover,
+.btn-noaccount:hover{
+    background-color: rgb(61, 107, 109);
+    color: whitesmoke;
+    /*box-shadow: 0 0 15px rgba(17, 17, 17, 1.2);*/
 }
 
 .footer-container{
@@ -150,7 +152,7 @@ label[for="email"], label[for="password"] {
     .login-form {
         padding: 8px;
         margin: 15px 10px 15px 10px;
-        width: 90vw;
+        width: 70vw;
     }
 
     .img-logo img{
@@ -162,23 +164,7 @@ label[for="email"], label[for="password"] {
         width: 30px;
         height: auto;
     }
-
-    .form-title {
-        font-size: 17px;
-        margin-bottom: 12px;
-    }
-
-    div .email-section,
-    div .password{
-        padding: 7px;   
-    }
-
-    .email-section input.email, 
-    .password input.pass{
-        height: 4vh;
-        width: 86vw;
-    }
-
+       
     .btn-login,
     .btn-noaccount {
         font-size: 12px;
@@ -196,7 +182,7 @@ label[for="email"], label[for="password"] {
     .login-form {
         margin: 5px 10px 5px 10px;
         padding: 5px;
-        width: 55vw;
+        width: 35vw;
     }
     
     .img-logo img{
@@ -215,10 +201,6 @@ label[for="email"], label[for="password"] {
 
     label[for="email"], label[for="password"] {
         font-size: 19px;
-    }
-
-    .email-section input.email, .password input.pass{
-        width: 53.5vw;
     }
 
     .forget{
