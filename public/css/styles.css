@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-<<<<<<< HEAD
 .tabla-listado {
     border: #F08080 1px;
     background-color: #ebebeb;
@@ -17,12 +16,10 @@
 }
 
 
-=======
 body {
     width: 100%;
 }
 
->>>>>>> 47f6eb4f4f26a7c4a5558d5e7d83507076385df4
 /*Header*/
 header {
     /*background-color: #ffa074;*/
@@ -139,9 +136,7 @@ header nav {
     display: none;
 }
 
-
 /* -------------  */
-
 
 /* Home */
 
@@ -165,9 +160,7 @@ div.libros_titulares {
     width: 100%;
 }
 
-
 /* Para que rote el camioncito */
-
 
 main section div.libros article:hover i{
     transform: rotate(-360deg);
@@ -274,7 +267,6 @@ main section div.libros article{
 }
 }
 
-
 article div.main-article{
     width: 100%;
     display: flex;
@@ -371,9 +363,6 @@ div.btn-widht input{
 section.apellido-nombre input, section.apellido-nombre label {
     width: 49%;
 }
-
-
-
 
 /* Main  */
 h1 {
