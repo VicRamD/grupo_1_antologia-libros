@@ -11,12 +11,12 @@
     <main>
         <h1>Registrar un nuevo libro</h1>
         <section class="formulario-CU">
-            <form method="POST">
+            <form method="POST" action="#" enctype="multipart/form-data">
                 <div class="form-body">
                     <div class="form-group-ancho">
                         <label for="title">Título</label>
                         <input id="title" name="title" type="text" required>
-                    </div>
+                    </div> 
 
                     <div class="form-group-ancho">
                         <label for="abstract">Resumen</label>
@@ -30,6 +30,7 @@
                         <label for="editorial">Editorial</label>
                         <input id="editorial" name="editorial" type="text">
                     </div>
+
                     <div class="form-group">
                         <label for="image">Imagen</label>
                         <input id="image" name="image" type="file" accept="image/*" required>
@@ -71,6 +72,6 @@
     </main>
 
     <%- include('../partials/footer.ejs') %>
-    
+
 </body>
 </html>
