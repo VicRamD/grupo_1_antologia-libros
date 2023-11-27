@@ -17,7 +17,7 @@ server.listen(3030, () => {
 });
 
 server.use('/', rutasMain)
-server.use('/product', rutasProduct)
+server.use('/products', rutasProduct)
 
 server.get('*', (req,res) => {
     res.send("-- ERROR, la ruta no es correcta --");
