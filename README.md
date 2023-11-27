@@ -65,6 +65,6 @@ Sitio web Argentino de venta de libros perteneciente a una franquicia de muchos 
 
 **TABLERO DE TRABAJO:**
 
-[Link](https://trello.com/b/xhc1LQYN/sprint-2-html-css-g1 "Tablero Sprint 2").
+[tablero Sprint 2](https://trello.com/b/xhc1LQYN/sprint-2-html-css-g1 "Tablero Sprint 2").
 
-[Link](https://trello.com/b/L09x6f1c/sprint-3-template-engines "Tablero Sprint 3").
+[Tablero Sprint 3](https://trello.com/b/L09x6f1c/sprint-3-template-engines "Tablero Sprint 3").
