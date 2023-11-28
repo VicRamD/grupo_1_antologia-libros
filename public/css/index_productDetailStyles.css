@@ -19,6 +19,7 @@ main section div.libros article:hover i{
     background-color: #2F2F2F;
     border: none;
     color: whitesmoke;
+    font-size: 10px;
 }
 .button-buy {
     width: 40%;
@@ -26,6 +27,7 @@ main section div.libros article:hover i{
     background-color: #2F2F2F;
     border: none;
     color: whitesmoke;
+    font-size: 10px;
 
 }
 
@@ -36,3 +38,8 @@ main section div.libros article:hover i{
     color: whitesmoke;
 }
 
+@media (min-width: 769px) {
+.button-buy,
+.button-cart {
+    font-size: 15px; 
+}}

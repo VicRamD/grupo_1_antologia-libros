@@ -281,9 +281,9 @@ article div.main-article{
 
 /*Register*/
 
-.body{
+body{
     text-align: center;
-    margin-top: 2vw;
+    /*margin-top: 2vw;*/
     border: solid 2px;
     border-top: solid 2px;
     /*background-color:   #4538b8;eee2db*/
@@ -293,26 +293,28 @@ article div.main-article{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 8vw;
+    font-size: 4vw;
     margin-top: 5vw;
     margin-bottom: 5vw;
 }
 
 
 div.titulo i{
-    font-size: 8vw;
+    font-size: 6vw;
 }
 
 .contenedor-padre{
     display: flex;
     flex-direction: column;
-    width: 90vw;
+    /*width:90vw;*/
     align-items: center;
-    font-family: 'Verdana Pro SemiBold', sans-serif;
-    margin-left: 5vw;
+    font-family: 'Poppins', sans-serif;
+    /*margin-left: 5vw;*/
     margin-bottom: 2vw; 
     border: solid 2px;
     font-size: 3vw;
+    border-radius: 15px;
+    padding: 10px;
 }
 
 form.contenedor-padre input{
@@ -321,30 +323,50 @@ form.contenedor-padre input{
     font-size: 3vw; 
     border: solid black 2px;
     margin-bottom: 20px;
-
 }
 
-div.btn-widht input{
-    width: 40vw;
+.contenedor-padre label{
+    font-weight: bold;
+}
+
+.btn-widht{
+    margin-top: 7px;
+    margin-bottom: 20px;
+    width: 100%;
+    /*width: 40vw;
     justify-content: column;
-    font-size: 3vw;
+    font-size: 3vw;*/
 }
 
-.btn{
-    display: flex;
-    font-family: 'Verdana Pro Cond SemiBold', sans-serif;
-    border-radius: 20px;
-    background-color: rgba(82, 126, 128, 0.384);
-    color: #2f2f2f;
+.btn-register,
+.btn-account{
+    width: 100%;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    /*font-family: 'Verdana Pro Cond SemiBold', sans-serif;*/
+    /*border-radius: 20px;*/
+    /*background-color: rgba(82, 126, 128, 0.384);*/
     /*background-color: #ffa074;*/
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 5px 3px rgb(0, 0, 0, 0.5), -5px -5px 2px rgb(0, 0, 0, 0.5) inset;
-    border: 2px solid;
+    background-color: rgb(197, 197, 197);
+    /*color: #2f2f2f;
+    justify-content: center;*/
+    /*align-items: center;
+    box-shadow: 5px 5px 3px rgb(0, 0, 0, 0.5), -5px -5px 2px rgb(0, 0, 0, 0.5) inset;*/
+    border: 1px;
 }
 
-.btn:hover{
-    background-color: rgba(63, 100, 101, 0.482);
+.btn-register{
+    background-color: #2f2f2f;
+    border: none;
+    color: whitesmoke;
+    height: 45px;
+}
+.btn-register:hover,
+.btn-account:hover{
+    background-color: rgb(61, 107, 109);
+    color: whitesmoke;
+    /*background-color: rgba(63, 100, 101, 0.482);*/
     cursor: pointer;
     
 }
@@ -479,7 +501,6 @@ footer .pie{
     /*Register*/ 
 
     .registro{
-
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -491,9 +512,9 @@ footer .pie{
        font: 1vw;
     }
 
-    div.titulo i{
+    /*div.titulo i{
         font-size: 8vw;
-    }
+    }*/
 
     .contenedor-padre{
         width: 60vw;
@@ -510,16 +531,16 @@ footer .pie{
     border: solid black 2px;
     }
 
-    .btn{
+    /*.btn{
         border-radius: 30px;
         box-shadow: 5px 5px 3px rgb(0, 0, 0, 0.5), -5px -5px 2px rgb(0, 0, 0, 0.5) inset;
         border: 1px solid;
-    }
+    }*/
 
-    div.btn-widht input{
-        width: 200px;
-        justify-content: column;
-        font-size: 1rem;
+    .btn-register,
+    .btn-account{
+        height: 40px;
+        font-size: 20px;
     }
 
     .apellido-nombre{
