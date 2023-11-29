@@ -383,7 +383,15 @@ form.contenedor-padre input{
 
 
 section.apellido-nombre input, section.apellido-nombre label {
-    width: 49%;
+    width: 100%;
+}
+
+section.apellido-nombre label[for='name'], section.apellido-nombre input[id='name'] {
+    order: 1;
+}
+
+section.apellido-nombre label[for='apellido'], section.apellido-nombre input[id='apellido'] {
+    order: 2;
 }
 
 /* Main  */
@@ -551,5 +559,12 @@ footer .pie{
         width: 40%;
     }
 
+    section.apellido-nombre label[for='name'], section.apellido-nombre label[for='apellido'] {
+        order: 1;
+    }
+    
+    section.apellido-nombre input[id='name'], section.apellido-nombre input[id='apellido'] {
+        order: 2;
+    }
 
 }
