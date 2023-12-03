@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const libros = require('../models/libros');
 const categorias = require('../models/categorias');
 
@@ -27,10 +30,17 @@ const productosControllers = {
     create: (req, res) => {
         res.render('products/productCreate', {categorias: categorias});
     },
+
+    //edición
     edit: (req, res) => {
         let idLibro = parseInt(req.params.id);
         let libroEditar = buscarProductoPorId(idLibro, libros);
         res.render('products/productEdit', {libro: libroEditar, categorias: categorias});
+    },
+    update: (req, res) => {
+        //let idLibro = parseInt(req.params.id);
+        //let libroVer = buscarProductoPorId(idLibro, libros);
+        //res.render('products/productDetail', {libro: libroVer});
     },
 };
 

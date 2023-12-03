@@ -1,4 +1,5 @@
 const express = require('express');
+const methodOverride =  require('method-override');
 const { get } = require('http');
 const path = require('path');
 const rutasMain = require('./routes/main.js')
@@ -6,8 +7,13 @@ const rutasProduct = require ('./routes/productos.js')
 
 const server = express();
 
+//================================================/
 const pathPublic = path.join(__dirname, '/public');
+server.use(express.urlencoded({ extended: false }));
+server.use(express.json());
+server.use(methodOverride('_method'));
 
+//======= Template engine ===================
 server.set('view engine', 'ejs')
 
 server.use(express.static(pathPublic));
