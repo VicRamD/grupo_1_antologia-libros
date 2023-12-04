@@ -1,8 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const libros = require('../models/libros');
-const categorias = require('../models/categorias');
+const libros = JSON.parse( fs.readFileSync(path.join(process.cwd(), './data/libros.json')),'utf-8');
+const usuarios = JSON.parse(fs.readFileSync(path.join(process.cwd(), './data/users.json')), 'utf-9');
+const categorias = JSON.parse(fs.readFileSync(path.join(process.cwd(), './data/categorias.json')), 'utf-8')
+
 
 function buscarProductoPorId(id, productos){
     const productoBuscado = productos.find((producto) => producto.id === id);
