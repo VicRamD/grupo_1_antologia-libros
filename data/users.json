@@ -1,0 +1,47 @@
+[
+    {
+      "id": 1,
+      "firstName": "Ana",
+      "lastName": "Gómez",
+      "email": "ana.gomez@example.com",
+      "password": "claveSegura789",
+      "category": "Cliente",
+      "image": "/images/users/ana_gomez.jpg"
+    },
+    {
+      "id": 2,
+      "firstName": "Carlos",
+      "lastName": "Martínez",
+      "email": "carlos.mtz@email.com",
+      "password": "contrasenia123",
+      "category": "Empleado",
+      "image": "/images/users/carlos_martinez.jpg"
+    },
+    {
+      "id": 3,
+      "firstName": "Laura",
+      "lastName": "Hernández",
+      "email": "laura.h@email.com",
+      "password": "segura456",
+      "category": "Cliente",
+      "image": "/images/users/laura_hernandez.jpg"
+    },
+    {
+      "id": 4,
+      "firstName": "Juan",
+      "lastName": "Pérez",
+      "email": "juan.perez@example.com",
+      "password": "mipassword123",
+      "category": "Proveedor",
+      "image": "/images/users/juan_perez.jpg"
+    },
+    {
+      "id": 5,
+      "firstName": "Sofía",
+      "lastName": "Rodríguez",
+      "email": "sofia.r@email.com",
+      "password": "claveSecreta789",
+      "category": "Empleado",
+      "image": "/images/users/sofia_rodriguez.jpg"
+    }
+  ]

@@ -1,0 +1,59 @@
+[
+    {
+      "id": 1,
+      "nombre": "Ciencia Ficción"
+    },
+    {
+      "id": 2,
+      "nombre": "Ciencias Naturales"
+    },
+    {
+      "id": 3,
+      "nombre": "Ciencias Sociales"
+    },
+    {
+      "id": 4,
+      "nombre": "Para niños"
+    },
+    {
+      "id": 5,
+      "nombre": "Fantasia"
+    },
+    {
+      "id": 6,
+      "nombre": "Historia"
+    },
+    {
+      "id": 7,
+      "nombre": "Arte"
+    },
+    {
+      "id": 8,
+      "nombre": "Filosofía"
+    },
+    {
+      "id": 9,
+      "nombre": "Cocina"
+    },
+    {
+      "id": 10,
+      "nombre": "Drama"
+    },
+    {
+      "id": 11,
+      "nombre": "Novela"
+    },
+    {
+      "id": 12,
+      "nombre": "Aventura"
+    },
+    {
+      "id": 13,
+      "nombre": "Política"
+    },
+    {
+      "id": 14,
+      "nombre": "Desarrollo Personal"
+    }
+  ]
+  
