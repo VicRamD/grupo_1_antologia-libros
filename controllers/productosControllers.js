@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const libros = JSON.parse( fs.readFileSync(path.join(process.cwd(), './data/libros.json')),'utf-8');
-const usuarios = JSON.parse(fs.readFileSync(path.join(process.cwd(), './data/users.json')), 'utf-9');
+const usuarios = JSON.parse(fs.readFileSync(path.join(process.cwd(), './data/users.json')), 'utf-8');
 const categorias = JSON.parse(fs.readFileSync(path.join(process.cwd(), './data/categorias.json')), 'utf-8')
 
 
