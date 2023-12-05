@@ -8,10 +8,10 @@ const router = express.Router();
 // ************ Multer Storage ************
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, path.join(process.cwd(),'public/images/products'));
+      cb(null, path.join(process.cwd(),'public/images/books'));
     },
     filename: (req, file, cb) => {
-      cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);
+      cb(null, `${Date.now()}_book_img_${path.extname(file.originalname)}`);
       //cb(null, `${Date.now()}_${file.originalname}`);
     }
 });

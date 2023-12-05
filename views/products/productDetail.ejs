@@ -15,7 +15,7 @@
 
     <main class="producto-detail">
         <div class="box-product product-img">
-            <img src="<%= libro.image %>" alt="Portada de <%= libro.title %>">
+            <img src="/images/books/<%= libro.image ? libro.image : 'cover-not-available.png'  %>" alt="Portada de <%= libro.title %>">
         </div>
 
         <div class="box-product product-info">

@@ -12,7 +12,7 @@
         <h1>Editando libro:</h1>
         <h2><%= libro.id %>-<%= libro.title %></h2>
         <section class="formulario-CU">
-            <form method="POST" action="#" enctype="multipart/form-data">
+            <form method="POST" action="/products/<%= libro.id %>?_method=PUT" enctype="multipart/form-data">
                 <div class="form-body">
                     <div class="form-group-ancho">
                         <label for="title">Título</label>
@@ -39,11 +39,7 @@
                         <label for="genre" class="for-select">Género</label>
                         <select id="genre" name="genre" multiple>
                             <% for( let i = 0; i < categorias.length; i++ ) { %>
-                                <% if (libro.genre.includes(categorias[i])) { %>
-                                    <option value="<%= categorias[i].id %>" selected><%= categorias[i].nombre %></option>
-                                <% } else { %>
-                                    <option value="<%= categorias[i].id %>"><%= categorias[i].nombre %></option>
-                                <% } %>     
+                                <option value="<%= categorias[i] %>" <%= indicesCategorias.includes(i) ? 'selected': '' %>><%= categorias[i].nombre %></option>  
                             <% } %>
                         </select>
                     </div>
