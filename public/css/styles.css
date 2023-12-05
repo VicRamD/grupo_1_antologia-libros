@@ -252,7 +252,7 @@ main section div.libros{
 }
 
 main section div.libros article{
-    width: 45%;
+    width: 98%;
 }
 
 .price,
@@ -260,11 +260,16 @@ main section div.libros article{
     width: 50%;
 }
 
+@media (min-width: 481px){
+    main section div.libros article{
+        width: 45%;
+    }
+}
 
 @media (min-width: 769px){
-main section div.libros article{
-    width: 22%;
-}
+    main section div.libros article{
+        width: 22%;
+    }
 }
 
 article div.main-article{
