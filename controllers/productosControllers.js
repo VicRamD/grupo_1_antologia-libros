@@ -71,11 +71,12 @@ const productosControllers = {
         let {id} = req.params;
 		id = Number(id);
 		const libroBuscado = buscarProductoPorId(id, libros);
-        console.log(libroBuscado);
+        //console.log(libroBuscado);
         const indice = buscarIndiceProducto(id, libros);
 
         const {title, abstract, author, editorial, genre, language, date, isbn, price} = req.body;
 
+        //console.log(genre);
         const wasSend = wasFileSend(req.file);
         //Elimina la imagen anterior para que no hay imagenes de más o duplicadas
         //fs.unlinkSync(path.join(process.cwd(), 'public/images/products/', libroBuscado.image));
@@ -86,7 +87,7 @@ const productosControllers = {
 		libroBuscado.abstract = abstract;
 		libroBuscado.author = author;
 		libroBuscado.editorial = editorial;
-		libroBuscado.genre = genre;
+		//libroBuscado.genre = genre;
 		libroBuscado.language = language;
         libroBuscado.date = date;
 		libroBuscado.isbn = isbn;
