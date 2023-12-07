@@ -27,11 +27,10 @@
                     <p><span>Editorial: </span><a href=""><%= libro.editorial %></a></p>
                     <p><span>ISBN: </span> <%= libro.isbn %> </p>
                     <div class="data-category">
-                        <p><span>Categorias</span></p>
-                        <ul>
-                        <li><a href="">Categoría1</a></li>
-                        <li><a href="">Categoría2</a></li>
-                        <li><a href="">Categoría3</a></li>
+                        <p><span>Categoría:</span></p>
+                        <ul><% libro.genre.forEach(g => { %>
+                            <li><a href=""><%= g.nombre %></a></li>
+                            <% }); %>
                         </ul>
                     </div>
                     

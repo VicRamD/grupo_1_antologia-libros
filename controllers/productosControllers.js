@@ -130,6 +130,27 @@ const productosControllers = {
 
 		res.redirect('/products/' + id);
     },
+
+    delete: (req, res) => {
+        const { id } = req.params;
+        const i = buscarIndiceProducto(parseInt(id), libros);
+
+        // Elimina la imagen del producto
+        const producto = libros[i];
+        if (producto && producto.image) {
+            const imagePath = path.join(process.cwd(), 'public/images/books/', producto.image);
+            fs.unlinkSync(imagePath);
+        }
+
+        // Elimina el producto
+        libros.splice(i, 1);
+
+        // Guarda la actualización en libros.json
+        const convertidoAString = JSON.stringify(libros);
+        fs.writeFileSync(path.join(process.cwd(), 'data/libros.json'), convertidoAString);
+
+        res.redirect('/products');
+    }
 };
 
 module.exports = productosControllers;

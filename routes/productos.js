@@ -23,6 +23,7 @@ router.get('/create', productosControllers.create);
 router.get('/:id', productosControllers.detail);
 router.get('/:id/edit', productosControllers.edit);
 router.put('/:id', uploadFile.single('image'), productosControllers.update);
+router.delete('/:id', productosControllers.delete);
 router.get('/', productosControllers.list);
 //router.get('/list', productosControllers.list);//Para la lista
 //router.get('/detail', productosControllers.detail);

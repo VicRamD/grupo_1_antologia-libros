@@ -21,12 +21,13 @@
                     <div class="form-group-ancho">
                         <table class="tabla-listado">
                             <tr>
-                                <th>id</th>
+                                <th>ID</th>
                                 <th>Título</th>
                                 <th>Autor</th>
                                 <th>Editorial</th>
-                                <th>género</th>
-                                <th>precio</th>
+                                <th>Género</th>
+                                <th>Precio</th>
+                                <th>Eliminar</th>
                             </tr>
                             <% libros.forEach(element => { %>
                             <tr>
@@ -34,23 +35,20 @@
                                 <td><a href = "/products/<%= element.id %>"><%=element.title%></a></td>
                                 <td><%=element.author%></td>
                                 <td><%=element.editorial%></td>
-                                <td><a href="http://">categorías</a></td>
+                                <td><% element.genre.forEach(g => { %>
+                                    <a href="http://"><%= g.nombre %><br></a><% }); %>
+                                </td>
                                 <td>$ <%=element.price%></td>
+                                <td>
+                                    <form class="delete" method="POST" action="/products/<%= element.id %>?_method=DELETE">
+                                        <button class="btn-delete" type="submit">✖</button>
+                                    </form>
+                                </td>
                             </tr>
                             <% }) %>
                             <tr></tr>
                         </table>
-
-
-
-
-
-
-
-
-                       
                     </div>
-
                     
                 
             </form>
