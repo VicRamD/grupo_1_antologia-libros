@@ -238,7 +238,21 @@ div.form-group label, div.form-group-ancho label {
     text-align: center;
 }
 
+div.form-group div.contenedor-img {
+    width: 100%;
+    text-align: center;
+}
 
+
+div.form-group p.titulo-seccion-img {
+    width: 100%;
+    text-align: center;
+}
+
+div.form-group img {
+    width: 50%;
+    height: 150px;
+}
 
 
 
@@ -327,6 +341,12 @@ div.form-group label, div.form-group-ancho label {
         width: 20%;
         text-align: center;
     }
+
+    /*form edición */
+    div.form-group img {
+        width: 50%;
+        height: 250px;
+    }
 }
 
 /* tablets grandes y notebooks/laptops*/
@@ -374,11 +394,11 @@ div.form-group label, div.form-group-ancho label {
 
     /* formulario creación */
     div.form-group {
-        width: 45%;
+        /*width: 45%;*/
         display: flex;
         flex-wrap: wrap;
 
-    }
+    } 
 
     div.form-group input {
         width: 75%;
@@ -395,9 +415,18 @@ div.form-group label, div.form-group-ancho label {
     div.form-group label.for-date{
         width: 40%;
     }
+
+    /*form edición */
+    div.form-group img {
+        height: 350px;
+    }
 }
 
 @media (min-width: 1280px) {
+    div.form-group {
+        width: 45%;
+    } 
+
     form button[type="button"] {
         width: 25%;
     }
@@ -413,6 +442,11 @@ div.form-group label, div.form-group-ancho label {
 
     form div.total-pagar .total-precio{
         width: 10%;
+    }
+
+    /*form edición */
+    div.form-group img {
+        height: 250px;
     }
 }
 

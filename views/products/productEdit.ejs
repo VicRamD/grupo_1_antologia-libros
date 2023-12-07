@@ -32,6 +32,11 @@
                         <input id="editorial" name="editorial" type="text" value="<%= libro.editorial %>">
                     </div>
                     <div class="form-group">
+                        <div class="contenedor-img">
+                            <p class="titulo-seccion-img">Imagen actual</p>
+                            <img src="/images/books/<%= libro.image ? libro.image : 'cover-not-available.png'  %>" alt="Imagen actual">
+                        </div>
+                        
                         <label for="image">Imagen</label>
                         <input id="image" name="image" type="file" accept="image/*" value="<%= libro.image %>">
                     </div>
