@@ -131,6 +131,11 @@ form div.total-pagar .total-precio{
     width: 35%;
 }
 
+.delete {
+    border: none;
+    width: auto;
+}
+
 form button[type="submit"] {
     width: 100%;
    /* height: 30px;*/
