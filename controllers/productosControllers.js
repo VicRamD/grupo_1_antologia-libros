@@ -89,7 +89,12 @@ const productosControllers = {
         
         //Elimina la imagen anterior para que no hay imagenes de más o duplicadas
         if(wasSend) {
-            fs.unlinkSync(path.join(process.cwd(), 'public/images/products/', libroBuscado.image));
+            fs.unlink(path.join(process.cwd(), 'public/images/books/', libroBuscado.image), (err) => {
+                if (err) {
+                    throw err;
+                }
+                console.log("Archivo eliminado y reemplazado correctamente");
+            });
         }
         
         libroBuscado.title = title;
