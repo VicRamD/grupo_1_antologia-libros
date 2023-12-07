@@ -23,16 +23,35 @@ En referencia al inciso 1, mantener poca o nula comunicación por varios días.
 - Reconocer al 100% qué fortalezas tiene cada uno (en lo que se desenvuelve mejor).
 - Tratar de realizar los requerimientos opcionales.
 
-1. **Hacer más:**
+2. **Hacer más:**
 - Reuniones que nos permiten ponernos de acuerdo en ciertos temas.
 
-1. **Continuar Haciendo:**
+3. **Continuar Haciendo:**
 - Cumplir con todos los requerimientos obligatorios.
 - Apoyo entre compañeros en correcciones y mejoras en código de tareas asignadas.
 - Trabajar todos los integrantes del grupo.
 
-1. **Hacer Menos:** 
+4. **Hacer Menos:** 
 - Llegar con todo sobre la fecha de entrega; (no manejar bien los tiempos individuales).
 
-1. **Dejar de Hacer:**
+5. **Dejar de Hacer:**
+- No hacer saber a los compañeros del grupo, en varios días, cómo vamos con nuestras tareas.
+
+### Starfish retrospective: Sprint 3 ###
+
+1. **Comenzar a Hacer:** 
+- Tratar de realizar los requerimientos opcionales.
+
+2. **Hacer más:**
+- Reuniones para mejorar la comunicación y conocer avances.
+- Colaborar todos los integrantes del grupo.
+
+3. **Continuar Haciendo:**
+- Cumplir con todos los requerimientos obligatorios.
+- Apoyo entre compañeros en correcciones y mejoras en código de tareas asignadas.
+
+4. **Hacer Menos:** 
+- Llegar con todo sobre la fecha de entrega; (no manejar bien los tiempos individuales).
+
+5. **Dejar de Hacer:**
 - No hacer saber a los compañeros del grupo, en varios días, cómo vamos con nuestras tareas.

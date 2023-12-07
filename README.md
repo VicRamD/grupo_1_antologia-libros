@@ -13,8 +13,8 @@ No solo ofrecemos acceso a una variedad de temas, sino que también proporcionam
 
 También podrás hallar ofertas especiales, promociones y un servicio al cliente excepcional; nuestro equipo está para resolver consultas, dudas y problemas de manera eficiente.
 
-- Cada libro que encuentres aquí es una puerta a un mundo nuevo, una aventura esperando a ser vivida y un conocimiento por descubrir. 
-Aquí, la literatura está al alcance de tu mano, y tu próxima historia ¡te espera con ansias! -
+• Cada libro que encuentres aquí es una puerta a un mundo nuevo, una aventura esperando a ser vivida y un conocimiento por descubrir. 
+Aquí, la literatura está al alcance de tu mano, y tu próxima historia ¡te espera con ansias!
 
 
 ## Integrantes del equipo:
@@ -65,8 +65,8 @@ Sitio web Argentino de venta de libros perteneciente a una franquicia de muchos 
 
 **TABLERO DE TRABAJO:**
 
-[Tablero Sprint 2](https://trello.com/b/xhc1LQYN/sprint-2-html-css-g1 "Tablero Sprint 2").
+- [Tablero Sprint 2](https://trello.com/b/xhc1LQYN/sprint-2-html-css-g1 "Tablero Sprint 2")
 
-[Tablero Sprint 3](https://trello.com/b/L09x6f1c/sprint-3-template-engines "Tablero Sprint 3").
+- [Tablero Sprint 3](https://trello.com/b/L09x6f1c/sprint-3-template-engines "Tablero Sprint 3")
 
-[Tablero Sprint 4](https://trello.com/b/XAdHhg0f/sprint-4-json-m%C3%A9todos-http "Tablero Sprint 4").
+- [Tablero Sprint 4](https://trello.com/b/XAdHhg0f/sprint-4-json-m%C3%A9todos-http "Tablero Sprint 4")
