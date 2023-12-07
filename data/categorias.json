@@ -17,7 +17,7 @@
     },
     {
       "id": 5,
-      "nombre": "Fantasia"
+      "nombre": "Fantasía"
     },
     {
       "id": 6,
@@ -54,6 +54,22 @@
     {
       "id": 14,
       "nombre": "Desarrollo Personal"
+    },
+    {
+      "id": 15,
+      "nombre": "Biografía"
+    },
+    {
+      "id": 16,
+      "nombre": "Deporte"
+    },
+    {
+      "id": 17,
+      "nombre": "Ocio"
+    },
+    {
+      "id": 18,
+      "nombre": "Humor"
     }
   ]
   
