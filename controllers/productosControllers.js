@@ -5,6 +5,10 @@ const libros = JSON.parse( fs.readFileSync(path.join(process.cwd(), '/data/libro
 const usuarios = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
 const categorias = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/categorias.json')), 'utf-8');
 
+function buscarElementoPorId(id, lista){
+    const elementoBuscado = lista.find((elemento) => elemento.id === id);
+    return elementoBuscado;
+}
 
 function buscarProductoPorId(id, productos){
     const productoBuscado = productos.find((producto) => producto.id === id);
@@ -71,18 +75,23 @@ const productosControllers = {
         let {id} = req.params;
 		id = Number(id);
 		const libroBuscado = buscarProductoPorId(id, libros);
-        //console.log(libroBuscado);
         const indice = buscarIndiceProducto(id, libros);
 
         const {title, abstract, author, editorial, genre, language, date, isbn, price} = req.body;
 
-        //console.log(genre);
         const wasSend = wasFileSend(req.file);
+        let image = "";
+        if(libroBuscado.image !== ""){
+            image = wasSend ? req.file.filename : libroBuscado.image;
+        }else {
+            image = wasSend ? req.file.filename : "";
+        }
+        
         //Elimina la imagen anterior para que no hay imagenes de más o duplicadas
-        //fs.unlinkSync(path.join(process.cwd(), 'public/images/products/', libroBuscado.image));
-
-		const image = wasSend ? req.file.filename : "";
-
+        if(wasSend) {
+            fs.unlinkSync(path.join(process.cwd(), 'public/images/products/', libroBuscado.image));
+        }
+        
         libroBuscado.title = title;
 		libroBuscado.abstract = abstract;
 		libroBuscado.author = author;
@@ -94,13 +103,20 @@ const productosControllers = {
         libroBuscado.price = price;
         libroBuscado.image = image;
 
-        /*console.log(typeof price);
-        console.log(JSON.stringify(genre));
-        console.log(title)
-        genre.forEach(g => {
-            console.log(JSON.parse(g));
-        }); */
+        generosEscogidos = [];
+        /* Antes de guardar las categorias en geenros escogidos pregunta si genre es un array
+        pues si solo se escoge una opción llega como un string de un número ej: '10'*/
+        //Number() transforma el string a numero que se pasa como parametro de la función
+        if(Array.isArray(genre)){
+            genre.forEach(genero => {
+                generosEscogidos.push(buscarElementoPorId(Number(genero), categorias));
+            });
+        }else {
+            generosEscogidos.push(buscarElementoPorId(Number(genre), categorias))
+        }
         
+
+        libroBuscado.genre = generosEscogidos;
 
 		libros[indice] = libroBuscado;
 		const convertidoAString = JSON.stringify(libros);

@@ -39,7 +39,7 @@
                         <label for="genre" class="for-select">Género</label>
                         <select id="genre" name="genre" multiple size="6">
                             <% for( let i = 0; i < categorias.length; i++ ) { %>
-                                <option value="<%= categorias[i] %>" <%= indicesCategorias.includes(i) ? 'selected': '' %>><%= categorias[i].nombre %></option>  
+                                <option value="<%= categorias[i].id %>" <%= indicesCategorias.includes(i) ? 'selected': '' %>><%= categorias[i].nombre %></option>  
                             <% } %>
                         </select>
                     </div>
