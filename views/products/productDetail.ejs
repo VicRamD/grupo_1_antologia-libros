@@ -14,7 +14,14 @@
     <%- include('../partials/header.ejs') %>
 
     <main class="producto-detail">
+        
         <div class="box-product product-img">
+            <div class="btn-group">
+                <a href="/products/<%= libro.id %>/edit" class="btn-edit"><i class="fa-solid fa-pencil"></i>Editar</a>
+                <form class="slim" method="POST" action="/products/<%= libro.id %>?_method=DELETE">
+                    <button class="btn-delete" disabled><i class="fa-solid fa-xmark"></i>Eliminar</button>
+                </form>
+            </div> 
             <img src="/images/books/<%= libro.image ? libro.image : 'cover-not-available.png'  %>" alt="Portada de <%= libro.title %>">
         </div>
 
@@ -45,7 +52,7 @@
 
 
             </div>
-            <div class="box-info sypnosis">
+            <div class="box-info synopsis">
                 <h2>SINOPSIS</h2>
                 <p><%= libro.abstract %></p>
             </div>

@@ -15,6 +15,7 @@
     text-align: center;
     line-height: 80px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     text-align: center;
 }
@@ -31,6 +32,50 @@
     border-radius: 5px;
     background-color: whitesmoke;
 }
+
+.btn-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+}
+
+.btn-group .btn-edit, .btn-group .slim{
+    width: 80%;
+    margin: 1%;
+}
+
+.btn-group .btn-delete{
+    width: 100%;
+}
+
+.btn-group .btn-edit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn-group .btn-edit, .btn-group .btn-delete{
+    border: solid 1px #2F2F2F;
+    font-size: 12px;
+    height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+
+.btn-group .btn-edit:hover {
+    background-color: rgb(61, 107, 109);;
+    color: whitesmoke;
+}
+
+.btn-group .btn-delete:hover {
+    background-color: #F08080;
+    color: whitesmoke;
+}
+
 .product-img img {
     width: 70%;
 }
@@ -44,16 +89,16 @@ h1{
     font-weight: bold;
 }
 
-.info-data, .sypnosis{
+.info-data, .synopsis{
     text-align: left;
     margin-left: 10px;
     padding: 40px;
     line-height: 1;
 }
-.sypnosis h2{
+.synopsis h2{
     margin-bottom: 20px;
 }
-.sypnosis p{
+.synopsis p{
     text-align: justify;
 }
 
@@ -178,15 +223,23 @@ h1{
 
 
 @media screen and (min-width: 768px) {
-    .producto-detail {
-        flex-direction: row;
-    }
-
     .product-info {
         flex-direction: row;
     }
 
     .box-info {
         flex: 1;
+    }
+
+}
+
+@media screen and (min-width: 1100px) {
+    .producto-detail {
+        flex-direction: row;
+    }
+
+    /* edicion y eliminar*/
+    .btn-group .btn-edit, .btn-group .slim{
+        width: 35%;
     }
 }
