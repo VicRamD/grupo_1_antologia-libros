@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/headParcial.ejs') %>
+    <title><% if (locals && locals.categoria) { %>
+        Categoria: <%= categoria.nombre %>
+    <% } else { %>
+        Libros por categorias
+    <% } %>
+       
+    </title>
+    <link rel="stylesheet" href="/css/productDetailStyles.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+        <h1><% if (locals && locals.categoria) { %>
+            Categoria: <%= categoria.nombre %>
+        <% } else { %>
+            Libros por categorias
+        <% } %></h1>
+        <section class="genres">
+            <% if (locals && locals.categorias) { %>
+                <% categorias.forEach(categoria => { %>
+                    <div class="box-genre">
+                        <a href="/products/genres?genre=<%= categoria.id %>"><%= categoria.nombre %></a>
+                    </div>
+                <% }) %>
+            <% } %>
+        </section>
+        <section class="recommendation">
+            <div class="box-card">
+            <% if (locals && locals.librosCategoria) { %>
+                <% librosCategoria.forEach(libro => { %>
+                    
+                        <div class="card">
+                            <div class="card-product">
+                                <div class="card-info">
+                                    <img src="/images/books/<%= libro.image ? libro.image : 'cover-not-available.png' %>" alt="Portada de <%= libro.title %> ">
+                                    <hr>
+                                    <h3><a href="">TÍTULO DEL LIBRO</a></h3>
+                                    <p><a href=""><%= libro.author %></a></p>
+                                    <p><a href="">Editorial</a></p>
+                                </div>
+                                <div class="card-buy">
+                                    <a class="button-read" href="/products/<%= libro.id %>">VER MÁS</a>
+                                    <button class="button-cart">AGREGAR AL CARRITO</button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                <% }) %>
+            <% } %>
+        </div>
+        <section>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

@@ -150,7 +150,28 @@ const productosControllers = {
         fs.writeFileSync(path.join(process.cwd(), 'data/libros.json'), convertidoAString);
 
         res.redirect('/products');
-    }
+    },
+
+    genres: (req, res) => {
+        if(req.query.genre){
+            let {genre} = req.query;
+            id = Number(genre);
+            let categoria = buscarElementoPorId(id, categorias);
+            let librosCategoria = [];
+            libros.forEach(libro => {
+                libro.genre.forEach(g => {
+                    if(g.id === categoria.id){
+                        librosCategoria.push(libro);
+                    }
+                })
+            }); 
+            
+            res.render('products/booksByGenre', {librosCategoria, categoria});
+        } else {
+            res.render('products/booksByGenre', {categorias});
+        }
+        
+    },
 };
 
 module.exports = productosControllers;

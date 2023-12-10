@@ -19,12 +19,14 @@ const storage = multer.diskStorage({
 const uploadFile = multer({storage});
 
 router.get('/cart', productosControllers.cart);
+router.get('/genres', productosControllers.genres);
 router.get('/create', productosControllers.create);
 router.get('/:id', productosControllers.detail);
 router.get('/:id/edit', productosControllers.edit);
 router.put('/:id', uploadFile.single('image'), productosControllers.update);
 router.delete('/:id', productosControllers.delete);
 router.get('/', productosControllers.list);
+
 //router.get('/list', productosControllers.list);//Para la lista
 //router.get('/detail', productosControllers.detail);
 

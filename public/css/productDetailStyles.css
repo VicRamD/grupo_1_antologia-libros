@@ -221,6 +221,62 @@ h1{
     padding: 20px;
 }
 
+.box-card {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Para ejs de categorias*/
+section.genres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
+}
+
+.box-genre {
+    width: 100%;
+    border: solid 1px #2F2F2F;
+    margin: 1%;
+    background-color: whitesmoke;
+    
+}
+
+.box-genre a{
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    color: #2F2F2F;
+}
+
+.box-genre:hover {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.224);
+    background-color:cadetblue;
+}
+
+.box-genre:hover a{
+    color: whitesmoke;
+}
+
+@media (min-width: 481px) {
+    .card{
+        width: 50%;
+    }
+
+    /* Para ejs de categorias*/
+    .box-genre {
+        width: 48%;
+    }
+}
 
 @media screen and (min-width: 768px) {
     .product-info {
@@ -231,6 +287,14 @@ h1{
         flex: 1;
     }
 
+    .card{
+        width: 33%;
+    }
+
+    /* Para ejs de categorias*/
+    .box-genre {
+        width: 31%;
+    }
 }
 
 @media screen and (min-width: 1100px) {
@@ -241,5 +305,29 @@ h1{
     /* edicion y eliminar*/
     .btn-group .btn-edit, .btn-group .slim{
         width: 35%;
+    }
+
+    .card-buy a.button-read{
+        background-color: #2F2F2F;
+        border: none;
+        display: block;
+        padding: 10px;
+        color: whitesmoke;
+        text-decoration: none;
+    }
+
+    .card-buy .button-read:hover{
+        background-color: cadetblue;
+        color: whitesmoke;
+    }
+
+    
+    .card{
+        width: 25%;
+    }
+
+    /* Para ejs de categorias*/
+    .box-genre {
+        width: 23%;
     }
 }

@@ -119,6 +119,7 @@ div.iconos div.icono a {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }
 
 .iconos .icono:hover{
@@ -486,6 +487,7 @@ footer .pie{
     }
 
     header nav ul li a {
+        width: 100%;
         text-decoration: none;
         text-align: center;
         color: black;
