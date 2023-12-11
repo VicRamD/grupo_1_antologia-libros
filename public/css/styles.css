@@ -4,18 +4,6 @@
     box-sizing: border-box;
 }
 
-.tabla-listado {
-    border: #F08080 1px;
-    background-color: #ebebeb;
-    width: 100%;
-    border-spacing: 0;
-}
-.tabla-listado th,td {
-    border: #F08080 1px solid;
-    padding: 5px;
-}
-
-
 body {
     width: 100%;
 }
@@ -259,6 +247,58 @@ main section div.libros article{
 .price,
 .discount{
     width: 50%;
+}
+
+/*error*/
+
+.b-error {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    background-color: #5f9ea0b1;
+    /*background-image: url('/images/im-background-login.png');
+    background-size:contain ;
+    background-position: center;*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.img-error img{
+    width: 150px;
+    height: auto;
+}
+.img-logo img {
+    width: 90px;
+    height: auto;
+    margin-top: 30px;
+}
+
+/*Listado Productos*/
+
+.tabla-listado {
+    border: cadetblue 1px solid;
+    /*border: #F08080 1px;*/
+    background-color: #ebebeb;
+    width: 100%;
+    font-size: 7.5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.tabla-listado th,td {
+    border: cadetblue 1px solid;
+    /*border: #F08080 1px solid;*/
+    padding: 4px;
+}
+
+.tabla-listado th{
+    background-color: #2f2f2f2d;
 }
 
 @media (min-width: 481px){
@@ -572,6 +612,27 @@ footer .pie{
     
     section.apellido-nombre input[id='name'], section.apellido-nombre input[id='apellido'] {
         order: 2;
+    }
+
+    /*error*/
+
+    .b-error div h2{
+        font-size: 30px;
+    }
+    .img-error img{
+        width: 220px;
+        height: auto;
+    }
+    .img-logo img {
+        width: 150px;
+        height: auto;
+    }
+
+    /*Listado Productos*/
+
+    .tabla-listado {
+        font-size: 16px;
+        margin-bottom: 20px;
     }
 
 }

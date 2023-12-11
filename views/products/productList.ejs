@@ -10,48 +10,46 @@
     <link rel="stylesheet" href="/css/cartStyles.css">
     <link rel="stylesheet" href="/css/footerStyles.css">
 </head>
+
 <body>
     <%- include('../partials/header.ejs') %>
 
     <main>
         <h1>Listado de Libros:</h1>
         <section class="formulario-CU">
-            <form method="POST">
-                <div class="form-body">
-                    <div class="form-group-ancho">
-                        <table class="tabla-listado">
-                            <tr>
-                                <th>ID</th>
-                                <th>Título</th>
-                                <th>Autor</th>
-                                <th>Editorial</th>
-                                <th>Género</th>
-                                <th>Precio</th>
-                                <th>Eliminar</th>
-                            </tr>
-                            <% libros.forEach(element => { %>
-                            <tr>
-                                <td><%=element.id%></td>
-                                <td><a href = "/products/<%= element.id %>"><%=element.title%></a></td>
-                                <td><%=element.author%></td>
-                                <td><%=element.editorial%></td>
-                                <td><% element.genre.forEach(g => { %>
-                                    <a href="http://"><%= g.nombre %><br></a><% }); %>
-                                </td>
-                                <td>$ <%=element.price%></td>
-                                <td>
-                                    <form class="delete" method="POST" action="/products/<%= element.id %>?_method=DELETE">
-                                        <button class="btn-delete" type="submit">✖</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            <% }) %>
-                            <tr></tr>
-                        </table>
-                    </div>
-                    
+            <table class="tabla-listado">
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Editorial</th>
+                    <th>Género</th>
+                    <th>Precio</th>
+                    <th>Eliminar</th>
+                </tr>
                 
-            </form>
+                <% books.forEach(item => { %>
+                            
+                <tr>
+                    <td><%=item.id%></td>
+                    <td><a href = "/products/<%= item.id %>"><%=item.title%></a></td>
+                    <td><%=item.author%></td>
+                    <td><%=item.editorial%></td>
+                    <td><% item.genre.forEach(g => { %>
+                        <a href="/products/genres?genre=<%= g.id %>"><%= g.name %><br></a><% }); %>
+                    </td>
+                                
+                    <td>$ <%=item.price%></td>
+                
+                    <td>
+                        <form class="delete" method="POST" action="/products/<%= item.id %>?_method=DELETE">
+                            <button class="btn-delete" type="submit">✖</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+                <tr></tr>
+            </table>
         </section>
     </main>
 
