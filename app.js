@@ -2,8 +2,8 @@ const express = require('express');
 const methodOverride =  require('method-override');
 const { get } = require('http');
 const path = require('path');
-const rutasMain = require('./routes/main.js')
-const rutasProduct = require ('./routes/productos.js')
+const mainRoutes = require('./routes/main.js')
+const productRoutes = require ('./routes/products.js')
 
 const server = express();
 
@@ -22,11 +22,11 @@ server.listen(3030, () => {
     console.log("Servidor corriendo en http://localhost:3030/");
 });
 
-server.use('/', rutasMain)
-server.use('/products', rutasProduct)
+server.use('/', mainRoutes)
+server.use('/products', productRoutes)
 
 server.get('*', (req,res) => {
-    res.send("-- ERROR, la ruta no es correcta --");
+    res.render('error-404');
 });
 
 // server.get('/', (req, res) => {

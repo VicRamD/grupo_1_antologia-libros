@@ -13,31 +13,31 @@
 <body>
     <%- include('../partials/header.ejs') %>
 
-     <% if (locals && locals.libro) { %>
-        <main class="producto-detail">
+     <% if (locals && locals.book) { %>
+        <main class="product-detail">
         
             <div class="box-product product-img">
                 <div class="btn-group">
-                     <a href="/products/<%= libro.id %>/edit" class="btn-edit"><i class="fa-solid fa-pencil"></i>Editar</a>
-                     <form class="slim" method="POST" action="/products/<%= libro.id %>?_method=DELETE">
+                     <a href="/products/<%= book.id %>/edit" class="btn-edit"><i class="fa-solid fa-pencil"></i>Editar</a>
+                     <form class="slim" method="POST" action="/products/<%= book.id %>?_method=DELETE">
                         <button class="btn-delete" disabled><i class="fa-solid fa-xmark"></i>Eliminar</button>
                     </form>
                 </div> 
-                <img src="/images/books/<%= libro.image ? libro.image : 'cover-not-available.png'  %>" alt="Portada de <%= libro.title %>">
+                <img src="/images/books/<%= book.image ? book.image : 'cover-not-available.png'  %>" alt="Portada de <%= book.title %>">
             </div>
     
             <div class="box-product product-info">
                 <div class="box-info product-buy">
-                    <h1><%= libro.title %></h1>
+                    <h1><%= book.title %></h1>
                     <hr>
                     <div class="info-data">
-                        <p><span>Autor: </span><a href=""><%= libro.author %></a></p>
-                        <p><span>Editorial: </span><a href=""><%= libro.editorial %></a></p>
-                        <p><span>ISBN: </span> <%= libro.isbn %> </p>
+                        <p><span>Autor: </span><a href=""><%= book.author %></a></p>
+                        <p><span>Editorial: </span><a href=""><%= book.editorial %></a></p>
+                        <p><span>ISBN: </span> <%= book.isbn %> </p>
                         <div class="data-category">
                             <p><span>Categoría:</span></p>
-                            <ul><% libro.genre.forEach(g => { %>
-                                <li><a href=""><%= g.nombre %></a></li>
+                            <ul><% book.genre.forEach(g => { %>
+                                <li><a href="/products/genres?genre=<%= g.id %>"><%= g.name %></a></li>
                                 <% }); %>
                             </ul>
                         </div>
@@ -46,7 +46,7 @@
                     <hr>
                     <h2></h2>
                     <div class="info-button">
-                        <h2><%= libro.price %> ARS</h2>
+                        <h2><%= book.price %> ARS</h2>
                         <button class="button-buy">COMPRA AHORA</button>
                         <button class="button-cart">AGREGAR AL CARRITO</button>
                     </div>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="box-info synopsis">
                     <h2>SINOPSIS</h2>
-                    <p><%= libro.abstract %></p>
+                    <p><%= book.abstract %></p>
                 </div>
             </div>
         </main>
@@ -70,9 +70,10 @@
                         <img src="/images/ejemploLibro.png" alt="">
                         <hr>
                         <h3><a href="">TÍTULO DEL LIBRO</a></h3>
-                        <p><a href=""><%= libro.author %></a></p>
+                        <p><a href=""><%= book.author %></a></p>
                         <p><a href="">Editorial</a></p>
                         </div>
+                        <hr>
                         <div class="card-buy">
                             <h3>$$$</h3>
                             <button class="button-buy">COMPRA AHORA</button>
@@ -85,7 +86,7 @@
                         <img src="/images/ejemploLibro.png" alt="">
                         <hr>
                         <h3><a href="">TÍTULO DEL LIBRO</a></h3>
-                        <p><a href=""><%= libro.author %></a></p>
+                        <p><a href=""><%= book.author %></a></p>
                         <p><a href="">Editorial</a></p>
                         </div>
                         <hr>
@@ -101,7 +102,7 @@
                         <img src="/images/ejemploLibro.png" alt="">
                         <hr>
                         <h3><a href="">TITULO DEL LIBRO</a></h3>
-                        <p><a href=""><%= libro.author %></a></p>
+                        <p><a href=""><%= book.author %></a></p>
                         <p><a href="">Editorial</a></p>
                         </div>
                         <hr>
@@ -117,7 +118,7 @@
                         <img src="/images/ejemploLibro.png" alt="">
                         <hr>
                         <h3><a href="">TÍTULO DEL LIBRO</a></h3>
-                        <p><a href=""><%= libro.author %></a></p>
+                        <p><a href=""><%= book.author %></a></p>
                         <p><a href="">Editorial</a></p>
                         </div>
                         <hr>

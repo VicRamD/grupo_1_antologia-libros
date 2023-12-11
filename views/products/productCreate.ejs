@@ -38,8 +38,8 @@
                     <div class="form-group">
                         <label for="genre" class="for-select">Género</label>
                         <select id="genre" name="genre" multiple>
-                            <% for( let i = 0; i < categorias.length; i++ ) { %>
-                                <option value="<%= categorias[i].id %>"><%= categorias[i].nombre %></option>   
+                            <% for( let i = 0; i < categories.length; i++ ) { %>
+                                <option value="<%= categories[i].id %>"><%= categories[i].name %></option>   
                             <% } %>
                         </select>
                     </div>
@@ -63,7 +63,7 @@
                 </div>
                 <br>
                 <div class="info-button">
-                    <button type="button">Cancelar</button>
+                    <button type="reset">Cancelar</button>
                     <button type="submit" class="submit">Guardar</button>
                 </div>
                 

@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
     <%- include('../partials/headParcial.ejs') %>
-    <title><% if (locals && locals.categoria) { %>
-        Categoria: <%= categoria.nombre %>
+    <title><% if (locals && locals.category) { %>
+        Categoría: <%= category.name %>
     <% } else { %>
-        Libros por categorias
+        Libros por categorías
     <% } %>
        
     </title>
@@ -14,36 +14,36 @@
 <body>
     <%- include('../partials/header.ejs') %>
     <main>
-        <h1><% if (locals && locals.categoria) { %>
-            Categoria: <%= categoria.nombre %>
+        <h1><% if (locals && locals.category) { %>
+            Categoría: <%= category.name %>
         <% } else { %>
-            Libros por categorias
+            Libros por categorías
         <% } %></h1>
         <section class="genres">
-            <% if (locals && locals.categorias) { %>
-                <% categorias.forEach(categoria => { %>
+            <% if (locals && locals.categories) { %>
+                <% categories.forEach(category => { %>
                     <div class="box-genre">
-                        <a href="/products/genres?genre=<%= categoria.id %>"><%= categoria.nombre %></a>
+                        <a href="/products/genres?genre=<%= category.id %>"><%= category.name %></a>
                     </div>
                 <% }) %>
             <% } %>
         </section>
         <section class="recommendation">
             <div class="box-card">
-            <% if (locals && locals.librosCategoria) { %>
-                <% librosCategoria.forEach(libro => { %>
+            <% if (locals && locals.booksCategory) { %>
+                <% booksCategory.forEach(book => { %>
                     
                         <div class="book-card">
                             <div class="card-product">
                                 <div class="card-info">
-                                    <img src="/images/books/<%= libro.image ? libro.image : 'cover-not-available.png' %>" alt="Portada de <%= libro.title %> ">
+                                    <img src="/images/books/<%= book.image ? book.image : 'cover-not-available.png' %>" alt="Portada de <%= book.title %> ">
                                     <hr>
-                                    <h3><a href="/products/<%= libro.id %>"><%= libro.title %></a></h3>
-                                    <p><a href=""><%= libro.author %></a></p>
-                                    <p><a href=""><%= libro.editorial %></a></p>
+                                    <h3><a href="/products/<%= book.id %>"><%= book.title %></a></h3>
+                                    <p><a href=""><%= book.author %></a></p>
+                                    <p><a href=""><%= book.editorial %></a></p>
                                 </div>
                                 <div class="card-buy">
-                                    <a class="button-read" href="/products/<%= libro.id %>">VER MÁS</a>
+                                    <a class="button-read" href="/products/<%= book.id %>">VER MÁS</a>
                                     <button class="button-cart">AGREGAR AL CARRITO</button>
                                 </div>
                             </div>
