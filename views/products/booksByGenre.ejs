@@ -2,14 +2,12 @@
 <html lang="es">
 <head>
     <%- include('../partials/headParcial.ejs') %>
-    <title><% if (locals && locals.category) { %>
-        Categoría: <%= category.name %>
-    <% } else { %>
-        Libros por categorías
-    <% } %>
-       
-    </title>
-    <link rel="stylesheet" href="/css/productDetailStyles.css">
+<title><% if (locals && locals.category) { %>
+    Categoría: <%= category.name %>
+<% } else { %>
+    Libros por categorías
+<% } %></title>
+<link rel="stylesheet" href="/css/productDetailStyles.css">
 </head>
 <body>
     <%- include('../partials/header.ejs') %>
@@ -19,6 +17,14 @@
         <% } else { %>
             Libros por categorías
         <% } %></h1>
+    
+        <% if (locals && locals.noBooksMessage) { %>
+            <p><%- locals.noBooksMessage %></p>
+            <% if (locals.imageSrc) { %>
+                <img src="<%- locals.imageSrc %>" alt="categoría sin libros" />
+            <% } %>
+        <% } else { %>
+    
         <section class="genres">
             <% if (locals && locals.categories) { %>
                 <% categories.forEach(category => { %>
@@ -28,10 +34,11 @@
                 <% }) %>
             <% } %>
         </section>
+
         <section class="recommendation">
             <div class="box-card">
-            <% if (locals && locals.booksCategory) { %>
-                <% booksCategory.forEach(book => { %>
+                <% if (locals && locals.booksCategory) { %>
+                    <% locals.booksCategory.forEach(book => { %>
                     
                         <div class="book-card">
                             <div class="card-product">
@@ -49,11 +56,12 @@
                             </div>
                         </div>
                     
-                <% }) %>
+                        <% }) %>
+                        <% } %>
+                    </div>
+                </section>
             <% } %>
-        </div>
-        <section>
-    </main>
+        </main>
     <%- include('../partials/footer.ejs') %>
 </body>
 </html>

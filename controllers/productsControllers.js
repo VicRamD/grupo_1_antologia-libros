@@ -152,25 +152,36 @@ const productsControllers = {
     },
 
     genres: (req, res) => {
-        if(req.query.genre){
-            let {genre} = req.query;
+        if (req.query.genre) {
+            let { genre } = req.query;
             id = Number(genre);
             let category = searchItemById(id, categories);
             let booksCategory = [];
-            books.forEach(book => {
-                book.genre.forEach(g => {
-                    if(g.id === category.id){
+            books.forEach((book) => {
+                book.genre.forEach((g) => {
+                    if (g.id === category.id) {
                         booksCategory.push(book);
                     }
-                })
-            }); 
-            
-            res.render('products/booksByGenre', {booksCategory, category});
+                });
+            });
+    
+            // Verifica si no hay libros en la categoría
+            if (booksCategory.length === 0) {
+                return res.render('products/booksByGenre', {
+                    noBooksMessage: 'No existen libros para esta categoría.<br>',
+                    imageSrc: '/images/noEncontrado.png',
+                    categories,
+                });
+            }
+    
+            // Renderiza la vista con libros si existen
+            return res.render('products/booksByGenre', { booksCategory, category });
         } else {
-            res.render('products/booksByGenre', {categories});
+            // Renderiza la vista con todas las categorías si no hay consulta de género
+            return res.render('products/booksByGenre', { categories });
         }
-        
     },
+    
 };
 
 module.exports = productsControllers;
