@@ -144,6 +144,7 @@ form button[type="submit"] {
     background-color: #2F2F2F;
     border: none;
     color: whitesmoke;
+    cursor: pointer;
 }
 
 form button[type="submit"].search-btn {

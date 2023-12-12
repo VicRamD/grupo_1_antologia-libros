@@ -42,7 +42,7 @@
                     <td>$ <%=item.price%></td>
                 
                     <td>
-                        <form class="delete" method="POST" action="/products/<%= item.id %>?_method=DELETE">
+                        <form class="delete" method="POST" action="/products/<%= item.id %>?_method=DELETE" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este libro?')">
                             <button class="btn-delete" type="submit">✖</button>
                         </form>
                     </td>
