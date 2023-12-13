@@ -71,6 +71,17 @@ const productsControllers = {
 
         res.render('products/productEdit', {book: editBook, categories: categories, categoryIndexes: categoryIndexes});
     },
+    add: (req,res) => {
+        console.log(req.body);
+        const {title, abstract, author, editorial, genre, language, date, isbn, price} = req.body;
+        
+        
+
+        const maxId = books.reduce((max, objeto) => (objeto.id > max ? objeto.id : max), 0);
+        console.log(maxId);
+
+        res.render('products/productAdded');
+    },
     update: (req, res) => {
         let {id} = req.params;
 		id = Number(id);
