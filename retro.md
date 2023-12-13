@@ -51,7 +51,7 @@ En referencia al inciso 1, mantener poca o nula comunicación por varios días.
 - Apoyo entre compañeros en correcciones y mejoras en código de tareas asignadas.
 
 4. **Hacer Menos:** 
-- Llegar con todo sobre la fecha de entrega; (no manejar bien los tiempos individuales).
+- Llegar con algunos objetivos sobre la fecha de entrega; (no manejar bien los tiempos individuales).
 
 5. **Dejar de Hacer:**
 - No hacer saber a los compañeros del grupo, en varios días, cómo vamos con nuestras tareas.
