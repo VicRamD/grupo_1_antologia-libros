@@ -1,5 +1,7 @@
+const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
+const { CLIENT_RENEG_WINDOW } = require('tls');
 
 const books = JSON.parse( fs.readFileSync(path.join(process.cwd(), '/data/books.json')),'utf-8');
 const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
@@ -75,13 +77,50 @@ const productsControllers = {
         console.log(req.body);
         const {title, abstract, author, editorial, genre, language, date, isbn, price} = req.body;
         
+        let maxId = books.reduce((max, objeto) => (objeto.id > max ? objeto.id : max), 0);
+        maxId++;
+
+
+        /*Generos*/
+        chosenGenres = [];
+        if(Array.isArray(genre)){
+            genre.forEach(bookGenre => {
+                chosenGenres.push(searchItemById(Number(bookGenre), categories));
+            });
+        }else {
+            chosenGenres.push(searchItemById(Number(genre), categories))
+        }
         
+        let genren = chosenGenres;
 
-        const maxId = books.reduce((max, objeto) => (objeto.id > max ? objeto.id : max), 0);
-        console.log(maxId);
+        console.log(genren)
 
+        let newBook = {
+            id: maxId,
+            title: title,
+            abstract: abstract,
+            author: author,
+            editorial: editorial,
+            image: req.file.filename,
+            genre: genren,
+            language: language,
+            date: date,
+            isbn: isbn,
+            price: price,
+        }
+         
+        //console.log("nuevo "+ JSON.stringify(newBook, null, 2));
+        books.push(newBook);
+        const nuevoJsonString = JSON.stringify(books, null, 2);
+
+        //fs.writeFileSync('nuevoLibro.json', nuevoJsonString);
+        fs.writeFileSync(path.join(__dirname, '../data/books.json'), nuevoJsonString);
+
+        //console.log(req.file);
         res.render('products/productAdded');
     },
+
+
     update: (req, res) => {
         let {id} = req.params;
 		id = Number(id);
@@ -108,6 +147,8 @@ const productsControllers = {
             });
         }
         
+        console.log(genre);
+
         searchedBook.title = title;
 		searchedBook.abstract = abstract;
 		searchedBook.author = author;
@@ -120,7 +161,7 @@ const productsControllers = {
         searchedBook.image = image;
 
         chosenGenres = [];
-        /* Antes de guardar las categorias en geenros escogidos pregunta si genre es un array
+        /* Antes de guardar las categorias en generos escogidos pregunta si genre es un array
         pues si solo se escoge una opción llega como un string de un número ej: '10'*/
         //Number() transforma el string a numero que se pasa como parametro de la función
         if(Array.isArray(genre)){
