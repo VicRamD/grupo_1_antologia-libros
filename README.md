@@ -70,3 +70,5 @@ Sitio web Argentino de venta de libros perteneciente a una franquicia de muchos 
 - [Tablero Sprint 3](https://trello.com/b/L09x6f1c/sprint-3-template-engines "Tablero Sprint 3")
 
 - [Tablero Sprint 4](https://trello.com/b/XAdHhg0f/sprint-4-json-m%C3%A9todos-http "Tablero Sprint 4")
+
+- [Tablero Sprint 5](https://trello.com/b/e1svJLN3/sprint-5-middlewares-autenticaci%C3%B3n "Tablero Sprint 4")
