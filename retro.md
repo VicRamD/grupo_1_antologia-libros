@@ -55,3 +55,20 @@ En referencia al inciso 1, mantener poca o nula comunicación por varios días.
 
 5. **Dejar de Hacer:**
 - No hacer saber a los compañeros del grupo, en varios días, cómo vamos con nuestras tareas.
+
+
+### Starfish retrospective: Sprint 4 ###
+
+1. **Qué hicimos bien**
+- Llegamos con los objetivos.
+- Fuimos un poco más allá de los objetivos (corregimos errores visuales, agregamos una vista adicional).
+- Mantuvimos la comunicación en cada cambio realizado
+
+2. **Qué podemos mejorar**
+- Tener listos los objetivos antes de la fecha límite.
+- Perfeccionar en otros aspectos el sitio.
+
+
+3. **El Plan de Acción**
+- Ponerse al día con los contenidos.
+- Analizar la situación de cada integrante.
