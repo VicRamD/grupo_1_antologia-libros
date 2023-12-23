@@ -371,6 +371,10 @@ form.contenedor-padre input{
     margin-bottom: 20px;
 }
 
+form.contenedor-padre input[type="file"]{
+    border:white;
+}
+
 .contenedor-padre label{
     font-weight: bold;
 }
