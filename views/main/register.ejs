@@ -23,18 +23,18 @@
             <i class="fas fa-user-plus"></i> <p>REGISTRO</p>
         </div>
 
-        <form action="" class="contenedor-padre">
+        <form action="/register" method="POST" class="contenedor-padre" enctype="multipart/form-data">
             <section class="apellido-nombre">
-                <label for="name">Nombre:</label>
-                <label for="apellido">Apellido:</label>
-                <input type="text" required name="name" id="name" autocomplete="name">
-                <input type="text" required name="apellido" id="apellido">
+                <label for="firstname">Nombre:</label>
+                <label for="lastname">Apellido:</label>
+                <input type="text" required name="firstname" id="firstname" autocomplete="name">
+                <input type="text" required name="lastname" id="lastname">
             </section>
     
-            <div>
-                <label for="usuario">Usuario:</label>
+            <!-- <div>
+                <label for="username">Usuario:</label>
             </div>
-            <input type="text" name="usuario" id="usuario" required placeholder="Introduzca un nombre de usuario">
+            <input type="text" name="username" id="username" required placeholder="Introduzca un nombre de usuario"> -->
             
             <div>
                 <label for="email">E-mail: </label>
@@ -42,15 +42,15 @@
             <input type="email" name="email" placeholder="Ingrese su e-mail" autocomplete="email" required id="email">
             
             <div>
-                <label for="contraseña">Contraseña:</label>
+                <label for="password">Contraseña:</label>
             </div>
-            <input type="password" required name="contraseña" id="contraseña"  placeholder="Ingrese una contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}"
+            <input type="password" required name="password" id="password"  placeholder="Ingrese una contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}"
             title="La contraseña debe tener al menos 8 caracteres, incluir una mayúscula, una minúscula, un número y un carácter especial.">
             
             <div>
-                <label for="confirmar">Contraseña nuevamente:</label>
+                <label for="pwconfirm">Contraseña nuevamente:</label>
             </div>
-            <input type="password" required name="confirmar" id="confirmar" placeholder="Repita la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}">
+            <input type="password" required name="pwconfirm" id="pwconfirm" placeholder="Repita la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}">
 
             <div>
                 <label for="avatar">Imagén de perfil:</label>

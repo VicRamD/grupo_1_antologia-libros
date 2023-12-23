@@ -21,5 +21,6 @@ router.get('/', mainController.index);
 router.get('/login', mainController.login);
 
 router.get('/register', mainController.register);
+router.post('/register', uploadFile.single('avatar'), mainController.saveRegister);
 
 module.exports = router;

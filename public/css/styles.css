@@ -436,11 +436,11 @@ section.apellido-nombre input, section.apellido-nombre label {
     width: 100%;
 }
 
-section.apellido-nombre label[for='name'], section.apellido-nombre input[id='name'] {
+section.apellido-nombre label[for='firstname'], section.apellido-nombre input[id='firstname'] {
     order: 1;
 }
 
-section.apellido-nombre label[for='apellido'], section.apellido-nombre input[id='apellido'] {
+section.apellido-nombre label[for='lastname'], section.apellido-nombre input[id='lastname'] {
     order: 2;
 }
 
@@ -610,11 +610,11 @@ footer .pie{
         width: 40%;
     }
 
-    section.apellido-nombre label[for='name'], section.apellido-nombre label[for='apellido'] {
+    section.apellido-nombre label[for='firstname'], section.apellido-nombre label[for='lastname'] {
         order: 1;
     }
     
-    section.apellido-nombre input[id='name'], section.apellido-nombre input[id='apellido'] {
+    section.apellido-nombre input[id='firstname'], section.apellido-nombre input[id='lastname'] {
         order: 2;
     }
 
