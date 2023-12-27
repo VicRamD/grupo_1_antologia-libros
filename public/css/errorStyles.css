@@ -1,0 +1,19 @@
+form div.errorMessage {
+    color: red;
+    margin-bottom: 5px;
+}
+
+section.apellido-nombre div.firstnameError{
+    order: 1;
+}
+
+section.apellido-nombre div.lastnameError {
+    order: 2;
+}
+
+@media (min-width: 769px) {
+    section.apellido-nombre div.lastnameError,  section.apellido-nombre div.firstnameError{
+        order: 3;
+    }
+
+}

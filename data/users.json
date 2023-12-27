@@ -52,5 +52,23 @@
     "password": "$2b$10$hIcOe0yKiB9T/Wj8lWDd1eOrg6yHzXMp6/VGk8O1tlC1iQE/wq4Z6",
     "category": "Cliente",
     "image": "1703370673030_user_pfile_img.jpg"
+  },
+  {
+    "id": 7,
+    "firstname": "Alejandro",
+    "lastname": "Petrel",
+    "email": "alPet@correo.ar",
+    "password": "$2b$10$J.Z.PV7S9CGSiliz/OLQk.kQabPyKO7gKKPF4ExxisQOcK0BEhlbG",
+    "category": "Cliente",
+    "image": ""
+  },
+  {
+    "id": 8,
+    "firstname": "Estela",
+    "lastname": "Maris",
+    "email": "estemaris@correo.ar",
+    "password": "$2b$10$FZue/v4ejwfWc3oKjxZ5e.OyDHlKHsgxLvcnz9duhcTbg4wSeGa4y",
+    "category": "Cliente",
+    "image": ""
   }
 ]

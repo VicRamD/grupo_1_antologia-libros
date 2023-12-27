@@ -368,7 +368,7 @@ form.contenedor-padre input{
     width: 80vw;
     font-size: 3vw; 
     border: solid black 2px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 form.contenedor-padre input[type="file"]{

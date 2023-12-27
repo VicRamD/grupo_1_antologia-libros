@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- <link rel="stylesheet" href="css/cartstyles.css">-->
     <link rel="stylesheet" href="/css/footerStyles.css">
+    <link rel="stylesheet" href="/css/errorStyles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.cdnfonts.com/css/verdana-pro-cond" rel="stylesheet">
                      
@@ -27,8 +28,17 @@
             <section class="apellido-nombre">
                 <label for="firstname">Nombre:</label>
                 <label for="lastname">Apellido:</label>
-                <input type="text" required name="firstname" id="firstname" autocomplete="name">
-                <input type="text" required name="lastname" id="lastname">
+                <input type="text" name="firstname" id="firstname" autocomplete="name"
+                 value="<%= locals.old && old.firstname ? old.firstname : '' %>" required>
+                <% if (locals && locals.errors && locals.errors.firstname) { %>
+                    <div class="errorMessage firstnameError"><%= errors.firstname.msg %></div>     
+                <% } %>
+
+                <input type="text" name="lastname" id="lastname"
+                value="<%= locals.old && old.lastname ? old.lastname : '' %>" required>
+                <% if (locals && locals.errors && locals.errors.lastname) { %>
+                    <div class="errorMessage lastnameError"><%= errors.lastname.msg %></div>     
+                <% } %>
             </section>
     
             <!-- <div>
@@ -39,18 +49,30 @@
             <div>
                 <label for="email">E-mail: </label>
             </div>
-            <input type="email" name="email" placeholder="Ingrese su e-mail" autocomplete="email" required id="email">
+            <input type="email" name="email" placeholder="Ingrese su e-mail" autocomplete="email" id="email" 
+            value="<%= locals.old && old.email ? old.email : '' %>" required>
+            <% if (locals && locals.errors && locals.errors.email) { %>
+                <div class="errorMessage"><%= errors.email.msg %></div>     
+            <% } %>
             
             <div>
                 <label for="password">Contraseña:</label>
             </div>
             <input type="password" required name="password" id="password"  placeholder="Ingrese una contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}"
-            title="La contraseña debe tener al menos 8 caracteres, incluir una mayúscula, una minúscula, un número y un carácter especial.">
+            title="La contraseña debe tener al menos 8 caracteres, incluir una mayúscula, una minúscula, un número y un carácter especial."
+            value="<%= locals.old && old.password ? old.password : '' %>">
+            <% if (locals && locals.errors && locals.errors.password) { %>
+                <div class="errorMessage"><%= errors.password.msg %></div>     
+            <% } %>
             
             <div>
                 <label for="pwconfirm">Contraseña nuevamente:</label>
             </div>
-            <input type="password" required name="pwconfirm" id="pwconfirm" placeholder="Repita la contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}">
+            <input type="password" required name="pwconfirm" id="pwconfirm" placeholder="Repita la contraseña" 
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" value="<%= locals.old && old.pwconfirm ? old.pwconfirm : '' %>">
+            <% if (locals && locals.errors && locals.errors.pwconfirm) { %>
+                <div class="errorMessage"><%= errors.pwconfirm.msg %></div>     
+            <% } %>
 
             <div>
                 <label for="avatar">Imagén de perfil:</label>
