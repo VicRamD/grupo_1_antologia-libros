@@ -97,9 +97,28 @@ div.botones-cantidad .btn-cant {
     height: 45px;
 }
 
+div.botones-cantidad input[value="-"] {
+    border-right: 0px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+div.botones-cantidad input[value="+"] {
+    border-left: 0px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
 div.botones-cantidad .inp-cantidad {
     width: 40%;
     height: 45px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 0px;
+    border-right: 0px;
+    text-align: center;
 }
 
 #label-cant {
