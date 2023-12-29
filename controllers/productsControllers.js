@@ -12,6 +12,12 @@ function searchItemById(id, list){
     return searchedItem;
 }
 
+//en caso de que el nombre/name no pueda repetirse
+function searchItemById(name, list){
+    const searchedItem = list.find((item) => item.name === name);
+    return searchedItem;
+}
+
 function searchProductById(id, products){
     const searchedProduct = products.find((product) => product.id === id);
     return searchedProduct;
@@ -175,7 +181,7 @@ const productsControllers = {
         searchedBook.genre = chosenGenres;
 
 		books[index] = searchedBook;
-		const convertedToString = JSON.stringify(books);
+		const convertedToString = JSON.stringify(books, null, 2);
 
 		fs.writeFileSync(path.join(__dirname, '../data/books.json'), convertedToString);
 
@@ -197,6 +203,7 @@ const productsControllers = {
         books.splice(i, 1);
 
         // Guarda la actualización en books.json
+        //const convertedToString = JSON.stringify(books, null, 2);
         const convertedToString = JSON.stringify(books);
         fs.writeFileSync(path.join(process.cwd(), 'data/books.json'), convertedToString);
 
@@ -206,8 +213,9 @@ const productsControllers = {
     genres: (req, res) => {
         if (req.query.genre) {
             let { genre } = req.query;
-            id = Number(genre);
-            let category = searchItemById(id, categories);
+            
+            //id = Number(genre);
+            let category = searchItemById(genre, categories);
             let booksCategory = [];
             books.forEach((book) => {
                 book.genre.forEach((g) => {

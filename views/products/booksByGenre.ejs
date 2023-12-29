@@ -29,7 +29,7 @@
             <% if (locals && locals.categories) { %>
                 <% categories.forEach(category => { %>
                     <div class="box-genre">
-                        <a href="/products/genres?genre=<%= category.id %>"><%= category.name %></a>
+                        <a href="/products/genres?genre=<%= category.name %>"><%= category.name %></a>
                     </div>
                 <% }) %>
             <% } %>
