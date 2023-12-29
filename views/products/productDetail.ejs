@@ -37,7 +37,7 @@
                         <div class="data-category">
                             <p><span>Categoría:</span></p>
                             <ul><% book.genre.forEach(g => { %>
-                                <li><a href="/products/genres?genre=<%= g.id %>"><%= g.name %></a></li>
+                                <li><a href="/products/genres?genre=<%= g.name %>"><%= g.name %></a></li>
                                 <% }); %>
                             </ul>
                         </div>

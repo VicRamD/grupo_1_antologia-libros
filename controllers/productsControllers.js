@@ -13,7 +13,7 @@ function searchItemById(id, list){
 }
 
 //en caso de que el nombre/name no pueda repetirse
-function searchItemById(name, list){
+function searchItemByName(name, list){
     const searchedItem = list.find((item) => item.name === name);
     return searchedItem;
 }
@@ -86,7 +86,6 @@ const productsControllers = {
         let maxId = books.reduce((max, objeto) => (objeto.id > max ? objeto.id : max), 0);
         maxId++;
 
-
         /*Generos*/
         chosenGenres = [];
         if(Array.isArray(genre)){
@@ -101,13 +100,17 @@ const productsControllers = {
 
         console.log(genren)
 
+        //Si se envió archivo de imagen guarda el nombre
+        const wasSend = wasFileSend(req.file);
+        let image = wasSend ? req.file.filename : "";
+
         let newBook = {
             id: maxId,
             title: title,
             abstract: abstract,
             author: author,
             editorial: editorial,
-            image: req.file.filename,
+            image: image,
             genre: genren,
             language: language,
             date: date,
@@ -215,7 +218,7 @@ const productsControllers = {
             let { genre } = req.query;
             
             //id = Number(genre);
-            let category = searchItemById(genre, categories);
+            let category = searchItemByName(genre, categories);
             let booksCategory = [];
             books.forEach((book) => {
                 book.genre.forEach((g) => {
