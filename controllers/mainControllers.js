@@ -24,25 +24,28 @@ let mainController = {
     user_home: function (req, res) {
         let usuario = req.body;
         const { email, password } = req.body;
-        console.log(usuario);
 
         let login_user = users.find(user => user.email === email);
         if (login_user){ //usuario encontrado
            
+        let resultado="Acceso Denegado";
+
         // Comparar la contraseña ingresada con el hash almacenado
         const passwordsMatch = bcrypt.compareSync(password, login_user.password);
 
         if (passwordsMatch) {
         console.log("Contraseña correcta. Acceso permitido.");
+        resultado=`Bienvenido ${login_user.firstname}`;
+        res.render('main/user_home', { email : email, password: password, resultado: resultado });
         } else {
         console.log("Usuario y/o contraseña incorrecta. Acceso denegado.");
+        res.redirect('/login');
         }
-
         } else {//Usuario no encontrado
+            
             console.log('Usuario y/o contraseña incorrecta. Acceso denegado.');
+            res.redirect('/login');
         }
-        
-        res.render('main/user_home', { email : email, password: password });
     },
     
     register: function (req, res) {
