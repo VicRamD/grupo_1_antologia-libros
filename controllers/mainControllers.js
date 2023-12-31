@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
-
 function wasFileSend(file){
 	if(!file){
 		return false;
@@ -21,6 +20,29 @@ let mainController = {
     },
     login: function (req, res) {
         res.render('main/login')
+    },
+    user_home: function (req, res) {
+        let usuario = req.body;
+        const { email, password } = req.body;
+        console.log(usuario);
+
+        let login_user = users.find(user => user.email === email);
+        if (login_user){ //usuario encontrado
+           
+        // Comparar la contraseña ingresada con el hash almacenado
+        const passwordsMatch = bcrypt.compareSync(password, login_user.password);
+
+        if (passwordsMatch) {
+        console.log("Contraseña correcta. Acceso permitido.");
+        } else {
+        console.log("Usuario y/o contraseña incorrecta. Acceso denegado.");
+        }
+
+        } else {//Usuario no encontrado
+            console.log('Usuario y/o contraseña incorrecta. Acceso denegado.');
+        }
+        
+        res.render('main/user_home', { email : email, password: password });
     },
     
     register: function (req, res) {

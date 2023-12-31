@@ -70,5 +70,14 @@
     "password": "$2b$10$FZue/v4ejwfWc3oKjxZ5e.OyDHlKHsgxLvcnz9duhcTbg4wSeGa4y",
     "category": "Cliente",
     "image": ""
+  },
+  {
+    "id": 9,
+    "firstname": "Carlos",
+    "lastname": "Zavaleta",
+    "email": "charly_zava@yahoo.com.ar",
+    "password": "$2b$10$81dYM8E/FIW3KEdNKATB/eDTVR/lVz2AfvsVMww5jTynF/LeaihEa",
+    "category": "Cliente",
+    "image": "1704008272710_user_pfile_img.jpg"
   }
 ]

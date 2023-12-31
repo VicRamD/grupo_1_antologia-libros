@@ -21,6 +21,7 @@ const uploadFile = multer({storage});
 
 router.get('/', mainController.index);
 router.get('/login', mainController.login);
+router.post('/user_home', mainController.user_home);
 
 router.get('/register', mainController.register);
 //Multer debe ejecutarse primero o el body llega vacio
