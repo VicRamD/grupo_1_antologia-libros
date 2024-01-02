@@ -181,6 +181,7 @@ h2.section-title {
 }
 .card img, .book-card img{
     width: 70%;
+    height: 190px;
 }
 .card hr, .book-card hr{
     width: 100%;
@@ -191,6 +192,11 @@ h2.section-title {
 .card h3, .book-card h3, p{
     margin-bottom: 10px;
 }
+
+.card-product .card-info {
+    height: 342px;
+}
+
 .card-info a{
     text-decoration: none;
     color: #2F2F2F;
@@ -215,6 +221,7 @@ h2.section-title {
 .card-buy .button-cart{
     background-color:whitesmoke;
     border: none;
+    height: 40px;
 }
 .card-more-products{
     background-color: #2F2F2F;
@@ -281,6 +288,22 @@ section.genres {
     margin-bottom: 10px;
 }
 
+.card-buy a.button-read{
+    background-color: #2F2F2F;
+    border: none;
+    display: block;
+    padding: 10px;
+    color: whitesmoke;
+    text-decoration: none;
+    height: 40px;
+}
+
+.card-buy .button-read:hover{
+    background-color: cadetblue;
+    color: whitesmoke;
+}
+
+
 @media (min-width: 481px) {
     .book-card{
         width: 50%;
@@ -321,7 +344,7 @@ section.genres {
         width: 35%;
     }
 
-    .card-buy a.button-read{
+    /*.card-buy a.button-read{
         background-color: #2F2F2F;
         border: none;
         display: block;
@@ -333,7 +356,7 @@ section.genres {
     .card-buy .button-read:hover{
         background-color: cadetblue;
         color: whitesmoke;
-    }
+    }*/
 
     
     .book-card{
