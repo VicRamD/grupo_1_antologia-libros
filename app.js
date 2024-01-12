@@ -4,6 +4,7 @@ const { get } = require('http');
 const path = require('path');
 const mainRoutes = require('./routes/main.js')
 const productRoutes = require ('./routes/products.js')
+const session = require('express-session');
 
 const server = express();
 
@@ -13,6 +14,7 @@ server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
 server.use(methodOverride('_method'));
 
+server.use(session( {secret: "Ocol Ed Al Errot"}));
 //======= Template engine ===================
 server.set('view engine', 'ejs')
 

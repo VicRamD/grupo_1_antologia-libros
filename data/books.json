@@ -336,5 +336,27 @@
     "date": "2019-10-11",
     "isbn": "9789500210164",
     "price": "7000"
+  },
+  {
+    "id": 18,
+    "title": "El Eternauta",
+    "abstract": "El Eternauta es la primera novela gráfica en español y la más importante para el mundo hispanoamericano. Obra cumbre de la ciencia ficción, fue publicada originalmente en Argentina como una serie de 106 entregas desde 1957 a 1959, en la revista Hora Cero Semanal.\r\nPara esta edición definitiva, revisada y corregida, se han retocado más de cincuenta ilustraciones sin alterar el espíritu original de la obra, con la intención de optimizar su calidad visual, potencia y continuidad gráfica.\r\nCon su vitalidad narrativa, su vigor político y su peso iconográfico intactos, nos complace presentar la multipremiada historia que influenció a más de cinco generaciones de lectores alrededor de todo el mundo.",
+    "author": "H.G. Oesterheld",
+    "editorial": "Planeta",
+    "image": "1705075625364_book_img_.webp",
+    "genre": [
+      {
+        "id": 1,
+        "name": "Ciencia Ficción"
+      },
+      {
+        "id": 10,
+        "name": "Drama"
+      }
+    ],
+    "language": "Español",
+    "date": "",
+    "isbn": "9789504977117",
+    "price": "20000"
   }
 ]

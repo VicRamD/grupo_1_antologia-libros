@@ -79,5 +79,14 @@
     "password": "$2b$10$81dYM8E/FIW3KEdNKATB/eDTVR/lVz2AfvsVMww5jTynF/LeaihEa",
     "category": "Cliente",
     "image": "1704008272710_user_pfile_img.jpg"
+  },
+  {
+    "id": 10,
+    "firstname": "Victor",
+    "lastname": "Ramirez",
+    "email": "victorram@correo.ar",
+    "password": "$2b$10$204gD0l97fCwKSqGAV6d.uQGdWZIm73O/LvtuzZYejnDbvdWWzpp2",
+    "category": "Administrador",
+    "image": "1705068823054_user_pfile_img.jpg"
   }
 ]

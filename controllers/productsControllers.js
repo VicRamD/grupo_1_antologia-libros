@@ -2,45 +2,22 @@ const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 const { CLIENT_RENEG_WINDOW } = require('tls');
+const finders = require('../utils/finders');
+const { wasFileSend } = require('../utils/fileRelated');
 
 const books = JSON.parse( fs.readFileSync(path.join(process.cwd(), '/data/books.json')),'utf-8');
 const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
 const categories = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/categories.json')), 'utf-8');
 
-function searchItemById(id, list){
-    const searchedItem = list.find((item) => item.id === id);
-    return searchedItem;
-}
-
-//en caso de que el nombre/name no pueda repetirse
-function searchItemByName(name, list){
-    const searchedItem = list.find((item) => item.name === name);
-    return searchedItem;
-}
-
-function searchProductById(id, products){
-    const searchedProduct = products.find((product) => product.id === id);
-    return searchedProduct;
-}
-
-function searchProductIndex(id, products){
-	const index = products.findIndex((product) => product.id === id);
-	return index;
-}
-
-function wasFileSend(file){
-	if(!file){
-		return false;
-	} else{
-		return true;
-    }
-}
-
 //====== Controlador ===========/
 const productsControllers = {
     list: (req,res) => {
         //res.send("Estás en la ruta de productos");
-        res.render('products/productList', { books: books });
+        if(req.session.currentUserMail){
+           let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+           return res.render('products/productList', { books: books, user: user });
+        }
+        return res.render('products/productList', { books: books });
     }, 
     listBooks: (req,res) => {
         res.render('products/productList');
@@ -48,37 +25,32 @@ const productsControllers = {
     
     detail: (req,res) => {
         let bookId = parseInt(req.params.id);
-        let seeBook = searchProductById(bookId, books);
-        res.render('products/productDetail', {book: seeBook});
+        let seeBook = finders.searchProductById(bookId, books);
+
+        if(req.session.currentUserMail){
+            let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+            return res.render('products/productDetail', { book: seebooks, user: user });
+        }
+        return res.render('products/productDetail', {book: seeBook});
     },
     
     cart: function (req,res) {
-        res.render('products/productCart');
+        if(req.session.currentUserMail){
+            let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+            return res.render('products/productCart', { user: user });
+        }
+        return res.render('products/productCart');
     },
+    
+
     create: (req, res) => {
+        if(req.session.currentUserMail){
+            let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+            return res.render('products/productCreate', { categories: categories, user: user });
+         }
         res.render('products/productCreate', {categories: categories});
     },
 
-    //edición
-    edit: (req, res) => {
-        let bookId = parseInt(req.params.id);
-        let editBook = searchProductById(bookId, books);
-
-        //Separa las categorias
-        let bookCategories = editBook.genre;
-        let categoryIndexes = []
-
-        /*guarda los indices de las categorias para enviarlos y usarlos para marcar 
-        como seleccionadas las opciones en la vista por medio de etiqutas ejs */
-        bookCategories.forEach(bookCategory => {
-            let returnedIndex = categories.findIndex((category) => bookCategory.id === category.id);
-            if(returnedIndex !== -1){
-                categoryIndexes.push(returnedIndex);
-            }
-        });
-
-        res.render('products/productEdit', {book: editBook, categories: categories, categoryIndexes: categoryIndexes});
-    },
     add: (req,res) => {
         console.log(req.body);
         const {title, abstract, author, editorial, genre, language, date, isbn, price} = req.body;
@@ -90,10 +62,10 @@ const productsControllers = {
         chosenGenres = [];
         if(Array.isArray(genre)){
             genre.forEach(bookGenre => {
-                chosenGenres.push(searchItemById(Number(bookGenre), categories));
+                chosenGenres.push(finders.searchItemById(Number(bookGenre), categories));
             });
         }else {
-            chosenGenres.push(searchItemById(Number(genre), categories))
+            chosenGenres.push(finders.searchItemById(Number(genre), categories))
         }
         
         let genren = chosenGenres;
@@ -126,15 +98,47 @@ const productsControllers = {
         fs.writeFileSync(path.join(__dirname, '../data/books.json'), nuevoJsonString);
 
         //console.log(req.file);
-        res.render('products/productAdded');
+        res.redirect('products/add');
+    },
+    addAgain: (req, res) => {
+        if(req.session.currentUserMail){
+            let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+            return res.render('products/productAdded', { books: books, user: user });
+        }
+        return res.render('products/productAdded');
     },
 
+    //edición
+    edit: (req, res) => {
+        let bookId = parseInt(req.params.id);
+        let editBook = finders.searchProductById(bookId, books);
+
+        //Separa las categorias
+        let bookCategories = editBook.genre;
+        let categoryIndexes = []
+
+        /*guarda los indices de las categorias para enviarlos y usarlos para marcar 
+        como seleccionadas las opciones en la vista por medio de etiqutas ejs */
+        bookCategories.forEach(bookCategory => {
+            let returnedIndex = categories.findIndex((category) => bookCategory.id === category.id);
+            if(returnedIndex !== -1){
+                categoryIndexes.push(returnedIndex);
+            }
+        });
+
+        if(req.session.currentUserMail){
+            let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+            return res.render('products/productEdit', { books: books, categories: categories,
+                 categoryIndexes: categoryIndexes, user: user });
+        }
+        return res.render('products/productEdit', {book: editBook, categories: categories, categoryIndexes: categoryIndexes});
+    },
 
     update: (req, res) => {
         let {id} = req.params;
 		id = Number(id);
-		const searchedBook = searchProductById(id, books);
-        const index = searchProductIndex(id, books);
+		const searchedBook = finders.searchProductById(id, books);
+        const index = finders.searchProductIndex(id, books);
 
         const {title, abstract, author, editorial, genre, language, date, isbn, price} = req.body;
 
@@ -175,10 +179,10 @@ const productsControllers = {
         //Number() transforma el string a numero que se pasa como parametro de la función
         if(Array.isArray(genre)){
             genre.forEach(bookGenre => {
-                chosenGenres.push(searchItemById(Number(bookGenre), categories));
+                chosenGenres.push(finders.searchItemById(Number(bookGenre), categories));
             });
         }else {
-            chosenGenres.push(searchItemById(Number(genre), categories))
+            chosenGenres.push(finders.searchItemById(Number(genre), categories))
         }
         
         searchedBook.genre = chosenGenres;
@@ -193,7 +197,7 @@ const productsControllers = {
 
     delete: (req, res) => {
         const { id } = req.params;
-        const i = searchProductIndex(parseInt(id), books);
+        const i = finders.searchProductIndex(parseInt(id), books);
 
         // Elimina la imagen del producto
         const product = books[i];
@@ -218,7 +222,8 @@ const productsControllers = {
             let { genre } = req.query;
             
             //id = Number(genre);
-            let category = searchItemByName(genre, categories);
+            //let category = finders.searchItemByName(genre, categories);
+            let category = finders.searchItemByName(genre, categories);
             let booksCategory = [];
             books.forEach((book) => {
                 book.genre.forEach((g) => {
@@ -230,17 +235,34 @@ const productsControllers = {
     
             // Verifica si no hay libros en la categoría
             if (booksCategory.length === 0) {
+                let noBooksMessage = 'No existen libros para esta categoría.<br>';
+                let imageSrc = '/images/noEncontrado.png';
+
+                if(req.session.currentUserMail){
+                    let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+                    return res.render('products/booksByGenre', { noBooksMessage, imageSrc, categories, user });
+                }
+                
                 return res.render('products/booksByGenre', {
-                    noBooksMessage: 'No existen libros para esta categoría.<br>',
-                    imageSrc: '/images/noEncontrado.png',
+                    noBooksMessage: noBooksMessage,
+                    imageSrc: imageSrc,
                     categories,
                 });
             }
     
+            
+            if(req.session.currentUserMail){
+                let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+                return res.render('products/booksByGenre', { booksCategory, category, user });
+            }
             // Renderiza la vista con libros si existen
             return res.render('products/booksByGenre', { booksCategory, category });
         } else {
             // Renderiza la vista con todas las categorías si no hay consulta de género
+            if(req.session.currentUserMail){
+                let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+                return res.render('products/booksByGenre', { categories, user });
+            }
             return res.render('products/booksByGenre', { categories });
         }
     },

@@ -17,15 +17,30 @@
             <div class="icono"><a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a></div>
         </div>
     </div>
-    <nav>
+    <nav class="<%= locals && locals.user && locals.user.category == 'Administrador' ? 'admin' : '' %>">
         <ul>
-            <li><a href="/products/genres">Categorías</a></li>
-            <li><a>Educativos</a></li>
-            <li><a>Ficción</a></li>
-            <li><a>Top 100</a></li>
-            <li><a>Autores</a></li>
-            <li><a>Editoriales</a></li>
-            <li><a>Contacto</a></li>
+            <% if (locals && locals.user && locals.user.category == 'Cliente') { %>
+                <li><a href="/products/genres">Categorías</a></li>
+                <li><a>Educativos</a></li>
+                <li><a>Ficción</a></li>
+                <li><a>Top 100</a></li>
+                <li><a>Autores</a></li>
+                <li><a>Editoriales</a></li>
+                <li><a>Contacto</a></li>
+            <% } else if (locals && locals.user && locals.user.category == 'Administrador') { %>
+                <li><a href="/products/genres">Categorías</a></li>
+                <li><a href="/products">Listado de libros</a></li>
+                <li><a href="/products/create">Nuevo libro</a></li>
+                <li><a>Contacto</a></li>
+            <% } else { %>
+                <li><a href="/products/genres">Categorías</a></li>
+                <li><a>Educativos</a></li>
+                <li><a>Ficción</a></li>
+                <li><a>Top 100</a></li>
+                <li><a>Autores</a></li>
+                <li><a>Editoriales</a></li>
+                <li><a>Contacto</a></li>
+            <% } %>     
         </ul>
     </nav>    
 </header>

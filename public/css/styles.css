@@ -509,11 +509,20 @@ footer .pie{
        /* border: solid #c3efd7 1px;*/
     }
 
+ /*   header nav.admin {
+        justify-content: flex-start;
+       /* border: solid #c3efd7 1px;*
+    } */
+
     header nav ul{
         display: flex;
         width: 100%;
         padding: 0px;
         justify-content: space-around;
+    }
+
+    header nav.admin ul{
+        justify-content: flex-start;
     }
 
     header nav ul li {
