@@ -29,7 +29,7 @@ const productsControllers = {
 
         if(req.session.currentUserMail){
             let user = finders.searchUserByEmail(req.session.currentUserMail, users);
-            return res.render('products/productDetail', { book: seebooks, user: user });
+            return res.render('products/productDetail', { book: seeBook, user: user });
         }
         return res.render('products/productDetail', {book: seeBook});
     },
@@ -128,7 +128,7 @@ const productsControllers = {
 
         if(req.session.currentUserMail){
             let user = finders.searchUserByEmail(req.session.currentUserMail, users);
-            return res.render('products/productEdit', { books: books, categories: categories,
+            return res.render('products/productEdit', { book: editBook, categories: categories,
                  categoryIndexes: categoryIndexes, user: user });
         }
         return res.render('products/productEdit', {book: editBook, categories: categories, categoryIndexes: categoryIndexes});

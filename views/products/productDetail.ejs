@@ -17,12 +17,14 @@
         <main class="product-detail">
         
             <div class="box-product product-img">
-                <div class="btn-group">
-                     <a href="/products/<%= book.id %>/edit" class="btn-edit"><i class="fa-solid fa-pencil"></i>Editar</a>
-                     <form class="slim" method="POST" action="/products/<%= book.id %>?_method=DELETE">
-                        <button class="btn-delete" disabled><i class="fa-solid fa-xmark"></i>Eliminar</button>
-                    </form>
-                </div> 
+                <% if (locals.user && locals.user.category == 'Administrador') { %>
+                    <div class="btn-group">
+                        <a href="/products/<%= book.id %>/edit" class="btn-edit"><i class="fa-solid fa-pencil"></i>Editar</a>
+                        <form class="slim" method="POST" action="/products/<%= book.id %>?_method=DELETE">
+                            <button class="btn-delete" disabled><i class="fa-solid fa-xmark"></i>Eliminar</button>
+                        </form>
+                    </div> 
+                <% } %>  
                 <img src="/images/books/<%= book.image ? book.image : 'cover-not-available.png'  %>" alt="Portada de <%= book.title %>">
             </div>
     
