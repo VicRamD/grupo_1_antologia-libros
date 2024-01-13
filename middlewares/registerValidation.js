@@ -1,12 +1,14 @@
 const { check, validationResult } = require('express-validator');
 const path = require('path');
 const fs = require('fs');
+const finders = require('../utils/finders');
+
 const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
 
-function searchByEmail(email, list){
+/* function searchByEmail(email, list){
     const searchedRegister = list.find((reg) => reg.email === email);
     return searchedRegister;
-}
+} */
 
 let validateRegister = [
     check('firstname').notEmpty().withMessage("Debe completar el nombre"),
@@ -14,7 +16,7 @@ let validateRegister = [
     check('email').isEmail()//.normalizeEmail()
     .withMessage("Debe ingresar un email valido").bail()
     .custom(value => {
-        let user = searchByEmail(value, users);
+        let user = finders.searchUserByEmail(value, users);
         if(user){
             throw new Error('El email ya se encuentra registrado');
         }

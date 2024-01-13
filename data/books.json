@@ -358,5 +358,23 @@
     "date": "",
     "isbn": "9789504977117",
     "price": "20000"
+  },
+  {
+    "id": 19,
+    "title": "Thea Stilton and the Fiesta in Mexico",
+    "abstract": "The Thea Sisters are going to Mexico City! They have been invited to be a part of a team researching monarch butterflies. Their friend Luz is an artist who is inspired by the butterflies and the culture of Mexico. When her mural goes missing just before her art show, the mouselets are on the case! Can they return the missing mural in time.",
+    "author": "Elisabetta Dami",
+    "editorial": "SCHOLASTIC",
+    "image": "1705151958872_book_img_.webp",
+    "genre": [
+      {
+        "id": 4,
+        "name": "Para niños"
+      }
+    ],
+    "language": "Inglés",
+    "date": "2018-06-06",
+    "isbn": "9781338802221",
+    "price": "11359.40"
   }
 ]

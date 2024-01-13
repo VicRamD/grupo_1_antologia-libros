@@ -3,7 +3,10 @@ const multer = require('multer');
 const path = require('path');
 
 const productsControllers = require('../controllers/productsControllers.js');
+const {validateBook, bookValidator} = require('../middlewares/bookValidation.js')
+
 const router = express.Router();
+
 
 // ************ Multer Storage ************
 const storage = multer.diskStorage({
@@ -24,7 +27,7 @@ router.get('/create', productsControllers.create);
 router.get('/:id', productsControllers.detail);
 router.get('/:id/edit', productsControllers.edit);
 router.put('/:id', uploadFile.single('image'), productsControllers.update);
-router.post('/add', uploadFile.single('image'), productsControllers.add);
+router.post('/add', uploadFile.single('image'), validateBook, bookValidator, productsControllers.add);
 router.get('/add', productsControllers.addAgain),
 router.delete('/:id', productsControllers.delete);
 router.get('/', productsControllers.list);

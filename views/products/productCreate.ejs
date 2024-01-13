@@ -4,6 +4,7 @@
     <%- include('../partials/headParcial.ejs') %>
     <title>Registrar libro</title>
     <link rel="stylesheet" href="/css/cartStyles.css">
+    <link rel="stylesheet" href="/css/errorStyles.css">
 </head>
 <body>
     <%- include('../partials/header.ejs') %>
@@ -15,50 +16,75 @@
                 <div class="form-body">
                     <div class="form-group-ancho">
                         <label for="title">Título</label>
-                        <input id="title" name="title" type="text" required>
+                        <input id="title" name="title" type="text" 
+                        value="<%= locals.old && old.title ? old.title : '' %>"> <!-- req -->
+                        <% if (locals && locals.errors && locals.errors.title) { %>
+                            <div class="errorMessage"><%= errors.title.msg %></div>     
+                        <% } %>
                     </div> 
 
                     <div class="form-group-ancho">
                         <label for="abstract">Resumen</label>
-                        <textarea id="abstract" name="abstract" rows="6"></textarea>
+                        <textarea id="abstract" name="abstract" rows="6"><%= locals.old && old.abstract ? old.abstract : '' %></textarea>
                     </div>
                     <div class="form-group">
                         <label for="author">Autor</label>
-                        <input id="author" name="author" type="text" required>
+                        <input id="author" name="author" type="text"
+                        value="<%= locals.old && old.author ? old.author : '' %>" > <!-- req -->
+                        <% if (locals && locals.errors && locals.errors.author) { %>
+                            <div class="errorMessage"><%= errors.author.msg %></div>     
+                        <% } %>
                     </div>
                     <div class="form-group">
                         <label for="editorial">Editorial</label>
-                        <input id="editorial" name="editorial" type="text">
+                        <input id="editorial" name="editorial" type="text"
+                        value="<%= locals.old && old.editorial ? old.editorial : '' %>">
                     </div>
 
                     <div class="form-group">
                         <label for="image">Imagen</label>
-                        <input id="image" name="image" type="file" accept="image/*" required>
+                        <input id="image" name="image" type="file" accept="image/*" > <!-- req -->
+                        <% if (locals && locals.errors && locals.errors.image) { %>
+                            <div class="errorMessage"><%= errors.image.msg %></div>     
+                        <% } %>
                     </div>
                     <div class="form-group">
                         <label for="genre" class="for-select">Género</label>
                         <select id="genre" name="genre" multiple>
                             <% for( let i = 0; i < categories.length; i++ ) { %>
-                                <option value="<%= categories[i].id %>"><%= categories[i].name %></option>   
+                                <option value="<%= categories[i].id %>" <%= categoryIndexes.includes(i) ? 'selected': '' %>><%= categories[i].name %></option>   
                             <% } %>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="language">Idioma</label>
-                        <input id="language" name="language" type="text" required>
+                        <input id="language" name="language" type="text"
+                        value="<%= locals.old && old.language ? old.language: '' %>" > <!-- req -->
+                        <% if (locals && locals.errors && locals.errors.language) { %>
+                            <div class="errorMessage"><%= errors.language.msg %></div>     
+                        <% } %>
                     </div>
                     
                     <div class="form-group">
                         <label for="date" class="for-date">Fecha de Publicación</label>
-                        <input id="date" name="date" type="date">
+                        <input id="date" name="date" type="date"
+                        value="<%= locals.old && old.date ? old.date : '' %>">
                     </div>
                     <div class="form-group">
                         <label for="isbn">ISBN</label>
-                        <input id="isbn" name="isbn" type="text" required>
+                        <input id="isbn" name="isbn" type="text"
+                        value="<%= locals.old && old.isbn ? old.isbn : '' %>" > <!-- req -->
+                        <% if (locals && locals.errors && locals.errors.isbn) { %>
+                            <div class="errorMessage"><%= errors.isbn.msg %></div>     
+                        <% } %>
                     </div>
                     <div class="form-group">
                         <label for="price">Precio</label>
-                        <input id="price" name="price" type="number" required>
+                        <input id="price" name="price" type="number"
+                        value="<%= locals.old && old.price ? old.price : '' %>" pattern="^\d*(\.\d{0,2})?$" step=".01" > <!-- req -->
+                        <% if (locals && locals.errors && locals.errors.price) { %>
+                            <div class="errorMessage"><%= errors.price.msg %></div>     
+                        <% } %>
                     </div>
                 </div>
                 <br>

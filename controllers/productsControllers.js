@@ -46,9 +46,9 @@ const productsControllers = {
     create: (req, res) => {
         if(req.session.currentUserMail){
             let user = finders.searchUserByEmail(req.session.currentUserMail, users);
-            return res.render('products/productCreate', { categories: categories, user: user });
+            return res.render('products/productCreate', { categories: categories, categoryIndexes: [], user: user });
          }
-        res.render('products/productCreate', {categories: categories});
+        res.render('products/productCreate', {categories: categories, categoryIndexes: []});
     },
 
     add: (req,res) => {
