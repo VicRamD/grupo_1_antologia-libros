@@ -17,7 +17,7 @@
                     <div class="form-group-ancho">
                         <label for="title">Título</label>
                         <input id="title" name="title" type="text" 
-                        value="<%= locals.old && old.title ? old.title : '' %>"> <!-- req -->
+                        value="<%= locals.old && old.title ? old.title : '' %>" required> 
                         <% if (locals && locals.errors && locals.errors.title) { %>
                             <div class="errorMessage"><%= errors.title.msg %></div>     
                         <% } %>
@@ -25,12 +25,13 @@
 
                     <div class="form-group-ancho">
                         <label for="abstract">Resumen</label>
-                        <textarea id="abstract" name="abstract" rows="6"><%= locals.old && old.abstract ? old.abstract : '' %></textarea>
+                        <textarea id="abstract" name="abstract" rows="6">
+                            <%= locals.old && old.abstract ? old.abstract : '' %></textarea>
                     </div>
                     <div class="form-group">
                         <label for="author">Autor</label>
                         <input id="author" name="author" type="text"
-                        value="<%= locals.old && old.author ? old.author : '' %>" > <!-- req -->
+                        value="<%= locals.old && old.author ? old.author : '' %>" required> 
                         <% if (locals && locals.errors && locals.errors.author) { %>
                             <div class="errorMessage"><%= errors.author.msg %></div>     
                         <% } %>
@@ -43,7 +44,7 @@
 
                     <div class="form-group">
                         <label for="image">Imagen</label>
-                        <input id="image" name="image" type="file" accept="image/*" > <!-- req -->
+                        <input id="image" name="image" type="file" accept="image/*" required>
                         <% if (locals && locals.errors && locals.errors.image) { %>
                             <div class="errorMessage"><%= errors.image.msg %></div>     
                         <% } %>
@@ -59,7 +60,7 @@
                     <div class="form-group">
                         <label for="language">Idioma</label>
                         <input id="language" name="language" type="text"
-                        value="<%= locals.old && old.language ? old.language: '' %>" > <!-- req -->
+                        value="<%= locals.old && old.language ? old.language: '' %>" required>
                         <% if (locals && locals.errors && locals.errors.language) { %>
                             <div class="errorMessage"><%= errors.language.msg %></div>     
                         <% } %>
@@ -73,7 +74,7 @@
                     <div class="form-group">
                         <label for="isbn">ISBN</label>
                         <input id="isbn" name="isbn" type="text"
-                        value="<%= locals.old && old.isbn ? old.isbn : '' %>" > <!-- req -->
+                        value="<%= locals.old && old.isbn ? old.isbn : '' %>" required> 
                         <% if (locals && locals.errors && locals.errors.isbn) { %>
                             <div class="errorMessage"><%= errors.isbn.msg %></div>     
                         <% } %>
@@ -81,7 +82,7 @@
                     <div class="form-group">
                         <label for="price">Precio</label>
                         <input id="price" name="price" type="number"
-                        value="<%= locals.old && old.price ? old.price : '' %>" pattern="^\d*(\.\d{0,2})?$" step=".01" > <!-- req -->
+                        value="<%= locals.old && old.price ? old.price : '' %>" pattern="^\d*(\.\d{0,2})?$" step=".01" required>
                         <% if (locals && locals.errors && locals.errors.price) { %>
                             <div class="errorMessage"><%= errors.price.msg %></div>     
                         <% } %>
