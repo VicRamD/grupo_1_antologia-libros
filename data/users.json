@@ -88,5 +88,14 @@
     "password": "$2b$10$204gD0l97fCwKSqGAV6d.uQGdWZIm73O/LvtuzZYejnDbvdWWzpp2",
     "category": "Administrador",
     "image": "1705068823054_user_pfile_img.jpg"
+  },
+  {
+    "id": 11,
+    "firstname": "Carlos",
+    "lastname": "Zavaleta",
+    "email": "charlyzava256@gmail.com",
+    "password": "$2b$10$f3y0jHKh6A4xaLxHJJ9SKucTRlgZjRZu57I2uIXvHqY/ILrIsryp.",
+    "category": "Cliente",
+    "image": "1705449309420_user_pfile_img.jpg"
   }
 ]
