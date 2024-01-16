@@ -14,7 +14,11 @@ server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
 server.use(methodOverride('_method'));
 
-server.use(session( {secret: "Ocol Ed Al Errot"}));
+server.use(session( {
+    secret: "Ocol Ed Al Errot",
+    resave: false,
+    saveUninitialized: true,
+}));
 //======= Template engine ===================
 server.set('view engine', 'ejs')
 

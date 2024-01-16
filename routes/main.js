@@ -5,6 +5,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const {validateRegister, registerValidator} = require('../middlewares/registerValidation.js');
+const {userRoute} = require('../middlewares/routeRedirector.js');
 
 // ************ Multer Storage ************
 const storage = multer.diskStorage({
@@ -22,6 +23,7 @@ const uploadFile = multer({storage});
 router.get('/', mainController.index);
 router.get('/login', mainController.login);
 router.post('/user_home', mainController.user_home);
+router.get('/profile', userRoute, mainController.profile);
 
 router.get('/register', mainController.register);
 //Multer debe ejecutarse primero o el body llega vacio

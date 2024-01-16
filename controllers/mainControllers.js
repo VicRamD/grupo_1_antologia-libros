@@ -37,9 +37,8 @@ let mainController = {
 
             if (passwordsMatch) {
                 console.log("Contraseña correcta. Acceso permitido.");
-                resultado=`Bienvenido ${login_user.firstname}`;
                 req.session.currentUserMail = email;
-                res.render('main/user_home', { email : email, password: password, resultado: resultado, user: login_user });
+                res.redirect('/profile');
             } else {
                 console.log("Usuario y/o contraseña incorrecta. Acceso denegado.");
                 res.redirect('/login');
@@ -49,8 +48,13 @@ let mainController = {
             console.log('Usuario y/o contraseña incorrecta. Acceso denegado.');
             res.redirect('/login');
         }
+        
     },
-    
+    profile: (req, res) => {
+        let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+        res.render('main/user_home', {user});
+    },
+
     register: function (req, res) {
         res.render('main/register')
     },

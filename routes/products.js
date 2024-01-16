@@ -3,7 +3,8 @@ const multer = require('multer');
 const path = require('path');
 
 const productsControllers = require('../controllers/productsControllers.js');
-const {validateBook, bookValidator} = require('../middlewares/bookValidation.js')
+const {validateBook, bookValidator} = require('../middlewares/bookValidation.js');
+const {userRoute, privilegedUserRoute} = require('../middlewares/routeRedirector.js');
 
 const router = express.Router();
 
@@ -23,14 +24,14 @@ const uploadFile = multer({storage});
 
 router.get('/cart', productsControllers.cart);
 router.get('/genres', productsControllers.genres);
-router.get('/create', productsControllers.create);
+router.get('/create', privilegedUserRoute, productsControllers.create);
 router.get('/:id', productsControllers.detail);
-router.get('/:id/edit', productsControllers.edit);
+router.get('/:id/edit', privilegedUserRoute, productsControllers.edit);
 router.put('/:id', uploadFile.single('image'), productsControllers.update);
 router.post('/add', uploadFile.single('image'), validateBook, bookValidator, productsControllers.add);
-router.get('/add', productsControllers.addAgain),
+router.get('/add', privilegedUserRoute, productsControllers.addAgain),
 router.delete('/:id', productsControllers.delete);
-router.get('/', productsControllers.list);
+router.get('/', privilegedUserRoute, productsControllers.list);
 
 //router.get('/list', productosControllers.list);//Para la lista
 //router.get('/detail', productosControllers.detail);
