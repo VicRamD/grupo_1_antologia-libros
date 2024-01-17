@@ -52,7 +52,7 @@ const productsControllers = {
     },
 
     add: (req,res) => {
-        console.log(req.body);
+        //console.log(req.body);
         const {title, abstract, author, editorial, genre, language, date, isbn, price} = req.body;
         
         let maxId = books.reduce((max, objeto) => (objeto.id > max ? objeto.id : max), 0);
@@ -70,7 +70,7 @@ const productsControllers = {
         
         let genren = chosenGenres;
 
-        console.log(genren)
+        //console.log(genren)
 
         //Si se envió archivo de imagen guarda el nombre
         const wasSend = wasFileSend(req.file);
@@ -98,12 +98,13 @@ const productsControllers = {
         fs.writeFileSync(path.join(__dirname, '../data/books.json'), nuevoJsonString);
 
         //console.log(req.file);
-        res.redirect('products/add');
+        res.redirect('/products/add');
     },
+
     addAgain: (req, res) => {
         if(req.session.currentUserMail){
             let user = finders.searchUserByEmail(req.session.currentUserMail, users);
-            return res.render('products/productAdded', { books: books, user: user });
+            return res.render('products/productAdded', {user: user });
         }
         return res.render('products/productAdded');
     },

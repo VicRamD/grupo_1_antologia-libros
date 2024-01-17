@@ -376,5 +376,67 @@
     "date": "2018-06-06",
     "isbn": "9781338802221",
     "price": "11359.40"
+  },
+  {
+    "id": 20,
+    "title": "Chacinados Criollos - cómo preparar los mejores Fiambres y Embutidos ",
+    "abstract": "La elaboración casera de fiambres y embutidos como chorizos, morcillas o jamones es una práctica milenaria que sigue vigente. Las mejores técnicas para prepararlos y los principios esenciales de conservación forman parte de este libro. Además, recetas innovadoras e información para hacer de la fabricación de chacinados en casa un microemprendimiento exitoso.",
+    "author": "Alberto Monín",
+    "editorial": "Albatros",
+    "image": "1705419365236_book_img_.webp",
+    "genre": [
+      {
+        "id": 9,
+        "name": "Cocina"
+      }
+    ],
+    "language": "Español",
+    "date": "2017-08-10",
+    "isbn": "9789502416014",
+    "price": "13250"
+  },
+  {
+    "id": 21,
+    "title": "Clarita se volvió invisible",
+    "abstract": "Un día cualquiera, Clarita se vuelve invisible. Nadie la ve: ni su mamá, ni el gato, ni siquiera su hermanito. ¿Qué travesuras hará Clarita ahora que nadie la puede ver?",
+    "author": "Graciela Montes",
+    "editorial": "SANTILLANA",
+    "image": "1705421427421_book_img_.webp",
+    "genre": [
+      {
+        "id": 4,
+        "name": "Para niños"
+      }
+    ],
+    "language": "Español",
+    "date": "2019-06-10",
+    "isbn": "9789504658498",
+    "price": "5400"
+  },
+  {
+    "id": 22,
+    "title": "Daughter of the Deep",
+    "abstract": "Rick Riordan pays homage to Jules Verne in his exciting modern take on 20,000 Leagues Under the Sea.\r\n\r\nAna Dakkar is a freshman at Harding-Pencroft Academy, a five-year high school that graduates the best marine scientists, naval warriors, navigators, and underwater explorers in the world. Ana's year culminates with the class's weekend trial at sea, the details of which have been kept secret. She only hopes she has what it'll take to succeed. All her worries are blown out of the water when, on the bus ride to the ship, Ana and her schoolmates witness a terrible tragedy that will change the trajectory of their lives.\r\n\r\n",
+    "author": "Rick Riordan",
+    "editorial": "HACHETTE",
+    "image": "1705449398638_book_img_.webp",
+    "genre": [
+      {
+        "id": 1,
+        "name": "Ciencia Ficción"
+      },
+      {
+        "id": 4,
+        "name": "Para niños"
+      },
+      {
+        "id": 12,
+        "name": "Aventura"
+      }
+    ],
+    "language": "Inglés",
+    "date": "2021-10-05",
+    "isbn": "9781368077934",
+    "price": "14025.95"
   }
 ]

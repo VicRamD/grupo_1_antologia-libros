@@ -25,13 +25,14 @@ const uploadFile = multer({storage});
 router.get('/cart', productsControllers.cart);
 router.get('/genres', productsControllers.genres);
 router.get('/create', privilegedUserRoute, productsControllers.create);
+router.get('/add', privilegedUserRoute, productsControllers.addAgain);
+router.post('/add', uploadFile.single('image'), validateBook, bookValidator, productsControllers.add);
 router.get('/:id', productsControllers.detail);
 router.get('/:id/edit', privilegedUserRoute, productsControllers.edit);
 router.put('/:id', uploadFile.single('image'), productsControllers.update);
-router.post('/add', uploadFile.single('image'), validateBook, bookValidator, productsControllers.add);
-router.get('/add', privilegedUserRoute, productsControllers.addAgain),
 router.delete('/:id', productsControllers.delete);
-router.get('/', privilegedUserRoute, productsControllers.list);
+
+router.get('/', productsControllers.list);
 
 //router.get('/list', productosControllers.list);//Para la lista
 //router.get('/detail', productosControllers.detail);
