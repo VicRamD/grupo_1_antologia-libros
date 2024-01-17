@@ -24,7 +24,39 @@
             <i class="fas fa-user-plus"></i> <p><h1>Bienvenido</h1></p>
         </div>
             <h3>Usuario Home</h3>
-        <%=user.email%>
+
+        <table style="width:400px" border="1px">
+            <tr>
+                <th><img src="/images/profileImages/<%=user.image%>" alt="../../public/images/profileImages/<%=user.image%>"  style="max-width: 100px; height: auto; display: block; margin: auto;"></td>
+      </th>       <th><%=user.firstname%></th>   
+            </tr>
+        
+        <tr><td colspan="2">
+            Preferencias
+            <table>
+                <tr>
+                <td align="left">
+                    <input type="checkbox" name="Drama" id="">Drama<br>
+            <input type="checkbox" name="Drama" id="">Terror<br>
+            <input type="checkbox" name="Drama" id="">Novela<br>
+            <input type="checkbox" name="Drama" id="">Ciencia Ficción<br>
+                </td>
+                <td align="left"><input type="checkbox" name="Drama" id="">Política<br>
+                    <input type="checkbox" name="Drama" id="">Economía<br>
+                    <input type="checkbox" name="Drama" id="">Salud<br>
+                    <input type="checkbox" name="Drama" id="">Medicina</td>
+                <td align="left"><input type="checkbox" name="Drama" id="">Política<br>
+                    <input type="checkbox" name="Drama" id="">Economía<br>
+                    <input type="checkbox" name="Drama" id="">Salud<br>
+                    <input type="checkbox" name="Drama" id="">Medicina</td>
+            </tr>
+            </table>
+            <p></p>
+            <p></p>
+
+        </td></tr>
+
+        </table>
         <p></p>
         <p></p>
         <h5>Novedades</h5>
