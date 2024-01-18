@@ -72,3 +72,28 @@ En referencia al inciso 1, mantener poca o nula comunicación por varios días.
 3. **El Plan de Acción**
 - Ponerse al día con los contenidos.
 - Analizar la situación de cada integrante.
+
+### Starfish retrospective: Sprint 5 ###
+
+1. **Comenzar a hacer**
+- Reunirnos al menos una vez por semana para trabajar en el proyecto y luego dividir tareas
+- Pedir ayuda ante inconvenientes
+- Actualizar Trello al realizar los cambios
+- Revisar las tareas de los compañeros en Trello
+- Terminar de ver el contenido en PlayGround
+
+2. **Hacer más**
+- Ponerse al día con los contenidos.
+- Analizar la situación de cada integrante.
+- Participación de todos los integrantes
+- Tener listos los objetivos antes de la fecha límite.
+
+3. **Continuar haciendo**
+- Participación de los integrantes para realizar los objetivos opcionales
+- Reunirnos para ponernos de acuerdo sobre ciertos temas
+- Cumplir con los objetivos obligatorios
+- Perfeccionar en otros aspectos el sitio.
+
+4. **Hacer menos / Dejar de hacer**
+- No comunicar a los compañeros del equipo el avance o cómo vamos con las tareas
+- 
