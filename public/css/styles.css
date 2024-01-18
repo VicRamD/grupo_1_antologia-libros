@@ -82,6 +82,7 @@ div.iconos {
     margin: auto;
     justify-content: space-around;
     align-self: stretch;
+    position: relative;
     /*padding: 2%;*/
 }
 
@@ -123,6 +124,57 @@ div.iconos div.icono a{
 
 header nav {
     display: none;
+}
+/* ----------------- */
+
+/* menu cuando usuario inicia sessión */
+div.session-div {
+    order: 5;
+    background-color: cadetblue;
+    /*display: flex;*/
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* display: none; */
+}
+
+div.iconos div.session-div-769 {
+    background-color: cadetblue;
+    padding: 5%;
+    border-radius: 5px;
+    border: 1px white solid;
+    display: none;
+    flex-direction: column;
+    width: 200px;
+    position: absolute;
+    top: 45px;
+    right: 100px;
+    z-index: 5;
+}
+
+div.session-div a, div.session-div-769 a{
+    text-decoration: none;
+    text-align: left;
+    width: 100%;
+    padding: 2%;
+}
+
+div.session-div a{
+    color: white;
+}
+
+div.session-div-769 a{
+    color: black;
+}
+
+div.session-div p, div.session-div-769 p{
+    font-size: 14px;
+    padding: 1%;
+}
+
+div.session-div a:hover{
+    background-color: lightcoral;
 }
 
 /* -------------  */
@@ -546,13 +598,49 @@ footer .pie{
         color: black;
         font-size: 14px;
     }
+ 
 
     header nav ul li:hover a {
         text-decoration: none;
         text-align: center;
         color: whitesmoke;
     }
-    /* ---------- */
+
+    /* menu cuando usuario inicia sessión */
+    /*div.iconos div.session-div-769 {
+        display: inline;
+    } */
+
+    div.session-div {
+        display: none;
+    }
+
+    div.session-div-769 a#logout{
+        background-color: rosybrown;
+        color: white;
+        border: 1px solid red;
+        border-radius: 5px;
+        display: inline;
+        text-align: center;
+    }
+
+    div.session-div-769 a:hover{
+        color: white;
+    }
+    
+    div.session-div-769 a#logout:hover{
+        background-color:red;
+    }
+
+    /*div.iconos div.session-div a{
+        text-decoration: none;
+    }*/
+
+    div.session-div .visualSeparate {
+        display: block;
+    }
+
+    /* -------------  */
 
     /*Main*/
     h1 {
@@ -648,4 +736,10 @@ footer .pie{
         margin-bottom: 20px;
     }
 
+}
+
+@media (min-width: 1100px) {
+    div.iconos div.session-div-769 {
+        right: 150px;
+    }
 }

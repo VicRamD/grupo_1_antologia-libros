@@ -1,8 +1,6 @@
 <header>
     <div class="top-header">
-        <div class="burger-menu">
-            <i class="fas fa-bars"></i>
-        </div>
+        <div class="burger-menu"><i class="fas fa-bars"></i></div>
         <div class="logo">
             <a href = '/'><img src="/images/logo/logo_p_horizontal.png" alt="logo de Antología Libros"></a>
         </div>
@@ -13,9 +11,26 @@
             </form>
         </div>
         <div class="iconos">
-            <div class="icono"><a href="/login"><i class="fas fa-user"></i></a></div>
+            <div class="icono"><a href="<%= locals && locals.user ? 'javascript:void(0);' : '/login' %>" onclick="showUserOptions()"><i class="fas fa-user"></i></a></div>
+            <% if (locals && locals.user) { %>
+                <div class="session-div-769" id="session-div-769">
+                    <p><%= user.firstname %> <%= user.lastname %><br><%= user.email %></p> 
+                    <hr>
+                    <a href="/profile">Mi perfil</a>
+                    <hr>
+                    <a href="#" id="logout">Cerrar Sesión</a>
+                </div>
+            <% } %>
             <div class="icono"><a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a></div>
         </div>
+        <% if (locals && locals.user) { %>
+            <div class="session-div" id="session-div">
+                <p><%= user.firstname %> <%= user.lastname %></p>
+                <p><%= user.email %></p> 
+                <a href="/profile">Mi perfil</a>
+                <a href="#">Cerrar Sesión</a>
+            </div>
+        <% } %>
     </div>
     <nav class="<%= locals && locals.user && locals.user.category == 'Administrador' ? 'admin' : '' %>">
         <ul>
