@@ -141,11 +141,12 @@ div.session-div {
 
 div.iconos div.session-div-769 {
     background-color: cadetblue;
-    padding: 5%;
+    padding: 4%;
     border-radius: 5px;
     border: 1px white solid;
     display: none;
     flex-direction: column;
+    justify-content: space-around;
     width: 200px;
     position: absolute;
     top: 45px;
