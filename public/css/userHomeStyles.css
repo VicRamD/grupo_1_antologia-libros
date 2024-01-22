@@ -1,0 +1,479 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*main*/
+.principalBox{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.preferBox{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.preferBox2{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-center;
+    padding: 5px;
+    margin: 5px;
+    flex-wrap: wrap;
+}
+.directionBox{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.directionBox2 {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-center;
+    padding: 5px;
+    margin: 5px;
+    flex-wrap: wrap;
+}
+.divCheckBox {
+    flex: 1 0 calc(50% - 10px); /* Calcula el ancho para 2 columnas con margen entre ellas */
+    margin: 5px; /* Margen entre checkboxes */
+  }
+
+.box-product{
+    min-height: 100px;
+    margin: 5px;
+    text-align: center;
+    line-height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+.box-info{
+    border: solid 1px #2F2F2F;
+    margin: 5px;
+    background-color: whitesmoke;
+}
+.box-info hr{
+    width: 100%;
+}
+.product-img {
+    flex-basis: 40%;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+
+.btn-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+}
+
+.btn-group .btn-edit, .btn-group .slim{
+    width: 80%;
+    margin: 1%;
+}
+
+.btn-group .btn-delete{
+    width: 100%;
+}
+
+.btn-group .btn-edit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn-group .btn-edit, .btn-group .btn-delete{
+    border: solid 1px #2F2F2F;
+    font-size: 12px;
+    height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+
+.btn-group .btn-edit:hover {
+    background-color: rgb(61, 107, 109);;
+    color: whitesmoke;
+}
+
+.btn-group .btn-delete:hover {
+    background-color: #F08080;
+    color: whitesmoke;
+}
+
+.product-img img {
+    width: 70%;
+}
+.product-info{
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+}
+h1{
+    text-align: center;
+    font-weight: bold;
+}
+
+.info-data, .synopsis{
+    text-align: left;
+    margin-left: 10px;
+    padding: 40px;
+    line-height: 1;
+}
+.synopsis h2{
+    margin-bottom: 20px;
+}
+.synopsis p{
+    text-align: justify;
+}
+
+.info-data p {
+    margin-bottom: 10px;
+}
+.info-data p span{
+    font-weight: bold;
+}
+
+.info-data a{
+    text-decoration: none;
+    color: #2F2F2F;
+}
+.info-data a:hover{
+    color: cadetblue;
+}
+.info-data ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.info-data li{
+    display: inline;
+    margin-right: 10px;
+}
+.info-button{
+    justify-content: center;
+}
+.info-button button{
+    display: block;
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+.info-button .button-buy{
+    background-color: #2F2F2F;
+    border: none;
+    color: whitesmoke;
+}
+.info-button .button-cart{
+    background-color:whitesmoke;
+    border: solid 1px #2F2F2F;
+    margin-bottom: 20px;
+}
+.box-info button:hover{
+    background-color: cadetblue;
+    color: whitesmoke;
+}
+
+/*Recomendation*/
+.recommendation{
+    margin-bottom: 50px;
+}
+.recommendation h2{
+    text-align: center;
+    padding: 10px;
+}
+
+h2.section-title {
+    width: 100%;
+}
+
+.recommendation hr{
+    margin: 50px;
+}
+.card{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+.card-product{
+    width: 200px;
+    border: solid 1px #2F2F2F;
+    text-align: center;
+    margin: 5px;
+    background-color: whitesmoke;
+}
+.card img, .book-card img{
+    width: 70%;
+    height: 190px;
+}
+.card hr, .book-card hr{
+    width: 100%;
+    height: 1px;
+    margin-bottom:10px ;
+    margin: 0;
+}
+.card h3, .book-card h3, p{
+    margin-bottom: 10px;
+}
+
+.card-product .card-info {
+    height: 342px;
+}
+
+.card-info a{
+    text-decoration: none;
+    color: #2F2F2F;
+}
+.card-info a:hover{
+    color: cadetblue;
+}
+.card-buy button{
+    display: block;
+    padding: 10px;
+    width: 100%;
+}
+.card button:hover, .book-card button:hover{
+    background-color: cadetblue;
+    color: whitesmoke;
+}
+.card-buy .button-buy{
+    background-color: #2F2F2F;
+    border: none;
+    color: whitesmoke;
+}
+.card-buy .button-cart{
+    background-color:whitesmoke;
+    border: none;
+    height: 40px;
+}
+.card-more-products{
+    background-color: #2F2F2F;
+    color: whitesmoke;
+    width: 100px;
+    border: none;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 20px;
+}
+
+.box-card {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Para ejs de categorias*/
+section.genres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
+}
+
+.box-genre {
+    width: 100%;
+    border: solid 1px #2F2F2F;
+    margin: 1%;
+    background-color: whitesmoke;
+    
+}
+
+.box-genre a{
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    color: #2F2F2F;
+}
+
+.box-genre:hover {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.224);
+    background-color:cadetblue;
+}
+
+.box-genre:hover a{
+    color: whitesmoke;
+}
+
+.book-card {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card-buy a.button-read{
+    background-color: #2F2F2F;
+    border: none;
+    display: block;
+    padding: 10px;
+    color: whitesmoke;
+    text-decoration: none;
+    height: 40px;
+}
+
+.card-buy .button-read:hover{
+    background-color: cadetblue;
+    color: whitesmoke;
+}
+
+
+@media (min-width: 400px) {
+    .faceBox{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        border-color: #2F2F2F;
+        border-style: double;
+    }
+    .divCheckBox {
+        flex: 1 0 calc(50% - 10px); /* Calcula el ancho para 2 columnas con margen entre ellas */
+        margin: 5px; /* Margen entre checkboxes */
+      }
+    .preferBox{
+        width: 90%;
+    }
+    .preferBox2{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-center;
+        flex-wrap: wrap;
+        border-color: #2F2F2F;
+        border-style: double;
+        width: 100%;
+    }
+    .directionBox{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+    .directionBox2{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-center;
+    padding: 5px;
+    margin: 5px;
+    flex-wrap: wrap;
+    border-color: #2F2F2F;
+    border-style: double;
+    width: 100%;
+    }
+    .book-card{
+        width: 50%;
+    }
+
+    /* Para ejs de categorias*/
+    .box-genre {
+        width: 48%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .faceBox{
+        display: flex;
+        flex-direction: row;
+        width: 400px;
+        border-color: #2F2F2F;
+        border-style: double;
+        align-items: center;
+        padding: 5px;
+    }
+    .divCheckBox {
+        flex: 1 0 calc(25% - 10px); /* Calcula el ancho para 4 columnas con margen entre ellas */
+      }
+    
+    .preferBox2{
+        display:flex;
+        flex-direction: row;
+
+        align-items: flex-center;
+        
+        flex-wrap: wrap;
+    }
+    .directionBox2{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-center;
+        padding: 5px;
+        margin: 5px;
+        flex-wrap: wrap;
+        border-color: #2F2F2F;
+        border-style: double;
+        width: 100%;
+        }
+
+    .product-info {
+        flex-direction: row;
+    }
+
+    .box-info {
+        flex: 1;
+    }
+
+    .book-card{
+        width: 33%;
+    }
+
+    /* Para ejs de categorias*/
+    .box-genre {
+        width: 31%;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .preferBox2{
+        display:flex;
+        flex-direction: row;
+        /*justify-content: justify;*/
+        align-items: flex-center;
+        
+        flex-wrap: wrap;
+    }
+
+    .product-detail {
+        flex-direction: row;
+    }
+
+    /* edicion y eliminar*/
+    .btn-group .btn-edit, .btn-group .slim{
+        width: 35%;
+    }
+
+    
+    .book-card{
+        width: 25%;
+    }
+
+    /* Para ejs de categorias*/
+    .box-genre {
+        width: 23%;
+    }
+}
