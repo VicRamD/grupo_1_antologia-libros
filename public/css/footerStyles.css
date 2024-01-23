@@ -66,8 +66,8 @@
 
     .box-link li{
         text-align: left;
+    }
 }
-
 
 @media (min-width: 768px) {
     .box {
@@ -78,5 +78,3 @@
         height: 250px;
     }
 }
-  
-  
