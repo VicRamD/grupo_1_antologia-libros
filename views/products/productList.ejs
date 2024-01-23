@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="/images/favicon_antologia.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antología : donde vive el saber</title>
+    <title>Antología - Listado de Libros</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/cartStyles.css">
@@ -21,9 +21,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Título</th>
-                    <th>Autor</th>
-                    <th>Editorial</th>
-                    <th>Género</th>
+                    <th class="bigScreen">Autor</th>
+                    <th class="bigScreen">Editorial</th>
+                    <th class="bigScreen">Género</th>
                     <th>Precio</th>
                     <th>Eliminar</th>
                 </tr>
@@ -33,9 +33,9 @@
                 <tr>
                     <td><%=item.id%></td>
                     <td><a href = "/products/<%= item.id %>"><%=item.title%></a></td>
-                    <td><%=item.author%></td>
-                    <td><%=item.editorial%></td>
-                    <td><% item.genre.forEach(g => { %>
+                    <td class="bigScreen"><%=item.author%></td>
+                    <td class="bigScreen"><%=item.editorial%></td>
+                    <td class="bigScreen"><% item.genre.forEach(g => { %>
                         <a href="/products/genres?genre=<%= g.id %>"><%= g.name %><br></a><% }); %>
                     </td>
                                 

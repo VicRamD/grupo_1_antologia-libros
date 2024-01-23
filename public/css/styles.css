@@ -354,6 +354,11 @@ main section div.libros article{
     background-color: #2f2f2f2d;
 }
 
+/* Listado de libros */
+.bigScreen {
+    display: none;
+}
+
 @media (min-width: 481px){
     main section div.libros article{
         width: 45%;
@@ -363,6 +368,11 @@ main section div.libros article{
 @media (min-width: 769px){
     main section div.libros article{
         width: 22%;
+    }
+
+    /* Listado de libros */
+    .bigScreen {
+        display: table-cell;
     }
 }
 
