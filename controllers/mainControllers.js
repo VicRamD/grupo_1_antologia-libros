@@ -23,13 +23,13 @@ let mainController = {
         res.render('main/login')
     },
     user_home: function (req, res) {
-        let usuario = req.body;
+        //let usuario = req.body;
 
-        const { email, password } = req.body;
+        const { email, password, remember } = req.body;
         let login_user = users.find(user => user.email === email);
         //console.log(login_user);
         if (login_user){ //usuario encontrado
-           
+            
             let resultado="Acceso Denegado";
 
             // Comparar la contraseña ingresada con el hash almacenado
@@ -38,6 +38,10 @@ let mainController = {
             if (passwordsMatch) {
                 console.log("Contraseña correcta. Acceso permitido.");
                 req.session.currentUserMail = email;
+                if(remember){
+                    //maxage para tres días
+                    res.cookie('rememberUser', email, { maxAge: 259200000 });
+                }
                 res.redirect('/profile');
             } else {
                 console.log("Usuario y/o contraseña incorrecta. Acceso denegado.");
@@ -88,8 +92,15 @@ let mainController = {
         fs.writeFileSync(path.join(__dirname, '../data/users.json'), nuevoJsonString);
 
         res.render('main/index');
+    },
+    logout: (req, res) => {
+        if(req.cookies && req.cookies.rememberUser){
+            res.clearCookie('rememberUser');
+            //console.log('en logout ' + req.cookies.rememberUser);
+        }
+        req.session.destroy();
+        res.redirect('/login');
     }
-    
 }
 
 module.exports = mainController;

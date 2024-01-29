@@ -5,6 +5,9 @@ const path = require('path');
 const mainRoutes = require('./routes/main.js')
 const productRoutes = require ('./routes/products.js')
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
+const rememberUser = require('./middlewares/rememberUser.js');
 
 const server = express();
 
@@ -19,6 +22,9 @@ server.use(session( {
     resave: false,
     saveUninitialized: true,
 }));
+
+server.use(cookieParser());
+
 //======= Template engine ===================
 server.set('view engine', 'ejs')
 
@@ -28,8 +34,8 @@ server.listen(3030, () => {
     console.log("Servidor corriendo en http://localhost:3030/");
 });
 
-server.use('/', mainRoutes)
-server.use('/products', productRoutes)
+server.use('/', rememberUser, mainRoutes)
+server.use('/products', rememberUser, productRoutes)
 
 server.get('*', (req,res) => {
     res.render('error-404');
