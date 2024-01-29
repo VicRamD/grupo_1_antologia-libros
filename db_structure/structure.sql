@@ -32,7 +32,7 @@ CREATE TABLE `books` (
   `editorial_id` INT(10),
   `isbn` INT(25) NOT NULL,
   `date` DATE,
-  `price` FLOAT(15, 2) NOT NULL,
+  `price` FLOAT(20, 2) NOT NULL,
   `stock` INT(6) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`editorial_id`) REFERENCES `editorials` (`id`)
@@ -94,23 +94,64 @@ CREATE TABLE `customers` (
   `first_name` VARCHAR(40),
   `last_name` VARCHAR(40),
   `email` VARCHAR(70),
-  `address` VARCHAR(70),
   `phone_number` INT(15),
   `user_id` INT(10) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 );
 
--- Estructura de orders
+-- Estructura de Addresses
+
+DROP TABLE IF EXISTS `addresses`;
+CREATE TABLE `addresses` (
+  `id` INT(10) NOT NULL AUTO_INCREMENT,
+  `customer_id` INT(10) NOT NULL,
+  `street` VARCHAR(70),
+  `city` VARCHAR(50),
+  `state` VARCHAR(50),
+  `postal_code` INT(15),
+  `country` VARCHAR(50),
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`)
+);
+
+-- Estructura de Shopping Carts
+
+DROP TABLE IF EXISTS `shopping_carts`;
+CREATE TABLE `shopping_carts` (
+  `id` INT(10) NOT NULL AUTO_INCREMENT,
+  `customer_id` INT(10) NOT NULL,
+  `createdAt` timestamp,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`)
+);
+
+-- Estructura de Cart Items
+
+DROP TABLE IF EXISTS `cart_items`;
+CREATE TABLE `cart_items` (
+  `id` INT(10) NOT NULL AUTO_INCREMENT,
+  `cart_id` INT(10) NOT NULL,
+  `book_id` INT(10) NOT NULL,
+  `quantity` INT(10),
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`cart_id`) REFERENCES `shopping_carts` (`id`),
+  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`)
+);
+
+-- Estructura de orders (transacciones finalizadas)
 
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `id` INT(10) NOT NULL AUTO_INCREMENT,
   `customer_id` INT(10) NOT NULL,
+  `address_id` INT(10) NOT NULL,
   `order_date` DATE NOT NULL,
   `status` VARCHAR(20) NOT NULL,
+  `total_cost` FLOAT(20, 2) NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`)
+  FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
+  FOREIGN KEY (`address_id`) REFERENCES `addresses` (`id`)
 );
 
 -- Estructura de books_orders
@@ -120,6 +161,8 @@ CREATE TABLE `books_orders` (
   `id` INT(10) NOT NULL AUTO_INCREMENT,
   `book_id` INT(10) NOT NULL,
   `order_id` INT(10) NOT NULL,
+  `quantity` INT(10) NOT NULL,
+  `price_at_purchase` FLOAT(20, 2) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`book_id`) REFERENCES `books` (`id`),
   FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`)
