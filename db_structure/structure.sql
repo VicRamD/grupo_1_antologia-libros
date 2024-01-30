@@ -38,10 +38,10 @@ CREATE TABLE `books` (
   FOREIGN KEY (`editorial_id`) REFERENCES `editorials` (`id`)
 );
 
--- Estructura de Books_Genres
+-- Estructura de book_genre
 
-DROP TABLE IF EXISTS `books_genres`;
-CREATE TABLE `books_genres` (
+DROP TABLE IF EXISTS `book_genre`;
+CREATE TABLE `book_genre` (
   `id` INT(10) NOT NULL AUTO_INCREMENT,
   `book_id` INT(10) NOT NULL,
   `genre_id` INT(10) NOT NULL,
@@ -59,10 +59,10 @@ CREATE TABLE `authors` (
   PRIMARY KEY (`id`)
 );
 
--- Estructura de Books_Authors
+-- Estructura de book_author
 
-DROP TABLE IF EXISTS `books_authors`;
-CREATE TABLE `books_authors` (
+DROP TABLE IF EXISTS `book_author`;
+CREATE TABLE `book_author` (
   `id` INT(10) NOT NULL AUTO_INCREMENT,
   `book_id` INT(10) NOT NULL,
   `author_id` INT(10) NOT NULL,
@@ -154,10 +154,10 @@ CREATE TABLE `orders` (
   FOREIGN KEY (`address_id`) REFERENCES `addresses` (`id`)
 );
 
--- Estructura de books_orders
+-- Estructura de book_order
 
-DROP TABLE IF EXISTS `books_orders`;
-CREATE TABLE `books_orders` (
+DROP TABLE IF EXISTS `book_order`;
+CREATE TABLE `book_order` (
   `id` INT(10) NOT NULL AUTO_INCREMENT,
   `book_id` INT(10) NOT NULL,
   `order_id` INT(10) NOT NULL,
