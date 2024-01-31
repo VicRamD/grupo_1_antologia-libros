@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Shopping_Carts";
+    let alias = "Shopping_Cart";
     let cols = {
         id: {
             type: dataTypes.INTEGER(10).UNSIGNED,
@@ -32,7 +32,7 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'book_id', //Clave foránea que apunta a books
         });
 
-        Shopping_Cart.belongsTo(models.Customer, { //Un carrito de compras pertenece a un solo cliente
+        Shopping_Cart.hasOne(models.Customer, { //Un carrito de compras pertenece a un solo cliente
             as: 'customers',
             foreignKey: 'customer_id'
         });

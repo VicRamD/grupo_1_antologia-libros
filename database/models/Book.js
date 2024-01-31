@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Books";
+    let alias = "Book";
     let cols = {
         id: {
             type: dataTypes.INTEGER(10).UNSIGNED,
@@ -52,18 +52,21 @@ module.exports = (sequelize, dataTypes) => {
 
         Book.belongsToMany(models.Genre, { //Un libro puede pertenecer a uno o varios géneros
             as: "genres",
-            through: 'book_genre', //Tabla intermedia
+            through: 'books_genres', //Tabla intermedia
             foreignKey: 'book_id', //Clave foránea que apunta a books
             otherKey: 'genre_id', //Clave foránea que apunta a genres
         });
 
         //Book.hasMany(models.Review); //Un libro puede tener una o muchas reseñas
         
-        Book.belongsTo(models.Editorial); //Un libro puede ser publicado por una editorial
+        Book.belongsTo(models.Editorial, { //Un libro puede ser publicado por una editorial
+            as: "editorial",
+            foreignKey: 'editorial_id'
+        }); 
         
         Book.belongsToMany(models.Order, { //Un libro puede pertenecer a uno o varios pedidos
             as: "orders",
-            through: 'book_order', //Tabla intermedia
+            through: 'books_orders', //Tabla intermedia
             foreignKey: 'book_id', //Clave foránea que apunta a books
             otherKey: 'order_id', //Clave foránea que apunta a orders
         });

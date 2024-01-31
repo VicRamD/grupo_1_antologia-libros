@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Customers";
+    let alias = "Customer";
     let cols = {
         id: {
             type: dataTypes.INTEGER(10).UNSIGNED,
@@ -43,6 +43,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'customer_id' 
         }); */
 
+        //siguiendo la logica de que la foreignKey se define aqui uso has one
         Customer.belongsTo(models.User, { //Un cliente pertenece a un solo usuario
             as: "users",
             foreignKey: 'user_id' 

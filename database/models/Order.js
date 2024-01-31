@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Orders";
+    let alias = "Order";
     let cols = {
         id: {
             type: dataTypes.INTEGER(10).UNSIGNED,
@@ -43,7 +43,7 @@ module.exports = (sequelize, dataTypes) => {
         
         Order.belongsToMany(models.Book, { //Un pedido puede tener uno o muchos libros
             as: "books",
-            through: 'book_order', //Tabla intermedia
+            through: 'books_orders', //Tabla intermedia
             foreignKey: 'order_id', //Clave foránea que apunta a orders
             otherKey: 'book_id', //Clave foránea que apunta a books
         });
