@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
     Genre.associate = (models) => {
         Genre.belongsToMany(models.Book, { //A un género pueden pertenecer uno o muchos libros
             as: "books", 
-            through: 'books_genres', //Tabla intermedia 
+            through: 'book_genre', //Tabla intermedia 
             foreignKey: 'genre_id', //Clave foránea que apunta a genres
             otherKey: 'book_id', //Clave foránea que apunta a books
         });

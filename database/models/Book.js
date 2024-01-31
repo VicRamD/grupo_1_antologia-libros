@@ -32,6 +32,14 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER(6),
             allowNull: false
         },
+        image: {
+            type: dataTypes.STRING(75),
+            allowNull: false
+        },
+        language: {
+            type: dataTypes.STRING(15),
+            allowNull: false
+        },
     };
 
     let config = {
@@ -52,7 +60,7 @@ module.exports = (sequelize, dataTypes) => {
 
         Book.belongsToMany(models.Genre, { //Un libro puede pertenecer a uno o varios géneros
             as: "genres",
-            through: 'books_genres', //Tabla intermedia
+            through: 'book_genre', //Tabla intermedia
             foreignKey: 'book_id', //Clave foránea que apunta a books
             otherKey: 'genre_id', //Clave foránea que apunta a genres
         });

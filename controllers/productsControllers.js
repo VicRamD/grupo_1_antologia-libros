@@ -5,12 +5,18 @@ const { CLIENT_RENEG_WINDOW } = require('tls');
 const finders = require('../utils/finders');
 const { wasFileSend } = require('../utils/fileRelated');
 
+//const genresController = require('./api/genresController');
+
+const db = require('../database/models');
+
 const books = JSON.parse( fs.readFileSync(path.join(process.cwd(), '/data/books.json')),'utf-8');
 const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
 const categories = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/categories.json')), 'utf-8');
 
+
 //====== Controlador ===========/
 const productsControllers = {
+    
     list: (req,res) => {
         //res.send("Estás en la ruta de productos");
         if(req.session.currentUserMail){
@@ -18,9 +24,6 @@ const productsControllers = {
            return res.render('products/productList', { books: books, user: user });
         }
         return res.render('products/productList', { books: books });
-    }, 
-    listBooks: (req,res) => {
-        res.render('products/productList');
     },
     
     detail: (req,res) => {
@@ -218,53 +221,80 @@ const productsControllers = {
         res.redirect('/products');
     },
 
-    genres: (req, res) => {
+    genres: async (req, res) => {
+
+        let user;
+        if(req.session.currentUserMail){
+            user = finders.searchUserByEmail(req.session.currentUserMail, users);
+        }
+
+        let generos = await db.Genre.findAll({
+            order: [['name','ASC']]
+        });
+
+        let genres = JSON.parse(JSON.stringify(generos));
+
         if (req.query.genre) {
             let { genre } = req.query;
             
             //id = Number(genre);
             //let category = finders.searchItemByName(genre, categories);
-            let category = finders.searchItemByName(genre, categories);
-            let booksCategory = [];
-            books.forEach((book) => {
+
+            let categoryDb = await db.Genre.findOne({
+                where: {
+                    name: genre
+                }
+            })
+
+            let category = JSON.parse(JSON.stringify(categoryDb));
+
+            //let category = finders.searchItemByName(genre, categories);
+            //let categoryBooks = [];
+            /*books.forEach((book) => {
                 book.genre.forEach((g) => {
                     if (g.id === category.id) {
-                        booksCategory.push(book);
+                        categoryBooks.push(book);
                     }
                 });
-            });
-    
+            }); */
+
+            let categoryBooksDb = await db.BookGenre.findAll({
+                where: {
+                    genre_id: category.id
+                },
+                include: [{association: 'book', include: [{association: 'editorial'}]}]
+            })
+
+            let categoryBooks = JSON.parse(JSON.stringify(categoryBooksDb));
+        
             // Verifica si no hay libros en la categoría
-            if (booksCategory.length === 0) {
+            if (categoryBooks.length === 0) {
                 let noBooksMessage = 'No existen libros para esta categoría.<br>';
                 let imageSrc = '/images/noEncontrado.png';
 
-                if(req.session.currentUserMail){
+                /*if(req.session.currentUserMail){
                     let user = finders.searchUserByEmail(req.session.currentUserMail, users);
                     return res.render('products/booksByGenre', { noBooksMessage, imageSrc, categories, user });
-                }
+                } */
                 
                 return res.render('products/booksByGenre', {
                     noBooksMessage: noBooksMessage,
                     imageSrc: imageSrc,
                     categories,
+                    user
                 });
             }
     
             
-            if(req.session.currentUserMail){
+            /*if(req.session.currentUserMail){
                 let user = finders.searchUserByEmail(req.session.currentUserMail, users);
-                return res.render('products/booksByGenre', { booksCategory, category, user });
-            }
+                return res.render('products/booksByGenre', { categoryBooks, category, user });
+            } */
             // Renderiza la vista con libros si existen
-            return res.render('products/booksByGenre', { booksCategory, category });
+            return res.render('products/booksByGenre', { categoryBooks, category, user });
         } else {
-            // Renderiza la vista con todas las categorías si no hay consulta de género
-            if(req.session.currentUserMail){
-                let user = finders.searchUserByEmail(req.session.currentUserMail, users);
-                return res.render('products/booksByGenre', { categories, user });
-            }
-            return res.render('products/booksByGenre', { categories });
+            // Renderiza la vista con todas las categorías si no hay consulta de géneros
+            return res.render('products/booksByGenre', { categories: genres, user });
         }
     },
     

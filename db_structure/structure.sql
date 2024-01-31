@@ -34,6 +34,8 @@ CREATE TABLE `books` (
   `date` DATE,
   `price` FLOAT(20, 2) NOT NULL,
   `stock` INT(6) NOT NULL,
+  `image` VARCHAR(75) NOT NULL,
+  `language` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`editorial_id`) REFERENCES `editorials` (`id`)
 );

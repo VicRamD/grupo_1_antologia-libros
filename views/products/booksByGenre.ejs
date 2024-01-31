@@ -37,20 +37,20 @@
 
         <section class="recommendation">
             <div class="box-card">
-                <% if (locals && locals.booksCategory) { %>
-                    <% locals.booksCategory.forEach(book => { %>
+                <% if (locals && locals.categoryBooks) { %>
+                    <% locals.categoryBooks.forEach(categoryBook => { %>
                     
                         <div class="book-card">
                             <div class="card-product">
                                 <div class="card-info">
-                                    <img src="/images/books/<%= book.image ? book.image : 'cover-not-available.png' %>" alt="Portada de <%= book.title %> ">
+                                    <img src="/images/books/<%= categoryBook.book && categoryBook.book.image ? categoryBook.book.image : 'cover-not-available.png' %>" alt="Portada de <%= categoryBook.book.title %> ">
                                     <hr>
-                                    <h3><a href="/products/<%= book.id %>"><%= book.title %></a></h3>
-                                    <p><a href=""><%= book.author %></a></p>
-                                    <p><a href=""><%= book.editorial %></a></p>
+                                    <h3><a href="/products/<%= categoryBook.book && categoryBook.book.id %>"><%= categoryBook.book.title %></a></h3>
+                                    <p><a href=""><%= categoryBook.book.author %></a></p>
+                                    <p><a href=""><%= categoryBook.book.editorial.name %></a></p>
                                 </div>
                                 <div class="card-buy">
-                                    <a class="button-read" href="/products/<%= book.id %>">VER MÁS</a>
+                                    <a class="button-read" href="/products/<%= categoryBook.id %>">VER MÁS</a>
                                     <button class="button-cart">AGREGAR AL CARRITO</button>
                                 </div>
                             </div>
