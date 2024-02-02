@@ -1,5 +1,5 @@
 const express = require ('express');
-const mainController = require ('../controllers/mainControllers.js')
+const usersController = require ('../controllers/usersController.js')
 const router = express.Router();
 
 const multer = require('multer');
@@ -19,13 +19,13 @@ const storage = multer.diskStorage({
   
 const uploadFile = multer({storage});
 
-router.get('/login', mainController.login);
-router.post('/user_home', mainController.user_home);
-router.get('/profile', userRoute, mainController.profile);
+router.get('/login', usersController.login);
+router.post('/user_home', usersController.user_home);
+router.get('/profile', userRoute, usersController.profile);
 
-router.get('/register', mainController.register);
+router.get('/register', usersController.register);
 //Multer debe ejecutarse primero o el body llega vacio
-router.post('/register', uploadFile.single('avatar'), validateRegister, registerValidator, mainController.saveRegister);
-router.get('/logout', mainController.logout);
+router.post('/register', uploadFile.single('avatar'), validateRegister, registerValidator, usersController.saveRegister);
+router.get('/logout', usersController.logout);
 
 module.exports = router;

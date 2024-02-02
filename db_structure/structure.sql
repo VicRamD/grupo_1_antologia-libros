@@ -93,7 +93,7 @@ CREATE TABLE `users` (
   `email` VARCHAR(70) NOT NULL,
   `password` VARCHAR(70) NOT NULL,
   `category_id` INT(10) NOT NULL,
-  `pf_image` INT(15),
+  `pf_image` VARCHAR(50),
   `phone_number` INT(15),
   PRIMARY KEY (`id`),
   UNIQUE (`email`),

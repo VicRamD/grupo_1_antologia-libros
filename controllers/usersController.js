@@ -11,17 +11,8 @@ const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.j
 
 const db = require('../database/models');
 
-
 //====== Controlador ===========/
-let mainController = {
-    index: async function (req, res) {
-        if(req.session.currentUserMail){
-            let user = await finders.searchUserByEmail(req.session.currentUserMail);
-            return res.render('main/index', { user: user });
-        }
-        return res.render('main/index')
-    },
-    /*
+let controller = {
     login: function (req, res) {
         res.render('users/login')
     },
@@ -80,30 +71,42 @@ let mainController = {
         const {firstname, lastname, email, password} = req.body;
 
         //Busca id maximo y luego lo incrementa en 1
-        let maxId = users.reduce((max, objeto) => (objeto.id > max ? objeto.id : max), 0);
-        maxId++;
+        //let maxId = users.reduce((max, objeto) => (objeto.id > max ? objeto.id : max), 0);
+        //maxId++;
 
         let encryptPW = bcrypt.hashSync(password, saltRounds);
 
         const wasSend = wasFileSend(req.file);
         let image = wasSend ? req.file.filename : "";
 
-        let newUser = {
+        db.User.create({
+            first_name: firstname,
+            last_name: lastname,
+            email,
+            password: encryptPW,
+            pf_image: image,
+            category_id: 2
+        }).then(result => {
+            //res.render('main/index');
+            res.redirect('/');
+        })
+
+        /*let newUser = {
             id: maxId,
-            firstname: firstname,
+            first_name: firstname,
             lastname: lastname,
             email: email,
             password: encryptPW,
             category: 'Cliente',
             image: image,
-        }
+        }*/
 
-        users.push(newUser);
-        const nuevoJsonString = JSON.stringify(users, null, 2);
+        //users.push(newUser);
+        //const nuevoJsonString = JSON.stringify(users, null, 2);
 
-        fs.writeFileSync(path.join(__dirname, '../data/users.json'), nuevoJsonString);
+        //fs.writeFileSync(path.join(__dirname, '../data/users.json'), nuevoJsonString);
 
-        res.render('main/index');
+        //res.render('main/index');
     },
     logout: (req, res) => {
         if(req.cookies && req.cookies.rememberUser){
@@ -112,7 +115,7 @@ let mainController = {
         }
         req.session.destroy();
         res.redirect('./login');
-    } */
+    }
 }
 
-module.exports = mainController;
+module.exports = controller;

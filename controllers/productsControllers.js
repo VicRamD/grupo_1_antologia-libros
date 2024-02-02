@@ -16,7 +16,6 @@ const categories = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/ca
 
 //====== Controlador ===========/
 const productsControllers = {
-    
     list: async (req,res) => {
         //res.send("Estás en la ruta de productos");
         if(req.session.currentUserMail){

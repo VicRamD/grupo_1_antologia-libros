@@ -28,7 +28,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         pf_image: {
-            type: dataTypes.INTEGER(15)
+            type: dataTypes.STRING(50)
         }
     };
     

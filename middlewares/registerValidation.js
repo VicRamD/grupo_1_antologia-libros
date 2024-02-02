@@ -9,14 +9,13 @@ const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.j
     const searchedRegister = list.find((reg) => reg.email === email);
     return searchedRegister;
 } */
-
 let validateRegister = [
     check('firstname').notEmpty().withMessage("Debe completar el nombre"),
     check('lastname').notEmpty().withMessage("Debe completar el apellido"),
     check('email').isEmail()//.normalizeEmail()
     .withMessage("Debe ingresar un email valido").bail()
-    .custom(value => {
-        let user = finders.searchUserByEmail(value, users);
+    .custom(async value => {
+        let user = await finders.searchUserByEmail(value);
         if(user){
             throw new Error('El email ya se encuentra registrado');
         }
@@ -42,7 +41,7 @@ const registerValidator = (req, res, next) => {
     if(errors.isEmpty()){
         next();
     } else {
-        return res.render('main/register', {
+        return res.render('users/register', {
             errors: errors.mapped(),
             old: req.body
         })
