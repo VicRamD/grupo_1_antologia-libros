@@ -73,6 +73,16 @@ CREATE TABLE `book_author` (
   FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`)
 );
 
+-- Estructura de User Categories
+
+DROP TABLE IF EXISTS `user_categories`;
+CREATE TABLE `user_categories` (
+  `id` INT(10) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(20),
+  PRIMARY KEY (`id`),
+  UNIQUE (`name`)
+);
+
 -- Estructura de users
 
 DROP TABLE IF EXISTS `users`;
@@ -82,24 +92,12 @@ CREATE TABLE `users` (
   `last_name` VARCHAR(40) NOT NULL,
   `email` VARCHAR(70) NOT NULL,
   `password` VARCHAR(70) NOT NULL,
-  `category` VARCHAR(10) NOT NULL,
+  `category_id` INT(10) NOT NULL,
   `pf_image` INT(15),
-  PRIMARY KEY (`id`),
-  UNIQUE (`email`)
-);
-
--- Estructura de Customers
-
-DROP TABLE IF EXISTS `customers`;
-CREATE TABLE `customers` (
-  `id` INT(10) NOT NULL AUTO_INCREMENT,
-  `first_name` VARCHAR(40),
-  `last_name` VARCHAR(40),
-  `email` VARCHAR(70),
   `phone_number` INT(15),
-  `user_id` INT(10) NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  UNIQUE (`email`),
+  FOREIGN KEY (`category_id`) REFERENCES `user_categories` (`id`)
 );
 
 -- Estructura de Addresses
@@ -107,14 +105,14 @@ CREATE TABLE `customers` (
 DROP TABLE IF EXISTS `addresses`;
 CREATE TABLE `addresses` (
   `id` INT(10) NOT NULL AUTO_INCREMENT,
-  `customer_id` INT(10) NOT NULL,
+  `user_id` INT(10) NOT NULL,
   `street` VARCHAR(70),
   `city` VARCHAR(50),
   `state` VARCHAR(50),
   `postal_code` INT(15),
   `country` VARCHAR(50),
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`)
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 );
 
 -- Estructura de Shopping Carts
@@ -122,10 +120,10 @@ CREATE TABLE `addresses` (
 DROP TABLE IF EXISTS `shopping_carts`;
 CREATE TABLE `shopping_carts` (
   `id` INT(10) NOT NULL AUTO_INCREMENT,
-  `customer_id` INT(10) NOT NULL,
+  `user_id` INT(10) NOT NULL,
   `createdAt` timestamp,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`)
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 );
 
 -- Estructura de Cart Items
@@ -146,13 +144,13 @@ CREATE TABLE `cart_items` (
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `id` INT(10) NOT NULL AUTO_INCREMENT,
-  `customer_id` INT(10) NOT NULL,
+  `user_id` INT(10) NOT NULL,
   `address_id` INT(10) NOT NULL,
   `order_date` DATE NOT NULL,
   `status` VARCHAR(20) NOT NULL,
   `total_cost` FLOAT(20, 2) NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   FOREIGN KEY (`address_id`) REFERENCES `addresses` (`id`)
 );
 
@@ -176,10 +174,10 @@ DROP TABLE IF EXISTS `reviews`;
 CREATE TABLE `reviews` (
   `id` INT(10) NOT NULL AUTO_INCREMENT,
   `book_id` INT(10) NOT NULL,
-  `customer_id` INT(10) NOT NULL,
+  `user_id` INT(10) NOT NULL,
   `comment` TEXT(800),
   `rating` FLOAT(5,1) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`book_id`) REFERENCES `books` (`id`),
-  FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`)
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 );

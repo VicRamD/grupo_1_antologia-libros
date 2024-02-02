@@ -28,3 +28,19 @@ UNLOCK TABLES;
 LOCK TABLES `book_genre` WRITE;
 INSERT INTO `book_genre` (id, `book_id`, `genre_id`) VALUES (1, 1, 8);
 UNLOCK TABLES;
+
+-- data de user_categories
+
+LOCK TABLES `user_categories` WRITE;
+INSERT INTO `user_categories` (id, `name`) VALUES (1, "Administrador"), (2, "Cliente");
+UNLOCK TABLES;
+
+
+-- data de users
+
+LOCK TABLES `users` WRITE;
+INSERT INTO `users` (id, `first_name`, `last_name`, `email`, `password`, `category_id`, `pf_image`) VALUES (1, "Victor", "Ramirez", "victorram@correo.ar", "$2b$10$204gD0l97fCwKSqGAV6d.uQGdWZIm73O/LvtuzZYejnDbvdWWzpp2", 1, "1705068823054_user_pfile_img.jpg"),
+(2, "Juan", "Perez", "jp@correo.ar", "$2b$10$hIcOe0yKiB9T/Wj8lWDd1eOrg6yHzXMp6/VGk8O1tlC1iQE/wq4Z6", 2, "1703370673030_user_pfile_img.jpg"),
+(3, "Carlos", "Zavaleta", "charlyzava256@gmail.com", "$2b$10$f3y0jHKh6A4xaLxHJJ9SKucTRlgZjRZu57I2uIXvHqY/ILrIsryp.", 1, "1705449309420_user_pfile_img.jpg");
+UNLOCK TABLES;
+

@@ -7,7 +7,7 @@ function userRoute(req, res, next){
     if(req.session.currentUserMail){
         next();
     } else {
-        return res.redirect('/login');
+        return res.redirect('/users/login');
     }
 }
 
@@ -17,11 +17,11 @@ function privilegedUserRoute(req, res, next){
         if(user && user.category == "Administrador"){
             next();
         } else {
-            return res.redirect('/profile');
+            return res.redirect('/users/profile');
             //return res.render('main/user_home', { user: user });
         }
     } else {
-        return res.redirect('/login');
+        return res.redirect('/users/login');
     }
 }
 

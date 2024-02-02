@@ -9,6 +9,8 @@ const { wasFileSend } = require('../utils/fileRelated');
 
 const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
 
+const db = require('../database/models');
+
 
 //====== Controlador ===========/
 let mainController = {
@@ -20,47 +22,55 @@ let mainController = {
         return res.render('main/index')
     },
     login: function (req, res) {
-        res.render('main/login')
+        res.render('users/login')
     },
-    user_home: function (req, res) {
+    user_home: async function (req, res) {
         //let usuario = req.body;
 
         const { email, password, remember } = req.body;
+
         let login_user = users.find(user => user.email === email);
+
+        const account = await db.User.findOne({
+            where: {
+                email
+            }
+        })
+
         //console.log(login_user);
-        if (login_user){ //usuario encontrado
+        if (account){ //usuario encontrado
             
             let resultado="Acceso Denegado";
 
             // Comparar la contraseña ingresada con el hash almacenado
-            const passwordsMatch = bcrypt.compareSync(password, login_user.password);
+            const passwordsMatch = bcrypt.compareSync(password, account.password);
 
             if (passwordsMatch) {
-                console.log("Contraseña correcta. Acceso permitido.");
+                //console.log("Contraseña correcta. Acceso permitido.");
                 req.session.currentUserMail = email;
                 if(remember){
                     //maxage para tres días
                     res.cookie('rememberUser', email, { maxAge: 259200000 });
                 }
-                res.redirect('/profile');
+                res.redirect('./profile');
             } else {
-                console.log("Usuario y/o contraseña incorrecta. Acceso denegado.");
-                res.redirect('/login');
+                //console.log("Usuario y/o contraseña incorrecta. Acceso denegado.");
+                res.redirect('./login');
             }
         } else {//Usuario no encontrado
             
             console.log('Usuario y/o contraseña incorrecta. Acceso denegado.');
-            res.redirect('/login');
+            res.redirect('./login');
         }
         
     },
     profile: (req, res) => {
         let user = finders.searchUserByEmail(req.session.currentUserMail, users);
-        res.render('main/user_home', {user});
+        res.render('users/user_home', {user});
     },
 
     register: function (req, res) {
-        res.render('main/register')
+        res.render('users/register')
     },
 
     saveRegister: (req, res) => {
@@ -99,7 +109,7 @@ let mainController = {
             //console.log('en logout ' + req.cookies.rememberUser);
         }
         req.session.destroy();
-        res.redirect('/login');
+        res.redirect('./login');
     }
 }
 
