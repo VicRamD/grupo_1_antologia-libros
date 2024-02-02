@@ -7,7 +7,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
             autoIncrement: true
         },
-        customer_id: {
+        user_id: {
             type: dataTypes.INTEGER(10).UNSIGNED,
             allowNull: false
         }
@@ -32,9 +32,9 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'book_id', //Clave foránea que apunta a books
         });
 
-        Shopping_Cart.hasOne(models.Customer, { //Un carrito de compras pertenece a un solo cliente
-            as: 'customers',
-            foreignKey: 'customer_id'
+        Shopping_Cart.belongsTo(models.User, { //Un carrito de compras pertenece a un solo cliente
+            as: 'user',
+            foreignKey: 'user_id'
         });
 
     };

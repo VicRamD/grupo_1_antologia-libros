@@ -10,13 +10,14 @@ const { wasFileSend } = require('../utils/fileRelated');
 const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
 
 const db = require('../database/models');
+const { log } = require('console');
 
 
 //====== Controlador ===========/
 let mainController = {
-    index: function (req, res) {
+    index: async function (req, res) {
         if(req.session.currentUserMail){
-            let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+            let user = await finders.searchUserByEmail(req.session.currentUserMail);
             return res.render('main/index', { user: user });
         }
         return res.render('main/index')
@@ -64,8 +65,9 @@ let mainController = {
         }
         
     },
-    profile: (req, res) => {
-        let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+    profile: async (req, res) => {
+        let user = await finders.searchUserByEmail(req.session.currentUserMail);
+        console.log(user);
         res.render('users/user_home', {user});
     },
 

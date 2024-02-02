@@ -1,3 +1,5 @@
+const db = require('../database/models');
+
 function searchItemById(id, list){
     const searchedItem = list.find((item) => item.id === id);
     return searchedItem;
@@ -24,9 +26,20 @@ function searchProductIndex(id, products){
 	return index;
 }
 
-function searchUserByEmail(email, users){
-    const searchedUser = users.find(user => user.email === email);
-    return searchedUser;
+async function searchUserByEmail(email){
+    const searchedUser = await db.User.findOne({
+        where: {
+            email
+        },
+        include: [{association: 'category'}]
+    }).catch(error => {
+        console.log(error);
+    })
+
+    const searchedUserObject = JSON.parse(JSON.stringify(searchedUser));
+    //console.log(searchedUserObject)
+
+    return searchedUserObject;
 }
 
 module.exports = {searchItemById, searchItemIndex, searchItemByName, searchProductById, searchProductIndex, searchUserByEmail};

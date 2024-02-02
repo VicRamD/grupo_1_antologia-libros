@@ -7,7 +7,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
             autoIncrement: true
         },
-        customer_id: {
+        user_id: {
             type: dataTypes.INTEGER(10).UNSIGNED,
             allowNull: false
         },
@@ -37,9 +37,9 @@ module.exports = (sequelize, dataTypes) => {
     const Address = sequelize.define(alias, cols, config);
 
     Address.associate = (models) => {
-        Address.belongsTo(models.Customer, {
-            as: "customers",
-            foreignKey: 'customer_id'
+        Address.belongsTo(models.User, {
+            as: "user",
+            foreignKey: 'user_id'
         });
         /*Address.belongsTo(models.Customer);, { //Una dirección pertenece a un solo cliente
             as: "customers",

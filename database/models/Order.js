@@ -7,7 +7,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
             autoIncrement: true
         },
-        customer_id: {
+        user_id: {
             type: dataTypes.INTEGER(10).UNSIGNED,
             allowNull: false
         },
@@ -37,9 +37,9 @@ module.exports = (sequelize, dataTypes) => {
     const Order = sequelize.define(alias, cols, config);
 
     Order.associate = (models) => {
-        Order.belongsTo(models.Customer, { //Un pedido pertenece a un solo cliente
-            as: "customers",
-            foreignKey: 'customer_id' }); 
+        Order.belongsTo(models.User, { //Un pedido pertenece a un solo cliente
+            as: "customer",
+            foreignKey: 'user_id' }); 
         
         Order.belongsToMany(models.Book, { //Un pedido puede tener uno o muchos libros
             as: "books",

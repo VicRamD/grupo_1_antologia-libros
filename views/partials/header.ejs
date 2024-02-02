@@ -14,7 +14,7 @@
             <div class="icono"><a href="<%= locals && locals.user ? 'javascript:void(0);' : '/users/login' %>" onclick="showUserOptions()"><i class="fas fa-user"></i></a></div>
             <% if (locals && locals.user) { %>
                 <div class="session-div-769" id="session-div-769">
-                    <p><%= user.firstname %> <%= user.lastname %><br><%= user.email %></p> 
+                    <p><%= user.first_name %> <%= user.last_name %><br><%= user.email %></p> 
                     <hr>
                     <a href="/users/profile">Mi perfil</a>
                     <hr>
@@ -25,16 +25,16 @@
         </div>
         <% if (locals && locals.user) { %>
             <div class="session-div" id="session-div">
-                <p><%= user.firstname %> <%= user.lastname %></p>
+                <p><%= user.first_name %> <%= user.last_name %></p>
                 <p><%= user.email %></p> 
                 <a href="/users/profile">Mi perfil</a>
                 <a href="/users/logout">Cerrar Sesión</a>
             </div>
         <% } %>
     </div>
-    <nav class="<%= locals && locals.user && locals.user.category == 'Administrador' ? 'admin' : '' %>">
+    <nav class="<%= locals && locals.user && locals.user.category && locals.user.category.name == 'Administrador' ? 'admin' : '' %>">
         <ul>
-            <% if (locals && locals.user && locals.user.category == 'Cliente') { %>
+            <% if (locals && locals.user && locals.user.category && locals.user.category.name == 'Cliente') { %>
                 <li><a href="/products/genres">Categorías</a></li>
                 <li><a>Educativos</a></li>
                 <li><a>Ficción</a></li>
@@ -42,7 +42,7 @@
                 <li><a>Autores</a></li>
                 <li><a>Editoriales</a></li>
                 <li><a>Contacto</a></li>
-            <% } else if (locals && locals.user && locals.user.category == 'Administrador') { %>
+            <% } else if (locals && locals.user && locals.user.category && locals.user.category.name == 'Administrador') { %>
                 <li><a href="/products/genres">Categorías</a></li>
                 <li><a href="/products">Listado de libros</a></li>
                 <li><a href="/products/create">Nuevo libro</a></li>

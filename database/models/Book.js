@@ -86,11 +86,11 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'cart_id', //Clave foránea que apunta a books
         });
 
-        Book.belongsToMany(models.Customer, {
-            as: "customers",
+        Book.belongsToMany(models.User, {
+            as: "review",
             through: 'reviews', //Tabla intermedia
             foreignKey: 'book_id', //Clave foránea que apunta a books
-            otherKey: 'customer_id', //Clave foránea que apunta a customers
+            otherKey: 'user_id', //Clave foránea que apunta a users
         });
     };
     

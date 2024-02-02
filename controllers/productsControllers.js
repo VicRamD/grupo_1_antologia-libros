@@ -17,38 +17,38 @@ const categories = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/ca
 //====== Controlador ===========/
 const productsControllers = {
     
-    list: (req,res) => {
+    list: async (req,res) => {
         //res.send("Estás en la ruta de productos");
         if(req.session.currentUserMail){
-           let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+           let user = await finders.searchUserByEmail(req.session.currentUserMail);
            return res.render('products/productList', { books: books, user: user });
         }
         return res.render('products/productList', { books: books });
     },
     
-    detail: (req,res) => {
+    detail: async (req,res) => {
         let bookId = parseInt(req.params.id);
         let seeBook = finders.searchProductById(bookId, books);
 
         if(req.session.currentUserMail){
-            let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+            let user = await finders.searchUserByEmail(req.session.currentUserMail);
             return res.render('products/productDetail', { book: seeBook, user: user });
         }
         return res.render('products/productDetail', {book: seeBook});
     },
     
-    cart: function (req,res) {
+    cart: async function (req,res) {
         if(req.session.currentUserMail){
-            let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+            let user = await finders.searchUserByEmail(req.session.currentUserMail);
             return res.render('products/productCart', { user: user });
         }
         return res.render('products/productCart');
     },
     
 
-    create: (req, res) => {
+    create: async (req, res) => {
         if(req.session.currentUserMail){
-            let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+            let user = await finders.searchUserByEmail(req.session.currentUserMail);
             return res.render('products/productCreate', { categories: categories, categoryIndexes: [], user: user });
          }
         res.render('products/productCreate', {categories: categories, categoryIndexes: []});
@@ -104,16 +104,16 @@ const productsControllers = {
         res.redirect('/products/add');
     },
 
-    addAgain: (req, res) => {
+    addAgain: async (req, res) => {
         if(req.session.currentUserMail){
-            let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+            let user = await finders.searchUserByEmail(req.session.currentUserMail);
             return res.render('products/productAdded', {user: user });
         }
         return res.render('products/productAdded');
     },
 
     //edición
-    edit: (req, res) => {
+    edit: async (req, res) => {
         let bookId = parseInt(req.params.id);
         let editBook = finders.searchProductById(bookId, books);
 
@@ -131,7 +131,7 @@ const productsControllers = {
         });
 
         if(req.session.currentUserMail){
-            let user = finders.searchUserByEmail(req.session.currentUserMail, users);
+            let user = await finders.searchUserByEmail(req.session.currentUserMail);
             return res.render('products/productEdit', { book: editBook, categories: categories,
                  categoryIndexes: categoryIndexes, user: user });
         }
@@ -225,7 +225,7 @@ const productsControllers = {
 
         let user;
         if(req.session.currentUserMail){
-            user = finders.searchUserByEmail(req.session.currentUserMail, users);
+            user = await finders.searchUserByEmail(req.session.currentUserMail);
         }
 
         let generos = await db.Genre.findAll({
