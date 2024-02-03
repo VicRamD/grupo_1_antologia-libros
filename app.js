@@ -4,12 +4,35 @@ const { get } = require('http');
 const path = require('path');
 const mainRoutes = require('./routes/main.js')
 const productRoutes = require ('./routes/products.js')
+const apiRoutes = require ('./routes/api/api.js');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
 const rememberUser = require('./middlewares/rememberUser.js');
+const {privilegedUserRoute} = require('./middlewares/routeRedirector.js');
 
 const server = express();
+
+//============ Initialize Sequelize ===============
+const { Sequelize } = require('sequelize');
+const config = require('./database/config/config.js');
+
+// Initialize Sequelize
+const sequelize = new Sequelize(config.development.database, config.development.username, config.development.password, {
+    host: config.development.host,
+    dialect: config.development.dialect
+  });
+  
+  // Test the database connection
+  sequelize.authenticate()
+    .then(() => {
+      console.log(`
+Se ha establecido conexión con BD exitosamente.
+      `);
+    })
+    .catch(err => {
+      console.error('Unable to connect to the database:', err);
+    });
 
 //================================================/
 const pathPublic = path.join(__dirname, '/public');
@@ -36,32 +59,8 @@ server.listen(3030, () => {
 
 server.use('/', rememberUser, mainRoutes)
 server.use('/products', rememberUser, productRoutes)
+server.use('/api', rememberUser, privilegedUserRoute, apiRoutes);
 
 server.get('*', (req,res) => {
     res.render('error-404');
 });
-
-// server.get('/', (req, res) => {
-//     const index = path.join(__dirname, 'views/index.html')
-//     res.sendFile(index);
-// });
-
-// server.get('/register', (req,res) => {
-//     const register = path.join(__dirname, '/views/register.html')
-//     res.sendFile(register)
-// })
-
-// server.get('/login', (req, res) => {
-//     const pathLogin = path.join(__dirname, '/views/login.html');
-//     res.sendFile(pathLogin);
-// });
-
-// server.get('/productDetail', (req,res) => {
-//     const pathDetail = path.join(__dirname, '/views/productDetail.html')
-//     res.sendFile(pathDetail)
-// })
-
-// server.get('/productCart', (req, res) => {
-//     const pathCart = path.join(__dirname, '/views/productCart.html');
-//     res.sendFile(pathCart);
-// }); 
