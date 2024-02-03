@@ -23,9 +23,9 @@ const uploadFile = multer({storage});
 router.get('/login', usersController.login);
 router.post('/user_home', usersController.user_home);
 router.get('/profile', userRoute, usersController.profile);
-router.post('/updatePD', userRoute, comparingKeys, validateUpdatePD, updatePDValidator, usersController.updateUserPersonalData);
-router.post('/updatePW', userRoute, comparingKeys, validateUpdatePW, updatePWValidator, usersController.updateUserPassword);
-router.post('/updatePFIm', uploadFile.single('avatar'),userRoute, comparingKeys, usersController.updateUserPfImage);
+router.put('/updatePD', userRoute, comparingKeys, validateUpdatePD, updatePDValidator, usersController.updateUserPersonalData);
+router.put('/updatePW', userRoute, comparingKeys, validateUpdatePW, updatePWValidator, usersController.updateUserPassword);
+router.put('/updatePFIm', uploadFile.single('avatar'),userRoute, comparingKeys, usersController.updateUserPfImage);
 
 router.get('/register', usersController.register);
 //Multer debe ejecutarse primero o el body llega vacio
