@@ -28,12 +28,12 @@
         <main class="principalBox">
             <div class="bigContainer">
                 <div class="roundContainer">
-                    <form action="#" id="manageImage" method="post">
+                    <form action="./updatePFIm" id="manageImage" method="post" enctype="multipart/form-data">
                         <img src="/images/profileImages/<%=user.pf_image%>" alt="../../public/images/profileImages/<%=user.pf_image%>"  style="max-width: 100px; height: auto; display: block; margin: auto;">
                         <button type="button" form="manageImage">Cambiar Imagen</button>
-                        <input type="text" name="id" value="user.id" class="idInput">
+                        <input type="text" name="id" value="<%=user.id%>" class="idInput">
                         <input type="file" name="avatar" id="avatar" accept="image/*">
-                        <button type="submit" form="manageImage" disabled>Guardar</button>
+                        <button type="submit" form="manageImage">Guardar</button>
                     </form>
                 </div>
                 <div class="userDataContainer">
@@ -44,30 +44,47 @@
             </div>
             
             <div class="container">
-                <form action="#" id="personalData" method="post">
+                <form action="./updatePD" id="personalData" method="post">
                     <h4>Datos Personales</h4>                    
                     <button type="submit" form="personalData">Editar</button>
-                    <input type="text" name="id" value="user.id" class="idInput">
+                    <input type="text" name="id" value="<%=user.id%>" class="idInput">
                     <label for="first_name">Nombre</label>
-                    <input type="text" name="first_name" id="first_name">
+                    <input type="text" name="first_name" id="first_name" value="<%=user.first_name%>">
                     <label for="last_name">Apellido</label>
-                    <input type="text" name="last_name" id="last_name">
+                    <input type="text" name="last_name" id="last_name" value="<%=user.last_name%>">
                     <label for="phone_number">Teléfono</label>
-                    <input type="text" name="phone_number" id="phone_number">
+                    <input type="text" name="phone_number" id="phone_number" value="<%=user.phone_number%>">
                 </form>
+                <% if (locals && locals.errorsPD) { %>
+                    <ul>
+                        <% locals.errorsPD.forEach(error => { %>
+                            <li><%= error.msg %></li>
+                        <% }) %>
+                    </ul>
+                    
+                <% } %> 
+                
             </div>
             <div class="container">
-                <form action="#" id="passwordManage" method="post">
+                <form action="./updatePW" id="passwordManage" method="post">
                     <h4>Cambiar contraseña</h4>
                     <button type="submit" form="passwordManage">Editar</button>
-                    <input type="text" name="id" value="user.id" class="idInput">
+                    <input type="text" name="id" value="<%=user.id%>" class="idInput">
                     <label for="password">Contraseña Actual</label>
-                    <input type="text" name="password" id="password">
+                    <input type="password" name="password" id="password">
                     <label for="new_pw">Nueva Contraseña</label>
                     <input type="password" name="new_pw" id="new_pw">
                     <label for="pwconfirm">Repetir Nueva Contraseña</label>
                     <input type="password" name="pwconfirm" id="pwconfirm">
                 </form>
+                <% if (locals && locals.errorsPW) { %>
+                    <ul>
+                        <% locals.errorsPW.forEach(error => { %>
+                            <li><%= error.msg %></li>
+                        <% }) %>
+                    </ul>
+                    
+                <% } %> 
             </div>
             
             </div>

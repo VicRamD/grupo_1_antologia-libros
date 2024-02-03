@@ -29,6 +29,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         pf_image: {
             type: dataTypes.STRING(50)
+        },
+        phone_number: {
+            type: dataTypes.INTEGER(15)
         }
     };
     

@@ -58,7 +58,7 @@ let controller = {
     },
     profile: async (req, res) => {
         let user = await finders.searchUserByEmail(req.session.currentUserMail);
-        console.log(user);
+        //console.log(user);
         res.render('users/user_home', {user});
     },
 
@@ -69,6 +69,7 @@ let controller = {
     saveRegister: (req, res) => {
         //const {name, lastname, username, email, password, pwconfirm} = req.body;
         const {firstname, lastname, email, password} = req.body;
+        
 
         //Busca id maximo y luego lo incrementa en 1
         //let maxId = users.reduce((max, objeto) => (objeto.id > max ? objeto.id : max), 0);
@@ -90,23 +91,74 @@ let controller = {
             //res.render('main/index');
             res.redirect('/');
         })
+    },
+    updateUserPersonalData: (req, res) => {
+        const {first_name, last_name, phone_number, id} = req.body;
 
-        /*let newUser = {
-            id: maxId,
-            first_name: firstname,
-            lastname: lastname,
-            email: email,
-            password: encryptPW,
-            category: 'Cliente',
-            image: image,
-        }*/
+        db.User.update({
+            first_name, 
+            last_name, 
+            phone_number: Number(phone_number)
+        },{
+            where: {
+                id: Number(id)
+            }
+        }).then(result => {
+            res.redirect('./profile');
+        })
+    },
+    updateUserPassword: (req, res) => {
+        const {new_pw, id} = req.body;
 
-        //users.push(newUser);
-        //const nuevoJsonString = JSON.stringify(users, null, 2);
+        let encryptPW = bcrypt.hashSync(new_pw, saltRounds);
 
-        //fs.writeFileSync(path.join(__dirname, '../data/users.json'), nuevoJsonString);
+        db.User.update({
+            password: encryptPW
+        },{
+            where: {
+                id: Number(id)
+            }
+        }).then(result => {
+            res.redirect('./profile');
+        })
+    },
+    updateUserPfImage: async (req, res) => {
+        const {id} = req.body;
 
-        //res.render('main/index');
+        const user = await db.User.findByPk(Number(id));
+
+        let searchedUser = JSON.parse(JSON.stringify(user));
+        console.log(searchedUser)
+
+        const wasSend = wasFileSend(req.file);
+        let image = "";
+        if(searchedUser.pf_image !== ""){
+            image = wasSend ? req.file.filename : searchedUser.pf_image;
+        }else {
+            image = wasSend ? req.file.filename : "";
+        }
+
+        //Elimina la imagen anterior para que no hay imagenes de más o duplicadas
+        if(wasSend) {
+            fs.unlink(path.join(process.cwd(), 'public/images/profileImages/', searchedUser.pf_image), (err) => {
+                if (err) {
+                    throw err;
+                }
+                console.log("Archivo eliminado y reemplazado correctamente");
+            });
+        }
+
+        console.log(image);
+        db.User.update({
+            pf_image: image
+        },
+        {
+            where: {
+                id: Number(id)
+            }
+        }).then(result => {
+            res.redirect('./profile');
+        })
     },
     logout: (req, res) => {
         if(req.cookies && req.cookies.rememberUser){
