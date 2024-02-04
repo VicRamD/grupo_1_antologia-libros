@@ -57,8 +57,15 @@ let controller = {
         
     },
     profile: async (req, res) => {
-        let user = await finders.searchUserByEmail(req.session.currentUserMail);
+        //let user = await finders.searchUserByEmail(req.session.currentUserMail);
+        let userSearched = await db.User.findOne({
+            where: {
+                email: req.session.currentUserMail
+            },
+            include: [{association: 'category'}, {association: 'address'}]
+        })
         //console.log(user);
+        const user = JSON.parse(JSON.stringify(userSearched));
         res.render('users/user_home', {user});
     },
 
@@ -87,9 +94,13 @@ let controller = {
             password: encryptPW,
             pf_image: image,
             category_id: 2
-        }).then(result => {
+        }).then(user => {
             //res.render('main/index');
-            res.redirect('/');
+            db.Address.create({
+                user_id: user.id
+            }).then(address => {
+                res.redirect('/');
+            })
         })
     },
     updateUserPersonalData: (req, res) => {
@@ -160,6 +171,31 @@ let controller = {
             res.redirect('./profile');
         })
     },
+    updateAddress: async (req, res) => {
+        const {id, country, state, postal_code, city, street} = req.body;
+
+        db.Address.update(
+            {
+                country, 
+                state, 
+                postal_code, 
+                city, 
+                street
+            },
+            {
+                where: {
+                    id: Number(id)
+                }
+            }
+        ).then(result => {
+            res.redirect('./profile');
+        });
+
+       // let searchedAddress = JSON.parse(JSON.stringify(address));
+
+
+    },
+
     logout: (req, res) => {
         if(req.cookies && req.cookies.rememberUser){
             res.clearCookie('rememberUser');

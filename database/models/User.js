@@ -72,9 +72,9 @@ module.exports = (sequelize, dataTypes) => {
     
         User.hasOne(models.Address, { //Un cliente tiene una sola dirección
             as: 'address',
-            foreignKey: 'customer_id'
+            foreignKey: 'user_id'
         });
-    
+
     };
 
     return User;

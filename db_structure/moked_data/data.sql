@@ -44,3 +44,8 @@ INSERT INTO `users` (id, `first_name`, `last_name`, `email`, `password`, `catego
 (3, "Carlos", "Zavaleta", "charlyzava256@gmail.com", "$2b$10$f3y0jHKh6A4xaLxHJJ9SKucTRlgZjRZu57I2uIXvHqY/ILrIsryp.", 1, "1705449309420_user_pfile_img.jpg");
 UNLOCK TABLES;
 
+-- data de addresses
+
+LOCK TABLES `addresses` WRITE;
+INSERT INTO `addresses` (id, `user_id`, `postal_code`) VALUES (1, 1, 4700);
+UNLOCK TABLES;

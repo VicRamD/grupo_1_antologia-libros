@@ -89,6 +89,11 @@ div.container form#passwordManage input, div.container form#passwordManage label
     width: 100%;
 }
 
+div.container form#address input, div.container form#address label, div.container form#address select {
+    display: block;
+    width: 100%;
+}
+
 main div form input.idInput{
     display: none;
     visibility: hidden;

@@ -26,6 +26,7 @@ router.get('/profile', userRoute, usersController.profile);
 router.put('/updatePD', userRoute, comparingKeys, validateUpdatePD, updatePDValidator, usersController.updateUserPersonalData);
 router.put('/updatePW', userRoute, comparingKeys, validateUpdatePW, updatePWValidator, usersController.updateUserPassword);
 router.put('/updatePFIm', uploadFile.single('avatar'),userRoute, comparingKeys, usersController.updateUserPfImage);
+router.put('/updateAddress', userRoute, comparingKeys, usersController.updateAddress);
 
 router.get('/register', usersController.register);
 //Multer debe ejecutarse primero o el body llega vacio
