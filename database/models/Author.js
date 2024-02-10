@@ -29,6 +29,7 @@ module.exports = (sequelize, dataTypes) => {
             through: 'book_author', //Tabla intermedia
             foreignKey: 'author_id', //Clave foránea que apunta a authors
             otherKey: 'book_id', //Clave foránea que apunta a books
+            timestamps: false
         });
     };
     

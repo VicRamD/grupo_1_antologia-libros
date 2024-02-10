@@ -3,6 +3,7 @@ const mainController = require ('../controllers/mainControllers.js')
 const usersRoutes = require ('./users.js');
 const router = express.Router();
 
+const productsControllers = require('../controllers/productsControllers.js');
 /*const multer = require('multer');
 const path = require('path');
 const {validateRegister, registerValidator} = require('../middlewares/registerValidation.js');
@@ -20,8 +21,8 @@ const storage = multer.diskStorage({
   
 const uploadFile = multer({storage}); */
 
-
 router.get('/', mainController.index);
+router.get('/search', productsControllers.search);
 router.use('/users', usersRoutes);
 /* router.get('/login', mainController.login);
 router.post('/user_home', mainController.user_home);

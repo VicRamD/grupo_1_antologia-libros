@@ -8,9 +8,10 @@ const { wasFileSend } = require('../utils/fileRelated');
 //const genresController = require('./api/genresController');
 
 const db = require('../database/models');
+const {Op} = require('sequelize');
 
 const books = JSON.parse( fs.readFileSync(path.join(process.cwd(), '/data/books.json')),'utf-8');
-const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
+//const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
 const categories = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/categories.json')), 'utf-8');
 
 
@@ -296,7 +297,43 @@ const productsControllers = {
             return res.render('products/booksByGenre', { categories: genres, user });
         }
     },
-    
+    search: async (req, res) => {
+        console.log('En search');
+
+        const {search} = req.query;
+
+        let user;
+        if(req.session.currentUserMail){
+            user = await finders.searchUserByEmail(req.session.currentUserMail);
+        }
+
+        let searchResults = await db.Book.findAll({
+            where: {
+                title: {[Op.like]: `%${search}%`}
+            },
+            include: [{association: 'editorial'}, {association: 'authors'}],
+            order: [['title', 'ASC']],
+            limit: 20
+        });
+
+        console.log(JSON.parse(JSON.stringify(searchResults)));
+        //console.log(searchResults)
+
+        if(searchResults.length === 0){
+            let noBooksMessage = 'No se encontraron resultados';
+            let imageSrc = '/images/noEncontrado.png';
+            return res.render('products/searchResults', {
+                noBooksMessage: noBooksMessage,
+                imageSrc: imageSrc,
+                user
+            });
+        } else {
+            return res.render('products/searchResults', {
+                searchResults,
+                user
+            });
+        }
+    }
 };
 
 module.exports = productsControllers;

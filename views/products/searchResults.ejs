@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/headParcial.ejs') %>
+    <title>Busqueda</title>
+    <link rel="stylesheet" href="/css/productDetailStyles.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+        <h1>Resultados de Busqueda</h1>
+    
+        <% if (locals && locals.noBooksMessage) { %>
+            <p><%= locals.noBooksMessage %></p>
+            <% if (locals.imageSrc) { %>
+                <img src="<%= locals.imageSrc %>" alt="No se han encontrado resultados" />
+            <% } %>
+        <% } else { %>
+            
+            <section class="recommendation">
+                <div class="box-card">
+                    <% if (locals && locals.searchResults) { %>
+                        <% locals.searchResults.forEach(book => { %>
+                        
+                            <div class="book-card">
+                                <div class="card-product">
+                                    <div class="card-info">
+                                        <img src="/images/books/<%= book.image ? book.image : 'cover-not-available.png' %>" alt="Portada de <%= book.title %> ">
+                                        <h3><a href="/products/<%= book && book.id %>"><%= book.title %></a></h3> 
+                                        <hr>
+                                        
+                                        <% if (book.authors) { %>
+                                            <% book.authors.forEach(bookAuthor => { %>
+                                                <p><a href=""><%= bookAuthor.author.name %></a></p>
+                                            <% }) %>
+                                        <% } %>
+
+                                        <p><a href=""><%= book.editorial ? book.editorial.name : '' %></a></p>
+                                        
+                                    </div>
+                                    <div class="card-buy">
+                                        <a class="button-read" href="/products/<%= book.id %>">VER MÁS</a>
+                                        <button class="button-cart">AGREGAR AL CARRITO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        <% }) %>
+                    <% } %>
+                </div>
+            </section>
+        <% } %>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

@@ -31,8 +31,9 @@ router.get('/:id', productsControllers.detail);
 router.get('/:id/edit', privilegedUserRoute, productsControllers.edit);
 router.put('/:id', uploadFile.single('image'), productsControllers.update);
 router.delete('/:id', productsControllers.delete);
-
+//router.search('/search', productsControllers.search);
 router.get('/', productsControllers.list);
+
 
 //router.get('/list', productosControllers.list);//Para la lista
 //router.get('/detail', productosControllers.detail);
