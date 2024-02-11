@@ -20,7 +20,15 @@ UNLOCK TABLES;
 
 LOCK TABLES `books` WRITE;
 INSERT INTO `books` (id, title, abstract, `editorial_id`, image, isbn, date, price, stock, language) VALUES (1, 'Alas de Sangre', "Vuela... o muere. El nuevo fenómeno de fantasía juvenil del que todo el mundo habla.\r\n\r\n«¡La novela de fantasía más brutalmente adictiva que he leído en una década!» Tracy Wolff, autora de la Serie Crave",
-1, "alas_de_sangre.webp", 8247248782, "", 5800.5, 30, "Español");
+1, "alas_de_sangre.webp", 8247248782, "", 5800.5, 30, "Español"),
+(2, '20000 Leguas de Viaje Submarino', "Relata las aventuras de una tripulación dirigida por el Capitan Nemo, capitan del asombroso Nautilus",
+2, "1701911755821_book_img_.webp", 82483293892, "2018-12-14", 7000.00, 30, "Español"),
+(3, 'La Vida es un Sueño', "Un drama clásico sobre los límites de nuestra voluntad y las cadenas que nos atan y nos impiden ser libres. Una llamada a la reflexión: ¿es real cuanto vemos y vivimos?",
+3, "la_vida_es_un_suenio.webp", 9788467591200, "2000-10-11", 7000.00, 30, "Español"),
+(4, 'La Casa de Bernarda Alba', "Una de las grandes obras del teatro español y universal que ofrece una dolorosa reflexión sobre la libertad, la necesidad de rebeldía y el peso de los límites y prejuicios ajenos.",
+4, "la_casa_de_bernarda_alba.webp", 82483293892, "2018-12-14", 7000.00, 30, "Castellano");
+
+
 UNLOCK TABLES;
 
 -- data de generos
