@@ -30,7 +30,7 @@ router.post('/add', uploadFile.single('image'), validateBook, bookValidator, pro
 router.get('/:id', productsControllers.detail);
 router.get('/:id/edit', privilegedUserRoute, productsControllers.edit);
 router.put('/:id', uploadFile.single('image'), productsControllers.update);
-router.delete('/:id', productsControllers.delete);
+router.delete('/:id', privilegedUserRoute, productsControllers.delete);
 //router.search('/search', productsControllers.search);
 router.get('/', productsControllers.list);
 

@@ -199,26 +199,43 @@ const productsControllers = {
 		res.redirect('/products/' + id);
     },
 
-    delete: (req, res) => {
+    delete: async (req, res) => {
         const { id } = req.params;
-        const i = finders.searchProductIndex(parseInt(id), books);
+        //const i = finders.searchProductIndex(parseInt(id), books);
+
+        //busca el libro a eliminar
+        const bookToDelete = await db.Book.findOne({
+            where: {
+                id
+            }
+        });
 
         // Elimina la imagen del producto
-        const product = books[i];
-        if (product && product.image) {
-            const imagePath = path.join(process.cwd(), 'public/images/books/', product.image);
+        //const product = books[i];
+        if (bookToDelete && bookToDelete.image) {
+            const imagePath = path.join(process.cwd(), 'public/images/books/', bookToDelete.image);
             fs.unlinkSync(imagePath);
         }
 
         // Elimina el producto
-        books.splice(i, 1);
+        //books.splice(i, 1);
+        db.Book.destroy({
+            where: {
+                id
+            }
+        }).then(result => {
+            res.redirect('/products');
+        })
+        .catch(error => {
+            console.log(error);
+        })
 
         // Guarda la actualización en books.json
         //const convertedToString = JSON.stringify(books, null, 2);
-        const convertedToString = JSON.stringify(books);
-        fs.writeFileSync(path.join(process.cwd(), 'data/books.json'), convertedToString);
+        //const convertedToString = JSON.stringify(books);
+        //fs.writeFileSync(path.join(process.cwd(), 'data/books.json'), convertedToString);
 
-        res.redirect('/products');
+        //res.redirect('/products');
     },
 
     genres: async (req, res) => {
