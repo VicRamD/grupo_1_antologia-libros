@@ -17,7 +17,7 @@
         <main class="product-detail">
         
             <div class="box-product product-img">
-                <% if (locals.user && locals.user.category == 'Administrador') { %>
+                <% if (locals && locals.user && locals.user.category && locals.user.category.name === 'Administrador') { %>
                     <div class="btn-group">
                         <a href="/products/<%= book.id %>/edit" class="btn-edit"><i class="fa-solid fa-pencil"></i>Editar</a>
                         <form class="slim" method="POST" action="/products/<%= book.id %>?_method=DELETE">

@@ -11,10 +11,10 @@ function userRoute(req, res, next){
     }
 }
 
-function privilegedUserRoute(req, res, next){
+async function privilegedUserRoute(req, res, next){
     if(req.session.currentUserMail){
-        let user = finders.searchUserByEmail(req.session.currentUserMail, users);
-        if(user && user.category == "Administrador"){
+        let user = await finders.searchUserByEmail(req.session.currentUserMail);
+        if(user && user.category.name == "Administrador"){
             next();
         } else {
             return res.redirect('/users/profile');

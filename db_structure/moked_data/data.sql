@@ -34,7 +34,8 @@ UNLOCK TABLES;
 -- data de generos
 
 LOCK TABLES `book_genre` WRITE;
-INSERT INTO `book_genre` (id, `book_id`, `genre_id`) VALUES (1, 1, 8);
+INSERT INTO `book_genre` (id, `book_id`, `genre_id`) VALUES (1, 1, 8),
+(2, 2, 3), (3, 2, 1), (4, 3, 6), (5, 4, 13);
 UNLOCK TABLES;
 
 -- data de user_categories
