@@ -28,18 +28,17 @@
                         <textarea id="abstract" 
                         name="abstract" rows="6"><%= locals.old && old.abstract ? old.abstract : '' %></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="author">Autor</label>
-                        <input id="author" name="author" type="text"
-                        value="<%= locals.old && old.author ? old.author : '' %>" required> 
-                        <% if (locals && locals.errors && locals.errors.author) { %>
-                            <div class="errorMessage"><%= errors.author.msg %></div>     
-                        <% } %>
-                    </div>
+                    
                     <div class="form-group">
                         <label for="editorial">Editorial</label>
-                        <input id="editorial" name="editorial" type="text"
-                        value="<%= locals.old && old.editorial ? old.editorial : '' %>">
+                        <select name="editorial" id="editorial">
+                            <% editorials.forEach(editorial => { %>
+                                <option value="<%= editorial.id %>" 
+                                    <%= locals.old && old.editorial && old.editorial == editorial.id ? 'selected': '' %>><%= editorial.name %></option>   
+                            <% }) %>
+                        </select>
+                        <!-- <input id="editorial" name="editorial" type="text"
+                        value="<= locals.old && old.editorial ? old.editorial : '' %>"> -->
                     </div>
 
                     <div class="form-group">
@@ -50,10 +49,24 @@
                         <% } %>
                     </div>
                     <div class="form-group">
+                        <label for="author">Autor</label>
+                        <!-- <input id="author" name="author" type="text"
+                        value="<= locals.old && old.author ? old.author : '' %>" required> -->
+                        <select name="author" id="author" multiple required>
+                            <% authors.forEach(author => { %>
+                                <option value="<%= author.id %>"
+                                 <%= locals.old && old.author && old.author.includes(author.id) ? 'selected': '' %>><%= author.name %></option>
+                            <% }) %>
+                        </select>
+                        <% if (locals && locals.errors && locals.errors.author) { %>
+                            <div class="errorMessage"><%= errors.author.msg %></div>     
+                        <% } %>
+                    </div>
+                    <div class="form-group">
                         <label for="genre" class="for-select">Género</label>
                         <select id="genre" name="genre" multiple>
                             <% for( let i = 0; i < categories.length; i++ ) { %>
-                                <option value="<%= categories[i].id %>" <%= categoryIndexes.includes(i) ? 'selected': '' %>><%= categories[i].name %></option>   
+                                <option value="<%= categories[i].id %>"><%= categories[i].name %></option>   
                             <% } %>
                         </select>
                     </div>
@@ -85,6 +98,14 @@
                         value="<%= locals.old && old.price ? old.price : '' %>" pattern="^\d*(\.\d{0,2})?$" step=".01" required>
                         <% if (locals && locals.errors && locals.errors.price) { %>
                             <div class="errorMessage"><%= errors.price.msg %></div>     
+                        <% } %>
+                    </div>
+                    <div class="form-group">
+                        <label for="stock">Stock</label>
+                        <input id="stock" name="stock" type="number"
+                        value="<%= locals.old && old.stock ? old.stock : '' %>" required>
+                        <% if (locals && locals.errors && locals.errors.price) { %>
+                            <div class="errorMessage"><%= errors.stock.msg %></div>     
                         <% } %>
                     </div>
                 </div>

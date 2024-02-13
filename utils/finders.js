@@ -42,4 +42,20 @@ async function searchUserByEmail(email){
     return searchedUserObject;
 }
 
-module.exports = {searchItemById, searchItemIndex, searchItemByName, searchProductById, searchProductIndex, searchUserByEmail};
+/*async function searchGenreById(id){
+    const searcedGenre = await db.Genre.findOne({
+        where: {
+            id
+        }
+    }).catch(error => {
+        console.log(error);
+    })
+
+    const searchedGenreObject = JSON.parse(JSON.stringify(searcedGenre));
+    //console.log(searchedUserObject)
+
+    return searchedGenreObject;
+}*/
+
+module.exports = {searchItemById, searchItemIndex, searchItemByName, 
+    searchProductById, searchProductIndex, searchUserByEmail};

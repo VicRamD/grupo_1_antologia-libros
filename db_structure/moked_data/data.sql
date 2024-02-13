@@ -31,12 +31,20 @@ INSERT INTO `books` (id, title, abstract, `editorial_id`, image, isbn, date, pri
 
 UNLOCK TABLES;
 
--- data de generos
+-- data de generos de libros
 
 LOCK TABLES `book_genre` WRITE;
 INSERT INTO `book_genre` (id, `book_id`, `genre_id`) VALUES (1, 1, 8),
 (2, 2, 3), (3, 2, 1), (4, 3, 6), (5, 4, 13);
 UNLOCK TABLES;
+
+-- data de autores
+LOCK TABLES `authors` WRITE;
+INSERT INTO `authors` (id, `name`) VALUES (1, "Rebecca Yarros"),
+(2, "Julio Verne"), (3, "Pedro Calderón de la Barca"), (4, "Federico García Lorca"), (5, "Isabel Allende"),
+(6, "Eduardo Sacheri"), (7, "Darío Sztajnszrajber"), (8, "Jorge Liotti");
+UNLOCK TABLES;
+
 
 -- data de user_categories
 

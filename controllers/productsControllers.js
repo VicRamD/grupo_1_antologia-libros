@@ -1,4 +1,4 @@
-const { log } = require('console');
+const { log, error } = require('console');
 const fs = require('fs');
 const path = require('path');
 const { CLIENT_RENEG_WINDOW } = require('tls');
@@ -12,7 +12,7 @@ const {Op} = require('sequelize');
 
 const books = JSON.parse( fs.readFileSync(path.join(process.cwd(), '/data/books.json')),'utf-8');
 //const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
-const categories = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/categories.json')), 'utf-8');
+//const categories = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/categories.json')), 'utf-8');
 
 
 //====== Controlador ===========/
@@ -47,31 +47,41 @@ const productsControllers = {
     
 
     create: async (req, res) => {
-        if(req.session.currentUserMail){
-            let user = await finders.searchUserByEmail(req.session.currentUserMail);
-            return res.render('products/productCreate', { categories: categories, categoryIndexes: [], user: user });
-         }
-        res.render('products/productCreate', {categories: categories, categoryIndexes: []});
+        const categories = await db.Genre.findAll({
+            order: [['name', 'ASC']]
+        });
+
+        const editorials = await db.Editorial.findAll({
+            order: [['name', 'ASC']]
+        });
+
+        const authors = await db.Author.findAll({
+            order: [['name', 'ASC']]
+        });
+
+        let user = await finders.searchUserByEmail(req.session.currentUserMail);
+        return res.render('products/productCreate', { categories, editorials, authors, user: user });
+
     },
 
-    add: (req,res) => {
+    add: async (req,res) => {
         //console.log(req.body);
-        const {title, abstract, author, editorial, genre, language, date, isbn, price} = req.body;
+        const {title, abstract, author, editorial, genre, language, date, isbn, price, stock} = req.body;
         
-        let maxId = books.reduce((max, objeto) => (objeto.id > max ? objeto.id : max), 0);
-        maxId++;
+        //let maxId = books.reduce((max, objeto) => (objeto.id > max ? objeto.id : max), 0);
+        //maxId++;
 
         /*Generos*/
-        chosenGenres = [];
+        /*chosenGenres = [];
         if(Array.isArray(genre)){
-            genre.forEach(bookGenre => {
-                chosenGenres.push(finders.searchItemById(Number(bookGenre), categories));
+            genre.forEach(bookGenreId => {
+                chosenGenres.push(finders.searchGenreById(Number(bookGenreId)));
             });
         }else {
             chosenGenres.push(finders.searchItemById(Number(genre), categories))
         }
         
-        let genren = chosenGenres;
+        let genren = chosenGenres; */
 
         //console.log(genren)
 
@@ -79,7 +89,7 @@ const productsControllers = {
         const wasSend = wasFileSend(req.file);
         let image = wasSend ? req.file.filename : "";
 
-        let newBook = {
+        /*let newBook = {
             id: maxId,
             title: title,
             abstract: abstract,
@@ -91,17 +101,77 @@ const productsControllers = {
             date: date,
             isbn: isbn,
             price: price,
-        }
+        } */
+
+        db.Book.create({
+            title,
+            abstract,
+           // author: author,
+            editorial_id: Number(editorial),
+            image: image,
+            language,
+            isbn,
+            date,
+            price,
+            stock
+        }).then(book => {
+            /*Generos*/
+            if(Array.isArray(genre)){
+                genre.forEach(bookGenreId => {
+                    db.BookGenre.create({
+                        book_id: book.id,
+                        genre_id: Number(bookGenreId)
+                    }).then(bg => {})
+                    .catch(error => {
+                        console.log(error);
+                    });
+                    //chosenGenres.push(finders.searchGenreById(Number(bookGenreId)));
+                });
+            }else {
+                db.BookGenre.create({
+                    book_id: book.id,
+                    genre_id: Number(genre)
+                }).then(bg => {})
+                .catch(error => {
+                    console.log(error);
+                });
+            }
+
+            if(Array.isArray(author)){
+                author.forEach(authorId => {
+                    db.BookAuthor.create({
+                        book_id: book.id,
+                        author_id: Number(authorId)
+                    }).then(ba => {})
+                    .catch(error => {
+                        console.log(error);
+                    });
+                    //chosenGenres.push(finders.searchGenreById(Number(bookGenreId)));
+                });
+            }else {
+                db.BookAuthor.create({
+                    book_id: book.id,
+                    author_id: Number(author)
+                }).then(ba => {})
+                .catch(error => {
+                    console.log(error);
+                });
+            }
+            return res.redirect('/products/add');
+        })
+        .catch(error => {
+            console.log(error);
+        })
          
         //console.log("nuevo "+ JSON.stringify(newBook, null, 2));
-        books.push(newBook);
-        const nuevoJsonString = JSON.stringify(books, null, 2);
+        //books.push(newBook);
+        //const nuevoJsonString = JSON.stringify(books, null, 2);
 
         //fs.writeFileSync('nuevoLibro.json', nuevoJsonString);
-        fs.writeFileSync(path.join(__dirname, '../data/books.json'), nuevoJsonString);
+        //fs.writeFileSync(path.join(__dirname, '../data/books.json'), nuevoJsonString);
 
         //console.log(req.file);
-        res.redirect('/products/add');
+        //res.redirect('/products/add');
     },
 
     addAgain: async (req, res) => {
