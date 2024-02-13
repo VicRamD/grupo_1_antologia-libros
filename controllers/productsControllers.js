@@ -184,37 +184,60 @@ const productsControllers = {
 
     //edición
     edit: async (req, res) => {
-        let bookId = parseInt(req.params.id);
-        let editBook = finders.searchProductById(bookId, books);
+        const bookId = parseInt(req.params.id);
+        const editBook = await finders.searchProductById(bookId);
+        const categories = await db.Genre.findAll({
+            order: [['name', 'ASC']]
+        });
+
+        const editorials = await db.Editorial.findAll({
+            order: [['name', 'ASC']]
+        });
+
+        const authors = await db.Author.findAll({
+            order: [['name', 'ASC']]
+        });
 
         //Separa las categorias
-        let bookCategories = editBook.genre;
-        let categoryIndexes = []
+        let bookCategories = editBook.genres;
+        let bookAuthors = editBook.authors;
+        let genreIds = [];
+        let authorIds = [];
 
         /*guarda los indices de las categorias para enviarlos y usarlos para marcar 
         como seleccionadas las opciones en la vista por medio de etiqutas ejs */
         bookCategories.forEach(bookCategory => {
-            let returnedIndex = categories.findIndex((category) => bookCategory.id === category.id);
+            genreIds.push(Number(bookCategory.id));
+            /*let returnedIndex = categories.findIndex((category) => bookCategory.id === category.id);
             if(returnedIndex !== -1){
                 categoryIndexes.push(returnedIndex);
-            }
+            }*/
         });
 
-        if(req.session.currentUserMail){
-            let user = await finders.searchUserByEmail(req.session.currentUserMail);
-            return res.render('products/productEdit', { book: editBook, categories: categories,
-                 categoryIndexes: categoryIndexes, user: user });
-        }
-        return res.render('products/productEdit', {book: editBook, categories: categories, categoryIndexes: categoryIndexes});
+        bookAuthors.forEach(author => {
+            authorIds.push(Number(author.id));
+        })
+
+            
+            //return res.render('products/productEdit', { book: editBook, categories: categories,
+                 //categoryIndexes: categoryIndexes, user: user });
+        
+        let user = await finders.searchUserByEmail(req.session.currentUserMail);
+        console.log("book");
+        console.log(editBook);
+        return res.render('products/productEdit', {book: editBook, categories, editorials, authors, genreIds, authorIds, user });
+        //return res.render('products/productEdit', {book: editBook, categories: categories, categoryIndexes: categoryIndexes});
     },
 
-    update: (req, res) => {
+    update: async (req, res) => {
         let {id} = req.params;
 		id = Number(id);
-		const searchedBook = finders.searchProductById(id, books);
-        const index = finders.searchProductIndex(id, books);
+		//const searchedBook = finders.searchProductById(id, books);
+        //const index = finders.searchProductIndex(id, books);
+        const searchedBook= await db.Book.findByPk(id);
+        //const searchedBook = JSON.parse(JSON.stringify(searchedBookById));
 
-        const {title, abstract, author, editorial, genre, language, date, isbn, price} = req.body;
+        const {title, abstract, author, editorial, genre, language, date, isbn, price, stock} = req.body;
 
         const wasSend = wasFileSend(req.file);
         let image = "";
@@ -233,10 +256,91 @@ const productsControllers = {
                 console.log("Archivo eliminado y reemplazado correctamente");
             });
         }
-        
-        console.log(genre);
 
-        searchedBook.title = title;
+        searchedBook.set({
+            title,
+            abstract,
+            editorial_id: editorial,
+            isbn,
+            date,
+            price,
+            stock,
+            image,
+            language
+        });
+
+        await searchedBook.save();
+        
+
+        //generos en libro modificado
+        db.BookGenre.destroy({
+            where: {
+                book_id: id
+            }
+        }).then(resultDel => {
+                 /* Antes de guardar las categorias en generos escogidos pregunta si genre es un array
+                pues si solo se escoge una opción llega como un string de un número ej: '10'*/
+                //Number() transforma el string a numero 
+                if(Array.isArray(genre)){
+                    genre.forEach(bookGenre => {
+                        db.BookGenre.create({
+                            book_id: id,
+                            genre_id: Number(bookGenre)
+                        }).then(bg => {})
+                        .catch(error => {
+                            console.log(error);
+                        });
+                        //chosenGenres.push(finders.searchItemById(Number(bookGenre), categories));
+                    });
+                }else {
+                    db.BookGenre.create({
+                        book_id: id,
+                        genre_id: Number(genre)
+                    }).then(bg => {})
+                    .catch(error => {
+                        console.log(error);
+                    });
+                    //chosenGenres.push(finders.searchItemById(Number(genre), categories))
+                }
+            });
+            
+        //autores en libro modificado
+        db.BookAuthor.destroy({
+                where: {
+                    book_id: id
+                }
+            }).then(resultDel => {
+                 /* similar a lo que ocurre con genre */
+                if(Array.isArray(author)){
+                    author.forEach(bookAuthor => {
+                        db.BookAuthor.create({
+                            book_id: id,
+                            author_id: Number(bookAuthor)
+                        }).then(bg => {})
+                        .catch(error => {
+                            console.log(error);
+                        });
+                        //chosenGenres.push(finders.searchItemById(Number(bookGenre), categories));
+                    });
+                }else {
+                    db.BookAuthor.create({
+                        book_id: id,
+                        author_id: Number(author)
+                    }).then(ba => {})
+                    .catch(error => {
+                        console.log(error);
+                    });
+                    //chosenGenres.push(finders.searchItemById(Number(genre), categories))
+                }
+            });
+           
+            
+            res.redirect('/products/' + id);    
+        
+
+        //console.log(genre);
+
+        /*searchedBook.title = title;
 		searchedBook.abstract = abstract;
 		searchedBook.author = author;
 		searchedBook.editorial = editorial;
@@ -245,11 +349,11 @@ const productsControllers = {
         searchedBook.date = date;
 		searchedBook.isbn = isbn;
         searchedBook.price = price;
-        searchedBook.image = image;
+        searchedBook.image = image; */
 
-        chosenGenres = [];
+        /*chosenGenres = [];
         /* Antes de guardar las categorias en generos escogidos pregunta si genre es un array
-        pues si solo se escoge una opción llega como un string de un número ej: '10'*/
+        pues si solo se escoge una opción llega como un string de un número ej: '10'
         //Number() transforma el string a numero que se pasa como parametro de la función
         if(Array.isArray(genre)){
             genre.forEach(bookGenre => {
@@ -266,7 +370,7 @@ const productsControllers = {
 
 		fs.writeFileSync(path.join(__dirname, '../data/books.json'), convertedToString);
 
-		res.redirect('/products/' + id);
+		res.redirect('/products/' + id); */
     },
 
     delete: async (req, res) => {

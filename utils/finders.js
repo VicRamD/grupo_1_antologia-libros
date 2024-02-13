@@ -16,9 +16,11 @@ function searchItemByName(name, list){
     return searchedItem;
 }
 
-function searchProductById(id, products){
-    const searchedProduct = products.find((product) => product.id === id);
-    return searchedProduct;
+async function searchProductById(id){
+    const searchedProduct = await db.Book.findByPk(Number(id), {
+        include: [{association: 'editorial'}, {association: 'genres'}, {association: 'authors'}]
+    });
+    return JSON.parse(JSON.stringify(searchedProduct));
 }
 
 function searchProductIndex(id, products){

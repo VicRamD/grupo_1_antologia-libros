@@ -5,8 +5,8 @@ const finders = require('../utils/finders');
 
 const db = require('../database/models');
 
-const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
-const categories = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/categories.json')), 'utf-8');
+//const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
+//const categories = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/categories.json')), 'utf-8');
 
 let validateBook = [
     check('title').notEmpty().withMessage("Debe completar el titulo de la obra"),

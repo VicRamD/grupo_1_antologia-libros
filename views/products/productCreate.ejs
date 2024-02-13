@@ -19,7 +19,7 @@
                         <input id="title" name="title" type="text" 
                         value="<%= locals.old && old.title ? old.title : '' %>" required> 
                         <% if (locals && locals.errors && locals.errors.title) { %>
-                            <div class="errorMessage"><%= errors.title.msg %></div>     
+                            <div class="errorMessage"><small><%= errors.title.msg %></small></div>     
                         <% } %>
                     </div> 
 
@@ -32,6 +32,7 @@
                     <div class="form-group">
                         <label for="editorial">Editorial</label>
                         <select name="editorial" id="editorial">
+                            <option value="" disabled selected></option>
                             <% editorials.forEach(editorial => { %>
                                 <option value="<%= editorial.id %>" 
                                     <%= locals.old && old.editorial && old.editorial == editorial.id ? 'selected': '' %>><%= editorial.name %></option>   
@@ -59,7 +60,7 @@
                             <% }) %>
                         </select>
                         <% if (locals && locals.errors && locals.errors.author) { %>
-                            <div class="errorMessage"><%= errors.author.msg %></div>     
+                            <div class="errorMessage"><small><%= errors.author.msg %></small></div>     
                         <% } %>
                     </div>
                     <div class="form-group">
@@ -76,7 +77,7 @@
                         <input id="language" name="language" type="text"
                         value="<%= locals.old && old.language ? old.language: '' %>" required>
                         <% if (locals && locals.errors && locals.errors.language) { %>
-                            <div class="errorMessage"><%= errors.language.msg %></div>     
+                            <div class="errorMessage"><small><%= errors.language.msg %></small></div>     
                         <% } %>
                     </div>
                     
@@ -90,7 +91,7 @@
                         <input id="isbn" name="isbn" type="text"
                         value="<%= locals.old && old.isbn ? old.isbn : '' %>" required> 
                         <% if (locals && locals.errors && locals.errors.isbn) { %>
-                            <div class="errorMessage"><%= errors.isbn.msg %></div>     
+                            <div class="errorMessage"><small><%= errors.isbn.msg %></small></div>     
                         <% } %>
                     </div>
                     <div class="form-group">
@@ -98,7 +99,7 @@
                         <input id="price" name="price" type="number"
                         value="<%= locals.old && old.price ? old.price : '' %>" pattern="^\d*(\.\d{0,2})?$" step=".01" required>
                         <% if (locals && locals.errors && locals.errors.price) { %>
-                            <div class="errorMessage"><%= errors.price.msg %></div>     
+                            <div class="errorMessage"><small><%= errors.price.msg %></small></div>     
                         <% } %>
                     </div>
                     <div class="form-group">
@@ -106,7 +107,7 @@
                         <input id="stock" name="stock" type="number"
                         value="<%= locals.old && old.stock ? old.stock : '' %>" required>
                         <% if (locals && locals.errors && locals.errors.stock) { %>
-                            <div class="errorMessage"><%= errors.stock.msg %></div>     
+                            <div class="errorMessage"><small><%= errors.stock.msg %></small></div>     
                         <% } %>
                     </div>
                 </div>

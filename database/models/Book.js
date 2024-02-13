@@ -56,6 +56,7 @@ module.exports = (sequelize, dataTypes) => {
             through: 'book_author', //Tabla intermedia
             foreignKey: 'book_id', //Clave foránea que apunta a books
             otherKey: 'author_id', //Clave foránea que apunta a authors
+            timestamps: false
         });
 
         Book.belongsToMany(models.Genre, { //Un libro puede pertenecer a uno o varios géneros
@@ -63,6 +64,7 @@ module.exports = (sequelize, dataTypes) => {
             through: 'book_genre', //Tabla intermedia
             foreignKey: 'book_id', //Clave foránea que apunta a books
             otherKey: 'genre_id', //Clave foránea que apunta a genres
+            timestamps: false
         });
 
         //Book.hasMany(models.Review); //Un libro puede tener una o muchas reseñas

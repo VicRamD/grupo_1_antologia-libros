@@ -16,54 +16,150 @@
                 <div class="form-body">
                     <div class="form-group-ancho">
                         <label for="title">Título</label>
-                        <input id="title" name="title" type="text" value="<%= book.title %>" required>
+                        <% if (locals && locals.old && old.title) { %>
+                            <input id="title" name="title" type="text" value="<%= old.title %>" required>
+                            <% if (locals && locals.errors && locals.errors.title) { %>
+                                <div class="errorMessage"><small><%= errors.title.msg %></small></div>     
+                            <% } %>
+                        <% } else { %>
+                            <input id="title" name="title" type="text" value="<%= book.title %>" required>
+                        <% } %>
                     </div>
 
                     <div class="form-group-ancho">
                         <label for="abstract">Resumen</label>
-                        <textarea id="abstract" name="abstract" rows="6"><%= book.abstract %></textarea>
+                        <% if (locals && locals.old && old.abstract) { %>
+                            <textarea id="abstract" name="abstract" rows="6"><%= old.abstract %></textarea>
+                        <% } else { %>
+                            <textarea id="abstract" name="abstract" rows="6"><%= book.abstract %></textarea>
+                        <% } %>
                     </div>
-                    <div class="form-group">
-                        <label for="author">Autor</label>
-                        <input id="author" name="author" type="text" value="<%= book.author %>" required>
-                    </div>
+
                     <div class="form-group">
                         <label for="editorial">Editorial</label>
-                        <input id="editorial" name="editorial" type="text" value="<%= book.editorial %>">
+                        <select name="editorial" id="editorial">
+                            <option value="" disabled selected>Selecciona uno</option>
+                            <% editorials.forEach(editorial => { %>
+                                <option value="<%= editorial.id %>" 
+                                    <%= book.editorial && editorial.id == book.editorial.id ? 'selected': '' %>><%= editorial.name %></option>   
+                            <% }) %>
+                        </select>
                     </div>
+
                     <div class="form-group">
-                        <div class="contenedor-img">
-                            <p class="titulo-seccion-img">Imagen actual</p>
-                            <img src="/images/books/<%= book.image ? book.image : 'cover-not-available.png'  %>" alt="Imagen actual">
-                        </div>
+                        <label for="language">Idioma</label>
+                        <% if (locals && locals.old && old.language) { %>
+                            <input id="language" name="language" type="text" value="<%= old.language %>" required>
+                        <% } else { %>
+                            <input id="language" name="language" type="text" value="<%= book.language %>" required>
+                        <% } %>
                         
-                        <label for="image">Imagen</label>
-                        <input id="image" name="image" type="file" accept="image/*" value="<%= book.image %>">
+                        <% if (locals && locals.errors && locals.errors.language) { %>
+                            <div class="errorMessage"><small><%= errors.language.msg %></small></div>     
+                        <% } %>
                     </div>
+
+                    <div class="form-group">
+                        <label for="author">Autor</label>
+                        <select name="author" id="author" multiple size="6" required>
+                            <% if (locals && locals.old && old.author) { %>
+                                <% authors.forEach(author => { %>
+                                    <option value="<%= author.id %>"
+                                     <%= locals.old && locals.authorIds && old.author && authorIds.includes(Number(author.id)) ? 'selected': '' %>><%= author.name %></option>
+                                <% }) %>
+                            <% } else { %>
+                                <% authors.forEach(author => { %>
+                                    <option value="<%= author.id %>"
+                                    <%= locals && locals.authorIds && book.authors && authorIds.includes(Number(author.id)) ? 'selected': '' %>><%= author.name %></option>
+                                <% }) %>
+                            <% } %>
+                            
+                        </select>
+                        <% if (locals && locals.errors && locals.errors.author) { %>
+                            <div class="errorMessage"><small><%= errors.author.msg %></small></div>     
+                        <% } %>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="genre" class="for-select">Género</label>
                         <select id="genre" name="genre" multiple size="6">
-                            <% for( let i = 0; i < categories.length; i++ ) { %>
-                                <option value="<%= categories[i].id %>" <%= categoryIndexes.includes(i) ? 'selected': '' %>><%= categories[i].name %></option>  
+                            <% if (locals && locals.old && old.genre) { %>
+                                <% for( let i = 0; i < categories.length; i++ ) { %>
+                                    <option value="<%= categories[i].id %>"
+                                        <%= locals.old && locals.genreIds && old.genre && genreIds.includes(Number(categories[i].id)) ? 'selected': '' %>><%= categories[i].name %></option>   
+                                <% } %>
+                            <% } else { %>
+                                <% for( let i = 0; i < categories.length; i++ ) { %>
+                                    <option value="<%= categories[i].id %>" <%= genreIds.includes(i) ? 'selected': '' %>><%= categories[i].name %></option>  
+                                <% } %>
                             <% } %>
+                            
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="language">Idioma</label>
-                        <input id="language" name="language" type="text" value="<%= book.language %>" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="date" class="for-date">Fecha de Publicación</label>
-                        <input id="date" name="date" type="date" value="<%= book.date %>">
+                        <% if (locals && locals.old && old.date) { %>
+                            <input id="date" name="date" type="date" value="<%= old.date %>">
+                        <% } else { %>
+                            <input id="date" name="date" type="date" value="<%= book.date %>">
+                        <% } %>
+                        
                     </div>
                     <div class="form-group">
                         <label for="isbn">ISBN</label>
-                        <input id="isbn" name="isbn" type="text" value="<%= book.isbn %>" required>
+                        <% if (locals && locals.old && old.isbn) { %>
+                            <input id="isbn" name="isbn" type="text" value="<%= old.isbn %>" required>
+                        <% } else { %>
+                            <input id="isbn" name="isbn" type="text" value="<%= book.isbn %>" required>
+                        <% } %>
+                        <% if (locals && locals.errors && locals.errors.isbn) { %>
+                            <div class="errorMessage"><small><%= errors.isbn.msg %></small></div>     
+                        <% } %>
                     </div>
                     <div class="form-group">
                         <label for="price">Precio</label>
-                        <input id="price" name="price" type="number" value="<%= book.price %>" step=".01" pattern="^\d*(\.\d{0,2})?$" required>
+                        <% if (locals && locals.old && old.price) { %>
+                            <input id="price" name="price" type="number" value="<%= old.price %>" step=".01" pattern="^\d*(\.\d{0,2})?$" required>
+                        <% } else { %>
+                            <input id="price" name="price" type="number" value="<%= book.price %>" step=".01" pattern="^\d*(\.\d{0,2})?$" required>
+                        <% } %>
+                        <% if (locals && locals.errors && locals.errors.price) { %>
+                            <div class="errorMessage"><small><%= errors.price.msg %></small></div>     
+                        <% } %>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stock">Stock</label>
+                        <% if (locals && locals.old && old.stock) { %>
+                            <input id="stock" name="stock" type="number"
+                            value="<%= old.stock %>" required>
+                        <% } else { %>
+                            <input id="stock" name="stock" type="number"
+                            value="<%= book.stock %>" required>
+                        <% } %>
+                        
+                        <% if (locals && locals.errors && locals.errors.stock) { %>
+                            <div class="errorMessage"><small><%= errors.stock.msg %></small></div>     
+                        <% } %>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="contenedor-img">
+                            <p class="titulo-seccion-img">Imagen actual</p>
+                            <img src="/images/books/<%= book.image ? book.image : 'cover-not-available.png'  %>" alt="Imagen actual">
+                            <label for="image">Nueva Imagen</label>
+                            <% if (locals && locals.old && old.image) { %>
+                                <input id="image" name="image" type="file" accept="image/*" value="<%= old.image %>">        
+                                
+                            <% } else { %>
+                                <input id="image" name="image" type="file" accept="image/*" value="<%= book.image %>">        
+                            <% } %>
+                            <% if (locals && locals.errors && locals.errors.image) { %>
+                                <div class="errorMessage"><small><%= errors.image.msg %></small></div>     
+                            <% } %>
+                        </div>
+                        
                     </div>
                 </div>
                 <br>
