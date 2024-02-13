@@ -105,7 +105,7 @@
                         <label for="stock">Stock</label>
                         <input id="stock" name="stock" type="number"
                         value="<%= locals.old && old.stock ? old.stock : '' %>" required>
-                        <% if (locals && locals.errors && locals.errors.price) { %>
+                        <% if (locals && locals.errors && locals.errors.stock) { %>
                             <div class="errorMessage"><%= errors.stock.msg %></div>     
                         <% } %>
                     </div>

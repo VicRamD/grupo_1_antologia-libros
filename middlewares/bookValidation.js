@@ -38,6 +38,7 @@ const bookValidator = async (req, res, next) => {
     let authorsChosen = req.body.author;
     let errors = validationResult(req);
 
+    console.log(errors.mapped())
 
     if(errors.isEmpty()){
         next();
@@ -52,7 +53,7 @@ const bookValidator = async (req, res, next) => {
 
         /*guarda los indices de las categorias para enviarlos y usarlos para marcar 
         como seleccionadas las opciones en la vista por medio de etiqutas ejs */
-        console.log(genresChosen);
+        //console.log(genresChosen);
         
         if(genresChosen){
             //console.log('En if');
@@ -64,7 +65,7 @@ const bookValidator = async (req, res, next) => {
                 genreIds.push(Number(genresChosen));
             }
         }
-        console.log(genreIds);
+        //console.log(genreIds);
 
         if(authorsChosen){
             //console.log('En if');
