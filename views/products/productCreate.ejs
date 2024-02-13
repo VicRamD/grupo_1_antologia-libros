@@ -55,7 +55,7 @@
                         <select name="author" id="author" multiple required>
                             <% authors.forEach(author => { %>
                                 <option value="<%= author.id %>"
-                                 <%= locals.old && old.author && old.author.includes(author.id) ? 'selected': '' %>><%= author.name %></option>
+                                 <%= locals.old && locals.authorIds && old.author && authorIds.includes(Number(author.id)) ? 'selected': '' %>><%= author.name %></option>
                             <% }) %>
                         </select>
                         <% if (locals && locals.errors && locals.errors.author) { %>
@@ -66,7 +66,8 @@
                         <label for="genre" class="for-select">Género</label>
                         <select id="genre" name="genre" multiple>
                             <% for( let i = 0; i < categories.length; i++ ) { %>
-                                <option value="<%= categories[i].id %>"><%= categories[i].name %></option>   
+                                <option value="<%= categories[i].id %>"
+                                    <%= locals.old && locals.genreIds && old.genre && genreIds.includes(Number(categories[i].id)) ? 'selected': '' %>><%= categories[i].name %></option>   
                             <% } %>
                         </select>
                     </div>
