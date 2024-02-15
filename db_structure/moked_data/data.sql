@@ -45,6 +45,10 @@ INSERT INTO `authors` (id, `name`) VALUES (1, "Rebecca Yarros"),
 (6, "Eduardo Sacheri"), (7, "Darío Sztajnszrajber"), (8, "Jorge Liotti");
 UNLOCK TABLES;
 
+-- data de autores de libros
+LOCK TABLES `book_author` WRITE;
+INSERT INTO `book_author` (`book_id`, `author_id`) VALUES (1, 1), (2, 2), (3, 3), (4, 4);
+UNLOCK TABLES;
 
 -- data de user_categories
 

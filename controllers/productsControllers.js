@@ -18,12 +18,40 @@ const books = JSON.parse( fs.readFileSync(path.join(process.cwd(), '/data/books.
 //====== Controlador ===========/
 const productsControllers = {
     list: async (req,res) => {
-        //res.send("Estás en la ruta de productos");
+
+        db.Book.findAll({
+            include: [{ 
+                association: 'genres' 
+            }, { 
+                association: 'editorial' 
+            }, {
+                association: 'authors'
+            }]
+        })
+        .then(books => {
+            let user;
+    
+            if (req.session.currentUserMail) {
+                return finders.searchUserByEmail(req.session.currentUserMail)
+                    .then(foundUser => {
+                        user = foundUser;
+                        res.render('products/productList', { books, user });
+                    });
+            } else {
+                res.render('products/productList', { books });
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            //res.status(500).send('Error al obtener la lista de libros');
+        });
+
+        /*//res.send("Estás en la ruta de productos");
         if(req.session.currentUserMail){
            let user = await finders.searchUserByEmail(req.session.currentUserMail);
            return res.render('products/productList', { books: books, user: user });
         }
-        return res.render('products/productList', { books: books });
+        return res.render('products/productList', { books: books });*/
     },
     
     detail: async (req,res) => {

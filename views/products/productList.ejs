@@ -28,21 +28,25 @@
                     <th>Eliminar</th>
                 </tr>
                 
-                <% books.forEach(item => { %>
+                <% books.forEach(book => { %>
                             
                 <tr>
-                    <td><%=item.id%></td>
-                    <td><a href = "/products/<%= item.id %>"><%=item.title%></a></td>
-                    <td class="bigScreen"><%=item.author%></td>
-                    <td class="bigScreen"><%=item.editorial%></td>
-                    <td class="bigScreen"><% item.genre.forEach(g => { %>
-                        <a href="/products/genres?genre=<%= g.id %>"><%= g.name %><br></a><% }); %>
+                    <td><%=book.id%></td>
+                    <td><a href = "/products/<%= book.id %>"><%=book.title%></a></td>
+                    <td class="bigScreen">
+                        <% book.authors.forEach(author => { %>
+                            <%= author.name %>
+                        <% }); %>
+                    </td>
+                    <td class="bigScreen"><%=book.editorial.name%></td>
+                    <td class="bigScreen"><% book.genres.forEach(genre => { %>
+                        <a href="/products/genres?genre=<%= genre.id %>"><%= genre.name %><br></a><% }); %>
                     </td>
                                 
-                    <td>$ <%=item.price%></td>
+                    <td>$ <%=book.price%></td>
                 
                     <td>
-                        <form class="delete" method="POST" action="/products/<%= item.id %>?_method=DELETE" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este libro?')">
+                        <form class="delete" method="POST" action="/products/<%= book.id %>?_method=DELETE" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este libro?')">
                             <button class="btn-delete" type="submit">✖</button>
                         </form>
                     </td>
