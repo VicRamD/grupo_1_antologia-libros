@@ -21,10 +21,8 @@
     <%- include('../partials/header.ejs') %>
     
     <main class="registro">
-        <div class="box titulo">
-            <i class="fas fa-user-plus"></i><h1>Bienvenido</h1>
-        </div>
-            <h3>Usuario Home</h3>
+        <h1>Bienvenido</h1>
+    
         <main class="principalBox">
             <div class="bigContainer">
                 <div class="roundContainer">
@@ -119,19 +117,24 @@
                <!-- <div><h3>Domicilio</h3></div>-->
                <form action="./updateAddress?_method=PUT" method="post" id="address">
                     <h4>Domicilio</h4>
-                    <input type="text" name="id" value="<%=user.address.id%>" class="idInput">
                     <button type="submit" form="address">Editar</button>
+                    <input type="text" name="idAddress" value="<%=user.address.id%>" class="idInput">
 
                     <label for="country">País</label>
-                    <select name="country" id="country">
+                    <select name="country" id="country" >
                         <option value="" disabled selected>Selecciona un opción</option>
-                        <option value="ARGENTINA">Argentina</option>
+                        <% countries.forEach(country => { %>
+                            <option value="<%= country.value %>" <%= user.address.country == country.value ? 'selected' : '' %>
+                                data-state-from-country="<%= user.address.country == country.value && user.address.state ? user.address.state : '' %>"><%= country.name %></option>
+                        <% }) %>
+
+                        <!-- <option value="Chile" <= user.address.country == 'Chile' ? 'selected' : '' %>>Chile</option> -->
+
                     </select>
 
                     <label for="state">Localidad</label>
-                    <select name="state" id="state">
-                        <option value="" disabled selected>Selecciona un opción</option>
-                        <option value="CATAMARCA">Catamarca</option>
+                    <select name="state" id="state" disabled selected>
+                        <option value="" disabled>Selecciona un opción</option>
                     </select>
 
                     <label for="postal_code">Código Postal</label>
@@ -145,6 +148,9 @@
                     <label for="street">Calle</label>
                     <input type="text" name="street" id="street"
                     value="<%= user.address &&  user.address.street ? user.address.street : '' %>">
+                    <input type="text" name="id" value="<%=user.id%>" class="idInput">
+                    
+                    
                </form>
               <!-- <div class="directionBox2">
 
@@ -165,7 +171,7 @@
     </main>
 
     <%- include('../partials/footer.ejs') %>
-
+    <script src="/js/user_home.js"></script>
 </body>
 
 

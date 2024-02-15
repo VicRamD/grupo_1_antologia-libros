@@ -57,6 +57,12 @@ let controller = {
         
     },
     profile: async (req, res) => {
+        const countriesAvailableService = [
+            {value: 'Argentina', name: 'Argentina'},{value: 'Chile', name: 'Chile'}, {value: 'Colombia', name: 'Colombia'},
+            {value: 'Ecuador', name: 'Ecuador'}, {value: 'Spain', name: 'España'}, {value: 'Paraguay', name: 'Paraguay'},
+            {value: 'Uruguay', name: 'Uruguay'}, {value: 'Venezuela', name: 'Venezuela'}
+        ]
+
         //let user = await finders.searchUserByEmail(req.session.currentUserMail);
         let userSearched = await db.User.findOne({
             where: {
@@ -66,7 +72,7 @@ let controller = {
         })
         //console.log(user);
         const user = JSON.parse(JSON.stringify(userSearched));
-        res.render('users/user_home', {user});
+        res.render('users/user_home', {user, countries: countriesAvailableService});
     },
 
     register: function (req, res) {
@@ -172,7 +178,7 @@ let controller = {
         })
     },
     updateAddress: async (req, res) => {
-        const {id, country, state, postal_code, city, street} = req.body;
+        const {idAddress, country, state, postal_code, city, street} = req.body;
 
         db.Address.update(
             {
@@ -184,7 +190,7 @@ let controller = {
             },
             {
                 where: {
-                    id: Number(id)
+                    id: Number(idAddress)
                 }
             }
         ).then(result => {

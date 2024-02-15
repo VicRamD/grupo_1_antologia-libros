@@ -490,7 +490,6 @@ const productsControllers = {
             if (categoryBooks.length === 0) {
                 let noBooksMessage = 'No existen libros para esta categoría.<br>';
                 let imageSrc = '/images/noEncontrado.png';
-
                 /*if(req.session.currentUserMail){
                     let user = finders.searchUserByEmail(req.session.currentUserMail, users);
                     return res.render('products/booksByGenre', { noBooksMessage, imageSrc, categories, user });
@@ -499,7 +498,6 @@ const productsControllers = {
                 return res.render('products/booksByGenre', {
                     noBooksMessage: noBooksMessage,
                     imageSrc: imageSrc,
-                    categories,
                     user
                 });
             }
