@@ -30,6 +30,7 @@ let controller = {
         })
 
         //console.log(login_user);
+        console.log(login_user);
         if (account){ //usuario encontrado
             
             let resultado="Acceso Denegado";
@@ -39,6 +40,7 @@ let controller = {
 
             if (passwordsMatch) {
                 //console.log("Contraseña correcta. Acceso permitido.");
+                //console.log("Correcta");
                 req.session.currentUserMail = email;
                 if(remember){
                     //maxage para tres días

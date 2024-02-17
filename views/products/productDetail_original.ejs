@@ -12,6 +12,7 @@
 </head>
 <body>
     <%- include('../partials/header.ejs') %>
+
      <% if (locals && locals.book) { %>
         <main class="product-detail">
         
@@ -32,15 +33,15 @@
                     <h1><%= book.title %></h1>
                     <hr>
                     <div class="info-data">
-                        <p><span>Autor: </span><a href=""><%= book.authors[0].name %></a></p>
-                        <p><span>Editorial: </span><a href=""><%= book.editorial.name %></a></p>
+                        <p><span>Autor: </span><a href=""><%= book.author %></a></p>
+                        <p><span>Editorial: </span><a href=""><%= book.editorial %></a></p>
                         <p><span>ISBN: </span> <%= book.isbn %> </p>
                         <div class="data-category">
                             <p><span>Categoría:</span></p>
-                            <ul><% book.genres.forEach(g => { %>
+                            <!--<ul><% book.genre.forEach(g => { %>
                                 <li><a href="/products/genres?genre=<%= g.name %>"><%= g.name %></a></li>
                                 <% }); %>
-                            </ul>
+                            </ul>-->
                         </div>
                         
                     </div>

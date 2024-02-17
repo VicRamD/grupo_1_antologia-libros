@@ -56,8 +56,8 @@ const productsControllers = {
     
     detail: async (req,res) => {
         let bookId = parseInt(req.params.id);
-        let seeBook = finders.searchProductById(bookId, books);
-
+        let seeBook = await finders.searchProductById(bookId, books);
+        console.log(seeBook);
         if(req.session.currentUserMail){
             let user = await finders.searchUserByEmail(req.session.currentUserMail);
             return res.render('products/productDetail', { book: seeBook, user: user });
