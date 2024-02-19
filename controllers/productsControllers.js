@@ -510,6 +510,7 @@ const productsControllers = {
             } */
             // Renderiza la vista con libros si existen
             return res.render('products/booksByGenre', { categoryBooks, category, user });
+
         } else {
             // Renderiza la vista con todas las categorías si no hay consulta de géneros
             return res.render('products/booksByGenre', { categories: genres, user });
