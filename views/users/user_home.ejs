@@ -122,7 +122,7 @@
 
                     <label for="country">País</label>
                     <select name="country" id="country" >
-                        <option value="" disabled selected>Selecciona un opción</option>
+                        <option value="" id="opt-default-country" disabled selected>Selecciona un opción</option>
                         <% countries.forEach(country => { %>
                             <option value="<%= country.value %>" <%= user.address.country == country.value ? 'selected' : '' %>
                                 data-state-from-country="<%= user.address.country == country.value && user.address.state ? user.address.state : '' %>"><%= country.name %></option>
@@ -133,8 +133,8 @@
                     </select>
 
                     <label for="state">Localidad</label>
-                    <select name="state" id="state" disabled selected>
-                        <option value="" disabled>Selecciona un opción</option>
+                    <select name="state" id="state" disabled>
+                        <option value="" id="opt-default-state" disabled selected>Selecciona un opción</option>
                     </select>
 
                     <label for="postal_code">Código Postal</label>
@@ -165,8 +165,6 @@
         <h5>Recomendados</h5>
         <h5>Puntos</h5> -->
         <h5>Libros Adquiridos</h5>
-        <h5></h5>
-        <h5></h5>
        
     </main>
 
