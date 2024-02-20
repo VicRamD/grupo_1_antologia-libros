@@ -16,7 +16,7 @@ INSERT INTO `genres` (id, name) VALUES (1, 'Aventura'), (2, 'Humor'), (3, 'Cienc
 (12, 'Cocina'), (13, 'Novela'), (14, 'Política'), (15, 'Autoayuda'), (16, 'Biografía'), (17, 'Deportes'), (18, 'Ocio');
 UNLOCK TABLES;
 
--- data de generos
+-- data de libros
 
 LOCK TABLES `books` WRITE;
 INSERT INTO `books` (id, title, abstract, `editorial_id`, image, isbn, date, price, stock, language) VALUES (1, 'Alas de Sangre', "Vuela... o muere. El nuevo fenómeno de fantasía juvenil del que todo el mundo habla.\r\n\r\n«¡La novela de fantasía más brutalmente adictiva que he leído en una década!» Tracy Wolff, autora de la Serie Crave",
@@ -123,6 +123,7 @@ INSERT INTO `authors` (id, `name`) VALUES (1, "Rebecca Yarros"),
 (21, "Elisabetta Dami"), (22, "Alberto Monín"), (23, "Graciela Montes"), (24, "Rick Riordan");
 UNLOCK TABLES;
 
+-- data de autores
 LOCK TABLES `book_author` WRITE;
 INSERT INTO `book_author` (`id`, `book_id`, `author_id`) VALUES 
 (1, '1', '1'), 
