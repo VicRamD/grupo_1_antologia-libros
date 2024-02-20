@@ -268,6 +268,9 @@ const productsControllers = {
 
         const {title, abstract, author, editorial, genre, language, date, isbn, price, stock} = req.body;
 
+        console.log("======================0");
+        console.log(isbn);
+
         const wasSend = wasFileSend(req.file);
         let image = "";
         if(searchedBook.image !== ""){
