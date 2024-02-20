@@ -482,7 +482,7 @@ const productsControllers = {
                 where: {
                     genre_id: category.id
                 },
-                include: [{association: 'book', include: [{association: 'editorial'}]}]
+                include: [{association: 'book', include: [{association: 'editorial'}, {association: 'authors'}]}]
             })
 
             let categoryBooks = JSON.parse(JSON.stringify(categoryBooksDb));
@@ -495,6 +495,9 @@ const productsControllers = {
                     let user = finders.searchUserByEmail(req.session.currentUserMail, users);
                     return res.render('products/booksByGenre', { noBooksMessage, imageSrc, categories, user });
                 } */
+
+
+                
                 
                 return res.render('products/booksByGenre', {
                     noBooksMessage: noBooksMessage,
@@ -502,7 +505,8 @@ const productsControllers = {
                     user
                 });
             }
-    
+            console.log('------------');
+                console.log(categoryBooks);
             
             /*if(req.session.currentUserMail){
                 let user = finders.searchUserByEmail(req.session.currentUserMail, users);
