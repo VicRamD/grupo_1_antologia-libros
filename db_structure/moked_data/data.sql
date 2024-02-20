@@ -20,68 +20,49 @@ UNLOCK TABLES;
 
 LOCK TABLES `books` WRITE;
 INSERT INTO `books` (id, title, abstract, `editorial_id`, image, isbn, date, price, stock, language) VALUES (1, 'Alas de Sangre', "Vuela... o muere. El nuevo fenómeno de fantasía juvenil del que todo el mundo habla.\r\n\r\n«¡La novela de fantasía más brutalmente adictiva que he leído en una década!» Tracy Wolff, autora de la Serie Crave",
-1, "alas_de_sangre.webp", 8247248782, "", 5800.5, 30, "Español"),
+1, "alas_de_sangre.webp", "8247248782", "", 5800.5, 30, "Español"),
 (2, '20000 Leguas de Viaje Submarino', "Relata las aventuras de una tripulación dirigida por el Capitan Nemo, capitan del asombroso Nautilus",
-2, "1701911755821_book_img_.webp", 82483293892, "2018-12-14", 7000.00, 30, "Español"),
+2, "1701911755821_book_img_.webp", "82483293892", "2018-12-14", 7000.00, 30, "Español"),
 (3, 'La Vida es un Sueño', "Un drama clásico sobre los límites de nuestra voluntad y las cadenas que nos atan y nos impiden ser libres. Una llamada a la reflexión: ¿es real cuanto vemos y vivimos?",
-3, "la_vida_es_un_suenio.webp", 9788467591200, "2000-10-11", 7000.00, 30, "Español"),
+3, "la_vida_es_un_suenio.webp", "9788467591200", "2000-10-11", 7000.00, 30, "Español"),
 (4, 'La Casa de Bernarda Alba', "Una de las grandes obras del teatro español y universal que ofrece una dolorosa reflexión sobre la libertad, la necesidad de rebeldía y el peso de los límites y prejuicios ajenos.",
-4, "la_casa_de_bernarda_alba.webp", 82483293892, "2018-12-14", 7000.00, 30, "Castellano"),
-
+4, "la_casa_de_bernarda_alba.webp", "9788491221807", "2018-12-14", 7000.00, 30, "Castellano"),
 (5, 'El Viento Conoce Mi Nombre', "Una historia de violencia, amor, desarraigo y esperanza. En El viento conoce mi name pasado y presente se entrelazan para relatar el drama del desarraigo y la redención de la solidaridad, la compasión y el amor. Una novela actual sobre los sacrificios que a veces los padres deben hacer por sus hijos, sobre la sorprendente capacidad de algunos niños para sobrevivir a la violencia sin dejar de soñar, y sobre la tenacidad de la esperanza, que puede brillar incluso en los momentos más oscuros.",
-5, "el_viento_conoce_mi_nombre.webp", 97884010320, "2023-02-20", 10000.00, 30, "Castellano"),
-
+5, "el_viento_conoce_mi_nombre.webp", "9788401032004", "2023-02-20", 10000.00, 30, "Castellano"),
 (6, 'Nosotros dos en la tormenta', "Amistad, política y violencia en una Argentina feroz.",
-6, "nosotros_dos_en_la_tormenta.webp", 97884204565, "", 15000.00, 30, "Castellano"),
-
+6, "nosotros_dos_en_la_tormenta.webp", "9788420456560", "", 15000.00, 30, "Castellano"),
 (7, 'El Amor es Imposible', "Un ejercicio de pensamiento radical que nos anima a desandar lo andado en el camino del amor. ¿Qué significa que el único amor verdadero sea el amor imposible? ¿Es el amor lo que suponemos que es? ¿Y si fueran las preguntas lo que hay que cambiar porque es en la imposibilidad del encuentro amoroso donde radica su verdad?",
-7, "amores_imposibles.webp", 97895012040, "2012-12-10", 11000.00, 30, "Castellano"),
-
+7, "amores_imposibles.webp", "9789501204070", "2012-12-10", 11000.00, 30, "Castellano"),
 (8, 'La Última Encrucijada', "En un año de elecciones presidenciales en el que se habla de un \"fin de época\", y en el que se cumplen cuarenta años de la recuperación de la democracia, se hace imperioso un análisis inteligente de las decisiones y de las acciones que han producido tantos vaivenes y que terminaron por bloquear el sistema político, provocar un estancamiento económico estructural y generar una profunda crisis social.",
-1, "la_ultima_encrucijada.webp", 97895049773, "", 12200.00, 30, "Castellano"),
-
+1, "la_ultima_encrucijada.webp", "9789504977384", "", 12200.00, 30, "Castellano"),
 (9, 'El Vuelo de la Libélula', "Un secreto familiar llevará a Clara al fin del mundo, donde cree que se halla el principio de su historia.",
-5, "libelula.webp", 97895064469, "", 10500.00, 30, "Castellano"),
-
+5, "libelula.webp", "9789506446956", "", 10500.00, 30, "Castellano"),
 (10, 'Flores en el Barro', "Libro de autoayuda y superación personal.",
-8, "flores_barro.webp", 97895015328, "", 9900.00, 30, "Castellano"),
-
+8, "flores_barro.webp", "9789501532838", "", 9900.00, 30, "Castellano"),
 (11, 'Adiós Cachorra', "No estar en pareja está bien, separarse está bien, tener apps de citas está bien, salir y divertirse está bien. Lo que no está bien bajo ningún punto de vista es que sigamos permitiendo que la frustración que nos genera el ghosting, las cancelaciones de los encuentros a último momento, los chats abandonados, las promesas incumplidas por parte de gente que recién habíamos comenzado a conocer nos llenen de inseguridades, dudas y autoboicot.",
-1, "adios_cachorra.webp", 97895049808, "", 8400.00, 30, "Castellano"),
-
+1, "adios_cachorra.webp", "9789504980865", "", 8400.00, 30, "Castellano"),
 (12, 'Boquita', "La historia del legendario equipo Boca Juniors vuelve a las librerías de la mano de Debate, en una edición revisada a cuatro manos por Juan y Martín Caparrós sobre el fenómeno deportivo capaz de unir a millones de personas en un sentimiento azul y amarillo.",
-9, "boquita.webp", 97884189677, "", 4300.00, 30, "Castellano"),
-
+9, "boquita.webp", "9788418967795", "", 4300.00, 30, "Castellano"),
 (13, 'Messiánico', "Una biografía única y reveladora, con aspectos desconocidos e intimidades inesperadas del crack que completa con alegría y energía renovada su nueva etapa conquistando el único título que le faltaba: la Copa del Mundo, en Qatar 2022.",
-10, "messianico.webp", 97895007685, "", 12500.00, 30, "Castellano"),
-
+10, "messianico.webp", "9789500768511", "", 12500.00, 30, "Castellano"),
 (14, 'Mi Cocina Casera', "Con más de 100 recetas sencillas y sabrosas, Mi cocina casera es la herramienta perfecta para practicar, aprender e innovar en nuestro propio hogar, y hacer que cocinar se convierta en una experiencia inolvidable.",
-11, "1702500453642_book_img_.jpg", 97860731358, "2016-08-01", 29999.00, 30, "Castellano"),
-
+11, "1702500453642_book_img_.jpg", "9786073135887", "2016-08-01", 29999.00, 30, "Castellano"),
 (15, 'Fama y soledad de Picasso', "Un retrato íntimo y controvertido de Pablo Picasso, por John Berger, ganador del Premio Booker.",
-6, "1702501143009_book_img_.jpg", 97898704273, "2013-02-26", 12599.00, 30, "Castellano"),
-
+6, "1702501143009_book_img_.jpg", "9789870427346", "2013-02-26", 12599.00, 30, "Castellano"),
 (16, '¿Dónde está Wally ahora?', "Esta nueva entrega de ¿Dónde está Wally ahora? tiene solapas en cada página e incluye nuevas y mejores búsquedas que la edición anterior.\r\n\r\nUna edición de lujo para los coleccionistas o para quienes no han tenido suficiente con todo lo que había que buscar.",
-12, "1702501482785_book_img_.webp", 97884155797, "2020-12-01", 14799.00, 30, "Castellano"),
-
+12, "1702501482785_book_img_.webp", "9788415579717", "2020-12-01", 14799.00, 30, "Castellano"),
 (17, 'Los Tres Mosqueteros', "Mi nombre es D'Artagnan y mi sueño siempre fue convertirme en un valiente mosquetero. Y adivina qué, ¡lo logré! Pero no fue nada fácil… ¿Te animas a ser parte de las grandes aventuras que emprendimos con mis amigos?\r\nUn cuento pensado para que los chicos conozcan la inolvidable historia detrás de la frase \"¡Uno para todos y todos para uno!\", acompañado por coloridas ilustraciones.",
-13, "1703871165000_book_img_.webp", 97895002101, "2019-10-11", 7000.00, 30, "Castellano"),
-
+13, "1703871165000_book_img_.webp", "9789500210164", "2019-10-11", 7000.00, 30, "Castellano"),
 (18, 'El Eternauta', "El Eternauta es la primera novela gráfica en español y la más importante para el mundo hispanoamericano. Obra cumbre de la ciencia ficción, fue publicada originalmente en Argentina como una serie de 106 entregas desde 1957 a 1959, en la revista Hora Cero Semanal.\r\nPara esta edición definitiva, revisada y corregida, se han retocado más de cincuenta ilustraciones sin alterar el espíritu original de la obra, con la intención de optimizar su calidad visual, potencia y continuidad gráfica.\r\nCon su vitalidad narrativa, su vigor político y su peso iconográfico intactos, nos complace presentar la multipremiada historia que influenció a más de cinco generaciones de lectores alrededor de todo el mundo.",
-1, "1705075625364_book_img_.webp", 97895049771, "", 20000.00, 30, "Castellano"),
-
+1, "1705075625364_book_img_.webp", "9789504977117", "", 20000.00, 30, "Castellano"),
 (19, 'Thea Stilton and the Fiesta in Mexico', "The Thea Sisters are going to Mexico City! They have been invited to be a part of a team researching monarch butterflies. Their friend Luz is an artist who is inspired by the butterflies and the culture of Mexico. When her mural goes missing just before her art show, the mouselets are on the case! Can they return the missing mural in time.",
-14, "1705151958872_book_img_.webp", 97813388022, "2018-06-06", 11359.40, 30, "Inglés"),
-
+14, "1705151958872_book_img_.webp", "9781338802221", "2018-06-06", 11359.40, 30, "Inglés"),
 (20, 'Chacinados Criollos - cómo preparar los mejores Fiambres y Embutidos', "La elaboración casera de fiambres y embutidos como chorizos, morcillas o jamones es una práctica milenaria que sigue vigente. Las mejores técnicas para prepararlos y los principios esenciales de conservación forman parte de este libro. Además, recetas innovadoras e información para hacer de la fabricación de chacinados en casa un microemprendimiento exitoso.",
-15, "1705419365236_book_img_.webp", 97895024160, "2017-08-10", 13250.00, 30, "Castellano"),
-
+15, "1705419365236_book_img_.webp", "9789502416014", "2017-08-10", 13250.00, 30, "Castellano"),
 (21, 'Clarita se volvió invisible', "Un día cualquiera, Clarita se vuelve invisible. Nadie la ve: ni su mamá, ni el gato, ni siquiera su hermanito. ¿Qué travesuras hará Clarita ahora que nadie la puede ver?",
-16, "1705421427421_book_img_.webp", 97895046584, "2019-06-10", 5400.00, 30, "Castellano"),
-
+16, "1705421427421_book_img_.webp", "9789504658498", "2019-06-10", 5400.00, 30, "Castellano"),
 (22, 'Daughter of the Deep', "Mi nombre es D'Artagnan y mi sueño siempre fue convertirme en un valiente mosquetero. Y adivina qué, ¡lo logré! Pero no fue nada fácil… ¿Te animas a ser parte de las grandes aventuras que emprendimos con mis amigos?\r\nUn cuento pensado para que los chicos conozcan la inolvidable historia detrás de la frase \"¡Uno para todos y todos para uno!\", acompañado por coloridas ilustraciones.",
-17, "1705449398638_book_img_.webp", 97813680779, "2021-10-05", 14025.95, 30, "Inglés");
-
+17, "1705449398638_book_img_.webp", "9781368077934", "2021-10-05", 14025.95, 30, "Inglés");
 
 UNLOCK TABLES;
 
