@@ -32,7 +32,16 @@
                     <h1><%= book.title %></h1>
                     <hr>
                     <div class="info-data">
-                        <p><span>Autor: </span><a href=""><%= book.authors && book.authors[0] ? book.authors[0].name : 'Indefinido' %></a></p>
+                        <% if (book.authors) { %>
+                            <p><span>Autor/es: </span></p>
+                            <% book.authors.forEach(author => { %>
+                                <p><a href=""><%=  author.name %></a></p>
+                            <% }) %>
+                        <% } else { %>
+                            <p><span>Autor/es: </span><a href="">Indefinido</a></p>
+                        <% } %>
+
+                        
                         <p><span>Editorial: </span><a href=""><%= book.editorial ? book.editorial.name : 'Indefinido' %></a></p>
                         <p><span>ISBN: </span> <%= book.isbn %> </p>
                         <div class="data-category">

@@ -18,7 +18,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER(10),
         },
         isbn: {
-            type: dataTypes.INTEGER(25),
+            type: dataTypes.STRING,
             allowNull: false
         },
         date: {

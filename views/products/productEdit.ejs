@@ -90,7 +90,8 @@
                                 <% } %>
                             <% } else { %>
                                 <% for( let i = 0; i < categories.length; i++ ) { %>
-                                    <option value="<%= categories[i].id %>" <%= genreIds.includes(i) ? 'selected': '' %>><%= categories[i].name %></option>  
+                                    <!-- locals && locals.authorIds && book.authors && authorIds.includes(Number(author.id)) -->
+                                    <option value="<%= categories[i].id %>" <%= locals.genreIds && genreIds.includes(Number(categories[i].id)) ? 'selected': '' %>><%= categories[i].name %></option> 
                                 <% } %>
                             <% } %>
                             

@@ -30,7 +30,7 @@ CREATE TABLE `books` (
   `title` VARCHAR(95) NOT NULL,
   `abstract` TEXT(100),
   `editorial_id` INT(10),
-  `isbn` INT(25) NOT NULL,
+  `isbn` VARCHAR(30) NOT NULL,
   `date` DATE,
   `price` FLOAT(20, 2) NOT NULL,
   `stock` INT(6) NOT NULL,

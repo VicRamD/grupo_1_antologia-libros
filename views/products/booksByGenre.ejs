@@ -46,7 +46,7 @@
                                     <img src="/images/books/<%= categoryBook.book && categoryBook.book.image ? categoryBook.book.image : 'cover-not-available.png' %>" alt="Portada de <%= categoryBook.book.title %> ">
                                     <hr>
                                     <h3><a href="/products/<%= categoryBook.book && categoryBook.book.id %>"><%= categoryBook.book.title %></a></h3>
-                                    <p><a href="">Author: <%= categoryBook.book.authors && categoryBook.book.authors[0].name %></a></p>
+                                    <p><a href="">Author: <%= categoryBook.authors && categoryBook.authors[0].name %></a></p>
                                     <p><a href="">Editorial: <%= categoryBook.book.editorial.name %></a></p>
                                 </div>
                                 <div class="card-buy">
