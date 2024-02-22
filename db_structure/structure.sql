@@ -48,8 +48,8 @@ CREATE TABLE `book_genre` (
   `book_id` INT(10) NOT NULL,
   `genre_id` INT(10) NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`),
-  FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`)
+  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`) ON DELETE CASCADE
 );
 
 -- Estructura de Authors
@@ -69,8 +69,8 @@ CREATE TABLE `book_author` (
   `book_id` INT(10) NOT NULL,
   `author_id` INT(10) NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`),
-  FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`)
+  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) ON DELETE CASCADE
 );
 
 -- Estructura de User Categories
@@ -136,7 +136,7 @@ CREATE TABLE `cart_items` (
   `quantity` INT(10),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`cart_id`) REFERENCES `shopping_carts` (`id`),
-  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`)
+  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) 
 );
 
 -- Estructura de orders (transacciones finalizadas)
@@ -178,6 +178,6 @@ CREATE TABLE `reviews` (
   `comment` TEXT(800),
   `rating` FLOAT(5,1) NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`),
-  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 );
