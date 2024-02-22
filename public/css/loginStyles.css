@@ -147,6 +147,12 @@ label[for="email"], label[for="password"] {
     
 }
 
+.error-message {
+    color: rgb(196, 15, 15);
+    font-size: 14px;
+    font-weight: bold;
+}
+
 /*Tamaño mediano*/
 
 @media (min-width: 460px) {
