@@ -144,5 +144,44 @@ UNLOCK TABLES;
 -- data de addresses
 
 LOCK TABLES `addresses` WRITE;
-INSERT INTO `addresses` (id, `user_id`, `postal_code`) VALUES (1, 1, 4700);
+INSERT INTO `addresses` (`id`, `user_id`, `street`, `city`, `state`, `postal_code`, `country`) VALUES 
+(1, 1, NULL, NULL, NULL, 4700, NULL), 
+(NULL, '4', NULL, 'Capital', 'Catamarca', 4700, 'Argentina');
 UNLOCK TABLES;
+
+-- data de pedidos 
+
+LOCK TABLES `orders` WRITE;
+INSERT INTO `orders` (`id`, `user_id`, `address_id`, `order_date`, `status`, `total_cost`) VALUES 
+(NULL, '4', '2', '2024-02-01', 'Completada', '5400'), 
+(NULL, '2', '2', '2024-01-09', 'Pendiente', '7000');;
+UNLOCK TABLES;
+
+-- data de pedidos de libros
+
+LOCK TABLES `book_order` WRITE;
+INSERT INTO `book_order` (`id`, `book_id`, `order_id`, `quantity`, `price_at_purchase`) VALUES 
+(NULL, '21', '1', '1', '5400'),
+(NULL, '2', '2', '1', '7000');
+UNLOCK TABLES;
+
+-- data de carrito de compras
+
+LOCK TABLES `shopping_carts` WRITE;
+INSERT INTO `shopping_carts` (`id`, `user_id`, `createdAt`) VALUES (NULL, '4', current_timestamp()), (NULL, '2', current_timestamp());
+UNLOCK TABLES;
+
+-- data de reviews
+
+LOCK TABLES `reviews` WRITE;
+INSERT INTO `reviews` (`id`, `book_id`, `user_id`, `comment`, `rating`) VALUES 
+(NULL, '21', '4', 'Buen libro!', '4'), 
+(NULL, '2', '2', 'Interesante y entretenido!', '4');
+UNLOCK TABLES;
+
+-- data de cart_items
+
+LOCK TABLES `cart_items` WRITE;
+INSERT INTO `cart_items` (`id`, `cart_id`, `book_id`, `quantity`) VALUES 
+(NULL, '1', '21', '1'), 
+(NULL, '2', '2', '1');

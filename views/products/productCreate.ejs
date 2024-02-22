@@ -21,12 +21,14 @@
                         <% if (locals && locals.errors && locals.errors.title) { %>
                             <div class="errorMessage"><small><%= errors.title.msg %></small></div>     
                         <% } %>
+                        <label id="labelTitle" class="erroresJavascript"></label>
                     </div> 
 
                     <div class="form-group-ancho">
                         <label for="abstract">Resumen</label>
                         <textarea id="abstract" 
                         name="abstract" rows="6"><%= locals.old && old.abstract ? old.abstract : '' %></textarea>
+                        <label id="labelAbstract" class="erroresJavascript"></label>
                     </div>
                     
                     <div class="form-group">
@@ -48,6 +50,7 @@
                         <% if (locals && locals.errors && locals.errors.image) { %>
                             <div class="errorMessage"><%= errors.image.msg %></div>     
                         <% } %>
+                        <label id="labelImage" class="erroresJavascript"></label>
                     </div>
                     <div class="form-group">
                         <label for="author">Autor</label>
@@ -122,6 +125,6 @@
     </main>
 
     <%- include('../partials/footer.ejs') %>
-
+    <script src="/js/validations/productAddValidation.js"></script>
 </body>
 </html>
