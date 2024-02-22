@@ -15,7 +15,7 @@ let validateBook = [
         let valid = false;
         if(req.file){
             if(req.file.mimetype === 'image/jpg' || req.file.mimetype === 'image/jpeg' || req.file.mimetype === 'image/png' 
-            || req.file.mimetype === 'image/webp'){
+            || req.file.mimetype === 'image/gif'){
                 valid = true;    
             }
         }

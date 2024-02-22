@@ -3,6 +3,10 @@ form div.errorMessage {
     margin-bottom: 5px;
 }
 
+.erroresJavascript {
+    color: red;
+}
+
 section.apellido-nombre div.firstnameError{
     order: 1;
 }
