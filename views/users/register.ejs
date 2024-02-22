@@ -29,16 +29,19 @@
                 <label for="firstname">Nombre:</label>
                 <label for="lastname">Apellido:</label>
                 <input type="text" name="firstname" id="firstname" autocomplete="name"
-                 value="<%= locals.old && old.firstname ? old.firstname : '' %>" required>
+                 value="<%= locals.old && old.firstname ? old.firstname : '' %>" required onkeypress="return onlyLetterKey(event)">
                 <% if (locals && locals.errors && locals.errors.firstname) { %>
                     <div class="errorMessage firstnameError"><%= errors.firstname.msg %></div>     
                 <% } %>
+                <div class="errorMessage firstnameError" id="fnerrors"></div>
 
                 <input type="text" name="lastname" id="lastname"
-                value="<%= locals.old && old.lastname ? old.lastname : '' %>" required>
+                value="<%= locals.old && old.lastname ? old.lastname : '' %>" required onkeypress="return onlyLetterKey(event)">
                 <% if (locals && locals.errors && locals.errors.lastname) { %>
                     <div class="errorMessage lastnameError"><%= errors.lastname.msg %></div>     
                 <% } %>
+
+                <div class="errorMessage lastnameError" id="lnerrors"></div>
             </section>
     
             <!-- <div>
@@ -64,6 +67,7 @@
             <% if (locals && locals.errors && locals.errors.password) { %>
                 <div class="errorMessage"><%= errors.password.msg %></div>     
             <% } %>
+            <div class="errorMessage" id="pwerrors"></div>
             
             <div>
                 <label for="pwconfirm">Contraseña nuevamente:</label>
@@ -73,6 +77,7 @@
             <% if (locals && locals.errors && locals.errors.pwconfirm) { %>
                 <div class="errorMessage"><%= errors.pwconfirm.msg %></div>     
             <% } %>
+            <div class="errorMessage" id="pw2errors"></div>
 
             <div>
                 <label for="avatar">Imagén de perfil:</label>
@@ -87,7 +92,8 @@
     </main>
 
     <%- include('../partials/footer.ejs') %>
-
+    <script src="/js/validations/registerValidation.js"></script>
+    <script src="/js/validations/genericFunctions.js"></script>
 </body>
 
 

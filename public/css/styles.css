@@ -714,7 +714,7 @@ footer .pie{
         width: 100%;
         margin-top: 30px;
     }
-    section.apellido-nombre input, section.apellido-nombre label {
+    section.apellido-nombre input, section.apellido-nombre label, section.apellido-nombre div.errorMessage{
         width: 40%;
     }
 

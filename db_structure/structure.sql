@@ -94,7 +94,7 @@ CREATE TABLE `users` (
   `password` VARCHAR(70) NOT NULL,
   `category_id` INT(10) NOT NULL,
   `pf_image` VARCHAR(50),
-  `phone_number` INT(15),
+  `phone_number` VARCHAR(15),
   PRIMARY KEY (`id`),
   UNIQUE (`email`),
   FOREIGN KEY (`category_id`) REFERENCES `user_categories` (`id`)
