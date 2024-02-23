@@ -112,7 +112,7 @@ CREATE TABLE `addresses` (
   `postal_code` INT(15),
   `country` VARCHAR(50),
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 );
 
 -- Estructura de Shopping Carts
