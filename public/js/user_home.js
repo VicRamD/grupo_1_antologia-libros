@@ -194,17 +194,35 @@ const countriesAvailableService = [
 
 window.addEventListener('load', ()=> {
 
-    const url = "https://www.universal-tutorial.com/api/states/";
+    //const url = "https://www.universal-tutorial.com/api/states/";
+
+    const addressForm = document.getElementById('address');
 
     const countriesSelect = document.getElementById('country');
-    const statesSelect = document.getElementById('state');
     const countryDefaultOpt = document.getElementById('opt-default-country');
+
+    const statesSelect = document.getElementById('state');
+    
+    countriesAvailableService.forEach(country => {
+        let option = document.createElement('option');
+        option.value = country.value;
+        option.innerText = country.name;
+        if(option.value === countriesSelect.dataset.country){
+            option.setAttribute('selected', '');
+            countryDefaultOpt.removeAttribute('selected');
+            if(statesSelect.dataset.state){
+                option.setAttribute('data-state-from-country', statesSelect.dataset.state);
+            }
+        }
+        countriesSelect.appendChild(option);
+    });
+    
     const stateDefaultOpt = document.getElementById('opt-default-state');
 
-    console.log(countriesSelect.value);
+    //console.log(countriesSelect.value);
     if(countriesSelect.value){
         let countryOpt = document.querySelector(`option[value="${countriesSelect.value}"]`);
-        countryDefaultOpt.removeAttribute('disabled')
+        console.log(countryOpt);
 
         statesSelect.innerHTML = "<option value='' disabled>Selecciona un opción</option>";
 
@@ -221,6 +239,7 @@ window.addEventListener('load', ()=> {
             option.innerText = state.name;
             if(option.value === countryOpt.dataset.stateFromCountry){
                 option.setAttribute('selected', '');
+                stateDefaultOpt.removeAttribute('selected', '');
             }
             statesSelect.appendChild(option);
             //quita el atributo disabled

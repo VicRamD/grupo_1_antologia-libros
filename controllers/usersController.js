@@ -74,7 +74,7 @@ let controller = {
         })
         //console.log(user);
         const user = JSON.parse(JSON.stringify(userSearched));
-        res.render('users/user_home', {user, countries: countriesAvailableService});
+        res.render('users/user_home', {user});
     },
 
     register: function (req, res) {

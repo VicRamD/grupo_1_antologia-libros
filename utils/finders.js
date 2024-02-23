@@ -33,7 +33,7 @@ async function searchUserByEmail(email){
         where: {
             email
         },
-        include: [{association: 'category'}]
+        include: [{association: 'category'}, {association: 'address'}]
     }).catch(error => {
         console.log(error);
     })

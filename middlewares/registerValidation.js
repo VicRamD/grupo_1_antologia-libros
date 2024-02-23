@@ -26,8 +26,8 @@ let validateRegister = [
         }
         return true;
     }).bail(),
-    check('password').notEmpty().withMessage("La contraseña deber contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial")
-    .isLength({min:8}).withMessage("La contraseña deber contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial")
+    check('password').notEmpty().withMessage("La contraseña debe contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial")
+    .isLength({min:8}).withMessage("La contraseña debe contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial")
     .custom(value => {
         let errores = verifyPasswordExpresion(value);
         if(errores > 0){
@@ -37,7 +37,7 @@ let validateRegister = [
         return true;
         
     })
-    .withMessage("La contraseña deber contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial")
+    .withMessage("La contraseña debe contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial")
     .bail(),
     check('pwconfirm').custom((value, {req}) => {
         if (value !== req.body.password) {
@@ -87,6 +87,41 @@ const registerValidator = (req, res, next) => {
 };
 
 //===========================================================================
+//==========================================================================
+let validateUpdatePFIm = [
+    check('avatar')
+    .custom((value, {req}) => {
+        console.log(req.file);
+        let valid = false;
+        
+        if(req.file){
+            if(req.file.mimetype === 'image/jpg' || req.file.mimetype === 'image/jpeg' || req.file.mimetype === 'image/png' 
+            || req.file.mimetype === 'image/gif'){
+                valid = true;    
+            }
+        }
+        
+        return valid;
+    }).withMessage("Debe ingresar una imagen de los siguientes formatos (JPG, JPEG, PNG, GIF)"),
+    check('id').isNumeric().withMessage("Id invalido")
+];
+
+const updatePFimValidator = async (req, res, next) => {
+    let errors = validationResult(req);
+    //console.log(errors.array())
+
+    if(errors.isEmpty()){
+        next();
+    } else {
+        let user = await finders.searchUserByEmail(req.session.currentUserMail);
+        return res.render('users/user_home', {
+            user,
+            errorPFIm: errors.array(),
+        })
+    }
+};
+
+//===========================================================================
 //===========================================================================
 
 let validateUpdatePD = [
@@ -122,7 +157,17 @@ let validateUpdatePW = [
             throw new Error('La contraseña ingresada en Contraseña Actual no es correcta');
         }
     }),
-    check('new_pw').isLength({min:8}).withMessage("La contraseña deber contener por lo menos 8 carácteres").bail(),
+    check('new_pw').isLength({min:8}).withMessage("La contraseña debe contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial").bail()
+    .custom(value => {
+        let errores = verifyPasswordExpresion(value);
+        if(errores > 0){
+            
+            return false;
+        }
+        return true;
+        
+    })
+    .withMessage("La contraseña deber contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial").bail(),
     check('pwconfirm').custom((value, {req}) => {
         if (value !== req.body.new_pw) {
             throw new Error('Las contraseñas ingresadas no son iguales');
@@ -174,4 +219,6 @@ function verifyPasswordExpresion(value){
 
 module.exports = {validateRegister, registerValidator,
      validateUpdatePD, updatePDValidator, 
-     validateUpdatePW, updatePWValidator};
+     validateUpdatePW, updatePWValidator,
+     validateUpdatePFIm, updatePFimValidator
+    };

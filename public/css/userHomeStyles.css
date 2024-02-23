@@ -431,6 +431,9 @@ section.genres {
     color: whitesmoke;
 }
 
+form select option {
+    width: 100%;
+}
 
 @media (min-width: 400px) {
     .faceBox{

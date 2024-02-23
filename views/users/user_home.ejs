@@ -33,6 +33,14 @@
                         <input type="file" name="avatar" id="avatar" accept="image/*">
                         <button type="submit" form="manageImage">Guardar</button>
                     </form>
+                    <% if (locals && locals.errorPFIm) { %>
+                        <ul>
+                            <% locals.errorPFIm.forEach(error => { %>
+                                <li><%= error.msg %></li>
+                            <% }) %>
+                        </ul>
+                    <% } %>
+                    
                 </div>
                 <div class="userDataContainer">
                     <p>Usuario: </p>
@@ -121,19 +129,19 @@
                     <input type="text" name="idAddress" value="<%=user.address.id%>" class="idInput">
 
                     <label for="country">País</label>
-                    <select name="country" id="country" >
+                    <select name="country" id="country" data-country="<%= user.address && user.address.country ? user.address.country : '' %>">
                         <option value="" id="opt-default-country" disabled selected>Selecciona un opción</option>
-                        <% countries.forEach(country => { %>
-                            <option value="<%= country.value %>" <%= user.address.country == country.value ? 'selected' : '' %>
-                                data-state-from-country="<%= user.address.country == country.value && user.address.state ? user.address.state : '' %>"><%= country.name %></option>
-                        <% }) %>
+                        <!--< countries.forEach(country => { %>
+                            <option value="<= country.value %>" <= user.address.country == country.value ? 'selected' : '' %>
+                                data-state-from-country="<= user.address.country == country.value && user.address.state ? user.address.state : '' %>"><= country.name %></option>
+                        < }) %> -->
 
                         <!-- <option value="Chile" <= user.address.country == 'Chile' ? 'selected' : '' %>>Chile</option> -->
 
                     </select>
 
                     <label for="state">Localidad</label>
-                    <select name="state" id="state" disabled>
+                    <select name="state" id="state" data-state="<%= user.address && user.address.state ? user.address.state : '' %>" disabled>
                         <option value="" id="opt-default-state" disabled selected>Selecciona un opción</option>
                     </select>
 
