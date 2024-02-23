@@ -62,28 +62,34 @@
             <div>
                 <label for="password">Contraseña:</label>
             </div>
-            <input type="password" required name="password" id="password"  placeholder="Ingrese una contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}"
-            title="La contraseña debe tener al menos 8 caracteres, incluir una mayúscula, una minúscula, un número y un carácter especial."
-            value="<%= locals.old && old.password ? old.password : '' %>">
+            <input type="password" required name="password" id="password"  placeholder="Ingrese una contraseña" 
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" value="<%= locals.old && old.password ? old.password : '' %>">
+            <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}"
+            title="La contraseña debe tener al menos 8 caracteres, incluir una mayúscula, una minúscula, un número y un carácter especial." -->
             <% if (locals && locals.errors && locals.errors.password) { %>
                 <div class="errorMessage"><%= errors.password.msg %></div>     
             <% } %>
             <div class="errorMessage" id="pwerrors"></div>
             
             <div>
-                <label for="pwconfirm">Contraseña nuevamente:</label>
+                <label for="pwconfirm">Repetir Contraseña:</label>
             </div>
             <input type="password" required name="pwconfirm" id="pwconfirm" placeholder="Repita la contraseña" 
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" value="<%= locals.old && old.pwconfirm ? old.pwconfirm : '' %>" >
+            <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}"  -->
             <% if (locals && locals.errors && locals.errors.pwconfirm) { %>
                 <div class="errorMessage"><%= errors.pwconfirm.msg %></div>     
             <% } %>
+            
             <div class="errorMessage" id="pw2errors"></div>
 
             <div>
                 <label for="avatar">Imagén de perfil:</label>
             </div>
-            <input type="file" name="avatar" id="avatar" accept="image/*">
+            <input type="file" name="avatar" id="avatar" accept="image/*" value="<%= locals.oldFile && oldFile.originalname ? oldFile.originalname : '' %>">
+            <% if (locals && locals.errors && locals.errors.avatar) { %>
+                <div class="errorMessage"><%= errors.avatar.msg %></div>     
+            <% } %>
             <div class="errorMessage" id="avatarerrors"></div>
             
             <div class="errorMessage" id="formerrors"></div>
@@ -96,7 +102,7 @@
 
     <%- include('../partials/footer.ejs') %>
     <script src="/js/validations/registerValidation.js"></script>
-    <script src="/js/validations/genericFunctions.js"></script>
+    <script src="/js/validations/genericFunctions.js"></script> 
 </body>
 
 

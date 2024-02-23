@@ -33,7 +33,7 @@ window.addEventListener('load', ()=>{
             fnerrors.innerHTML="";
             nombreValido = true;
         } else {
-            fnerrors.innerHTML = "<small>El nombre debe tener 2 caracteres</small>";
+            fnerrors.innerHTML = "<small>El nombre debe tener 2 caracteres como minimo</small>";
             nombreValido = false;
         }
     });
@@ -43,7 +43,7 @@ window.addEventListener('load', ()=>{
             lnerrors.innerHTML="";
             apellidoValido = true;
         } else {
-            lnerrors.innerHTML = "<small>El apellido debe tener 2 caracteres</small>";
+            lnerrors.innerHTML = "<small>El apellido debe tener 2 caracteres como minimo</small>";
             apellidoValido = false;
         }
     });

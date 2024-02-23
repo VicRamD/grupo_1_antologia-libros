@@ -20,4 +20,7 @@ section.apellido-nombre .lastnameError {
         order: 3;
     }
 
+    section.apellido-nombre div#fnerrors,  section.apellido-nombre div#lnerrors{
+        order: 4;
+    }
 }

@@ -14,9 +14,10 @@ const saltRounds = 10;
     return searchedRegister;
 } */
 let validateRegister = [
-    check('firstname').notEmpty().withMessage("Debe completar el nombre"),
-    check('lastname').notEmpty().withMessage("Debe completar el apellido"),
-    check('email').isEmail()//.normalizeEmail()
+    check('firstname').notEmpty().isLength({min: 2}).withMessage("El nombre debe tener 2 caracteres como minimo"),
+    check('lastname').notEmpty().isLength({min: 2}).withMessage("El apellido debe tener 2 caracteres como minimo"),
+    check('email').notEmpty().withMessage("El email es obligatorio").bail()
+    .isEmail()//.normalizeEmail()
     .withMessage("Debe ingresar un email valido").bail()
     .custom(async value => {
         let user = await finders.searchUserByEmail(value);
@@ -25,13 +26,43 @@ let validateRegister = [
         }
         return true;
     }).bail(),
-    check('password').isLength({min:8}).withMessage("La contraseña deber contener por lo menos 8 carácteres").bail(),
+    check('password').notEmpty().withMessage("La contraseña deber contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial")
+    .isLength({min:8}).withMessage("La contraseña deber contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial")
+    .custom(value => {
+        let errores = verifyPasswordExpresion(value);
+        if(errores > 0){
+            
+            return false;
+        }
+        return true;
+        
+    })
+    .withMessage("La contraseña deber contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial")
+    .bail(),
     check('pwconfirm').custom((value, {req}) => {
         if (value !== req.body.password) {
             throw new Error('Las contraseñas ingresadas no son iguales');
         }
         return true;
     }),
+    check('avatar')//.optional()
+    .custom((value, {req}) => {
+        console.log(req.file);
+        let valid = false;
+
+        //al ser opcional si no se recibe un archivo simplemente devuelve true, si lo recibe verifica emimetype
+        if(req.file){
+            if(req.file){
+                if(req.file.mimetype === 'image/jpg' || req.file.mimetype === 'image/jpeg' || req.file.mimetype === 'image/png' 
+                || req.file.mimetype === 'image/gif'){
+                    valid = true;    
+                }
+            }
+        } else {
+            valid = true;
+        }
+        return valid;
+    }).withMessage("Debe ingresar una imagen de los siguientes formatos (JPG, JPEG, PNG, GIF)")
 ];
 
 //===========================================================================
@@ -41,13 +72,16 @@ const registerValidator = (req, res, next) => {
     let errors = validationResult(req);
 
     //console.log(errors.mapped());
+    console.log(req.body);
+    console.log(req.file);
 
     if(errors.isEmpty()){
         next();
     } else {
         return res.render('users/register', {
             errors: errors.mapped(),
-            old: req.body
+            old: req.body,
+            oldFile: req.file
         })
     }
 };
@@ -56,8 +90,8 @@ const registerValidator = (req, res, next) => {
 //===========================================================================
 
 let validateUpdatePD = [
-    check('first_name').isLength({min: 2}).withMessage("Debe ingresar un nombre válido"),
-    check('last_name').isLength({min: 2}).withMessage("Debe ingresar un apellido válido"),
+    check('first_name').isLength({min: 2}).withMessage("El nombre debe tener 2 caracteres como minimo"),
+    check('last_name').isLength({min: 2}).withMessage("El apellido debe tener 2 caracteres como minimo"),
     check('id').isNumeric().withMessage("Id invalido"),
 ];
 
@@ -111,6 +145,32 @@ const updatePWValidator = async (req, res, next) => {
         })
     }
 };
+
+//==================================================
+//=================================================
+function verifyPasswordExpresion(value){
+    let errores = 0;
+        //search devuelve -1 si no encuentra valores de la expresión regular
+        if(value.trim().length < 8){
+            errores++;
+        } else if(value.search(/[a-z]/) < 0) {
+            errores++;
+        } else if(value.search(/[A-Z]/) < 0) {
+            errores++;
+        } else if(value.search(/[0-9]/) < 0) {
+            console.log(value.search(/[0-9]/));
+            errores++;
+        } else if(value.search(/[A-Z]/) < 0) {
+            errores++;
+        } else if(value.search(/\W/) < 0) {
+            //!@#\$%\^\&*\)\(+=._-
+            //console.log(value.search(/\W/));
+            errores++;
+        }
+    
+    return errores;
+}
+
 
 module.exports = {validateRegister, registerValidator,
      validateUpdatePD, updatePDValidator, 
