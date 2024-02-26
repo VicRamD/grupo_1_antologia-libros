@@ -59,11 +59,6 @@ let controller = {
         
     },
     profile: async (req, res) => {
-        const countriesAvailableService = [
-            {value: 'Argentina', name: 'Argentina'},{value: 'Chile', name: 'Chile'}, {value: 'Colombia', name: 'Colombia'},
-            {value: 'Ecuador', name: 'Ecuador'}, {value: 'Spain', name: 'España'}, {value: 'Paraguay', name: 'Paraguay'},
-            {value: 'Uruguay', name: 'Uruguay'}, {value: 'Venezuela', name: 'Venezuela'}
-        ]
 
         //let user = await finders.searchUserByEmail(req.session.currentUserMail);
         let userSearched = await db.User.findOne({
