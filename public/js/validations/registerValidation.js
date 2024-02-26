@@ -32,9 +32,15 @@ window.addEventListener('load', ()=>{
         if(hasReachedMinLength(firstname.value.trim(), 2)){
             fnerrors.innerHTML="";
             nombreValido = true;
+            if(firstname.classList.contains('errorInput')){
+                firstname.classList.remove('errorInput');
+            }
         } else {
             fnerrors.innerHTML = "<small>El nombre debe tener 2 caracteres como minimo</small>";
             nombreValido = false;
+            if(!firstname.classList.contains('errorInput')){
+                firstname.classList.add('errorInput');
+            }
         }
     });
 
@@ -42,9 +48,15 @@ window.addEventListener('load', ()=>{
         if(hasReachedMinLength(lastname.value.trim(), 2)){
             lnerrors.innerHTML="";
             apellidoValido = true;
+            if(lastname.classList.contains('errorInput')){
+                lastname.classList.remove('errorInput');
+            }
         } else {
             lnerrors.innerHTML = "<small>El apellido debe tener 2 caracteres como minimo</small>";
             apellidoValido = false;
+            if(!lastname.classList.contains('errorInput')){
+                lastname.classList.add('errorInput');
+            }
         }
     });
 
@@ -55,9 +67,15 @@ window.addEventListener('load', ()=>{
         if(emailRegex.test(email.value)){
             mailerrors.innerHTML = "";
             emailValido = true;
+            if(email.classList.contains('errorInput')){
+                email.classList.remove('errorInput');
+            }
         } else {
             mailerrors.innerHTML = "<small>Debe ingresar un email valido, por ejemplo juan.perez1@example.com</small>";
             emailValido = false;
+            if(!email.classList.contains('errorInput')){
+                email.classList.add('errorInput');
+            }
         }
     })
 
@@ -70,9 +88,15 @@ window.addEventListener('load', ()=>{
         if(errores > 0) {
             pwerrors.innerHTML = "<small>La contraseña debe tener al menos 8 caracteres, incluir una mayúscula, una minúscula, un número y un carácter especial</small>";
             passwordValido = false;
+            if(!password.classList.contains('errorInput')){
+                password.classList.add('errorInput');
+            }
         } else {
             pwerrors.innerHTML = "";
             passwordValido = true;
+            if(password.classList.contains('errorInput')){
+                password.classList.remove('errorInput');
+            }
         }
     });
 
@@ -84,13 +108,22 @@ window.addEventListener('load', ()=>{
         if(errores > 0) {
             pw2errors.innerHTML = "<small>La contraseña debe tener al menos 8 caracteres, incluir una mayúscula, una minúscula, un número y un carácter especial<br>Ambas contraseñas deben ser iguales</small>";
             pwconfirmValido = false;
+            if(!pwconfirm.classList.contains('errorInput')){
+                pwconfirm.classList.add('errorInput');
+            }
         } else {
             if(pwconfirm.value === password.value){
                 pw2errors.innerHTML = "";
                 pwconfirmValido = true;
+                if(pwconfirm.classList.contains('errorInput')){
+                    pwconfirm.classList.remove('errorInput');
+                }
             } else {
                 pw2errors.innerHTML = "<small>Ambas contraseñas deben ser iguales</small>";
                 pwconfirmValido = false;
+                if(!pwconfirm.classList.contains('errorInput')){
+                    pwconfirm.classList.add('errorInput');
+                }
             }
 
         }

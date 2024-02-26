@@ -15,6 +15,12 @@ section.apellido-nombre .lastnameError {
     order: 2;
 }
 
+form.contenedor-padre input.errorInput {
+    background-color: #fce4e4;
+    border: 2px solid #cc0033;
+    outline: none;
+}
+
 @media (min-width: 769px) {
     section.apellido-nombre div.lastnameError,  section.apellido-nombre div.firstnameError{
         order: 3;
