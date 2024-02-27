@@ -93,6 +93,7 @@ module.exports = (sequelize, dataTypes) => {
             through: 'reviews', //Tabla intermedia
             foreignKey: 'book_id', //Clave foránea que apunta a books
             otherKey: 'user_id', //Clave foránea que apunta a users
+            timestamps: false
         });
     };
     

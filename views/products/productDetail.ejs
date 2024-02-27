@@ -73,6 +73,28 @@
         <section class="recommendation">
             <hr>
             <div class="box-card">
+                <h3 class="section-title">Reviews</h3>
+                <div class="card">
+                    <div class="card-review">
+                        <p>Rating: <%= false ? '' : 'No disponible' %></p>
+                        <div class="comment-block">
+                            <div class="comment">Comentarios</div>
+                            <div class="rating">Nota</div>
+                            <% if (locals && locals.reviews && locals.reviews[0]) { %>
+                                <% for( let index = 0; index < 2; index++ ) { %>
+                                    <% if (locals.reviews[index]) { %>
+                                        <div class="comment"><%= reviews[index].comment ? reviews[index].comment : '' %></div>
+                                        <div class="rating"><%= reviews[index].rating ? reviews[index].rating : '' %></div>    
+                                    <% } %>
+                                <% } %>
+                            <% } %>
+                        </div>
+                        <a href="">Ver todos</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="box-card">
                 <h2 class="section-title">MÁS DEL MISMO AUTOR</h2>
                 <div class="card">
                     <div class="card-product">

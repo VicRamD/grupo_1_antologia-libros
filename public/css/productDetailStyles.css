@@ -179,6 +179,50 @@ h2.section-title {
     margin: 5px;
     background-color: whitesmoke;
 }
+
+/* review */
+h3 {
+    padding-left: 10%;
+}
+
+.card-review{
+    width: 90%;
+    border: solid 1px #2F2F2F;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 5px;
+    background-color: whitesmoke;
+    padding: 1% 5%;
+}
+
+.card-review p{
+    text-align: left;
+}
+
+.card-review .comment-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: solid 1px black;
+    border-radius: 5px;
+}
+
+.comment-block .comment{
+    text-align: left;
+    border: solid 1px black;
+    width: 78%;
+}
+
+.comment-block .rating{
+    text-align: center;
+    border: solid 1px black;
+    width: 18%;
+}
+
+/* ------------- */
+
 .card img, .book-card img{
     width: 70%;
     height: 190px;

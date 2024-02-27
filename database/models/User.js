@@ -63,6 +63,7 @@ module.exports = (sequelize, dataTypes) => {
             through: 'reviews', //Tabla intermedia
             foreignKey: 'user_id', //Clave foránea que apunta a customers
             otherKey: 'book_id', //Clave foránea que apunta a books
+            timestamps: false
         });
     
         User.hasOne(models.Shopping_Cart, { //Un cliente puede tener muchos carritos de compras

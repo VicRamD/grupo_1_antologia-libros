@@ -59,11 +59,18 @@ const productsControllers = {
         let seeBook = await finders.searchProductById(bookId);
         console.log(seeBook);
 
+        let reviews = await db.Review.findAll({
+            where: {
+                book_id: bookId
+            }
+        })
+        console.log(reviews);
+
         if(req.session.currentUserMail){
             let user = await finders.searchUserByEmail(req.session.currentUserMail);
-            return res.render('products/productDetail', { book: seeBook, user: user });
+            return res.render('products/productDetail', { book: seeBook, reviews, user: user });
         }
-        return res.render('products/productDetail', {book: seeBook});
+        return res.render('products/productDetail', {book: seeBook, reviews});
     },
     
     cart: async function (req,res) {
