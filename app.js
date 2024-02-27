@@ -59,7 +59,8 @@ server.listen(3030, () => {
 
 server.use('/', rememberUser, mainRoutes)
 server.use('/products', rememberUser, productRoutes)
-server.use('/api', rememberUser, privilegedUserRoute, apiRoutes);
+//server.use('/api', rememberUser, privilegedUserRoute, apiRoutes);
+server.use('/api', rememberUser, apiRoutes);
 
 server.get('*', (req,res) => {
     res.render('error-404');
