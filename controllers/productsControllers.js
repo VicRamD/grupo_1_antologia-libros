@@ -108,18 +108,11 @@ const productsControllers = {
         //maxId++;
 
         /*Generos*/
-        /*chosenGenres = [];
-        if(Array.isArray(genre)){
-            genre.forEach(bookGenreId => {
-                chosenGenres.push(finders.searchGenreById(Number(bookGenreId)));
-            });
-        }else {
-            chosenGenres.push(finders.searchItemById(Number(genre), categories))
-        }
-        
-        let genren = chosenGenres; */
-
-        //console.log(genren)
+        console.log(author);
+        console.log("====================================");
+        console.log("====================================");
+        console.log("====================================");
+        console.log(genre)
 
         //Si se envió archivo de imagen guarda el nombre
         const wasSend = wasFileSend(req.file);

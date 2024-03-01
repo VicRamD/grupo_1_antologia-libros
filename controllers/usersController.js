@@ -19,9 +19,11 @@ let controller = {
     user_home: async function (req, res) {
         //let usuario = req.body;
 
+        console.log('Aquí');
         const { email, password, remember } = req.body;
 
         let login_user = users.find(user => user.email === email);
+        console.log(login_user);
 
         const account = await db.User.findOne({
             where: {
@@ -29,8 +31,9 @@ let controller = {
             }
         })
 
+
         //console.log(login_user);
-        console.log(login_user);
+        console.log(account);
         if (account){ //usuario encontrado
             
             let resultado="Acceso Denegado";

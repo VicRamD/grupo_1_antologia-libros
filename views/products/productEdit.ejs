@@ -3,6 +3,7 @@
 <head>
     <%- include('../partials/headParcial.ejs') %>
     <title>Editar book: <%= book.id %></title>
+    <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.css">
     <link rel="stylesheet" href="/css/cartStyles.css">
 </head>
 <body>
@@ -61,7 +62,7 @@
 
                     <div class="form-group">
                         <label for="author">Autor</label>
-                        <select name="author" id="author" multiple size="6" required>
+                        <select name="author" id="author" multiple="multiple" size="6" required>
                             <% if (locals && locals.old && old.author) { %>
                                 <% authors.forEach(author => { %>
                                     <option value="<%= author.id %>"
@@ -82,7 +83,7 @@
                     
                     <div class="form-group">
                         <label for="genre" class="for-select">Género</label>
-                        <select id="genre" name="genre" multiple size="6">
+                        <select id="genre" name="genre" multiple="multiple" size="6">
                             <% if (locals && locals.old && old.genre) { %>
                                 <% for( let i = 0; i < categories.length; i++ ) { %>
                                     <option value="<%= categories[i].id %>"
@@ -149,7 +150,9 @@
                         <div class="contenedor-img">
                             <p class="titulo-seccion-img">Imagen actual</p>
                             <img src="/images/books/<%= book.image ? book.image : 'cover-not-available.png'  %>" alt="Imagen actual">
+                            <br>
                             <label for="image">Nueva Imagen</label>
+                            <br>
                             <% if (locals && locals.old && old.image) { %>
                                 <input id="image" name="image" type="file" accept="image/*" value="<%= old.image %>">        
                                 
@@ -174,5 +177,12 @@
     </main>
 
     <%- include('../partials/footer.ejs') %>
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js"></script>
+    <script>
+        $(function () {
+          $('select').multipleSelect()
+        })
+      </script>
 </body>
 </html>

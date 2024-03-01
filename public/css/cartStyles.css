@@ -249,9 +249,41 @@ div.form-group input[type='file'] {
     width: 65%;
 }
 
-div.form-group select {
+/* Multi select */
+section.formulario-CU form div.form-group select {
     width: 65%;
 }
+
+form div.form-group div.ms-parent button[type="button"] {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.form-group div.ms-parent div.ms-drop ul li label{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+
+div.form-group div.ms-parent div.ms-drop ul li label input[type="checkbox"]{
+    position: relative;
+    width: 25%;
+}
+
+div.form-group div.ms-parent div.ms-drop ul li label span{
+    position: relative;
+    width: 75%;
+    text-align: left;
+}
+
+div.form-group div.ms-parent div.ms-drop {
+    position: absolute;
+    max-width: 200px;
+}
+
+/* ---------------- */
 
 div.form-group label, div.form-group-ancho label {
     width: 50%;
@@ -353,7 +385,7 @@ div.form-group img {
     /*  ------------------  */
 
     /* formulario creación */
-    div.form-group select {
+    section.formulario-CU form div.form-group select {
         width: 40%;
     }
     
@@ -435,6 +467,10 @@ div.form-group img {
     div.form-group label.for-date{
         width: 40%;
     }
+
+    /*div.form-group div.ms-parent div.ms-drop {
+        max-width: none;
+    }  */
 
     /*form edición */
     div.form-group img {
