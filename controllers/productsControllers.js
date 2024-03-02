@@ -73,14 +73,6 @@ const productsControllers = {
         return res.render('products/productDetail', {book: seeBook, reviews});
     },
     
-    cart: async function (req,res) {
-        if(req.session.currentUserMail){
-            let user = await finders.searchUserByEmail(req.session.currentUserMail);
-            return res.render('products/productCart', { user: user });
-        }
-        return res.render('products/productCart');
-    },
-    
 
     create: async (req, res) => {
         const categories = await db.Genre.findAll({
@@ -107,12 +99,6 @@ const productsControllers = {
         //let maxId = books.reduce((max, objeto) => (objeto.id > max ? objeto.id : max), 0);
         //maxId++;
 
-        /*Generos*/
-        console.log(author);
-        console.log("====================================");
-        console.log("====================================");
-        console.log("====================================");
-        console.log(genre)
 
         //Si se envió archivo de imagen guarda el nombre
         const wasSend = wasFileSend(req.file);
@@ -268,6 +254,11 @@ const productsControllers = {
 
         const {title, abstract, author, editorial, genre, language, date, isbn, price, stock} = req.body;
 
+        console.log(author);
+        console.log("====================================");
+        console.log("====================================");
+        console.log("====================================");
+        console.log(genre)
         console.log("======================0");
         console.log(isbn);
 

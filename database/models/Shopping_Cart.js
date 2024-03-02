@@ -30,6 +30,7 @@ module.exports = (sequelize, dataTypes) => {
             through: 'cart_items', //Tabla intermedia 
             foreignKey: 'cart_id', //Clave foránea que apunta a shopping_carts
             otherKey: 'book_id', //Clave foránea que apunta a books
+            timestamps: false
         });
 
         Shopping_Cart.belongsTo(models.User, { //Un carrito de compras pertenece a un solo cliente

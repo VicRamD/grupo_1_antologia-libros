@@ -22,56 +22,35 @@
                 <div class="seccion">Cantidad</div>
                 <div class="seccion">Subtotal</div>
             </div>
-            <div class="contenedor">
-                <div class="fila-2">
-                    <div class="btn-quitar">
-                        <div class="quitar">X</div>
-                    </div>
-                    <div class="img-cart">
-                        <img src="/images/ejemplo-libro.jpg" alt="libro en carro">
-                    </div>
-                    <div class="datos">
-                        <div class="titulo-libro">Titulo</div>
-                        <div class="cant-precio">
-                            <div class="precio">$1111.00</div>
-                            <div class="botones-cantidad">
-                                <input type="button" value="-" class="btn-cant">
-                                <label id="label-cant" for="cantidad">cantidad</label> 
-                                <input type="number" id="cantidad" class="inp-cantidad" value="1" min="0">
-                                <input type="button" value="+" class="btn-cant">
+            <% if (locals && locals.shoppingCart && shoppingCart.books && shoppingCart.books[0]) { %>
+                <% shoppingCart.books.forEach(cartItem => { %>
+                    <div class="contenedor">
+                        <div class="fila-2">
+                            <div class="btn-quitar">
+                                <div class="quitar">X</div>
                             </div>
-                            
-                            <div class="subtotal">$1111.00</div>                        
-                        </div>
-                    </div>
-                </div>   
-                
-            </div>
-            <div class="contenedor">
-                <div class="fila-2">
-                    <div class="btn-quitar">
-                        <div class="quitar">X</div>
-                    </div>
-                    <div class="img-cart">
-                        <img src="/images/books/el_viento_conoce_mi_nombre.webp" alt="libro en carro">
-                    </div>
-                    <div class="datos">
-                        <div class="titulo-libro">Titulo</div>
-                        <div class="cant-precio">
-                            <div class="precio">$1111.00</div>
-                            <div class="botones-cantidad">
-                                <input type="button" value="-" class="btn-cant">
-                                <label id="label-cant" for="cantidad">cantidad</label> 
-                                <input type="number" id="cantidad" class="inp-cantidad" value="1" min="0">
-                                <input type="button" value="+" class="btn-cant">
+                            <div class="img-cart">
+                                <img src="/images/books/<%= cartItem.image %>" alt="Portada de <%= cartItem.title %>">
                             </div>
-                            
-                            <div class="subtotal">$1111.00</div>                        
-                        </div>
+                            <div class="datos">
+                                <div class="titulo-libro"><%= cartItem.title %></div>
+                                <div class="cant-precio">
+                                    <div class="precio">$<%= cartItem.price %></div>
+                                    <div class="botones-cantidad">
+                                        <input type="button" value="-" class="btn-cant">
+                                        <label id="label-cant" for="<%= cartItem.id %>">cantidad</label> 
+                                        <input type="number" id="<%= cartItem.id %>" class="inp-cantidad" value="<%= cartItem.quantity ? cartItem.quantity : 1 %>" min="0">
+                                        <input type="button" value="+" class="btn-cant">
+                                    </div>
+                                    
+                                    <div class="subtotal">$1111.00</div>                        
+                                </div>
+                            </div>
+                        </div>   
+                        
                     </div>
-                </div>   
-                
-            </div>
+                <% }) %>
+            <% } %>
             <div class="total-pagar">
                 <div class="total">TOTAL:</div>
                 <div class="total-precio">$2222.00</div>
@@ -84,5 +63,6 @@
         </form>
     </main>
     <%- include('../partials/footer.ejs') %>
+    <script src="/js/shoppingCartFunctions.js"></script>
 </body>
 </html>

@@ -61,7 +61,7 @@ INSERT INTO `books` (id, title, abstract, `editorial_id`, image, isbn, date, pri
 15, "1705419365236_book_img_.webp", "9789502416014", "2017-08-10", 13250.00, 30, "Castellano"),
 (21, 'Clarita se volvió invisible', "Un día cualquiera, Clarita se vuelve invisible. Nadie la ve: ni su mamá, ni el gato, ni siquiera su hermanito. ¿Qué travesuras hará Clarita ahora que nadie la puede ver?",
 16, "1705421427421_book_img_.webp", "9789504658498", "2019-06-10", 5400.00, 30, "Castellano"),
-(22, 'Daughter of the Deep', "Mi nombre es D'Artagnan y mi sueño siempre fue convertirme en un valiente mosquetero. Y adivina qué, ¡lo logré! Pero no fue nada fácil… ¿Te animas a ser parte de las grandes aventuras que emprendimos con mis amigos?\r\nUn cuento pensado para que los chicos conozcan la inolvidable historia detrás de la frase \"¡Uno para todos y todos para uno!\", acompañado por coloridas ilustraciones.",
+(22, 'Daughter of the Deep', "Ana Dakkar is a freshman at Harding-Pencroft Academy, a five-year high school that graduates the best marine scientists, naval warriors, navigators, and underwater explorers in the world. Ana's year culminates with the class's weekend trial at sea, the details of which have been kept secret. She only hopes she has what it'll take to succeed. All her worries are blown out of the water when, on the bus ride to the ship, Ana and her schoolmates witness a terrible tragedy that will change the trajectory of their lives.",
 17, "1705449398638_book_img_.webp", "9781368077934", "2021-10-05", 14025.95, 30, "Inglés");
 
 UNLOCK TABLES;
@@ -146,6 +146,7 @@ UNLOCK TABLES;
 LOCK TABLES `addresses` WRITE;
 INSERT INTO `addresses` (`id`, `user_id`, `street`, `city`, `state`, `postal_code`, `country`) VALUES 
 (1, 1, NULL, NULL, NULL, 4700, NULL), 
+(NULL, 2, NULL, NULL, NULL, NULL, 'Argentina'),
 (NULL, '4', NULL, 'Capital', 'Catamarca', 4700, 'Argentina');
 UNLOCK TABLES;
 
@@ -168,7 +169,8 @@ UNLOCK TABLES;
 -- data de carrito de compras
 
 LOCK TABLES `shopping_carts` WRITE;
-INSERT INTO `shopping_carts` (`id`, `user_id`, `createdAt`) VALUES (NULL, '4', current_timestamp()), (NULL, '2', current_timestamp());
+INSERT INTO `shopping_carts` (`id`, `user_id`, `createdAt`) VALUES (NULL, '4', current_timestamp()), (NULL, '2', current_timestamp()),
+(NULL, '1', current_timestamp()), (NULL, '3', current_timestamp());
 UNLOCK TABLES;
 
 -- data de reviews
@@ -185,3 +187,4 @@ LOCK TABLES `cart_items` WRITE;
 INSERT INTO `cart_items` (`id`, `cart_id`, `book_id`, `quantity`) VALUES 
 (NULL, '1', '21', '1'), 
 (NULL, '2', '2', '1');
+(NULL, '2', '7', '1');

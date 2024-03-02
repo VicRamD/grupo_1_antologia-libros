@@ -105,7 +105,11 @@ let controller = {
             db.Address.create({
                 user_id: user.id
             }).then(address => {
-                res.redirect('/');
+                db.Shopping_Cart.create({
+                    user_id: user.id
+                }).then(shopCart => {
+                    res.redirect('/');
+                })
             })
         })
     },
