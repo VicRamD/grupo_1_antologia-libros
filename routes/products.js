@@ -4,7 +4,7 @@ const path = require('path');
 
 const productsControllers = require('../controllers/productsControllers.js');
 const cartControllers = require('../controllers/cartControllers.js');
-const {validateBook, bookValidator} = require('../middlewares/bookValidation.js');
+const {validateBook, bookValidator, validateBookUpdate, bookUpdateValidator} = require('../middlewares/bookValidation.js');
 const {userRoute, privilegedUserRoute} = require('../middlewares/routeRedirector.js');
 
 const router = express.Router();
@@ -30,7 +30,7 @@ router.get('/add', privilegedUserRoute, productsControllers.addAgain);
 router.post('/add', uploadFile.single('image'), validateBook, bookValidator, productsControllers.add);
 router.get('/:id', productsControllers.detail);
 router.get('/:id/edit', privilegedUserRoute, productsControllers.edit);
-router.put('/:id', uploadFile.single('image'), productsControllers.update);
+router.put('/:id', uploadFile.single('image'), validateBookUpdate, bookUpdateValidator, productsControllers.update);
 router.delete('/:id', privilegedUserRoute, productsControllers.delete);
 //router.search('/search', productsControllers.search);
 router.get('/', productsControllers.list);

@@ -3,6 +3,7 @@
 <head>
     <%- include('../partials/headParcial.ejs') %>
     <title>Registrar libro</title>
+    <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.css"> 
     <link rel="stylesheet" href="/css/cartStyles.css">
     <link rel="stylesheet" href="/css/errorStyles.css">
 </head>
@@ -19,6 +20,7 @@
                         <input id="title" name="title" type="text" 
                         value="<%= locals.old && old.title ? old.title : '' %>" required> 
                         <% if (locals && locals.errors && locals.errors.title) { %>
+                            <br>
                             <div class="errorMessage"><small><%= errors.title.msg %></small></div>     
                         <% } %>
                         <label id="labelTitle" class="erroresJavascript"></label>
@@ -27,21 +29,24 @@
                     <div class="form-group-ancho">
                         <label for="abstract">Resumen</label>
                         <textarea id="abstract" 
-                        name="abstract" rows="6"><%= locals.old && old.abstract ? old.abstract : '' %></textarea>
+                        name="abstract" rows="6" required><%= locals.old && old.abstract ? old.abstract : '' %></textarea>
+                        <% if (locals && locals.errors && locals.errors.abstract) { %>
+                            <br>
+                            <div class="errorMessage"><small><%= errors.abstract.msg %></small></div>     
+                        <% } %>
                         <label id="labelAbstract" class="erroresJavascript"></label>
                     </div>
                     
                     <div class="form-group">
                         <label for="editorial">Editorial</label>
                         <select name="editorial" id="editorial">
-                            <option value="" disabled selected></option>
+                            <!-- <option value="" disabled selected></option> -->
                             <% editorials.forEach(editorial => { %>
                                 <option value="<%= editorial.id %>" 
                                     <%= locals.old && old.editorial && old.editorial == editorial.id ? 'selected': '' %>><%= editorial.name %></option>   
                             <% }) %>
                         </select>
-                        <!-- <input id="editorial" name="editorial" type="text"
-                        value="<= locals.old && old.editorial ? old.editorial : '' %>"> -->
+
                     </div>
 
                     <div class="form-group">
@@ -52,10 +57,9 @@
                         <% } %>
                         <label id="labelImage" class="erroresJavascript"></label>
                     </div>
+                    
                     <div class="form-group">
                         <label for="author">Autor</label>
-                        <!-- <input id="author" name="author" type="text"
-                        value="<= locals.old && old.author ? old.author : '' %>" required> -->
                         <select name="author" id="author" multiple required>
                             <% authors.forEach(author => { %>
                                 <option value="<%= author.id %>"
@@ -66,6 +70,7 @@
                             <div class="errorMessage"><small><%= errors.author.msg %></small></div>     
                         <% } %>
                     </div>
+
                     <div class="form-group">
                         <label for="genre" class="for-select">Género</label>
                         <select id="genre" name="genre" multiple>
@@ -126,5 +131,12 @@
 
     <%- include('../partials/footer.ejs') %>
     <script src="/js/validations/productAddValidation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js"></script>
+    <script>
+        $(function () {
+          $('select').multipleSelect()
+        })
+      </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <title>Editar book: <%= book.id %></title>
     <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.css">
     <link rel="stylesheet" href="/css/cartStyles.css">
+    <link rel="stylesheet" href="/css/errorStyles.css">
 </head>
 <body>
     <%- include('../partials/header.ejs') %>
@@ -31,6 +32,9 @@
                         <label for="abstract">Resumen</label>
                         <% if (locals && locals.old && old.abstract) { %>
                             <textarea id="abstract" name="abstract" rows="6"><%= old.abstract %></textarea>
+                            <% if (locals && locals.errors && locals.errors.abstract) { %>
+                                <div class="errorMessage"><small><%= errors.abstract.msg %></small></div>     
+                            <% } %>
                         <% } else { %>
                             <textarea id="abstract" name="abstract" rows="6"><%= book.abstract %></textarea>
                         <% } %>
@@ -39,13 +43,14 @@
                     <div class="form-group">
                         <label for="editorial">Editorial</label>
                         <select name="editorial" id="editorial">
-                            <option value="" disabled selected>Selecciona uno</option>
+                            <!-- <option value="" disabled selected>Selecciona uno</option> -->
                             <% editorials.forEach(editorial => { %>
                                 <option value="<%= editorial.id %>" 
                                     <%= book.editorial && editorial.id == book.editorial.id ? 'selected': '' %>><%= editorial.name %></option>   
                             <% }) %>
                         </select>
                     </div>
+    
 
                     <div class="form-group">
                         <label for="language">Idioma</label>
