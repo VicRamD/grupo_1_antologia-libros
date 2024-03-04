@@ -96,4 +96,23 @@ En referencia al inciso 1, mantener poca o nula comunicación por varios días.
 
 4. **Hacer menos / Dejar de hacer**
 - No comunicar a los compañeros del equipo el avance o cómo vamos con las tareas
+
+### Starfish retrospective: Sprint 6 ###
+
+1. **Comenzar a hacer**
+- Reunirnos al menos una vez por semana para trabajar en el proyecto y luego dividir tareas
+- Actualizar y revisar tareas, propias y de compañeros, en el tablero (Trello)
+
+2. **Hacer más**
+- Ponerse al día con los contenidos y practicar para reforzarlos.
+- Analizar la situación de cada integrante.
+
+3. **Continuar haciendo**
+- Participación de los integrantes
+- Reunirnos para ponernos de acuerdo sobre ciertos temas
+- Cumplir con los objetivos obligatorios
+- Perfeccionar en otros aspectos el sitio
+- Terminar con tiempo las tareas propuestas
+
+4. **Hacer menos / Dejar de hacer**
 - 
