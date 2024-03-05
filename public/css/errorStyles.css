@@ -21,6 +21,13 @@ form.contenedor-padre input.errorInput {
     outline: none;
 }
 
+/*Para productEdit - validación front*/
+.error-message {
+    color: rgb(196, 15, 15);
+    font-size: 13px;
+    font-weight: bold;
+}
+
 @media (min-width: 769px) {
     section.apellido-nombre div.lastnameError,  section.apellido-nombre div.firstnameError{
         order: 3;

@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <%- include('../partials/headParcial.ejs') %>
-    <title>Editar book: <%= book.id %></title>
+    <!-- <title>Editar book: <%= book.id %></title> -->
+    <title>Editar Libro "<%= book.title %>"</title>
     <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.css">
     <link rel="stylesheet" href="/css/cartStyles.css">
     <link rel="stylesheet" href="/css/errorStyles.css">
@@ -14,7 +15,7 @@
         <h1>Editando libro:</h1>
         <h2><%= book.id %>-<%= book.title %></h2>
         <section class="formulario-CU">
-            <form method="POST" action="/products/<%= book.id %>?_method=PUT" enctype="multipart/form-data">
+            <form method="POST" action="/products/<%= book.id %>?_method=PUT" enctype="multipart/form-data" class = "productEditForm">
                 <div class="form-body">
                     <div class="form-group-ancho">
                         <label for="title">Título</label>
@@ -26,6 +27,8 @@
                         <% } else { %>
                             <input id="title" name="title" type="text" value="<%= book.title %>" required>
                         <% } %>
+                        <span class="error-message" id="titleError"></span>
+
                     </div>
 
                     <div class="form-group-ancho">
@@ -38,6 +41,8 @@
                         <% } else { %>
                             <textarea id="abstract" name="abstract" rows="6"><%= book.abstract %></textarea>
                         <% } %>
+                        <span class="error-message" id="abstractError"></span>
+
                     </div>
 
                     <div class="form-group">
@@ -134,6 +139,8 @@
                         <% if (locals && locals.errors && locals.errors.price) { %>
                             <div class="errorMessage"><small><%= errors.price.msg %></small></div>     
                         <% } %>
+                        <span class="error-message" id="priceError"></span>
+
                     </div>
 
                     <div class="form-group">
@@ -166,7 +173,9 @@
                             <% } %>
                             <% if (locals && locals.errors && locals.errors.image) { %>
                                 <div class="errorMessage"><small><%= errors.image.msg %></small></div>     
-                            <% } %>
+                            <% } %><br>
+                            <span class="error-message" id="imageError"></span>
+
                         </div>
                         
                     </div>
@@ -182,6 +191,7 @@
     </main>
 
     <%- include('../partials/footer.ejs') %>
+    <script src="/js/validations/productEditValidation.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/multiple-select@1.7.0/dist/multiple-select.min.js"></script>
     <script>
