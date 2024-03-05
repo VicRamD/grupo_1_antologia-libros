@@ -109,7 +109,6 @@ let validateUpdatePFIm = [
 const updatePFimValidator = async (req, res, next) => {
     let errors = validationResult(req);
     //console.log(errors.array())
-
     if(errors.isEmpty()){
         next();
     } else {
@@ -117,6 +116,7 @@ const updatePFimValidator = async (req, res, next) => {
         return res.render('users/user_home', {
             user,
             errorPFIm: errors.array(),
+            errorMessage: "Los datos ingresados contenían errores - no se guardaron los cambios"
         })
     }
 };
@@ -141,6 +141,7 @@ const updatePDValidator = async (req, res, next) => {
         return res.render('users/user_home', {
             user,
             errorsPD: errors.array(),
+            errorMessage: "Los datos ingresados contenían errores - no se guardaron los cambios"
         })
     }
 };
@@ -187,6 +188,7 @@ const updatePWValidator = async (req, res, next) => {
         return res.render('users/user_home', {
             user,
             errorsPW: errors.array(),
+            errorMessage: "Los datos ingresados contenían errores - no se guardaron los cambios"
         })
     }
 };

@@ -22,6 +22,10 @@
     
     <main class="registro">
         <h1>Bienvenido</h1>
+
+        <% if (locals && locals.errorMessage) { %>
+            <div class="general-error"><i class="fa-solid fa-circle-exclamation" style="color: #FFD43B;"></i> <%= locals.errorMessage %></div>
+        <% } %>
     
         <main class="principalBox">
             <div class="bigContainer">
