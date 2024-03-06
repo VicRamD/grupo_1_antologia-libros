@@ -4,7 +4,7 @@ const router = express.Router();
 
 const multer = require('multer');
 const path = require('path');
-const {validateRegister, registerValidator, validateUpdatePD, updatePDValidator, validateUpdatePW, updatePWValidator, validateUpdatePFIm, updatePFimValidator} = require('../middlewares/registerValidation.js');
+const {validateRegister, registerValidator, validateUpdatePD, updatePDValidator, validateUpdatePW, updatePWValidator, validateUpdatePFIm, updatePFimValidator, validateLogin, loginValidate} = require('../middlewares/registerValidation.js');
 const {userRoute} = require('../middlewares/routeRedirector.js');
 const comparingKeys = require('../middlewares/comparingUserKeys.js');
 
@@ -20,12 +20,12 @@ const storage = multer.diskStorage({
   
 const uploadFile = multer({storage});
 
-router.get('/login', usersController.login);
-router.post('/user_home', usersController.user_home);
+router.get('/login',  usersController.login);
+router.post('/user_home', validateLogin, loginValidate, usersController.user_home);
 router.get('/profile', userRoute, usersController.profile);
 router.put('/updatePD', userRoute, comparingKeys, validateUpdatePD, updatePDValidator, usersController.updateUserPersonalData);
 router.put('/updatePW', userRoute, comparingKeys, validateUpdatePW, updatePWValidator, usersController.updateUserPassword);
-router.put('/updatePFIm', uploadFile.single('avatar'),userRoute, comparingKeys, validateUpdatePFIm, updatePFimValidator, usersController.updateUserPfImage);
+router.put('/updatePFIm', uploadFile.single('avatar'), userRoute, comparingKeys, validateUpdatePFIm, updatePFimValidator, usersController.updateUserPfImage);
 router.put('/updateAddress', userRoute, comparingKeys, usersController.updateAddress);
 
 router.get('/register', usersController.register);

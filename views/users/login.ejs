@@ -19,7 +19,6 @@
             <div class="img-logo">
                 <a href = '/'><img src="/images/logo/logo_icon.png" alt="antología-icon"></a>
             </div>
-
             <div class="img-userLogin">
                 <img src="/images/usuario-de-perfil.png" alt="userLogin">
             </div>
@@ -40,7 +39,16 @@
                 <label for="remember">Recordar mi usuario
                 <input type="checkbox" name="remember" id="remember"></label>
             </div>
-
+            <div style="color:brown; margin: 10px">
+                <% if (locals && locals.errorsLg) { %>
+                    <ul>
+                        <% locals.errorsLg.forEach(error => { %>
+                            <li><%= error.msg %></li>
+                        <% }) %>
+                    </ul>
+                    
+                <% } %> 
+            </div>
             <div class="buttons-login">
                 <label><button class="btn-login" type="submit" name="login">INGRESAR</button></label>
                 <!--<label for="noaccount">No tengo una cuenta</label>-->

@@ -124,6 +124,50 @@ const updatePFimValidator = async (req, res, next) => {
 //===========================================================================
 //===========================================================================
 
+let validateLogin = [
+
+    check('email').notEmpty().withMessage("El email es obligatorio").bail()
+    .isEmail().bail()//.normalizeEmail()
+    .withMessage("Debe ingresar un email valido").bail(),
+    check('password').notEmpty().withMessage("La contraseña no debe quedar vacía").bail()
+    .isLength({min:8}).withMessage("La contraseña debe contener por lo menos 8 carácteres")
+    .bail()
+    .custom(value => {
+        let errores = verifyPasswordExpresion(value);
+        if(errores > 0){
+            
+            return false;
+        }
+        return true;
+        
+    })
+    .withMessage("La contraseña debe contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial")
+    .bail(),
+];
+
+const loginValidate = async (req,res,next) => {
+    let errors = validationResult(req);
+    console.log("----------------------------");
+    console.log(errors.array());
+    console.log("--------------------------------------");
+    if (errors.isEmpty()){
+        next();
+    } else {
+        return res.render('users/login', {
+
+                errorsLg: errors.array(),
+
+
+            //errorsLg: errors.array(),
+            errorMessage: "Los datos contenían errores, intente de nuevo"
+        })
+       
+    }
+
+   } 
+//===========================================================================
+//===========================================================================
+
 let validateUpdatePD = [
     check('first_name').isLength({min: 2}).withMessage("El nombre debe tener 2 caracteres como minimo"),
     check('last_name').isLength({min: 2}).withMessage("El apellido debe tener 2 caracteres como minimo"),
@@ -222,5 +266,6 @@ function verifyPasswordExpresion(value){
 module.exports = {validateRegister, registerValidator,
      validateUpdatePD, updatePDValidator, 
      validateUpdatePW, updatePWValidator,
-     validateUpdatePFIm, updatePFimValidator
+     validateUpdatePFIm, updatePFimValidator,
+     validateLogin, loginValidate
     };
