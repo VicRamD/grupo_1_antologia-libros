@@ -33,7 +33,8 @@ const controller = {
         })
     },
     update: (req, res) => {
-        const {id, name} = req.body;
+        const {id} = req.params;
+        const {name} = req.body;
         db.Author.update(
         {
             name

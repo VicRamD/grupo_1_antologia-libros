@@ -65,11 +65,30 @@ window.addEventListener('load', ()=>{
     email.addEventListener('change', () => {
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         if(emailRegex.test(email.value)){
-            mailerrors.innerHTML = "";
-            emailValido = true;
-            if(email.classList.contains('errorInput')){
-                email.classList.remove('errorInput');
-            }
+            fetch('/api/users')
+            .then(response => response.json())
+            .then(data => {
+                //console.log(data.users);
+                let users = data.users;
+                let userEmail = users.find((user) => user.email === email.value);
+                //console.log(userEmail);
+                if(userEmail){
+                    mailerrors.innerHTML = "<small>El email ingresado ya se encuentra registrado</small>";
+                    emailValido = false;
+                    if(!email.classList.contains('errorInput')){
+                        email.classList.add('errorInput');
+                    }
+                } else {
+                    mailerrors.innerHTML = "";
+                    emailValido = true;
+                    if(email.classList.contains('errorInput')){
+                        email.classList.remove('errorInput');
+                    }
+                }
+
+                
+            }).catch(err => console.log(err));
+            
         } else {
             mailerrors.innerHTML = "<small>Debe ingresar un email valido, por ejemplo juan.perez1@example.com</small>";
             emailValido = false;
