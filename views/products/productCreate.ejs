@@ -23,7 +23,7 @@
                             <br>
                             <div class="errorMessage"><small><%= errors.title.msg %></small></div>     
                         <% } %>
-                        <span id="labelTitle" class="erroresJavascript"></span>
+                        <span id="errorTitle" class="erroresJavascript"></span>
                     </div> 
 
                     <div class="form-group-ancho">
@@ -34,7 +34,7 @@
                             <br>
                             <div class="errorMessage"><small><%= errors.abstract.msg %></small></div>     
                         <% } %>
-                        <span id="labelAbstract" class="erroresJavascript"></span>
+                        <span id="errorAbstract" class="erroresJavascript"></span>
                     </div>
                     
                     <div class="form-group">
@@ -51,16 +51,16 @@
 
                     <div class="form-group">
                         <label for="image">Imagen</label>
-                        <input id="image" name="image" type="file" accept="image/*">
+                        <input id="image" name="image" type="file" accept="image/*" required>
                         <% if (locals && locals.errors && locals.errors.image) { %>
                             <div class="errorMessage"><%= errors.image.msg %></div>     
-                        <% } %><br>
-                        <span id="labelImage" class="erroresJavascript"></span>
+                        <% } %>
+                        <span id="errorImage" class="erroresJavascript"></span>
                     </div>
                     
                     <div class="form-group">
                         <label for="author">Autor</label>
-                        <select name="author" id="author" multiple>
+                        <select name="author" id="author" multiple required>
                             <% authors.forEach(author => { %>
                                 <option value="<%= author.id %>"
                                  <%= locals.old && locals.authorIds && old.author && authorIds.includes(Number(author.id)) ? 'selected': '' %>><%= author.name %></option>
@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <label for="language">Idioma</label>
                         <input id="language" name="language" type="text"
-                        value="<%= locals.old && old.language ? old.language: '' %>">
+                        value="<%= locals.old && old.language ? old.language: '' %>" required>
                         <% if (locals && locals.errors && locals.errors.language) { %>
                             <div class="errorMessage"><small><%= errors.language.msg %></small></div>     
                         <% } %>
@@ -97,7 +97,7 @@
                     <div class="form-group">
                         <label for="isbn">ISBN</label>
                         <input id="isbn" name="isbn" type="text"
-                        value="<%= locals.old && old.isbn ? old.isbn : '' %>"> 
+                        value="<%= locals.old && old.isbn ? old.isbn : '' %>" required> 
                         <% if (locals && locals.errors && locals.errors.isbn) { %>
                             <div class="errorMessage"><small><%= errors.isbn.msg %></small></div>     
                         <% } %>
@@ -113,7 +113,7 @@
                     <div class="form-group">
                         <label for="stock">Stock</label>
                         <input id="stock" name="stock" type="number"
-                        value="<%= locals.old && old.stock ? old.stock : '' %>">
+                        value="<%= locals.old && old.stock ? old.stock : '' %>" required>
                         <% if (locals && locals.errors && locals.errors.stock) { %>
                             <div class="errorMessage"><small><%= errors.stock.msg %></small></div>     
                         <% } %>

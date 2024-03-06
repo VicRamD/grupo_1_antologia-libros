@@ -1,39 +1,39 @@
 window.addEventListener('load', function() {
     const form = document.querySelector('.productAddForm');
     const title = document.querySelector('#title');
-    const labelTitle = document.querySelector('#labelTitle');
+    const errorTitle = document.querySelector('#errorTitle');
     const abstract = document.querySelector('#abstract');
-    const labelAbstract = document.querySelector('#labelAbstract');
+    const errorAbstract = document.querySelector('#errorAbstract');
     const image = document.querySelector('#image');
-    const labelImage = document.querySelector('#labelImage');
+    const errorImage = document.querySelector('#errorImage');
     
 
 
     title.addEventListener("blur", () => {
         if (title.value.length < 5){
-            labelTitle.textContent = "El título debe tener al menos 5 caracteres";
+            errorTitle.textContent = "El título debe tener al menos 5 caracteres";
         } else {
-            labelTitle.textContent = '';
+            errorTitle.textContent = '';
         }
     })
 
-    title.addEventListener("input", ()=>{
+    title.addEventListener("input", () => {
         if (title.value.length>4){
-            labelTitle.textContent = "";
+            errorTitle.textContent = "";
         }
     })
 
     abstract.addEventListener("blur", () => {
         if (abstract.value.length < 20){
-            labelAbstract.textContent = "El resumen debe tener al menos 20 caracteres";
+            errorAbstract.textContent = "El resumen debe tener al menos 20 caracteres";
         } else {
-            labelAbstract.textContent = '';
+            errorAbstract.textContent = '';
         }
     })
 
     abstract.addEventListener("input", () => {
         if (abstract.value.length>19){
-            labelAbstract.textContent = "";
+            errorAbstract.textContent = "";
         }
     })
 
@@ -49,9 +49,9 @@ window.addEventListener('load', function() {
 
           if (file.type === 'image/jpg' || file.type === 'image/jpeg' || file.type === 'image/png' 
             || file.type === 'image/gif'){
-                labelImage.textContent = '';
+                errorImage.textContent = '';
             } else {
-                labelImage.textContent = 'Sólo se permiten imágenes jpg, jpeg, png o gif ';
+                errorImage.textContent = 'Sólo se permiten imágenes jpg, jpeg, png o gif ';
             }
         }
       }
@@ -64,23 +64,23 @@ window.addEventListener('load', function() {
 
       form.addEventListener('submit', function(event) {
         if (title.value.trim().length < 5) {
-            //labelTitle.textContent = 'El título debe tener al menos 5 caracteres';
+            //errorTitle.textContent = 'El título debe tener al menos 5 caracteres';
             event.preventDefault();
         }
 
         if (abstract.value.trim().length < 20) {
-            //labelAbstract.textContent = 'El resumen debe tener al menos 20 caracteres';
+            //errorAbstract.textContent = 'El resumen debe tener al menos 20 caracteres';
             event.preventDefault();
         }
 
         const file = image.files[0];
         if (!file) {
-            labelImage.textContent = 'Debe seleccionar una imagen';
+            errorImage.textContent = 'Debe seleccionar una imagen';
             event.preventDefault();
         } else {
             const allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
             if (!allowedTypes.includes(file.type)) {
-                labelImage.textContent = 'Sólo se permiten imágenes jpg, jpeg, png o gif';
+                errorImage.textContent = 'Sólo se permiten imágenes jpg, jpeg, png o gif';
                 event.preventDefault();
             }
         }
