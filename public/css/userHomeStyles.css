@@ -535,6 +535,22 @@ form select option {
         width: 33%;
     }
 
+    .principalBox{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    main.principalBox .container {
+        width: 49%;
+    
+    }
+    
+    main.principalBox .container{
+        text-align: left;
+    }
+
     /* Para ejs de categorias*/
     .box-genre {
         width: 31%;
