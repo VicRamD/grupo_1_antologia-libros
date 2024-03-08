@@ -109,7 +109,6 @@ let validateUpdatePFIm = [
 const updatePFimValidator = async (req, res, next) => {
     let errors = validationResult(req);
     //console.log(errors.array())
-
     if(errors.isEmpty()){
         next();
     } else {
@@ -117,10 +116,55 @@ const updatePFimValidator = async (req, res, next) => {
         return res.render('users/user_home', {
             user,
             errorPFIm: errors.array(),
+            errorMessage: "Los datos ingresados contenían errores - no se guardaron los cambios"
         })
     }
 };
 
+//===========================================================================
+//===========================================================================
+
+let validateLogin = [
+
+    check('email').notEmpty().withMessage("El email es obligatorio").bail()
+    .isEmail().bail()//.normalizeEmail()
+    .withMessage("Debe ingresar un email valido").bail(),
+    check('password').notEmpty().withMessage("La contraseña no debe quedar vacía").bail()
+    .isLength({min:8}).withMessage("La contraseña debe contener por lo menos 8 carácteres")
+    .bail()
+    .custom(value => {
+        let errores = verifyPasswordExpresion(value);
+        if(errores > 0){
+            
+            return false;
+        }
+        return true;
+        
+    })
+    .withMessage("La contraseña debe contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial")
+    .bail(),
+];
+
+const loginValidate = async (req,res,next) => {
+    let errors = validationResult(req);
+    console.log("----------------------------");
+    console.log(errors.array());
+    console.log("--------------------------------------");
+    if (errors.isEmpty()){
+        next();
+    } else {
+        return res.render('users/login', {
+
+                errorsLg: errors.array(),
+
+
+            //errorsLg: errors.array(),
+            errorMessage: "Los datos contenían errores, intente de nuevo"
+        })
+       
+    }
+
+   } 
 //===========================================================================
 //===========================================================================
 
@@ -141,6 +185,7 @@ const updatePDValidator = async (req, res, next) => {
         return res.render('users/user_home', {
             user,
             errorsPD: errors.array(),
+            errorMessage: "Los datos ingresados contenían errores - no se guardaron los cambios"
         })
     }
 };
@@ -187,6 +232,7 @@ const updatePWValidator = async (req, res, next) => {
         return res.render('users/user_home', {
             user,
             errorsPW: errors.array(),
+            errorMessage: "Los datos ingresados contenían errores - no se guardaron los cambios"
         })
     }
 };
@@ -220,5 +266,6 @@ function verifyPasswordExpresion(value){
 module.exports = {validateRegister, registerValidator,
      validateUpdatePD, updatePDValidator, 
      validateUpdatePW, updatePWValidator,
-     validateUpdatePFIm, updatePFimValidator
+     validateUpdatePFIm, updatePFimValidator,
+     validateLogin, loginValidate
     };

@@ -21,6 +21,23 @@ form.contenedor-padre input.errorInput {
     outline: none;
 }
 
+.general-error {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding: 15px 10px 15px 50px;
+    color: #D8000C;
+	background-color: #FFBABA;
+    /*background-repeat: no-repeat;
+    background-position: 10px center;*/
+}
+
+/*Para productEdit - validación front*/
+.error-message {
+    color: rgb(196, 15, 15);
+    font-size: 13px;
+    font-weight: bold;
+}
+
 @media (min-width: 769px) {
     section.apellido-nombre div.lastnameError,  section.apellido-nombre div.firstnameError{
         order: 3;

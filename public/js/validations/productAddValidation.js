@@ -1,67 +1,89 @@
-/*○ Nombre
-■ Obligatorio.
-■ Deberá tener al menos 5 caracteres.
-○ Descripción
-■ Deberá tener al menos 20 caracteres.
-○ Imagen
-■ Deberá ser un archivo válido (JPG, JPEG, PNG, GIF).*/
 window.addEventListener('load', function() {
-    title = document.querySelector('#title');
-    labelTitle = document.querySelector('#labelTitle');
-    abstract = document.querySelector('#abstract');
-    labelAbstract = document.querySelector('#labelAbstract');
-    image = document.querySelector('#image');
-    labelImage = document.querySelector('#labelImage');
+    const form = document.querySelector('.productAddForm');
+    const title = document.querySelector('#title');
+    const errorTitle = document.querySelector('#errorTitle');
+    const abstract = document.querySelector('#abstract');
+    const errorAbstract = document.querySelector('#errorAbstract');
+    const image = document.querySelector('#image');
+    const errorImage = document.querySelector('#errorImage');
     
 
 
-    title.addEventListener("blur", ()=>{
-        if (title.value.length<5){
-            labelTitle.textContent = "El título debe tener al menos 5 caracteres";
+    title.addEventListener("blur", () => {
+        if (title.value.length < 5){
+            errorTitle.textContent = "El título debe tener al menos 5 caracteres";
+        } else {
+            errorTitle.textContent = '';
         }
     })
 
-    title.addEventListener("input", ()=>{
+    title.addEventListener("input", () => {
         if (title.value.length>4){
-            labelTitle.textContent = "";
+            errorTitle.textContent = "";
         }
     })
 
-    abstract.addEventListener("blur", ()=>{
-        if (abstract.value.length<20){
-            labelAbstract.textContent = "El resúmen debe tener al menos 20 caracteres";
-        } 
+    abstract.addEventListener("blur", () => {
+        if (abstract.value.length < 20){
+            errorAbstract.textContent = "El resumen debe tener al menos 20 caracteres";
+        } else {
+            errorAbstract.textContent = '';
+        }
     })
 
-    abstract.addEventListener("input", ()=>{
+    abstract.addEventListener("input", () => {
         if (abstract.value.length>19){
-            labelAbstract.textContent = "";
+            errorAbstract.textContent = "";
         }
     })
 
-    function verificarImagen(input) {
-        const archivo = input.files[0];
+    function checkImage(input) {
+        const file = input.files[0];
       
-        if (archivo) {
+        if (file) {
          // const tipoPermitido = /^image\//; // Verifica si el tipo comienza con "image/"
 
-          console.log("Filename: " + archivo.name);
-          console.log("Type: " + archivo.type);
-          console.log("Size: " + archivo.size + " bytes");
+          console.log("Filename: " + file.name);
+          console.log("Type: " + file.type);
+          console.log("Size: " + file.size + " bytes");
 
-          if (archivo.type === 'image/jpg' || archivo.type === 'image/jpeg' || archivo.type === 'image/png' 
-            || archivo.type === 'image/gif'){
-                labelImage.textContent = '';
+          if (file.type === 'image/jpg' || file.type === 'image/jpeg' || file.type === 'image/png' 
+            || file.type === 'image/gif'){
+                errorImage.textContent = '';
             } else {
-                labelImage.textContent = 'Sólo se permiten imágenes jpg, jpeg, png o gif ';
+                errorImage.textContent = 'Sólo se permiten imágenes jpg, jpeg, png o gif ';
             }
         }
       }
 
-      image.addEventListener("change", ()=>{
+      image.addEventListener("change", () => {
         console.log(image.value);
-        verificarImagen(image);
+        checkImage(image);
 
       })
+
+      form.addEventListener('submit', function(event) {
+        if (title.value.trim().length < 5) {
+            //errorTitle.textContent = 'El título debe tener al menos 5 caracteres';
+            event.preventDefault();
+        }
+
+        if (abstract.value.trim().length < 20) {
+            //errorAbstract.textContent = 'El resumen debe tener al menos 20 caracteres';
+            event.preventDefault();
+        }
+
+        const file = image.files[0];
+        if (!file) {
+            errorImage.textContent = 'Debe seleccionar una imagen';
+            event.preventDefault();
+        } else {
+            const allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+            if (!allowedTypes.includes(file.type)) {
+                errorImage.textContent = 'Sólo se permiten imágenes jpg, jpeg, png o gif';
+                event.preventDefault();
+            }
+        }
+    });
 
 })

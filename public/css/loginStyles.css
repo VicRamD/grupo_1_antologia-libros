@@ -149,7 +149,7 @@ label[for="email"], label[for="password"] {
 
 .error-message {
     color: rgb(196, 15, 15);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
 }
 

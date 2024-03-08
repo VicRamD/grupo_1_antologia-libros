@@ -45,9 +45,10 @@
                                 <div class="card-info">
                                     <img src="/images/books/<%= categoryBook.book && categoryBook.book.image ? categoryBook.book.image : 'cover-not-available.png' %>" alt="Portada de <%= categoryBook.book.title %> ">
                                     <hr>
-                                    <h3><a href="/products/<%= categoryBook.book && categoryBook.book.id %>"><%= categoryBook.book.title %></a></h3>
-                                    <p><a href="">Author: <%= categoryBook.authors && categoryBook.authors[0].name %></a></p>
-                                    <p><a href="">Editorial: <%= categoryBook.book.editorial.name %></a></p>
+                                    <h3><a href="/products/<%= categoryBook.book && categoryBook.book.id %>"><%= categoryBook.book.title.length <= 20 ? categoryBook.book.title : categoryBook.book.title.substring(0, 17).concat('...') %></a></h3>
+                                    <p><a href="">A: <%= categoryBook.book.authors && categoryBook.book.authors[0].name && 
+                                    categoryBook.book.authors[0].name.length <= 20 ? categoryBook.book.authors[0].name : categoryBook.book.authors[0].name.substring(0, 17).concat('...') %></a></p>
+                                    <p><a href="">E: <%= categoryBook.book.editorial.name.length <= 15 ? categoryBook.book.editorial.name : categoryBook.book.editorial.name.substring(0, 12).concat('...') %></a></p>
                                 </div>
                                 <div class="card-buy">
                                     <a class="button-read" href="/products/<%= categoryBook.book.id %>">VER MÁS</a>

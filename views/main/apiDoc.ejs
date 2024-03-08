@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/headParcial.ejs') %>
+    <title>API Documentación</title>
+    <link rel="stylesheet" href="/css/cartStyles.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+
+    <main>
+        <h1>API Documentación</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Operación</th>
+                    <th>Endpoint</th>
+                    <th>Método</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Listar Autores</td>
+                    <td><a href="/api/authors">/api/authors</a></td>
+                    <td>GET</td>
+                </tr>
+                <tr>
+                    <td>Añadir Autor/a</td>
+                    <td><a href="/api/authors">/api/authors</a></td>
+                    <td>POST</td>
+                </tr>
+                <tr>
+                    <td>Listar Géneros</td>
+                    <td><a href="/api/genres">/api/genres</a></td>
+                    <td>GET</td>
+                </tr>
+                
+                <tr>
+                    <td>Géneros</td>
+                    <td><a href="/api/genres">/api/genres</a></td>
+                    <td>GET</td>
+                </tr>
+                <tr>
+                    <td>Listar Usuarios</td>
+                    <td><a href="/api/users">/api/users</a></td>
+                    <td>GET</td>
+                </tr>
+                
+                <tr>
+                    <td>Usuarios</td>
+                    <td><a href="/api/genres">/api/genres</a></td>
+                    <td>GET</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+
+</body>
+</html>

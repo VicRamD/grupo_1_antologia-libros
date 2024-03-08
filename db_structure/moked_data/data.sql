@@ -155,7 +155,7 @@ UNLOCK TABLES;
 LOCK TABLES `orders` WRITE;
 INSERT INTO `orders` (`id`, `user_id`, `address_id`, `order_date`, `status`, `total_cost`) VALUES 
 (NULL, '4', '2', '2024-02-01', 'Completada', '5400'), 
-(NULL, '2', '2', '2024-01-09', 'Pendiente', '7000');;
+(NULL, '2', '2', '2024-01-09', 'Pendiente', '7000');
 UNLOCK TABLES;
 
 -- data de pedidos de libros
@@ -186,5 +186,5 @@ UNLOCK TABLES;
 LOCK TABLES `cart_items` WRITE;
 INSERT INTO `cart_items` (`id`, `cart_id`, `book_id`, `quantity`) VALUES 
 (NULL, '1', '21', '1'), 
-(NULL, '2', '2', '1');
+(NULL, '2', '2', '1'),
 (NULL, '2', '7', '1');
