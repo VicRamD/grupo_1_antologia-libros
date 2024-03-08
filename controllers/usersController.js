@@ -7,7 +7,7 @@ const saltRounds = 10;
 const finders = require('../utils/finders');
 const { wasFileSend } = require('../utils/fileRelated');
 
-const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
+//const users = JSON.parse(fs.readFileSync(path.join(process.cwd(), '/data/users.json')), 'utf-8');
 
 const db = require('../database/models');
 
@@ -16,14 +16,14 @@ let controller = {
     login: function (req, res) {
         res.render('users/login')
     },
-    user_home: async function (req, res) {
+    user_home: async function (req, ress) {
         //let usuario = req.body;
 
-        console.log('Aquí');
+        //console.log('Aquí');
         const { email, password, remember } = req.body;
 
-        let login_user = users.find(user => user.email === email);
-        console.log(login_user);
+        //let login_user = users.find(user => user.email === email);
+        //console.log(login_user);
 
         const account = await db.User.findOne({
             where: {
@@ -33,7 +33,7 @@ let controller = {
 
 
         //console.log(login_user);
-        console.log(account);
+        //console.log(account);
         if (account){ //usuario encontrado
             
             let resultado="Acceso Denegado";
@@ -55,8 +55,6 @@ let controller = {
                 res.redirect('./login');
             }
         } else {//Usuario no encontrado
-            
-            console.log('Usuario y/o contraseña incorrecta. Acceso denegado.');
             res.redirect('./login');
         }
         

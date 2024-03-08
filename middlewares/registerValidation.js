@@ -123,12 +123,19 @@ const updatePFimValidator = async (req, res, next) => {
 
 //===========================================================================
 //===========================================================================
-
+let userChecked;
 let validateLogin = [
-
     check('email').notEmpty().withMessage("El email es obligatorio").bail()
     .isEmail().bail()//.normalizeEmail()
-    .withMessage("Debe ingresar un email valido").bail(),
+    .withMessage("Debe ingresar un email valido").bail()
+    .custom(async value => {
+        userChecked = await finders.searchUserByEmail(value);
+
+        if(!userChecked){
+            throw new Error('El email o la contraseña son incorrectos');
+        }
+        return true;
+    }).bail(),
     check('password').notEmpty().withMessage("La contraseña no debe quedar vacía").bail()
     .isLength({min:8}).withMessage("La contraseña debe contener por lo menos 8 carácteres")
     .bail()
@@ -142,14 +149,27 @@ let validateLogin = [
         
     })
     .withMessage("La contraseña debe contener por lo menos 8 carácteres, por lo menos una mayúscula, una minúscula, un número y un carácter especial")
-    .bail(),
+    .bail()
+    .custom(value => {
+        if(!userChecked){
+            throw new Error('El email o la contraseña son incorrectos');
+        } else {
+            let passwordsMatch = bcrypt.compareSync(value, userChecked.password);
+            
+            if (passwordsMatch) {
+                return true
+            } else {
+                throw new Error('El email o la contraseña son incorrectos');
+            }
+        }
+    }),
 ];
 
 const loginValidate = async (req,res,next) => {
     let errors = validationResult(req);
-    console.log("----------------------------");
+    /*console.log("----------------------------");
     console.log(errors.array());
-    console.log("--------------------------------------");
+    console.log("--------------------------------------");*/
     if (errors.isEmpty()){
         next();
     } else {
