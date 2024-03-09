@@ -16,7 +16,7 @@ let controller = {
     login: function (req, res) {
         res.render('users/login')
     },
-    user_home: async function (req, ress) {
+    user_home: async function (req, res) {
         //let usuario = req.body;
 
         //console.log('Aquí');

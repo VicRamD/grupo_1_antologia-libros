@@ -27,11 +27,21 @@
     
         <section class="genres">
             <% if (locals && locals.categories) { %>
+                <% if (locals.user && locals.user.category && locals.user.category.name == 'Administrador') { %>
+                    <form action="#" method="post" id="formAPI">
+                        <label for="genreInput">Nuevo Género</label>
+                        <input type="text" name="name" id="genreInput">
+                        <div id="formError"></div>
+                        <button type="submit" id="btnForm" disabled>Guardar</button>
+                    </form>
+                <% } %>
+            
                 <% categories.forEach(category => { %>
                     <div class="box-genre">
                         <a href="/products/genres?genre=<%= category.name %>"><%= category.name %></a>
                     </div>
                 <% }) %>
+                
             <% } %>
         </section>
 
@@ -64,5 +74,6 @@
             <% } %>
         </main>
     <%- include('../partials/footer.ejs') %>
+    <script src="/js/booksByGenre.js"></script>
 </body>
 </html>

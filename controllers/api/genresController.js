@@ -15,7 +15,23 @@ const controller = {
         }).catch(error => {
             console.log(error);
         })
-    }
+    },
+    create: (req, res) => {
+        const {name} = req.body;
+        db.Genre.create({
+            name
+        }).then(result => {
+            return res.json(
+                {
+                    results: 1,
+                    status: 202,
+                    data: result
+                }
+            )
+        }).catch(error => {
+            console.log(error);
+        })
+    },
 }
 
 module.exports = controller;
