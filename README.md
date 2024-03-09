@@ -76,3 +76,5 @@ Sitio web Argentino de venta de libros perteneciente a una franquicia de muchos 
 - [Tablero Sprint 6](https://trello.com/b/zeQ7dNez/sprint-6-bases-de-datos "Tablero Sprint 6")
 
 - [Tablero Sprint 7](https://trello.com/b/pISnkMoI/sprint-7-validaciones "Tablero Sprint 7")
+
+- [Tablero Sprint 7](https://trello.com/b/MRSlxFfq/sprint-8-apis-react "Tablero Sprint 8")
