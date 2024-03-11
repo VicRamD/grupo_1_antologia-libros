@@ -4,7 +4,7 @@ const genresController = require ('../../controllers/api/genresController.js')
 const {privilegedUserRoute} = require('../../middlewares/routeRedirector.js');
 
 router.get('/', genresController.list);
-router.post('/', genresController.create);
+router.post('/', privilegedUserRoute, genresController.create);
 
 
 module.exports = router;
