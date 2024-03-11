@@ -22,13 +22,13 @@ Aquí, la literatura está al alcance de tu mano, y tu próxima historia ¡te es
 * __Rocio Abigail, Amaya:__
 Soy estudiante en la Tecnicatura de Desarrollo de Software, pero mi camino comenzó apenas este año, por lo que no tengo sólidos conocimientos ni experiencia previa. Mi objetivo actual es adquirir los conocimientos y habilidades necesarios para poder desarrollarme profesionalmente. Comprendo que es un gran desafío, pero estoy dispuesto a enfrentarlo con dedicación y perseverancia.
 
-* __Daiana Marisol, Lucero:__ - [GitHub](https://github.com/daylucero)
+* __Daiana Marisol, Lucero__ - [GitHub](https://github.com/daylucero)  
 Estudiante de Tecnicatura en Informática con cierta familiaridad en diversas herramientas y lenguajes relacionados a la Programación Web, como así también habilidades en administración de redes y mantenimiento de equipos informáticos. Además, conocimiento intermedio en el idioma Inglés. Siempre comprometida con el aprendizaje continuo y la constante superación.
 
-* __Víctor Francisco, Ramírez Diaz:__ - [GitHub](https://github.com/VicRamD)
+* __Víctor Francisco, Ramírez Diaz__ - [GitHub](https://github.com/VicRamD)  
 Estudiante de Ingeniería en Informática de la Universidad Nacional de Catamarca. Con conocimientos básicos de los lenguaje C, JAVA, Javascript y conocimientos básicos del paradigma orientado a objetos. Aspirando  a conseguir los conocimientos y habilidades para convertirse en desarrollador web.
 
-* __Carlos Sebastian, Zavaleta:__ - [GitHub](https://github.com/charlyzava)
+* __Carlos Sebastian, Zavaleta__ - [GitHub](https://github.com/charlyzava)  
 Analista de Sistemas y Lic. en Informática. Trabajo en Salud y en un instituto de computación. Busco actualizarme, seguir aprendiendo, adaptarme a lo nuevo en programación para aplicarlo en el trabajo, o bien para buscar nuevos rumbos. Amante de los viajes, la montaña, Los maratones, el ajedrez, la tecnología y la vida sana.
 
 * __Rolando Andrés, Burelas:__
