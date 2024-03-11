@@ -22,14 +22,14 @@ Aquí, la literatura está al alcance de tu mano, y tu próxima historia ¡te es
 * __Rocio Abigail, Amaya:__
 Soy estudiante en la Tecnicatura de Desarrollo de Software, pero mi camino comenzó apenas este año, por lo que no tengo sólidos conocimientos ni experiencia previa. Mi objetivo actual es adquirir los conocimientos y habilidades necesarios para poder desarrollarme profesionalmente. Comprendo que es un gran desafío, pero estoy dispuesto a enfrentarlo con dedicación y perseverancia.
 
-* __Daiana Marisol, Lucero:__
-Estudiante de Tecnicatura en Informática con cierta familiaridad en diversas herramientas y lenguajes referidos a la Programación Web, como así también habilidades en administración de redes y mantenimiento de equipos informáticos. Además, conocimiento intermedio en el idioma Inglés. Siempre comprometida con el aprendizaje continuo y la constante superación.
+* __Daiana Marisol, Lucero:__ - [GitHub](https://github.com/daylucero)
+Estudiante de Tecnicatura en Informática con cierta familiaridad en diversas herramientas y lenguajes relacionados a la Programación Web, como así también habilidades en administración de redes y mantenimiento de equipos informáticos. Además, conocimiento intermedio en el idioma Inglés. Siempre comprometida con el aprendizaje continuo y la constante superación.
 
-* __Víctor Francisco, Ramírez Diaz:__
+* __Víctor Francisco, Ramírez Diaz:__ - [GitHub](https://github.com/VicRamD)
 Estudiante de Ingeniería en Informática de la Universidad Nacional de Catamarca. Con conocimientos básicos de los lenguaje C, JAVA, Javascript y conocimientos básicos del paradigma orientado a objetos. Aspirando  a conseguir los conocimientos y habilidades para convertirse en desarrollador web.
 
-* __Carlos Sebastian, Zavaleta:__
-Analista de Sistemas y Lic en Informática. Trabajo en Salud y en un instituto de computación. Busco actualizarme, seguir aprendiendo, adaptarme a lo nuevo en programación para aplicarlo en el trabajo, o bien para buscar nuevos rumbos. Amante de los viajes, la montaña, Los maratones, el ajedrez, la tecnología y la vida sana.
+* __Carlos Sebastian, Zavaleta:__ - [GitHub](https://github.com/charlyzava)
+Analista de Sistemas y Lic. en Informática. Trabajo en Salud y en un instituto de computación. Busco actualizarme, seguir aprendiendo, adaptarme a lo nuevo en programación para aplicarlo en el trabajo, o bien para buscar nuevos rumbos. Amante de los viajes, la montaña, Los maratones, el ajedrez, la tecnología y la vida sana.
 
 * __Rolando Andrés, Burelas:__
 Tecnico Universitario Industrial, graduado de la Facultad de Tecnologias y Cs Aplicadas, UNCa. Dedicado actualmente a
@@ -37,31 +37,32 @@ telecomunicaciones en un empresa nacional. Aspirado a conseguir conocimientos ne
 
 ##    Sitios referentes del mercado      ##
 
-https://www.sbs.com.ar/
+1. [SBS Librería](https://www.sbs.com.ar/)
 
-Sitio web argentino muy agradable a la vista por sus colores, distribución de texto e imágenes, el menú parece bien organizado.
+Sitio web argentino muy agradable a la vista por sus colores, distribución de texto e imágenes, además el menú parece bien organizado.
 El header se transforma al visualizar la parte de abajo de la página principal.
-tiene un botón para contactar por whatsapp
+Tiene un botón para contactar por Whatsapp.
+La experiencia de usuario en dispositivos móviles parece ser fluida y fácil de usar.
 
-https://www.libreriadonquijote.com.ar/
+2. [Librería Don Quijote](https://www.libreriadonquijote.com.ar/)
 
-Sitio web argentino, el menú header se transforma al ver la parte de abajo de la página. Tiene una gama de colores borravinos que contrasta con el blanco del sitio. Dentro del menú la opción categorías es muy extensa. Es agradable a la vista. 
+Sitio web argentino, de diseño sencillo y funcional. El menú header se transforma al ver la parte de abajo de la página. Tiene una gama de colores borravinos que contrasta con el blanco del sitio. Dentro del menú la opción categorías es muy extensa. Es agradable a la vista. 
 
-https://www.casadellibro.com/
+3. [Casa del Libro](https://www.casadellibro.com/)
 
-Sitio web español, dividido en categorías y temáticas. Se puede ver una calificación de los libros (según los lectores) y los precios están resaltados.
+Sitio web español, dividido en categorías y temáticas. Se puede ver una calificación de los libros (según los lectores) y los precios están resaltados. Se proporcionan enlaces rápidos a diferentes categorías de productos, facilitando la navegación a áreas específicas del sitio. En la página del detalle del producto, se incluyen características adicionales, como reseñas de clientes y recomendaciones relacionadas, que enriquecen la experiencia del usuario y ayudan en la toma de decisiones de compra.
 
-https://www.buscalibre.com.ar/
+4. [Buscalibre Argentina](https://www.buscalibre.com.ar/)
 
-Sitio web de argentina, opciones para filtrar libros se pueden ver del lado izquierdo, como el año de edición, encuadernación, etc. Parece sobrecargado de información, o quizás los objetos y textos no están distribuidos, no parece tan agradable para el usuario.
+Sitio web de Argentina, opciones para filtrar libros se pueden ver del lado izquierdo, como el año de edición, encuadernación, etc. Parece sobrecargado de información, o quizás los objetos y textos no están distribuidos, no parece tan agradable para el usuario.
 
-https://www.planetadelibros.com.ar/
+5. [Planeta de Libros](https://www.planetadelibros.com.ar/)
 
-Sitio web de argentina, que posee un menú del lado izquierdo que se transforma al visualizar la parte de abajo de las páginas. Además posee videos promocionando los libros.
+Sitio web de Argentina, que posee un menú del lado izquierdo que se transforma al visualizar la parte de abajo de las páginas. Además posee videos promocionando los libros.
 
-https://cuspide.com/
+6. [Cúspide Libros](https://cuspide.com/)
 
-Sitio web Argentino de venta de libros perteneciente a una franquicia de muchos años y con librerias propias. El diseño de su barra de navegación y cabecera para visualización en dispositivos moviles es atractiva.
+Sitio web argentino de venta de libros perteneciente a una franquicia de muchos años y con librerias propias. El diseño del sitio es moderno, atractivo y limpio, con una combinación de colores llamativa y una disposición de elementos que invita a la exploración, además  el diseño de su barra de navegación y cabecera para visualización en dispositivos móviles es atractivo y receptivo.
 
 **TABLERO DE TRABAJO:**
 
