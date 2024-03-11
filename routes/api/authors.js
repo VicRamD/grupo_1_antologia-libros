@@ -4,6 +4,6 @@ const authorsController = require ('../../controllers/api/authorsController');
 
 router.get('/', authorsController.list);
 router.post('/', authorsController.create);
-router.put('/', authorsController.update);
+//router.put('/', authorsController.update);
 
 module.exports = router;

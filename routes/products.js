@@ -23,8 +23,10 @@ const storage = multer.diskStorage({
   
 const uploadFile = multer({storage});
 
+
 router.get('/cart', userRoute, cartControllers.cart);
 router.get('/genres', productsControllers.genres);
+router.get('/authors', productsControllers.authors);
 router.get('/create', privilegedUserRoute, productsControllers.create);
 router.get('/add', privilegedUserRoute, productsControllers.addAgain);
 router.post('/add', uploadFile.single('image'), validateBook, bookValidator, productsControllers.add);
@@ -34,6 +36,7 @@ router.put('/:id', uploadFile.single('image'), validateBookUpdate, bookUpdateVal
 router.delete('/:id', privilegedUserRoute, productsControllers.delete);
 //router.search('/search', productsControllers.search);
 router.get('/', productsControllers.list);
+
 
 
 //router.get('/list', productosControllers.list);//Para la lista

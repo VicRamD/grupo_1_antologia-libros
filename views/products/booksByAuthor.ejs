@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/headParcial.ejs') %>
+<title><% if (locals && locals.author) { %>
+    Autor/a: <%= author.name %>
+<% } else { %>
+    Libros por autores
+<% } %></title>
+<link rel="stylesheet" href="/css/productDetailStyles.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+        <h1><% if (locals && locals.author) { %>
+            Autor/a: <%= author.name %>
+        <% } else { %>
+            Libros por autores
+        <% } %></h1>
+    
+        <% if (locals && locals.noBooksMessage) { %>
+            <p><%- locals.noBooksMessage %></p>
+            <% if (locals.imageSrc) { %>
+                <img src="<%- locals.imageSrc %>" alt="categoría sin libros" />
+            <% } %>
+        <% } else { %>
+    
+        <section class="genres">
+            <% if (locals && locals.authors) { %>
+                <% if (locals.user && locals.user.category && locals.user.category.name == 'Administrador') { %>
+                    <form action="#" method="post" id="formAPI">
+                        <label for="authorInput">Nuevo Autor/a</label>
+                        <input type="text" name="name" id="authorInput">
+                        <div id="formError"></div>
+                        <button type="submit" id="btnForm" disabled>Guardar</button>
+                    </form>
+                <% } %>
+            
+                <% authors.forEach(author => { %>
+                    <div class="box-genre">
+                        <a href="/products/authors?author=<%= author.name %>"><%= author.name %></a>
+                    </div>
+                <% }) %>
+                
+            <% } %>
+        </section>
+
+        <section class="recommendation">
+            <div class="box-card">
+                <% if (locals && locals.booksByAuthor) { %>
+                    <% locals.booksByAuthor.forEach(authorBook => { %>
+                    
+                        <div class="book-card">
+                            <div class="card-product">
+                                <div class="card-info">
+                                    <img src="/images/books/<%= authorBook.book && authorBook.book.image ? authorBook.book.image : 'cover-not-available.png' %>" alt="Portada de <%= authorBook.book.title %> ">
+                                    <hr>
+                                    <h3><a href="/products/<%= authorBook.book && authorBook.book.id %>"><%= authorBook.book.title.length <= 20 ? authorBook.book.title : authorBook.book.title.substring(0, 17).concat('...') %></a></h3>
+                                    <p><a href="">G: <%= authorBook.book.genres && authorBook.book.genres[0].name && 
+                                    authorBook.book.genres[0].name.length <= 20 ? authorBook.book.genres[0].name : authorBook.book.authors[0].name.substring(0, 17).concat('...') %></a></p>
+                                    <p><a href="">E: <%= authorBook.book.editorial.name.length <= 15 ? authorBook.book.editorial.name : authorBook.book.editorial.name.substring(0, 12).concat('...') %></a></p>
+                                </div>
+                                <div class="card-buy">
+                                    <a class="button-read" href="/products/<%= authorBook.book.id %>">VER MÁS</a>
+                                    <button class="button-cart">AGREGAR AL CARRITO</button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <% }) %>
+                        <% } %>
+                    </div>
+                </section>
+            <% } %>
+        </main>
+    <%- include('../partials/footer.ejs') %>
+    <script src="/js/booksByAuthor.js"></script>
+</body>
+</html>

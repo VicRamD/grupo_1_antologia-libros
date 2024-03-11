@@ -1,25 +1,25 @@
 window.addEventListener('load', ()=>{
     let formApi = document.getElementById('formAPI');
-    let genreInput = document.getElementById('genreInput');
+    let authorInput = document.getElementById('authorInput');
     let formError =  document.getElementById('formError');
     let btnForm =  document.getElementById('btnForm');
     let sectionGenres = document.querySelector('section.genres');
 
-    genreInput.addEventListener('input', ()=>{
+    authorInput.addEventListener('input', ()=>{
         btnForm.setAttribute("disabled", true);
     });
-    genreInput.addEventListener('change', ()=>{
-        if(genreInput.value.length < 3){
-            formError.innerText = `Debe por lo menos tener 3 letras`;
+    authorInput.addEventListener('change', ()=>{
+        if(authorInput.value.length < 5){
+            formError.innerText = `Debe por lo menos tener 5 letras`;
         } else {
             formError.innerText = '';
-            fetch('/api/genres')
+            fetch('/api/authors')
             .then(res => res.json())
             .then(data => {
-                let genres = data.data;
-                let genreMatch = genres.find(genre => genreInput.value.toLowerCase() == genre.name.toLowerCase());
+                let authors = data.data;
+                let genreMatch = authors.find(genre => authorInput.value.toLowerCase() == genre.name.toLowerCase());
                 if(genreMatch){
-                    formError.innerText = `El género ${genreInput.value} ya se encuentra registrado`;
+                    formError.innerText = `El/la autor/a ${authorInput.value}, ya se encuentra registrado`;
                     btnForm.setAttribute("disabled", true);
                 } else {
                     formError.innerText = '';
@@ -32,28 +32,28 @@ window.addEventListener('load', ()=>{
 
     formApi.addEventListener('submit', (evt)=>{
         evt.preventDefault();
-        fetch('/api/genres', {
+        fetch('/api/authors', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
-            body: JSON.stringify({'name': genreInput.value})
+            body: JSON.stringify({'name': authorInput.value})
         }).then(res => res.json())
         .then(result => {
             console.log(result);
-            fetch('/api/genres')
+            fetch('/api/authors')
             .then(res => res.json())
             .then(data => {
-                let genres = data.data;
+                let authors = data.data;
                 sectionGenres.innerHTML = `<form action="#" method="post" id="formAPI">
-                <label for="genreInput">Nuevo Género</label>
-                <input type="text" name="name" id="genreInput">
+                <label for="authorInput">Nuevo Género</label>
+                <input type="text" name="name" id="authorInput">
                 <div id="formError"></div>
                 <button type="submit" id="btnForm" disabled>Guardar</button>
             </form>`;
-                genres.forEach(genre => {
+                authors.forEach(author => {
                     sectionGenres.innerHTML += `<div class="box-genre">
-                        <a href="/products/genres?genre=${genre.name}">${genre.name}</a>
+                        <a href="/products/authors?author=${author.name}">${author.name}</a>
                     </div> `          
                 });
                 

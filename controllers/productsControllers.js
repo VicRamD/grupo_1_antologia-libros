@@ -514,6 +514,67 @@ const productsControllers = {
             return res.render('products/booksByGenre', { categories: genres, user });
         }
     },
+    authors: async (req, res) => {
+        let user;
+        if(req.session.currentUserMail){
+            user = await finders.searchUserByEmail(req.session.currentUserMail);
+        }
+
+        let autores = await db.Author.findAll({
+            order: [['name','ASC']]
+        });
+
+        let authors = JSON.parse(JSON.stringify(autores));
+        console.log("======================");
+        console.log("======================");
+        console.log("======================");
+        console.log(authors);
+
+        //return res.render('products/booksByAuthor', { authors, user });
+        if (req.query.author) {
+            let { author } = req.query;
+        
+            //id = Number(genre);
+            //let category = finders.searchItemByName(genre, categories);
+
+            let authorDb = await db.Author.findOne({
+                where: {
+                    name: author
+                }
+            })
+
+            let searchedAuthor = JSON.parse(JSON.stringify(authorDb));
+
+            let authorBooks = await db.BookAuthor.findAll({
+                where: {
+                    author_id: searchedAuthor.id
+                },
+                include: [{association: 'book', include: [{association: 'editorial'}, {association: 'genres'}]}]
+            })
+
+            let booksByAuthor = JSON.parse(JSON.stringify(authorBooks));
+        
+            // Verifica si no hay libros en la categoría
+            if (booksByAuthor.length === 0) {
+                let noBooksMessage = 'No existen libros para esta categoría.<br>';
+                let imageSrc = '/images/noEncontrado.png';
+                    
+                return res.render('products/booksByGenre', {
+                    noBooksMessage: noBooksMessage,
+                    imageSrc: imageSrc,
+                    user
+                });
+            }
+            console.log('------------');
+                console.log(booksByAuthor);
+            // Renderiza la vista con libros si existen
+            return res.render('products/booksByAuthor', { booksByAuthor, author: searchedAuthor, user });
+
+        } else {
+            // Renderiza la vista con todas las categorías si no hay consulta de géneros
+            return res.render('products/booksByAuthor', { authors, user });
+        } 
+    },
     search: async (req, res) => {
 
         const {search} = req.query;

@@ -39,11 +39,13 @@
                 <li><a>Educativos</a></li>
                 <li><a>Ficción</a></li>
                 <li><a>Top 100</a></li>
-                <li><a>Autores</a></li>
+                <li><a href="/products/authors">Autores</a></li>
                 <li><a>Editoriales</a></li>
                 <li><a>Contacto</a></li>
             <% } else if (locals && locals.user && locals.user.category && locals.user.category.name == 'Administrador') { %>
                 <li><a href="/products/genres">Categorías</a></li>
+                <li><a href="/products/authors">Autores</a></li>
+                <li><a>Editoriales</a></li>
                 <li><a href="/products">Listado de libros</a></li>
                 <li><a href="/products/create">Nuevo libro</a></li>
                 <li><a href="/api">API</a></li>
@@ -53,7 +55,7 @@
                 <li><a>Educativos</a></li>
                 <li><a>Ficción</a></li>
                 <li><a>Top 100</a></li>
-                <li><a>Autores</a></li>
+                <li><a href="/products/authors">Autores</a></li>
                 <li><a>Editoriales</a></li>
                 <li><a>Contacto</a></li>
             <% } %>     
