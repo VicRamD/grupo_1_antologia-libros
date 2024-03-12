@@ -13,6 +13,13 @@ const {privilegedUserRoute} = require('./middlewares/routeRedirector.js');
 
 const server = express();
 
+//Permitiendo que el puerto en que se ejecuta React pueda acceder a la API
+const cors = require("cors");
+let corsOptions = {
+  origin : ['http://localhost:5173'],
+}
+server.use(cors(corsOptions));
+
 //============ Initialize Sequelize ===============
 const { Sequelize } = require('sequelize');
 const config = require('./database/config/config.js');
