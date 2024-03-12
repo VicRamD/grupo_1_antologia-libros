@@ -7,7 +7,7 @@ const controller = {
         }).then(genres => {
             return res.json(
                 {
-                    results: genres.length,
+                    count: genres.length,
                     status: 202,
                     data: genres
                 }
@@ -23,7 +23,7 @@ const controller = {
         }).then(result => {
             return res.json(
                 {
-                    results: 1,
+                    count: 1,
                     status: 202,
                     data: result
                 }

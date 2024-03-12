@@ -19,6 +19,7 @@ function App() {
       </div>
       <CountPanel entity="Libros" endpoint="books"/>
       <CountPanel entity="Usuarios" endpoint="users"/>
+      <CountPanel entity="Géneros" endpoint="genres"/>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
