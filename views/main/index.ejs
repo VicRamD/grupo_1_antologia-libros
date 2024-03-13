@@ -80,7 +80,25 @@
         <section class="libros_titulares">
             <h3>Novedades...</h3>
             <div class="libros">
-                <article>
+                <% if (locals && locals.lastOnes) { %>
+                    <% lastOnes.forEach(book => { %>
+                        <article>
+                            <a href="/products/<%= book.id %>">
+                            <img src="/images/books/<%= book.image %>" alt="<%= book.title %>" class="product_img"></a>
+                            <div class="main-article">
+                                <i class="fas fa-eye"></i>
+                                <p class="price">$<%= book.price %></p>
+                                <p class="discount">Disp: <%= book.stock %></p>
+                                <h4 class="description"><%= book.title %></h4>
+                            </div>
+                            <div class="card-buy">
+                                <button class="button-cart">Agregar al carrito</button> 
+                                <button class="button-buy">Comprar</button>
+                            </div>
+                        </article>
+                    <% }) %>
+                <% } %>
+            <!--    <article>
                     <a href="/products/8">
                     <img src="/images/books/la_ultima_encrucijada.webp" alt="La última encrucijada" class="product_img"></a>
                     <div class="main-article">
@@ -93,7 +111,7 @@
                         <button class="button-cart">Agregar al carrito</button> 
                         <button class="button-buy">Comprar</button>
                     </div>
-                </article>
+                </article> 
                 <article>
                     <a href="/products/7">
                     <img src="/images/books/amores_imposibles.webp" alt="El amor es imposible" class="product_img"></a>
@@ -188,7 +206,7 @@
                     </div>
                 </article>
             </div>
-        </section>
+        </section> -->
 
 
 
