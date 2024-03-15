@@ -1,0 +1,24 @@
+div.total {
+    border: solid 1px gray;
+    border-radius: 10px;
+    width: 100%;
+    margin: 1%
+}
+
+div.card-left-border {
+    border-left: double cadetblue 5px;
+}
+
+@media (min-width: 400px) {
+  div.total {
+    width: 45%;
+  }
+  
+}
+
+@media (min-width: 769px) {
+    div.total {
+      width: 22.5%;
+    }
+    
+}

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import CountPanel from './components/CountPanel'
+import CounterRow from './components/CounterRow'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,9 +17,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <CountPanel entity="Libros" endpoint="books"/>
-      <CountPanel entity="Usuarios" endpoint="users"/>
-      <CountPanel entity="Géneros" endpoint="genres"/>
+      <CounterRow/>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

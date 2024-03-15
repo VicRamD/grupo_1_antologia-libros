@@ -7,7 +7,7 @@ const controller = {
         }).then(authors => {
             return res.json(
                 {
-                    results: authors.length,
+                    count: authors.length,
                     status: 202,
                     data: authors
                 }

@@ -40,3 +40,19 @@
 .read-the-docs {
   color: #888;
 }
+
+/*--- CounterRow  ---*/
+.counter-row {
+  display: flex;
+  /*flex-direction: column;*/
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (min-width: 769px) {
+  .counter-row {
+    /*flex-direction: row;*/
+    
+  }
+  
+}
