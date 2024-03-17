@@ -1,0 +1,43 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    border: solid 1px black;
+}
+
+.row h3.block {
+    width: 100%;
+    text-align: center;
+}
+
+
+.column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+}
+
+.column p {
+    text-align: left;
+}
+
+.column .cover{
+    width: 100%;
+    align-self: center;
+}
+
+
+@media (min-width: 769px) {
+    .row h3.block {
+        border-bottom: 1px solid black;
+        margin-bottom: 0px;
+    }
+
+    .column {
+      width: 48%;
+    }
+ 
+    .border-column {
+        border-right: 1px solid black;
+    }
+}

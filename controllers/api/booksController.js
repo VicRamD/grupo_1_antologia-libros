@@ -93,6 +93,59 @@ const controller = {
                 error: 'Internal Server Error'
             });
         });
+    },
+    
+    lastBookAdded: (req, res) => {
+        db.Book.findAll({
+            order: [['id', 'DESC']],
+            include: [
+                { association: 'genres' },
+                { association: 'authors' },
+                { association: 'editorial' }
+            ],
+            limit: 1
+        }).then(bookInList => {
+            //console.log(JSON.parse(JSON.stringify(bookInList)))
+            let book = bookInList[0];
+            if (!book) {
+                return res.status(404).json({
+                    error: 'Libro no encontrado'
+                });
+            }
+
+             const bookData = {
+                id: book.id,
+                title: book.title,
+                abstract: book.abstract,
+                isbn: book.isbn,
+                date: book.date,
+                price: book.price,
+                stock: book.stock,
+                image_url: `/images/books/${book.image}`,
+                language: book.language,
+                genres: book.genres.map(genre => genre.name),
+                authors: book.authors.map(author => ({
+                    id: author.id,
+                    name: author.name,
+                })),
+                editorial: {
+                    id: book.editorial.id,
+                    name: book.editorial.name,
+                },
+            }; 
+
+            //let bookData = {nombre: "Holas"};
+
+            return res.json({
+                book: bookData
+            });
+
+        }).catch(error => {
+            console.log(error);
+            return res.status(500).json({
+                error: 'Internal Server Error'
+            });
+        });
     }
 };
 
