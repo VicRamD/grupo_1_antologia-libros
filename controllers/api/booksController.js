@@ -72,7 +72,10 @@ const controller = {
                 stock: book.stock,
                 image_url: `/images/books/${book.image}`,
                 language: book.language,
-                genres: book.genres.map(genre => genre.name),
+                genres: book.genres.map(genre => ({
+                    id: genre.id,
+                    name: genre.name
+                })),
                 authors: book.authors.map(author => ({
                     id: author.id,
                     name: author.name,
@@ -123,7 +126,10 @@ const controller = {
                 stock: book.stock,
                 image_url: `/images/books/${book.image}`,
                 language: book.language,
-                genres: book.genres.map(genre => genre.name),
+                genres: book.genres.map(genre => ({
+                    id: genre.id,
+                    name: genre.name
+                })),
                 authors: book.authors.map(author => ({
                     id: author.id,
                     name: author.name,
