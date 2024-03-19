@@ -174,7 +174,7 @@ form button[type="submit"].search-btn {
     color: black;
 }
 
-form button[type="button"] {
+form button[type="button"], form .info-button a.button {
     display: none;
 }
 
@@ -191,7 +191,7 @@ form .btn-form {
     justify-content: center;
     align-items: center;
 }
-.info-button button{
+.info-button button, .info-button a.button{
     display: block;
     padding: 20px;
     width: 80%;
@@ -209,7 +209,7 @@ form .btn-form {
     border: solid 1px #2F2F2F;
     margin-bottom: 20px;
 } */
-.info-button button:hover{
+.info-button button:hover, .info-button a.button:hover{
     background-color: cadetblue;
     color: whitesmoke;
 }
@@ -429,7 +429,7 @@ div.form-group img {
         width: 15%;
     }
 
-    form button[type="button"] {
+    form button[type="button"], form .info-button a.button{
         display: inline;
         width: 35%;
     }
@@ -483,7 +483,7 @@ div.form-group img {
         width: 45%;
     } 
 
-    form button[type="button"] {
+    form button[type="button"], form .info-button a.button {
         width: 25%;
     }
     
