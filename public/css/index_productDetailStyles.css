@@ -6,7 +6,7 @@ main section div.libros article i{
 
 main section div.libros article:hover i{
     transform: rotate(360deg);
-    color: rgb(255, 81, 0);
+    color: rgb(204, 66, 2);
 }
 .card-buy {
     display: flex;
@@ -38,8 +38,42 @@ main section div.libros article:hover i{
     color: whitesmoke;
 }
 
+/**/
+a.image-link {
+    max-height: 200px;
+}
+
+h4.description {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+@media (min-width: 481px) {
+    .product_img {
+        max-width: 193px;
+        max-height: 193px;
+    }
+}
+
 @media (min-width: 769px) {
-.button-buy,
-.button-cart {
-    font-size: 15px; 
-}}
+    .button-buy,
+    .button-cart {
+        font-size: 15px; 
+    }
+
+    /**/
+    .product_img {
+        max-width: 151px;
+        max-height: 151px;
+    }
+}
+
+@media (min-width: 1100px) {
+
+    .product_img {
+        max-width: 281px;
+        max-height: 281px;
+    }
+}

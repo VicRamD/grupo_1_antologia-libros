@@ -83,8 +83,9 @@
                 <% if (locals && locals.lastOnes) { %>
                     <% lastOnes.forEach(book => { %>
                         <article>
-                            <a href="/products/<%= book.id %>">
-                            <img src="/images/books/<%= book.image %>" alt="<%= book.title %>" class="product_img"></a>
+                            <a href="/products/<%= book.id %>" class="image-link">
+                                <img id="<%= book.id %>" src="/images/books/<%= book.image %>" alt="<%= book.title %>" class="product_img">
+                            </a>
                             <div class="main-article">
                                 <i class="fas fa-eye"></i>
                                 <p class="price">$<%= book.price %></p>
@@ -92,123 +93,12 @@
                                 <h4 class="description"><%= book.title %></h4>
                             </div>
                             <div class="card-buy">
-                                <button class="button-cart">Agregar al carrito</button> 
+                                <a class="button-cart" href="/products/cart/create?book=<%= book.id %>">Agregar al carrito</a>
                                 <button class="button-buy">Comprar</button>
                             </div>
                         </article>
                     <% }) %>
                 <% } %>
-            <!--    <article>
-                    <a href="/products/8">
-                    <img src="/images/books/la_ultima_encrucijada.webp" alt="La última encrucijada" class="product_img"></a>
-                    <div class="main-article">
-                        <i class="fas fa-eye"></i>
-                        <p class="price">$12.000</p>
-                        <p class="discount">5% off</p>
-                        <h4 class="description">La Última encrucijada</h4>
-                    </div>
-                    <div class="card-buy">
-                        <button class="button-cart">Agregar al carrito</button> 
-                        <button class="button-buy">Comprar</button>
-                    </div>
-                </article> 
-                <article>
-                    <a href="/products/7">
-                    <img src="/images/books/amores_imposibles.webp" alt="El amor es imposible" class="product_img"></a>
-                    <div class="main-article">
-                        <i class="fas fa-eye"></i>
-                        <p class="price">$11.000</p>
-                        <p class="discount">20% off</p>
-                        <h4 class="description">El Amor es Imposible</h4>
-                    </div>
-                    <div class="card-buy">
-                        <button class="button-cart">Agregar al carrito</button> 
-                        <button class="button-buy">Comprar</button>                    
-                    </div>
-                </article>
-                <article>
-                    <a href="/products/5"><img src="/images/books/el_viento_conoce_mi_nombre.webp" alt="El viento conoce mi nombre" class="product_img"></a>
-                    <div class="main-article">
-                        <i class="fas fa-eye"></i>
-                        <p class="price">$10.000</p>
-                        <p class="discount">10% off</p>
-                        <h4 class="description">El Viento Conoce Mi Nombre</h4>
-                    </div>
-                    <div class="card-buy">
-                        <button class="button-cart">Agregar al carrito</button> 
-                        <button class="button-buy">Comprar</button>
-                    </div>
-                </article>
-                <article>
-                    <a href="/products/10">
-                    <img src="/images/books/flores_barro.webp" alt="Flores en el barro" class="product_img"></a>
-                    <div class="main-article">
-                        <i class="fas fa-eye"></i>
-                        <p class="price">$9.900</p>
-                        <p class="discount">5% off</p>
-                        <h4 class="description">Flores en el Barro</h4>
-                    </div>
-                    <div class="card-buy">
-                        <button class="button-cart">Agregar al carrito</button> 
-                        <button class="button-buy">Comprar</button>           
-                    </div>
-                </article>
-                <article>
-                    <a href="products/9"><img src="/images/books/libelula.webp" alt="El vuelo de la libelula" class="product_img"></a>
-                    <div class="main-article">
-                        <i class="fas fa-eye"></i>
-                        <p class="price">$10.500</p>
-                        <p class="discount">5% off</p>
-                        <h4 class="description">El Vuelo de la Libelula</h4>
-                    </div>
-                    <div class="card-buy">
-                        <button class="button-cart">Agregar al carrito</button> 
-                        <button class="button-buy">Comprar</button>
-                    </div>
-                </article>
-                <article><a href="products/12">
-                    <img src="/images/books/boquita.webp" alt="Boquita" class="product_img"></a>
-                    <div class="main-article">
-                        <i class="fas fa-eye"></i>
-                        <p class="price">$4.300</p>
-                        <p class="discount">40% off</p>
-                        <h4 class="description">Boquita</h4>
-                    </div>
-                    <div class="card-buy">
-                        <button class="button-cart">Agregar al carrito</button> 
-                        <button class="button-buy">Comprar</button>
-                    </div>
-                </article>
-                <article><a href="/products/1">
-                    <img src="/images/books/alas_de_sangre.webp" alt="Alas de Sangre" class="product_img">
-                    </a><div class="main-article">
-                        <i class="fas fa-eye"></i>
-                        <p class="price">$5800.5</p>
-                        <p class="discount">5% off</p>
-                        <h4 class="description">Alas de Sangre</h4>
-                    </div>
-                    <div class="card-buy">
-                        <button class="button-cart">Agregar al carrito</button> 
-                        <button class="button-buy">Comprar</button>
-                    </div>
-                </article>
-                <article><a href="products/11">
-                    <img src="/images/books/adios_cachorra.webp" alt="Adiós Cachorra" class="product_img">
-                    </a><div class="main-article">
-                        <i class="fas fa-eye"></i>
-                        <p class="price">$8.400</p>
-                        <p class="discount">5% off</p>
-                        <h4 class="description">Adiós Cachorra</h4>
-                    </div>
-                    <div class="card-buy">
-                        <button class="button-cart">Agregar al carrito</button> 
-                        <button class="button-buy">Comprar</button>                    
-                    </div>
-                </article>
-            </div>
-        </section> -->
-
-
 
 
 <section class="libros_titulares">
@@ -327,6 +217,11 @@
 
     </main>
     <%- include('../partials/footer.ejs') %>
-
+    <script>
+        let a = document.getElementById(22);
+        console.log(a)
+        console.log(a.offsetWidth + "px")
+        console.log(a.offsetHeight + "px")
+    </script>
 </body>
 </html>

@@ -3,7 +3,7 @@ const multer = require('multer');
 const path = require('path');
 
 const productsControllers = require('../controllers/productsControllers.js');
-const cartControllers = require('../controllers/cartControllers.js');
+const cartRoutes = require('./cartRoutes.js');
 const {validateBook, bookValidator, validateBookUpdate, bookUpdateValidator} = require('../middlewares/bookValidation.js');
 const {userRoute, privilegedUserRoute} = require('../middlewares/routeRedirector.js');
 
@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
 const uploadFile = multer({storage});
 
 
-router.get('/cart', userRoute, cartControllers.cart);
+router.use('/cart', userRoute, cartRoutes);
 router.get('/genres', productsControllers.genres);
 router.get('/authors', productsControllers.authors);
 router.get('/create', privilegedUserRoute, productsControllers.create);
