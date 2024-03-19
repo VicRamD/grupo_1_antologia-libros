@@ -6,26 +6,26 @@ function BookDetailPanel() {
 
     let book= {
         "id": 20,
-        "title": "Ejemplo",
-        "abstract": "Diccionario imprescindible para el estudiante y para el hispanoparlante que comience a manejar el idioma inglés.",
+        "title": "Example",
+        "abstract": "Example",
         "isbn": "",
         "date": "",
-        "price": 7360,
-        "stock": 20,
+        "price": 0,
+        "stock": 0,
         "image_url": "",
-        "language": "Español",
+        "language": "Example",
         "genres": [
             "Autoayuda"
         ],
         "authors": [
             {
                 "id": 9,
-                "name": "Gabriela Exilart"
+                "name": "Example"
             }
         ],
         "editorial": {
             "id": 13,
-            "name": "Ateneo"
+            "name": "Example"
         }
     }
 
@@ -45,7 +45,11 @@ function BookDetailPanel() {
                 isbn: book.isbn,
                 price: book.price,
                 stock: book.stock,
-                image_url: book.image_url
+                image_url: book.image_url,
+                language: book.language,
+                authors: book.authors,
+                genres: book.genres,
+                editorial: book.editorial
             });            
             load = true;
         }).catch(err => console.log("Pasa por error"));
@@ -59,13 +63,25 @@ function BookDetailPanel() {
             <div className='column border-column'>
                 <img className='cover' src={'http://localhost:3030' +  bookDetail.image_url} alt='No hallado'/>
             </div>
-            <div className='column'>
+            <div className='column detail'>
                 <p><b>Id:</b> {bookDetail.id}</p>
                 <p><b>Titulo:</b> {bookDetail.title}</p>
+                <p className='listTitle'><b>Autor/es:</b></p>
+                <ul>
+                    {bookDetail.authors.map(author => <li key={author.id + author.name}>{author.name}</li>)}
+                </ul>
+                
                 <p><b>Sinopsis:</b> {bookDetail.abstract}</p>
                 <p><b>ISBN:</b> {bookDetail.isbn}</p>
+                <p><b>Idioma:</b> {bookDetail.language}</p>
+                <p><b>Editorial:</b> {bookDetail.editorial.name}</p> 
+                <p className='listTitle'><b>Géneros:</b></p>
+                <ul>
+                    {bookDetail.genres.map(genre =><li key={genre.id + genre.name}>{genre.name}</li>)}
+                </ul>
                 <p><b>Precio:</b> {bookDetail.price}</p>
-                <p><b>Stock:</b> {bookDetail.stock}</p>        
+                <p><b>Stock:</b> {bookDetail.stock}</p>
+                       
             </div>
         </div>
   )
