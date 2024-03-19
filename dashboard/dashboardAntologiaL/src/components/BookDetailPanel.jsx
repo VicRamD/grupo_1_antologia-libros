@@ -15,7 +15,10 @@ function BookDetailPanel() {
         "image_url": "",
         "language": "Example",
         "genres": [
-            "Autoayuda"
+            {
+                "id": 10,
+                "name": "Example"
+            }
         ],
         "authors": [
             {
