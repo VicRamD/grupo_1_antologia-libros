@@ -2,6 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     border: solid 1px black;
+    flex-direction: column;
+    width: 100%;
 }
 
 .row h3.block {
@@ -13,12 +15,12 @@
 }
 
 
-.column {
+.column, .col-short {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items:start;
-    
+    /*background-color: #7DCEA0;*/
 }
 
 .column p {
@@ -26,9 +28,11 @@
     
 }
 
-.column .cover{
-    width: 100%;
-    min-height: 90%;
+.col-short .cover{
+    width: 150px;
+    height: 150px;
+    max-width: 150px;
+    max-height: 150px;
     align-self: center;
 }
 
@@ -83,13 +87,22 @@ li:hover {
 }
 
 @media (min-width: 769px) {
+    .row {
+        width: 50%;
+    }
+
     .row h3.block {
         border-bottom: 1px solid black;
         margin-bottom: 0px;
     }
 
-    .column {
+    /*.column {
       width: 49.9%;
+    } */
+
+    .col-short .cover {
+        width: 150px;
+        height: 150px;
     }
  
     .border-column {
