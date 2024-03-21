@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import CounterRow from './components/CounterRow'
 import BookDetailPanel from './components/BookDetailPanel'
+import CategoryPanel from './components/CategoryPanel'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +21,8 @@ function App() {
       </div>
       <CounterRow/>
       <BookDetailPanel/>
+      <CategoryPanel />
+      
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

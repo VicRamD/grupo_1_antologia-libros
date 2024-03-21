@@ -1,0 +1,36 @@
+.category-panel {
+    margin-top: 10px;
+    background-color: #919191;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .category-panel h3 {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* .category-panel ul { 
+  }*/
+    
+  .category-panel li {
+    width: 90%;
+    border-radius: 10px;
+    /* margin-bottom: 10px; */
+    font-weight: bold;
+    justify-self:center ;
+  }
+  
+  @media (min-width: 400px) {
+    .category-panel ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas con el mismo ancho */
+        gap: 5px;  /*Espacio entre los elementos */
+        padding: 0;
+        /*grid-column-gap: 5px;  Espacio entre las dos columnas */
+    }
+    
+  }
+  
+  /* @media (min-width: 769px) {
+  } */
