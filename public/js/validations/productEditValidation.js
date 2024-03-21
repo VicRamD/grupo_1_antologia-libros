@@ -35,16 +35,15 @@ window.addEventListener('load', function() {
 
     image.addEventListener("change", () => {
         const file = image.files[0];
-        if (!file) {
-            imageError.textContent = 'Debe seleccionar una imagen';
-            return;
+        if (file) {
+            const allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+            if (!allowedTypes.includes(file.type)) {
+                imageError.textContent = 'Sólo se permiten imágenes jpg, jpeg, png o gif';
+            } else {
+                imageError.textContent = '';
+            }
         }
-        const allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
-        if (!allowedTypes.includes(file.type)) {
-            imageError.textContent = 'Sólo se permiten imágenes jpg, jpeg, png o gif';
-        } else {
-            imageError.textContent = '';
-        }
+        
     });
 
     form.addEventListener('submit', function(event) {
@@ -64,10 +63,7 @@ window.addEventListener('load', function() {
         }
 
         const file = image.files[0];
-        if (!file) {
-            imageError.textContent = 'Debe seleccionar una imagen';
-            event.preventDefault();
-        } else {
+        if (file) {
             const allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
             if (!allowedTypes.includes(file.type)) {
                 imageError.textContent = 'Sólo se permiten imágenes jpg, jpeg, png o gif';

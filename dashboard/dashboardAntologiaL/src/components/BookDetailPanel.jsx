@@ -65,26 +65,33 @@ function BookDetailPanel() {
             <h3 className='block'>Último libro agregado</h3>
             <div className='col-short border-column'>
                 <img className='cover' src={'http://localhost:3030' +  bookDetail.image_url} alt='No hallado'/>
+                <div className='div-info'>
+                    <p><b>Id:</b> {bookDetail.id}</p>
+                    <p className='big-screen'><b>ISBN:</b> {bookDetail.isbn}</p>
+                    <p className='big-screen'><b>Precio:</b> {bookDetail.price}</p>
+                    <p className='big-screen'><b>Stock:</b> {bookDetail.stock}</p>
+                </div>
             </div>
             <div className='column detail'>
-                <p><b>Id:</b> {bookDetail.id}</p>
+                
                 <p><b>Titulo:</b> {bookDetail.title}</p>
+                <p className='small-screen'><b>ISBN:</b> {bookDetail.isbn}</p>
                 <p className='listTitle'><b>Autor/es:</b></p>
+                
                 <ul>
                     {bookDetail.authors.map(author => <li key={author.id + author.name}>{author.name}</li>)}
                 </ul>
                 
                 <p><b>Sinopsis:</b> {bookDetail.abstract}</p>
-                <p><b>ISBN:</b> {bookDetail.isbn}</p>
+                
                 <p><b>Idioma:</b> {bookDetail.language}</p>
                 <p><b>Editorial:</b> {bookDetail.editorial.name}</p> 
                 <p className='listTitle'><b>Géneros:</b></p>
                 <ul>
                     {bookDetail.genres.map(genre =><li key={genre.id + genre.name}>{genre.name}</li>)}
                 </ul>
-                <p><b>Precio:</b> {bookDetail.price}</p>
-                <p><b>Stock:</b> {bookDetail.stock}</p>
-                       
+                <p className='small-screen'><b>Precio:</b> {bookDetail.price}</p>
+                <p className='small-screen'><b>Stock:</b> {bookDetail.stock}</p> 
             </div>
         </div>
   )
