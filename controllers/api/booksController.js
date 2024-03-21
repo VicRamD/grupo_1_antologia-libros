@@ -2,48 +2,57 @@ const db = require('../../database/models');
 
 const controller = {
     list: (req, res) => {
+        db.Genre.findAll() 
+            .then(genres => {
+                
+                const countByGenre = {};
+                genres.forEach(genre => {
+                    countByGenre[genre.name] = 0;
+                });
 
-        db.Book.findAll({
-            include: [
-                { association: 'genres' }, 
-                { association: 'editorial' }, 
-                { association: 'authors' }
-            ]
-        }).then(books => {
-            //const count = books.length;
+                db.Book.findAll({
+                    include: [
+                        { association: 'genres' },
+                        { association: 'editorial' },
+                        { association: 'authors' }
+                    ]
+                }).then(books => {
+                    //const count = books.length;      
 
-            const countByGenre = {};
-            books.forEach(book => {
-                book.genres.forEach(genre => {
-                    if (!countByGenre[genre.name]) {
-                        countByGenre[genre.name] = 1;
-                    } else {
-                        countByGenre[genre.name]++;
-                    }
+                        books.forEach(book => {
+                            book.genres.forEach(genre => {
+                                countByGenre[genre.name]++;
+                            });
+                        });
+                        
+                        const booksData = books.map(book => ({
+                            id: book.id,
+                            name: book.title,
+                            description: book.abstract,
+                            genres: book.genres.map(genre => genre.name),
+                            author: book.authors.map(author => author.name),
+                            detail: `/api/books/${book.id}`
+                        }));
+
+                        return res.json({
+                            count: books.length,
+                            countByGenre: countByGenre,
+                            products: booksData
+                        });
+                    })
+                    .catch(error => { //books
+                        console.log(error);
+                        return res.status(500).json({
+                            error: 'Error Interno del Servidor'
+                        });
+                    });
+            })
+            .catch(error => { //genres
+                console.log(error);
+                return res.status(500).json({
+                    error: 'Error Interno del Servidor'
                 });
             });
-
-            const booksData = books.map(book => ({
-                id: book.id,
-                name: book.title,
-                description: book.abstract,
-                genres: book.genres.map(genre => genre.name),
-                author: book.authors.map(author => author.name),
-                detail: `/api/books/${book.id}`
-            }));
-
-            return res.json({
-                count: books.length,
-                countByGenre: countByGenre,
-                products: booksData
-            });
-
-        }).catch(error => {
-            console.log(error);
-            return res.status(500).json({
-                error: 'Error Interno del Servidor'
-            });
-        });
     },
 
     detail: (req, res) => {
