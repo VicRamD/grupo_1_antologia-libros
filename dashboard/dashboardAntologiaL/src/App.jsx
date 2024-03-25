@@ -3,6 +3,7 @@ import './App.css'
 import CounterRow from './components/CounterRow'
 import BookDetailPanel from './components/BookDetailPanel'
 import CategoryPanel from './components/CategoryPanel'
+import ProductsPanel from './components/ProductsPanel'
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -18,7 +19,7 @@ function App() {
       <CounterRow/>
       <BookDetailPanel/>
       <CategoryPanel />
-      
+      <ProductsPanel />
       {/*<!-- <div className="card">
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
