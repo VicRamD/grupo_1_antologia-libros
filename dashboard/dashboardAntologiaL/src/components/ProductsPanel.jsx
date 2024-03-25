@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import './productsPanel.css';
+
 function ProductsPanel() {
     let [products, setProducts] = useState([]);
     let [selectedProduct, setSelectedProduct] = useState(null);
@@ -15,7 +17,7 @@ function ProductsPanel() {
         setSelectedProduct(product);
     }
     return (
-        <div>
+        <div className='productsPanel'>
         <h3>Totales de Productos</h3>
         <ul>
             {products.map(product => (
@@ -25,11 +27,11 @@ function ProductsPanel() {
             ))}
         </ul>
         {selectedProduct && (
-            <div>
+            <div className='descriptionProductsPanel'>
                 <h4>{selectedProduct.name}</h4>
                 <p>Author: {selectedProduct.author}</p>
-                <p>Descripción: {selectedProduct.description}</p>
-                <p>Géneros: {selectedProduct.genres.join(', ')}</p>        
+                <p>Géneros: {selectedProduct.genres.join(', ')}</p>     
+                <p>Descripción: {selectedProduct.description}</p>   
             </div>
             )}
             </div>

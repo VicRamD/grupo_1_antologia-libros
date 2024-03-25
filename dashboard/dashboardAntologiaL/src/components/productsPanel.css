@@ -1,0 +1,13 @@
+.productsPanel {
+    margin-top: 10px;
+    background-color: #f2ecec;
+    border-radius: 2px;
+    padding: 20px;
+  }
+  
+  .descriptionProductsPanel {
+    margin-bottom: 10px;
+    background-color: rgba(154, 201, 154, 0.945);
+    text-align: center;
+  }
+  
