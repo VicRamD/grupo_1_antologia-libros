@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import './App.css'
 import CounterRow from './components/CounterRow'
-import BookDetailPanel from './components/BookDetailPanel'
+//import BookDetailPanel from './components/BookDetailPanel'
 import CategoryPanel from './components/CategoryPanel'
-import ProductsPanel from './components/ProductsPanel'
+//import ProductsPanel from './components/ProductsPanel'
+import PanelRow from './components/PanelRow'
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -17,17 +18,8 @@ function App() {
   </a>-->*/}
       </div>
       <CounterRow/>
-      <BookDetailPanel/>
+      <PanelRow />
       <CategoryPanel />
-      <ProductsPanel />
-      {/*<!-- <div className="card">
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> -->*/}
     </>
   )
 }

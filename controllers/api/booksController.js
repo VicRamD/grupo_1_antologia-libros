@@ -54,6 +54,43 @@ const controller = {
                 });
             });
     },
+    listPage: (req, res) => {
+        let page = 0;
+        if(req.query.page){
+            page = Number(req.query.page);
+        }
+
+        //console.log("===========================");
+        //console.log("===========================");
+        //console.log(page);
+        //console.log("===========================");
+
+        db.Book.findAll({
+            order: [['title', 'ASC']],
+            limit: 8,
+            offset: page,
+            include: [{association: 'authors'}, {association: 'genres'}]
+        }).then(books => {
+            //console.log(books)
+            const booksData = books.map(book => ({
+                id: book.id,
+                name: book.title,
+                description: book.abstract,
+                genres: book.genres.map(genre => genre.name),
+                author: book.authors.map(author => author.name),
+                detail: `/api/books/${book.id}`
+            }));
+            return res.json({
+                count: books.length,
+                products: booksData
+            });
+        }).catch(error => { //books
+            console.log(error);
+            return res.status(500).json({
+                error: 'Error Interno del Servidor'
+            });
+        });
+    },
 
     detail: (req, res) => {
         const bookId = req.params.id;

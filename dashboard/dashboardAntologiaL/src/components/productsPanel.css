@@ -2,7 +2,9 @@
     margin-top: 10px;
     background-color: #f2ecec;
     border-radius: 2px;
-    padding: 20px;
+    /*padding: 20px;*/
+    padding: 0%;
+    width: 100%;
   }
   
   .descriptionProductsPanel {
@@ -10,4 +12,60 @@
     background-color: rgba(154, 201, 154, 0.945);
     text-align: center;
   }
+
+  ul.books {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  li.book {
+    width: 40%;
+  }
+
+  div.buttonRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  div.pageNumber {
+    display: inline;
+  }
+
   
+
+  @media (min-width: 769px) {
+    .productsPanel {
+      width: 48%;
+      margin-top: 0px;
+    }
+    
+    p.description {
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+    }
+
+    li.titleLi {
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+    }
+
+    h4.bookTitle{
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+
+    p.description {
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+  }
