@@ -1,39 +1,32 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import CounterRow from './components/CounterRow'
 import BookDetailPanel from './components/BookDetailPanel'
 import CategoryPanel from './components/CategoryPanel'
 
 function App() {
-  const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='logo-div'>
+        <img src="/logo_p_horizontal.png" className="logo" alt="Logo Antología Libros" />
+        {/*<!--<a href="" target="_blank">
+          
+  </a>-->*/}
       </div>
       <CounterRow/>
       <BookDetailPanel/>
       <CategoryPanel />
       
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      {/*<!-- <div className="card">
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> -->*/}
     </>
   )
 }

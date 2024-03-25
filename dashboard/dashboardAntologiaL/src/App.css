@@ -49,6 +49,16 @@
   justify-content: space-between;
 }
 
+.logo-div {
+  background-color: rgb(61, 107, 109);
+  height: 100px;
+}
+
+.logo-div img{
+  height: 100px;
+  padding: 0%;
+}
+
 @media (min-width: 769px) {
   .counter-row {
     /*flex-direction: row;*/
