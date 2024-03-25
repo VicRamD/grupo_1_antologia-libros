@@ -5,7 +5,7 @@
 <title><% if (locals && locals.author) { %>
     Autor/a: <%= author.name %>
 <% } else { %>
-    Libros por autores
+    Autores - ANTOLOGÍA Libros
 <% } %></title>
 <link rel="stylesheet" href="/css/productDetailStyles.css">
 </head>
@@ -56,9 +56,9 @@
                                     <img src="/images/books/<%= authorBook.book && authorBook.book.image ? authorBook.book.image : 'cover-not-available.png' %>" alt="Portada de <%= authorBook.book.title %> ">
                                     <hr>
                                     <h3><a href="/products/<%= authorBook.book && authorBook.book.id %>"><%= authorBook.book.title.length <= 20 ? authorBook.book.title : authorBook.book.title.substring(0, 17).concat('...') %></a></h3>
-                                    <p><a href="">G: <%= authorBook.book.genres && authorBook.book.genres[0].name && 
+                                    <p><a href="/products/genres?genre=<%= authorBook.book.genres && authorBook.book.genres[0].name %>">G: <%= authorBook.book.genres && authorBook.book.genres[0].name && 
                                     authorBook.book.genres[0].name.length <= 20 ? authorBook.book.genres[0].name : authorBook.book.authors[0].name.substring(0, 17).concat('...') %></a></p>
-                                    <p><a href="">E: <%= authorBook.book.editorial.name.length <= 15 ? authorBook.book.editorial.name : authorBook.book.editorial.name.substring(0, 12).concat('...') %></a></p>
+                                    <p><a href="/products/editorials?editorial=<%= authorBook.book.editorial.name %>">E: <%= authorBook.book.editorial.name.length <= 15 ? authorBook.book.editorial.name : authorBook.book.editorial.name.substring(0, 12).concat('...') %></a></p>
                                 </div>
                                 <div class="card-buy">
                                     <a class="button-read" href="/products/<%= authorBook.book.id %>">VER MÁS</a>

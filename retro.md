@@ -68,7 +68,6 @@ En referencia al inciso 1, mantener poca o nula comunicación por varios días.
 - Tener listos los objetivos antes de la fecha límite.
 - Perfeccionar en otros aspectos el sitio.
 
-
 3. **El Plan de Acción**
 - Ponerse al día con los contenidos.
 - Analizar la situación de cada integrante.
@@ -100,7 +99,6 @@ En referencia al inciso 1, mantener poca o nula comunicación por varios días.
 ### Starfish retrospective: Sprint 6 ###
 
 1. **Comenzar a hacer**
-- Reunirnos al menos una vez por semana para trabajar en el proyecto y luego dividir tareas
 - Actualizar y revisar tareas, propias y de compañeros, en el tablero (Trello)
 
 2. **Hacer más**
@@ -116,3 +114,22 @@ En referencia al inciso 1, mantener poca o nula comunicación por varios días.
 
 4. **Hacer menos / Dejar de hacer**
 - 
+
+### Starfish retrospective: Sprint 7 ###
+
+1. **Comenzar a hacer**
+- Actualizar y revisar tareas, propias y de compañeros, en el tablero (Trello)
+- Tener listos los objetivos antes de la fecha límite
+
+2. **Hacer más**
+- Ponerse al día con los contenidos y practicar para reforzarlos
+- Analizar la situación de cada integrante
+
+3. **Continuar haciendo**
+- Participación de los integrantes
+- Reunirnos para ponernos de acuerdo sobre ciertos temas
+- Cumplir con los objetivos obligatorios
+- Perfeccionar en otros aspectos el sitio
+
+4. **Hacer menos / Dejar de hacer**
+- Llegar con lo justo a la fecha límite de entrega

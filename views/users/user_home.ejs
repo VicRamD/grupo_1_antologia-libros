@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Perfil</title>
+    <title>Tu Perfil - ANTOLOGIA Libros</title>
     <link rel="icon" type="image/png" href="/images/favicon_antologia.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/css/userHomeStyles.css">
@@ -21,7 +21,7 @@
     <%- include('../partials/header.ejs') %>
     
     <main class="registro">
-        <h1>Bienvenido</h1>
+        <h1>Hola, <%=user.first_name%>👋🏽</h1>
 
         <% if (locals && locals.errorMessage) { %>
             <div class="general-error"><i class="fa-solid fa-circle-exclamation" style="color: #FFD43B;"></i> <%= locals.errorMessage %></div>

@@ -575,6 +575,54 @@ const productsControllers = {
             return res.render('products/booksByAuthor', { authors, user });
         } 
     },
+    editorials: async (req, res) => {
+        let user;
+        if (req.session.currentUserMail) {
+            user = await finders.searchUserByEmail(req.session.currentUserMail);
+        }
+    
+        let editorials = await db.Editorial.findAll({
+            order: [['name', 'ASC']]
+        });
+    
+        let parsedEditorials = JSON.parse(JSON.stringify(editorials));
+    
+        if (req.query.editorial) {
+            let { editorial } = req.query;
+    
+            let editorialDb = await db.Editorial.findOne({
+                where: {
+                    name: editorial
+                }
+            });
+    
+            let searchedEditorial = JSON.parse(JSON.stringify(editorialDb));
+    
+            let editorialBooks = await db.Book.findAll({
+                where: {
+                    editorial_id: searchedEditorial.id
+                },
+                include: [{ association: 'authors' }, { association: 'genres' }]
+            });
+    
+            let booksByEditorial = JSON.parse(JSON.stringify(editorialBooks));
+    
+            if (booksByEditorial.length === 0) {
+                let noBooksMessage = 'No existen libros para esta editorial.<br>';
+                let imageSrc = '/images/noEncontrado.png';
+    
+                return res.render('products/booksByEditorial', {
+                    noBooksMessage: noBooksMessage,
+                    imageSrc: imageSrc,
+                    user
+                });
+            }
+    
+            return res.render('products/booksByEditorial', { booksByEditorial, editorial: searchedEditorial, user });
+        } else {
+            return res.render('products/booksByEditorial', { editorials: parsedEditorials, user });
+        }
+    },
     search: async (req, res) => {
 
         const {search} = req.query;

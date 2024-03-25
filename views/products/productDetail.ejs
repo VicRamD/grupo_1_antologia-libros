@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/footerStyles.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>Producto</title>
+    <title><%= book.title %> - ANTOLOGÍA Libros</title>
     <link rel="icon" type="image/png" href="/images/favicon_antologia.png"/>
 </head>
 <body>
@@ -35,14 +35,14 @@
                         <% if (book.authors) { %>
                             <p><span>Autor/es: </span></p>
                             <% book.authors.forEach(author => { %>
-                                <p><a href=""><%=  author.name %></a></p>
+                                <p><a href="/products/authors?author=<%=  author.name %>"><%=  author.name %></a></p>
                             <% }) %>
                         <% } else { %>
                             <p><span>Autor/es: </span><a href="">Indefinido</a></p>
                         <% } %>
 
                         
-                        <p><span>Editorial: </span><a href=""><%= book.editorial ? book.editorial.name : 'Indefinido' %></a></p>
+                        <p><span>Editorial: </span><a href="/products/editorials?editorial=<%= book.editorial.name %>"><%= book.editorial ? book.editorial.name : 'Indefinido' %></a></p>
                         <p><span>ISBN: </span> <%= book.isbn %> </p>
                         <div class="data-category">
                             <p><span>Categoría:</span></p>

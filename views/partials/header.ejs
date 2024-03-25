@@ -35,28 +35,28 @@
     <nav class="<%= locals && locals.user && locals.user.category && locals.user.category.name == 'Administrador' ? 'admin' : '' %>">
         <ul>
             <% if (locals && locals.user && locals.user.category && locals.user.category.name == 'Cliente') { %>
-                <li><a href="/products/genres">Categorías</a></li>
+                <li><a href="/products/genres">Géneros</a></li>
                 <li><a>Educativos</a></li>
-                <li><a>Ficción</a></li>
+                <li><a href="/products/genres?genre=Ciencia%20Ficci%C3%B3n">Ficción</a></li>
                 <li><a>Top 100</a></li>
                 <li><a href="/products/authors">Autores</a></li>
-                <li><a>Editoriales</a></li>
+                <li><a href="/products/editorials">Editoriales</a></li>
                 <li><a>Contacto</a></li>
             <% } else if (locals && locals.user && locals.user.category && locals.user.category.name == 'Administrador') { %>
-                <li><a href="/products/genres">Categorías</a></li>
+                <li><a href="/products/genres">Géneros</a></li>
                 <li><a href="/products/authors">Autores</a></li>
-                <li><a>Editoriales</a></li>
+                <li><a href="/products/editorials" >Editoriales</a></li>
                 <li><a href="/products">Listado de libros</a></li>
                 <li><a href="/products/create">Nuevo libro</a></li>
                 <li><a href="/api">API</a></li>
                 <li><a>Contacto</a></li>
             <% } else { %>
-                <li><a href="/products/genres">Categorías</a></li>
+                <li><a href="/products/genres">Géneros</a></li>
                 <li><a>Educativos</a></li>
-                <li><a>Ficción</a></li>
+                <li><a href="/products/genres?genre=Ciencia%20Ficci%C3%B3n">Ficción</a></li>
                 <li><a>Top 100</a></li>
                 <li><a href="/products/authors">Autores</a></li>
-                <li><a>Editoriales</a></li>
+                <li><a href="/products/editorials">Editoriales</a></li>
                 <li><a>Contacto</a></li>
             <% } %>     
         </ul>

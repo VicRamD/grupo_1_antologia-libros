@@ -3,19 +3,19 @@
 <head>
     <%- include('../partials/headParcial.ejs') %>
 <title><% if (locals && locals.category) { %>
-    Categoría: <%= category.name %>
-<% } else { %>
-    Libros por categorías
-<% } %></title>
+        Género: <%= category.name %> - ANTOLOGÍA Libros
+    <% } else { %>
+        Géneros - ANTOLOGÍA Libros
+    <% } %></title>
 <link rel="stylesheet" href="/css/productDetailStyles.css">
 </head>
 <body>
     <%- include('../partials/header.ejs') %>
     <main>
         <h1><% if (locals && locals.category) { %>
-            Categoría: <%= category.name %>
+            Género: <%= category.name %>
         <% } else { %>
-            Libros por categorías
+            Libros por Géneros
         <% } %></h1>
     
         <% if (locals && locals.noBooksMessage) { %>
@@ -56,9 +56,10 @@
                                     <img src="/images/books/<%= categoryBook.book && categoryBook.book.image ? categoryBook.book.image : 'cover-not-available.png' %>" alt="Portada de <%= categoryBook.book.title %> ">
                                     <hr>
                                     <h3><a href="/products/<%= categoryBook.book && categoryBook.book.id %>"><%= categoryBook.book.title.length <= 20 ? categoryBook.book.title : categoryBook.book.title.substring(0, 17).concat('...') %></a></h3>
-                                    <p><a href="">A: <%= categoryBook.book.authors && categoryBook.book.authors[0].name && 
+                                    <p><a href="/products/authors?author=<%= categoryBook.book.authors && categoryBook.book.authors[0].name %>">A: <%= categoryBook.book.authors && categoryBook.book.authors[0].name && 
                                     categoryBook.book.authors[0].name.length <= 20 ? categoryBook.book.authors[0].name : categoryBook.book.authors[0].name.substring(0, 17).concat('...') %></a></p>
-                                    <p><a href="">E: <%= categoryBook.book.editorial.name.length <= 15 ? categoryBook.book.editorial.name : categoryBook.book.editorial.name.substring(0, 12).concat('...') %></a></p>
+                                    <!-- <p><a href="/products/authors?author=<%= categoryBook.book.authors && categoryBook.book.authors[0].name %>">A: <%= categoryBook.book.authors && categoryBook.book.authors[0].name && categoryBook.book.authors[0].name.length <= 20 ? categoryBook.book.authors[0].name : categoryBook.book.authors[0].name.substring(0, 17).concat('...') %></a></p> -->
+                                    <p><a href="/products/editorials?editorial=<%= categoryBook.book.editorial.name %>">E: <%= categoryBook.book.editorial.name.length <= 15 ? categoryBook.book.editorial.name : categoryBook.book.editorial.name.substring(0, 12).concat('...') %></a></p>
                                 </div>
                                 <div class="card-buy">
                                     <a class="button-read" href="/products/<%= categoryBook.book.id %>">VER MÁS</a>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/headParcial.ejs') %>
+    <title><% if (locals && locals.editorial) { %>
+        Editorial <%= editorial.name %>
+    <% } else { %>
+        Editoriales - ANTOLOGÍA Libros
+    <% } %></title>
+    <link rel="stylesheet" href="/css/productDetailStyles.css">
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <main>
+        <h1><% if (locals && locals.editorial) { %>
+            Editorial: <%= editorial.name %>
+        <% } else { %>
+            Editoriales
+        <% } %></h1>
+    
+        <% if (locals && locals.noBooksMessage) { %>
+            <p><%- locals.noBooksMessage %></p>
+            <% if (locals.imageSrc) { %>
+                <img src="<%- locals.imageSrc %>" alt="categoría sin libros" />
+            <% } %>
+        <% } else { %>
+            <section class="genres">
+                <% if (locals && locals.editorials) { %>
+                    <% editorials.forEach(editorial => { %>
+                        <div class="box-genre">
+                            <a href="/products/editorials?editorial=<%= editorial.name %>"><%= editorial.name %></a>
+                        </div>
+                    <% }) %>
+                <% } %>
+            </section>
+
+            <section class="recommendation">
+                <div class="box-card">
+                    <% if (locals && locals.booksByEditorial) { %>
+                        <% locals.booksByEditorial.forEach(book => { %>
+                            <div class="book-card">
+                                <div class="card-product">
+                                    <div class="card-info">
+                                        <img src="/images/books/<%= book.image || 'cover-not-available.png' %>" alt="Portada de <%= book.title %> ">
+                                        <hr>
+                                        <h3><a href="/products/<%= book.id %>"><%= book.title.length <= 20 ? book.title : book.title.substring(0, 17).concat('...') %></a></h3>
+                                        <p><a href="/products/genres?genre=<%= book.genres && book.genres[0]?.name %>">G: <%= book.genres && book.genres[0]?.name %></a></p>
+                                        <p><a href="/products/authors?author=<%= book.authors && book.authors[0]?.name %>">A: <%= book.authors && book.authors[0]?.name %></a></p>
+                                    </div>
+                                    <div class="card-buy">
+                                        <a class="button-read" href="/products/<%= book.id %>">VER MÁS</a>
+                                        <button class="button-cart">AGREGAR AL CARRITO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }) %>
+                    <% } %>
+                </div>
+            </section>
+        <% } %>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+    <script src="/js/book"></script

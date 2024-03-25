@@ -27,6 +27,7 @@ const uploadFile = multer({storage});
 router.use('/cart', userRoute, cartRoutes);
 router.get('/genres', productsControllers.genres);
 router.get('/authors', productsControllers.authors);
+router.get('/editorials', productsControllers.editorials);
 router.get('/create', privilegedUserRoute, productsControllers.create);
 router.get('/add', privilegedUserRoute, productsControllers.addAgain);
 router.post('/add', uploadFile.single('image'), validateBook, bookValidator, productsControllers.add);
