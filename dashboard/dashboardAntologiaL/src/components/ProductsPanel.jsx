@@ -9,7 +9,11 @@ function ProductsPanel() {
     fetch('http://localhost:3030/api/books/page?page='+page)
         .then(res => res.json())   
         .then(({ products }) => {
-            setProducts( products );
+            if(products.length){
+                setProducts( products );
+            } else {
+                setPage(page - 8);
+            }
           })   
         .catch(err => console.log(err));
     },[page]);
