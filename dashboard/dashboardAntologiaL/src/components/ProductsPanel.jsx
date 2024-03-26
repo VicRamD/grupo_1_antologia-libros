@@ -47,8 +47,8 @@ function ProductsPanel() {
         {selectedProduct && (
             <div className='descriptionProductsPanel'>
                 <h4 className='bookTitle'>{selectedProduct.name}</h4>
-                <p>Author: {selectedProduct.author.join(', ')}</p>
-                <p>Géneros: {selectedProduct.genres.join(', ')}</p>     
+                <p><b>Author: </b>{selectedProduct.author.join(', ')}</p>
+                <p><b>Géneros: </b>{selectedProduct.genres.join(', ')}</p>     
                 <p className='description'>Descripción: {selectedProduct.description}</p>   
             </div>
             )}

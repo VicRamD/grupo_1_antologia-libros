@@ -66,7 +66,7 @@ function BookDetailPanel() {
             <div className='col-short border-column'>
                 <img className='cover' src={'http://localhost:3030' +  bookDetail.image_url} alt='No hallado'/>
                 <div className='div-info'>
-                    <p><b>Id:</b> {bookDetail.id}</p>
+                    <p className='id'><b>Id:</b> {bookDetail.id}</p>
                     <p className='big-screen'><b>ISBN:</b> {bookDetail.isbn}</p>
                     <p className='big-screen'><b>Precio:</b> {bookDetail.price}</p>
                     <p className='big-screen'><b>Stock:</b> {bookDetail.stock}</p>

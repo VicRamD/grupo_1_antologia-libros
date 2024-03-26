@@ -5,6 +5,7 @@
     /*padding: 20px;*/
     padding: 0%;
     width: 100%;
+    border: 1px solid black;
   }
   
   .descriptionProductsPanel {
@@ -33,7 +34,12 @@
     display: inline;
   }
 
-  
+  li.titleLi {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
 
   @media (min-width: 769px) {
     .productsPanel {
@@ -42,13 +48,6 @@
     }
     
     p.description {
-      -webkit-box-orient: vertical;
-      display: -webkit-box;
-      -webkit-line-clamp: 1;
-      overflow: hidden;
-    }
-
-    li.titleLi {
       -webkit-box-orient: vertical;
       display: -webkit-box;
       -webkit-line-clamp: 1;
