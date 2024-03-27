@@ -190,11 +190,17 @@ const productsControllers = {
     },
 
     addAgain: async (req, res) => {
-        if(req.session.currentUserMail){
-            let user = await finders.searchUserByEmail(req.session.currentUserMail);
-            return res.render('products/productAdded', {user: user });
-        }
-        return res.render('products/productAdded');
+        let user = await finders.searchUserByEmail(req.session.currentUserMail);
+        let lastBookDB = await db.Book.findAll(
+            {
+                order: [['id', 'DESC']],
+                limit: 1
+            }
+        )
+
+        let lastBookAdded = JSON.parse(JSON.stringify(lastBookDB))[0]
+        console.log(lastBookAdded)
+        return res.render('products/productAdded', {user: user, lastBookAdded});
     },
 
     //edición
