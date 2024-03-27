@@ -62,7 +62,7 @@ function BookDetailPanel() {
 
   return (
         <div className='row'>
-            <h3 className='block'>Último libro agregado</h3>
+            <h3 className='block'>ÚLTIMO LIBRO AGREGADO</h3>
             <div className='col-short border-column'>
                 <img className='cover' src={'http://localhost:3030' +  bookDetail.image_url} alt='No hallado'/>
                 <div className='div-info'>

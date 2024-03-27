@@ -1,8 +1,10 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
+  /* background-color: rgba(56, 86, 87, 0.393); */
+  background-color: whitesmoke;
 }
 
 .logo {
@@ -47,6 +49,7 @@
   /*flex-direction: column;*/
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 10px 10px 0 10px;
 }
 
 .logo-div {
@@ -62,7 +65,7 @@
 @media (min-width: 769px) {
   .counter-row {
     /*flex-direction: row;*/
-    
+    flex-wrap:nowrap;
+    margin: 0 10px 0;
+      }
   }
-  
-}
