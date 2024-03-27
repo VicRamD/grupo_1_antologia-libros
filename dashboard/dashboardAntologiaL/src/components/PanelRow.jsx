@@ -7,8 +7,8 @@ function PanelRow() {
     return (
       <>
         <div className="panel-row">
-            <BookDetailPanel/>
             <ProductsPanel />
+            <BookDetailPanel/>
         </div>
         
       </>

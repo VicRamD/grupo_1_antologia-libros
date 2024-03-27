@@ -6,10 +6,11 @@ function CounterRow() {
   return (
     <>
       <div className="counter-row">
-        <CountPanel entity="Libros" endpoint="books" icon="fa-book"/>
         <CountPanel entity="Usuarios" endpoint="users" icon="fa-users"/>
+        <CountPanel entity="Libros" endpoint="books" icon="fa-book"/>
         <CountPanel entity="Géneros" endpoint="genres" icon="fa-book-skull"/>
-        <CountPanel entity="Autores/as" endpoint="authors" icon="fa-person-chalkboard"/>
+        <CountPanel entity="Autores" endpoint="authors" icon="fa-person-chalkboard"/>
+        <CountPanel entity="Editoriales" endpoint="editorials" icon="fa-shop"/>
       </div>
       
     </>
