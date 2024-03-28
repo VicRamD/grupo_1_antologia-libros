@@ -13,19 +13,19 @@ const controller = {
         });
     },
 
-    // create: async (req, res) => {
-    //     try {
-    //         const { name } = req.body;
-    //         const newEditorial = await db.Editorial.create({ name });
-    //         return res.status(201).json({
-    //             status: 201,
-    //             data: newEditorial
-    //         });
-    //     } catch (error) {
-    //         console.log(error);
-    //         return res.status(500).json({ error: 'Error interno del servidor' });
-    //     }
-    // },
+    create: async (req, res) => {
+        try {
+            const { name } = req.body;
+            const newEditorial = await db.Editorial.create({ name });
+            return res.status(201).json({
+                status: 201,
+                data: newEditorial
+            });
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({ error: 'Error interno del servidor' });
+        } 
+    },
 
     // update: async (req, res) => {
     //     try {

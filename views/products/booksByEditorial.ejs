@@ -26,6 +26,16 @@
         <% } else { %>
             <section class="genres">
                 <% if (locals && locals.editorials) { %>
+                    <% if (locals.user && locals.user.category && locals.user.category.name == 'Administrador') { %>
+                        <form action="#" method="post" id="formAPI">
+                            <label for="editorialInput">Nueva Editorial</label>
+                            <input type="text" name="name" id="editorialInput">
+                            <button type="submit" id="btnForm" disabled>Guardar</button>
+                            <br>
+                            <div id="formError"></div>
+                        </form>
+                    <% } %>
+
                     <% editorials.forEach(editorial => { %>
                         <div class="box-genre">
                             <a href="/products/editorials?editorial=<%= editorial.name %>"><%= editorial.name %></a>
@@ -37,6 +47,7 @@
             <section class="recommendation">
                 <div class="box-card">
                     <% if (locals && locals.booksByEditorial) { %>
+
                         <% locals.booksByEditorial.forEach(book => { %>
                             <div class="book-card">
                                 <div class="card-product">
@@ -60,4 +71,6 @@
         <% } %>
     </main>
     <%- include('../partials/footer.ejs') %>
-    <script src="/js/book"></script
+    <script src="/js/booksByEditorial.js"></script>
+    </body>
+</html>
