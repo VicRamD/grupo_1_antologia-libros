@@ -14,14 +14,14 @@ body {
     background-position: center;
 }
 
-.form-container{
+.form-container {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 95vh;
-    /*height: auto;*/       
+    /*height: auto;*/
 }
 
 .login-form {
@@ -36,27 +36,27 @@ body {
 }
 
 .login-form div {
-   display: flex;
-   flex-direction: column;
-   flex-wrap: wrap;
-   padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10px;
 }
 
-.img-logo{
+.img-logo {
     align-self: flex-start;
     margin-left: 5px;
 }
 
-.img-logo img{
+.img-logo img {
     width: 70px;
     height: auto;
 }
 
-.img-userLogin{
+.img-userLogin {
     align-self: center;
 }
 
-.img-userLogin img{
+.img-userLogin img {
     width: 45px;
     height: auto;
 }
@@ -67,8 +67,32 @@ body {
     margin-bottom: 15px;
 }
 
-.email-section input.email, 
-.password input.pass{
+.email-section>.email {
+    border: none;
+}
+
+.password>.password-input {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    border: bold;
+}
+
+.password-input>.pass {
+    width: 90%;
+    border: none;
+}
+
+.password-input>.password-toggle-btn {
+    width: 10%;
+    border: none;
+    /*background-color: #FFFFFF;*/
+    cursor: pointer;
+    padding: 0;
+}
+
+.email-section input.email,
+.password input.pass {
     height: 30px;
     font-family: 'Poppins', sans-serif;
     font-style: italic;
@@ -76,22 +100,23 @@ body {
     padding-left: 10px;
 }
 
-.forget{
+.forget {
     font-size: 13px;
     margin-top: 7px;
 }
 
-.forget:visited{
+.forget:visited {
     color: rgb(0, 0, 79);
 }
 
 
-label[for="email"], label[for="password"] {
+label[for="email"],
+label[for="password"] {
     font-size: 15px;
     font-weight: bold;
 }
 
-.buttons-login{
+.buttons-login {
     margin-top: 7px;
     margin-bottom: 20px;
     width: 100%;
@@ -113,7 +138,7 @@ label[for="email"], label[for="password"] {
 }
 
 /*--------------------------*/
-.btn-login{
+.btn-login {
     height: 45px;
     /* height: 30px; */
     background-color: #2F2F2F;
@@ -124,13 +149,13 @@ label[for="email"], label[for="password"] {
 /*--------------------------*/
 
 .btn-login:hover,
-.btn-noaccount:hover{
+.btn-noaccount:hover {
     background-color: rgb(61, 107, 109);
     color: whitesmoke;
     /*box-shadow: 0 0 15px rgba(17, 17, 17, 1.2);*/
 }
 
-.footer-container{
+.footer-container {
     width: 100%;
     height: 5vh;
     background-color: rgba(0, 0, 0, 0.726);
@@ -139,12 +164,12 @@ label[for="email"], label[for="password"] {
     flex-direction: row;
     padding: 5px;
     justify-content: center;
-    }
+}
 
 .footer-container p {
     font-size: 11px;
     color: whitesmoke;
-    
+
 }
 
 .error-message {
@@ -156,23 +181,23 @@ label[for="email"], label[for="password"] {
 /*Tamaño mediano*/
 
 @media (min-width: 460px) {
-    
+
     .login-form {
         padding: 8px;
         margin: 15px 10px 15px 10px;
         width: 70vw;
     }
 
-    .img-logo img{
+    .img-logo img {
         width: 75px;
         height: auto;
     }
 
-    .img-userLogin img{
+    .img-userLogin img {
         width: 30px;
         height: auto;
     }
-       
+
     .btn-login,
     .btn-noaccount {
         font-size: 12px;
@@ -182,7 +207,7 @@ label[for="email"], label[for="password"] {
         font-size: 13px;
     }
 
-    .footer-container{
+    .footer-container {
         justify-content: flex-start;
     }
 }
@@ -190,44 +215,45 @@ label[for="email"], label[for="password"] {
 /*Tamaño monitor*/
 
 @media (min-width: 769px) {
-    
+
     .login-form {
         margin: 5px 10px 5px 10px;
         padding: 5px;
         width: 35vw;
     }
-    
-    .img-logo img{
+
+    .img-logo img {
         width: 110px;
         height: auto;
     }
 
-    .img-userLogin img{
+    .img-userLogin img {
         width: 48px;
         height: auto;
     }
-    
-    .form-title{
+
+    .form-title {
         font-size: 24px;
     }
 
-    label[for="email"], label[for="password"] {
+    label[for="email"],
+    label[for="password"] {
         font-size: 19px;
     }
 
-    .forget{
+    .forget {
         font-size: 16px;
     }
-    
+
     .btn-login,
     .btn-noaccount {
         font-size: 14px;
     }
 
-    .footer-container{
+    .footer-container {
         justify-content: flex-start;
     }
-    
+
     .footer-container p {
         padding: 5px 20px;
     }
