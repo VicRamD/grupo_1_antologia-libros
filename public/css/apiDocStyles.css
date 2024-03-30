@@ -1,0 +1,10 @@
+@media (min-width: 330px){
+    main.center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*flex-wrap: wrap;*/
+        flex-direction: column;
+    }
+}
+

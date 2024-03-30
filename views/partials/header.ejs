@@ -1,6 +1,6 @@
 <header>
     <div class="top-header">
-        <div class="burger-menu"><i class="fas fa-bars"></i></div>
+        <div class="burger-menu" onclick="burgerMenuDrop()"><i class="fas fa-bars"></i></div>
         <div class="logo">
             <a href = '/'><img src="/images/logo/logo_p_horizontal.png" alt="logo de Antología Libros"></a>
         </div>
@@ -32,7 +32,7 @@
             </div>
         <% } %>
     </div>
-    <nav class="<%= locals && locals.user && locals.user.category && locals.user.category.name == 'Administrador' ? 'admin' : '' %>">
+    <nav id="navigationBar" class="<%= locals && locals.user && locals.user.category && locals.user.category.name == 'Administrador' ? 'admin' : '' %>">
         <ul>
             <% if (locals && locals.user && locals.user.category && locals.user.category.name == 'Cliente') { %>
                 <li><a href="/products/genres">Géneros</a></li>

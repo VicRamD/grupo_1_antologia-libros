@@ -42,4 +42,4 @@ function bodySizeChange(){
     }
 }
 
-window.onresize = bodySizeChange;
+//window.onresize = bodySizeChange;

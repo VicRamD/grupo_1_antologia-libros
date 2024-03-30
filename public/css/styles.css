@@ -122,9 +122,49 @@ div.iconos div.icono a{
     color: black;
 }
 
+/* barra de navegación */
 header nav {
     display: none;
+    overflow: hidden;
+    background-color: cadetblue;
+    position: relative;
 }
+
+header nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    width: 100%;
+}
+
+header nav ul li { 
+    width: 100%;
+    text-align: left;
+    
+   /* text-decoration: none; */
+}
+
+header nav ul li:hover { 
+    background-color: whitesmoke;    
+   /* text-decoration: none; */
+}
+
+
+header nav ul li a{
+    text-decoration: none;
+    text-align: left;
+    display: block;
+    width: 100%;
+    padding: 2%;
+    color: black;
+}
+
+header nav ul li a:hover{
+    text-decoration: none;
+}
+
+/* --------- */
+
 /* ----------------- */
 
 /* menu cuando usuario inicia sessión */
@@ -581,6 +621,7 @@ footer .pie{
         display: flex;
         width: 100%;
         padding: 0px;
+        flex-direction: row;
         justify-content: space-around;
     }
 
