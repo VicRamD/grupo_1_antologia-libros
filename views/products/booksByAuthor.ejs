@@ -13,9 +13,9 @@
     <%- include('../partials/header.ejs') %>
     <main>
         <h1><% if (locals && locals.author) { %>
-            Autor/a: <%= author.name %>
+            Autor: <%= author.name %>
         <% } else { %>
-            Libros por autores
+            Libros por Autores
         <% } %></h1>
     
         <% if (locals && locals.noBooksMessage) { %>
@@ -29,7 +29,7 @@
             <% if (locals && locals.authors) { %>
                 <% if (locals.user && locals.user.category && locals.user.category.name == 'Administrador') { %>
                     <form action="#" method="post" id="formAPI">
-                        <label for="authorInput">Nuevo Autor/a</label>
+                        <label for="authorInput">Nuevo Autor</label>
                         <input type="text" name="name" id="authorInput">
                         <div id="formError"></div>
                         <button type="submit" id="btnForm" disabled>Guardar</button>

@@ -69,6 +69,7 @@ div.search-bar form {
 
 div.search-bar form input {
     width: 90%;
+    padding-left: 5px;
 }
 
 div.search-bar form button {
@@ -374,24 +375,45 @@ main section div.libros article{
 
 /*Listado Productos*/
 
+.formulario-CU{
+    flex-direction: row;
+}
+
 .tabla-listado {
-    border: cadetblue 1px solid;
+    /* border: 1px solid cadetblue; */
     /*border: #F08080 1px;*/
     background-color: #ebebeb;
     width: 100%;
-    font-size: 7.5px;
+    /* font-size: 7.5px; */
+    font-size: 14px;
     margin-bottom: 10px;
     margin-top: 10px;
 }
 
+.tabla-listado a {
+    color: rgb(61, 107, 109);
+    text-decoration: none; 
+    font-weight: bold;
+}
+
 .tabla-listado th,td {
-    border: cadetblue 1px solid;
-    /*border: #F08080 1px solid;*/
-    padding: 4px;
+    border: 1px solid cadetblue; 
+    padding: 10px; 
+    text-align: left; 
 }
 
 .tabla-listado th{
-    background-color: #2f2f2f2d;
+    background-color: rgba(95, 158, 160, 0.742); 
+    color: white; 
+    font-weight: bold; 
+}
+
+.tabla-listado tr:nth-child(even) {
+    background-color: #f2f2f2; /* Color de fondo para filas pares */
+}
+
+.tabla-listado tr:hover {
+    background-color: #ddd;
 }
 
 /* Listado de libros */
@@ -399,9 +421,27 @@ main section div.libros article{
     display: none;
 }
 
+.addButton{
+    height: 40px;
+    width: auto;
+    border:none;
+    border-radius: 5px;
+    background-color: cadetblue;
+    cursor: pointer;
+    padding: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    /* float: left;
+    margin-right: 20px; */
+}
+
 @media (min-width: 481px){
     main section div.libros article{
         width: 45%;
+    }
+    /*Listado Libros*/
+    .tabla-listado {
+        font-size: 15.5px;
     }
 }
 
@@ -551,6 +591,7 @@ section.apellido-nombre label[for='lastname'], section.apellido-nombre input[id=
 h1 {
     font-size: 18px;
     text-align: center;
+    padding: 5px;
 }
 
 /* Footer */
@@ -698,6 +739,8 @@ footer .pie{
     h1 {
         font-size: 40px;
         text-align: left;
+        padding: 12px;
+        line-height: 60px;
     }
 
     /* Footer */

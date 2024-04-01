@@ -216,6 +216,7 @@ form .btn-form {
 /*  ------------------  */
 
 /* formulario creación */
+
 main section.formulario-CU {
     width: 100%;
     display: flex;
@@ -239,10 +240,12 @@ div.form-group, div.form-group-ancho {
 
 div.form-group input, div.form-group-ancho input {
     width: 90%;
+    padding-left: 5px;
 }
 
 div.form-group-ancho textarea{
     width: 90%;
+    padding: 5px;
 }
 
 div.form-group input[type='file'] {
@@ -385,6 +388,7 @@ div.form-group img {
     /*  ------------------  */
 
     /* formulario creación */
+    
     section.formulario-CU form div.form-group select {
         width: 40%;
     }
@@ -476,6 +480,9 @@ div.form-group img {
     div.form-group img {
         height: 350px;
     }
+    .info-button{
+        margin-bottom: 10px;
+    }
 }
 
 @media (min-width: 1280px) {
@@ -505,4 +512,3 @@ div.form-group img {
         height: 250px;
     }
 }
-

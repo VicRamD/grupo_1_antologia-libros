@@ -5,6 +5,12 @@
         align-items: center;
         /*flex-wrap: wrap;*/
         flex-direction: column;
+        margin-bottom: 10px;
+    }
+    main.center a {
+        color: rgb(61, 107, 109);
+        text-decoration: none; 
+        font-weight: bold;
     }
 }
 

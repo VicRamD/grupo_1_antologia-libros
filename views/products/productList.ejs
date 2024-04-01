@@ -15,17 +15,17 @@
     <%- include('../partials/header.ejs') %>
 
     <main>
-        <h1>Listado de Libros:</h1>
+        <h1>Listado de Libros</h1> 
         <section class="formulario-CU">
             <table class="tabla-listado">
                 <tr>
                     <th>ID</th>
-                    <th>Título</th>
-                    <th class="bigScreen">Autor</th>
-                    <th class="bigScreen">Editorial</th>
-                    <th class="bigScreen">Género</th>
-                    <th>Precio</th>
-                    <th>Eliminar</th>
+                    <th>TÍTULO</th>
+                    <th class="bigScreen">AUTOR</th>
+                    <th class="bigScreen">EDITORIAL</th>
+                    <th class="bigScreen">GÉNERO</th>
+                    <th>PRECIO</th>
+                    <th>ELIMINAR</th>
                 </tr>
                 
                 <% books.forEach(book => { %>
@@ -54,10 +54,9 @@
                 <% }) %>
                 <tr></tr>
             </table>
-
+            
         </section>
-        <a href="/products/create"><button type="button">(+) Agregar Nuevo Libro</button></a><br><br>
-
+        <a href="/products/create"><button class="addButton" type="button"><i class="fa-solid fa-plus"></i> NUEVO LIBRO</button></a>  
     </main>
 
     <%- include('../partials/footer.ejs') %>

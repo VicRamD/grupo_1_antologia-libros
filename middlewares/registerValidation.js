@@ -18,7 +18,7 @@ let validateRegister = [
     check('lastname').notEmpty().isLength({min: 2}).withMessage("El apellido debe tener 2 caracteres como minimo"),
     check('email').notEmpty().withMessage("El email es obligatorio").bail()
     .isEmail()//.normalizeEmail()
-    .withMessage("Debe ingresar un email valido").bail()
+    .withMessage("Debe ingresar un email válido").bail()
     .custom(async value => {
         let user = await finders.searchUserByEmail(value);
         if(user){
@@ -127,7 +127,7 @@ let userChecked;
 let validateLogin = [
     check('email').notEmpty().withMessage("El email es obligatorio").bail()
     .isEmail().bail()//.normalizeEmail()
-    .withMessage("Debe ingresar un email valido").bail()
+    .withMessage("Debe ingresar un email válido").bail()
     .custom(async value => {
         userChecked = await finders.searchUserByEmail(value);
 

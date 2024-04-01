@@ -6,7 +6,7 @@
         </div>
         <div class="search-bar">
             <form method="get" action="/search">
-                <input type="search" placeholder="buscar" name="search" id="search">
+                <input type="search" placeholder="Buscar libro..." name="search" id="search">
                 <button type="submit"><i class="fas fa-search"></i></button>
             </form>
         </div>
@@ -36,7 +36,7 @@
         <ul>
             <% if (locals && locals.user && locals.user.category && locals.user.category.name == 'Cliente') { %>
                 <li><a href="/products/genres">Géneros</a></li>
-                <li><a>Educativos</a></li>
+                <li><a href="/products/genres?genre=Aventura">Aventura</a></li>
                 <li><a href="/products/genres?genre=Ciencia%20Ficci%C3%B3n">Ficción</a></li>
                 <li><a>Top 100</a></li>
                 <li><a href="/products/authors">Autores</a></li>
@@ -52,7 +52,7 @@
                 <li><a>Contacto</a></li>
             <% } else { %>
                 <li><a href="/products/genres">Géneros</a></li>
-                <li><a>Educativos</a></li>
+                <li><a href="/products/genres?genre=Aventura">Aventura</a></li>
                 <li><a href="/products/genres?genre=Ciencia%20Ficci%C3%B3n">Ficción</a></li>
                 <li><a>Top 100</a></li>
                 <li><a href="/products/authors">Autores</a></li>
