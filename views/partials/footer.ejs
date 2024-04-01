@@ -14,7 +14,9 @@
             <li><a href="/">Home</a></li>
             <li><a href="">Quiénes Somos</a></li>
             <li><a href="">Contacto</a></li>
-            <li><a href="/users/register">Registrarse</a></li>
+            <% if (locals && !locals.user) { %>
+                <li><a href="/users/register">Registrarse</a></li>
+            <% } %>
             <li><a href="/products/cart">Carrito de Compras</a></li>
             
         </ul>
