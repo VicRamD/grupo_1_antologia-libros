@@ -8,6 +8,7 @@
 .product-detail{
     display: flex;
     flex-direction: column;
+    margin-top: 15px;
 }
 .box-product{
     min-height: 100px;
@@ -78,6 +79,7 @@
 
 .product-img img {
     width: 70%;
+    /* object-fit: contain; */
 }
 .product-info{
     flex-basis: 60%;
@@ -91,7 +93,7 @@ h1{
 
 .info-data, .synopsis{
     text-align: left;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     padding: 40px;
     line-height: 1;
 }
@@ -212,7 +214,9 @@ h3 {
 .comment-block .comment{
     text-align: left;
     border: solid 1px black;
-    width: 78%;
+    /* width: 78%; */
+    width: 82%;
+    padding-left: 5px;
 }
 
 .comment-block .rating{
@@ -406,6 +410,10 @@ section.genres #formAPI input[type="text"] {
 
     .book-card{
         width: 33%;
+    }
+
+    .info-data, .synopsis{
+       margin-left: 10px;
     }
 
     /* Para ejs de categorias*/

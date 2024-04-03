@@ -652,15 +652,17 @@ const productsControllers = {
         //console.log(searchResults)
 
         if(searchResults.length === 0){
-            let noBooksMessage = 'No se encontraron resultados';
+            let noBooksMessage = `No se encontraron resultados para "${search}"`;
             let imageSrc = '/images/noEncontrado.png';
             return res.render('products/searchResults', {
+                search: search,
                 noBooksMessage: noBooksMessage,
                 imageSrc: imageSrc,
                 user
             });
         } else {
             return res.render('products/searchResults', {
+                search: search,
                 searchResults,
                 user
             });

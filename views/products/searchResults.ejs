@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <%- include('../partials/headParcial.ejs') %>
-    <title>Búsqueda</title>
+    <title>"<%= locals.search %>" - ANTOLOGIA Libros</title>
     <link rel="stylesheet" href="/css/productDetailStyles.css">
 </head>
 <body>
@@ -31,11 +31,11 @@
                                         
                                         <!--<if (book.authors) { %>
                                             < book.authors.forEach(bookAuthor => { %> -->
-                                        <p><a href=""><%= book.authors && book.authors[0] ? book.authors[0].name : 'Indefinido' %></a></p>
+                                        <p><a href="/products/authors?author=<%= book.authors && book.authors[0]?.name %>"><%= book.authors && book.authors[0] ? book.authors[0].name : 'Indefinido' %></a></p>
                                            <!-- < }) %> 
                                         < } %>-->
 
-                                        <p><a href=""><%= book.editorial ? book.editorial.name : '' %></a></p>
+                                        <p><a href="/products/editorials?editorial=<%= book.editorial.name %>"><%= book.editorial ? book.editorial.name : '' %></a></p>
                                         
                                     </div>
                                     <div class="card-buy">

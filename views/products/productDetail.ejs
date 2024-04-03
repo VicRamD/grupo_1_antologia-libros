@@ -78,8 +78,8 @@
                     <div class="card-review">
                         <p>Rating: <%= false ? '' : 'No disponible' %></p>
                         <div class="comment-block">
-                            <div class="comment">Comentarios</div>
-                            <div class="rating">Nota</div>
+                            <div class="comment"><b>Comentarios</b></div>
+                            <div class="rating"><b>Nota</b></div>
                             <% if (locals && locals.reviews && locals.reviews[0]) { %>
                                 <% for( let index = 0; index < 2; index++ ) { %>
                                     <% if (locals.reviews[index]) { %>

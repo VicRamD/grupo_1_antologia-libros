@@ -16,12 +16,34 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Operación</th>
-                        <th>Endpoint</th>
-                        <th>Método</th>
+                        <th>OPERACIÓN</th>
+                        <th>ENDPOINT</th>
+                        <th>MÉTODO</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>Listar Libros</td>
+                        <td><a href="/api/books">/api/books</a></td>
+                        <td>GET</td>
+                    </tr>
+
+                    <tr>
+                        <td>Listar 8 Libros según página</td>
+                        <td><a href="/api/books/page?page=8">/api/books/page?page=8</a></td>
+                        <td>GET</td>
+                    </tr>
+    
+                    <tr>
+                        <td>Detalle Libro</td>
+                        <td><a href="/api/books/1">/api/books/:id</a></td>
+                        <td>GET</td>
+                    </tr>
+                    <tr>
+                        <td>Detalle Último Libro</td>
+                        <td><a href="/api/books/last">/api/books/last</a></td>
+                        <td>GET</td>
+                    </tr>
                     <tr>
                         <td>Listar Autores</td>
                         <td><a href="/api/authors">/api/authors</a></td>
@@ -55,28 +77,6 @@
                         <td>GET</td>
                     </tr>
     
-                    <tr>
-                        <td>Listar Libros</td>
-                        <td><a href="/api/books">/api/books</a></td>
-                        <td>GET</td>
-                    </tr>
-
-                    <tr>
-                        <td>Listar 8 Libros según página</td>
-                        <td><a href="/api/books/page?page=8">/api/books/page?page=8</a></td>
-                        <td>GET</td>
-                    </tr>
-    
-                    <tr>
-                        <td>Detalle Libro</td>
-                        <td><a href="/api/books/1">/api/books/:id</a></td>
-                        <td>GET</td>
-                    </tr>
-                    <tr>
-                        <td>Detalle Último Libro</td>
-                        <td><a href="/api/books/last">/api/books/last</a></td>
-                        <td>GET</td>
-                    </tr>
                     <tr>
                         <td>Lista Editoriales</td>
                         <td><a href="/api/editorials">/api/editorials</a></td>

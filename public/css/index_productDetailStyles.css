@@ -49,7 +49,9 @@ h4.description {
     -webkit-line-clamp: 1;
     overflow: hidden;
 }
-
+.product_img{
+    object-fit: contain;
+}
 @media (min-width: 481px) {
     .product_img {
         max-width: 193px;

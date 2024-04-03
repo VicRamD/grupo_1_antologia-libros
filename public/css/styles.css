@@ -35,7 +35,8 @@ div.burger-menu {
     font-size: 20px;
     height: 40px;
     margin: 10px 0px 20px 0px;
-    padding: 10px;
+    /* padding: 10px; */
+    padding: 7px;
     /*width: 40px;*/
     width: 15%;
     margin: auto;
@@ -335,7 +336,8 @@ main section div.libros{
 }
 
 main section div.libros article{
-    width: 98%;
+    /* width: 98%; */
+    width: 100%;
 }
 
 .price,
@@ -375,6 +377,10 @@ main section div.libros article{
 
 /*Listado Productos*/
 
+.listProd-main{
+    width: 94%;
+}
+
 .formulario-CU{
     flex-direction: row;
 }
@@ -403,7 +409,8 @@ main section div.libros article{
 }
 
 .tabla-listado th{
-    background-color: rgba(95, 158, 160, 0.742); 
+    /* background-color: rgba(95, 158, 160, 0.742);  */
+    background-color: rgb(61, 107, 109);
     color: white; 
     font-weight: bold; 
 }
@@ -825,7 +832,9 @@ footer .pie{
     }
 
     /*Listado Productos*/
-
+    .listProd-main{
+        width: 90%;
+    }
     .tabla-listado {
         font-size: 16px;
         margin-bottom: 20px;
