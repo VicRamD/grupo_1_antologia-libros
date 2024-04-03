@@ -52,17 +52,17 @@ INSERT INTO `books` (id, title, abstract, `editorial_id`, image, isbn, date, pri
 (16, '¿Dónde está Wally ahora?', "Esta nueva entrega de ¿Dónde está Wally ahora? tiene solapas en cada página e incluye nuevas y mejores búsquedas que la edición anterior.\r\n\r\nUna edición de lujo para los coleccionistas o para quienes no han tenido suficiente con todo lo que había que buscar.",
 12, "1702501482785_book_img_.webp", "9788415579717", "2020-12-01", 14799.00, 30, "Castellano"),
 (17, 'Los Tres Mosqueteros', "Mi nombre es D'Artagnan y mi sueño siempre fue convertirme en un valiente mosquetero. Y adivina qué, ¡lo logré! Pero no fue nada fácil… ¿Te animas a ser parte de las grandes aventuras que emprendimos con mis amigos?\r\nUn cuento pensado para que los chicos conozcan la inolvidable historia detrás de la frase \"¡Uno para todos y todos para uno!\", acompañado por coloridas ilustraciones.",
-13, "1703871165000_book_img_.webp", "9789500210164", "2019-10-11", 7000.00, 30, "Castellano"),
+13, "1712121623916_book_img_.png", "9789500210164", "2019-10-11", 7000.00, 30, "Castellano"),
 (18, 'El Eternauta', "El Eternauta es la primera novela gráfica en español y la más importante para el mundo hispanoamericano. Obra cumbre de la ciencia ficción, fue publicada originalmente en Argentina como una serie de 106 entregas desde 1957 a 1959, en la revista Hora Cero Semanal.\r\nPara esta edición definitiva, revisada y corregida, se han retocado más de cincuenta ilustraciones sin alterar el espíritu original de la obra, con la intención de optimizar su calidad visual, potencia y continuidad gráfica.\r\nCon su vitalidad narrativa, su vigor político y su peso iconográfico intactos, nos complace presentar la multipremiada historia que influenció a más de cinco generaciones de lectores alrededor de todo el mundo.",
 1, "1705075625364_book_img_.webp", "9789504977117", "", 20000.00, 30, "Castellano"),
 (19, 'Thea Stilton and the Fiesta in Mexico', "The Thea Sisters are going to Mexico City! They have been invited to be a part of a team researching monarch butterflies. Their friend Luz is an artist who is inspired by the butterflies and the culture of Mexico. When her mural goes missing just before her art show, the mouselets are on the case! Can they return the missing mural in time.",
-14, "1705151958872_book_img_.webp", "9781338802221", "2018-06-06", 11359.40, 30, "Inglés"),
+14, "1712121654570_book_img_.png", "9781338802221", "2018-06-06", 11359.40, 30, "Inglés"),
 (20, 'Chacinados Criollos - cómo preparar los mejores Fiambres y Embutidos', "La elaboración casera de fiambres y embutidos como chorizos, morcillas o jamones es una práctica milenaria que sigue vigente. Las mejores técnicas para prepararlos y los principios esenciales de conservación forman parte de este libro. Además, recetas innovadoras e información para hacer de la fabricación de chacinados en casa un microemprendimiento exitoso.",
-15, "1705419365236_book_img_.webp", "9789502416014", "2017-08-10", 13250.00, 30, "Castellano"),
+15, "1712121603542_book_img_.png", "9789502416014", "2017-08-10", 13250.00, 30, "Castellano"),
 (21, 'Clarita se volvió invisible', "Un día cualquiera, Clarita se vuelve invisible. Nadie la ve: ni su mamá, ni el gato, ni siquiera su hermanito. ¿Qué travesuras hará Clarita ahora que nadie la puede ver?",
-16, "1705421427421_book_img_.webp", "9789504658498", "2019-06-10", 5400.00, 30, "Castellano"),
+16, "1712121584220_book_img_.png", "9789504658498", "2019-06-10", 5400.00, 30, "Castellano"),
 (22, 'Daughter of the Deep', "Ana Dakkar is a freshman at Harding-Pencroft Academy, a five-year high school that graduates the best marine scientists, naval warriors, navigators, and underwater explorers in the world. Ana's year culminates with the class's weekend trial at sea, the details of which have been kept secret. She only hopes she has what it'll take to succeed. All her worries are blown out of the water when, on the bus ride to the ship, Ana and her schoolmates witness a terrible tragedy that will change the trajectory of their lives.",
-17, "1705449398638_book_img_.webp", "9781368077934", "2021-10-05", 14025.95, 30, "Inglés");
+17, "1712119729656_book_img_.png", "9781368077934", "2021-10-05", 14025.95, 30, "Inglés");
 
 UNLOCK TABLES;
 

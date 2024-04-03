@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title><%= book.title %> - ANTOLOGÍA Libros</title>
     <link rel="icon" type="image/png" href="/images/favicon_antologia.png"/>
+    
 </head>
 <body>
     <%- include('../partials/header.ejs') %>
@@ -57,8 +58,10 @@
                     <h2></h2>
                     <div class="info-button">
                         <h2><%= book.price %> ARS</h2>
+                        <!-- <a class="button-cart" href="/products/cart/create?book=<= book.id %>">Agregar al carrito</a>-->
                         <button class="button-buy">COMPRA AHORA</button>
-                        <button class="button-cart">AGREGAR AL CARRITO</button>
+                        <!--<button class="button-cart">AGREGAR AL CARRITO</button> -->
+                        <button class="button-cart"><a href="/products/cart/create?book=<%= book.id %>">Agregar al carrito</a></button>
                     </div>
     
     
