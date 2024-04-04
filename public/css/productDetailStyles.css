@@ -146,6 +146,10 @@ h1{
     border: solid 1px #2F2F2F;
     margin-bottom: 20px;
 }
+.button-cart > a {
+    text-decoration: none;
+    color: #2F2F2F;
+}
 .box-info button:hover{
     background-color: cadetblue;
     color: whitesmoke;

@@ -41,7 +41,7 @@
                         </td>
                         <td class="bigScreen"><%=book.editorial.name%></td>
                         <td class="bigScreen"><% book.genres.forEach(genre => { %>
-                            <a href="/products/genres?genre=<%= genre.id %>"><%= genre.name %><br></a><% }); %>
+                            <a href="/products/genres?genre=<%= genre.name %>"><%= genre.name %><br></a><% }); %>
                         </td>
                                     
                         <td>$ <%=book.price%></td>
