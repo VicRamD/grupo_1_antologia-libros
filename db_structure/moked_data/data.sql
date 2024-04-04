@@ -62,7 +62,7 @@ INSERT INTO `books` (id, title, abstract, `editorial_id`, image, isbn, date, pri
 (21, 'Clarita se volvió invisible', "Un día cualquiera, Clarita se vuelve invisible. Nadie la ve: ni su mamá, ni el gato, ni siquiera su hermanito. ¿Qué travesuras hará Clarita ahora que nadie la puede ver?",
 16, "1712121584220_book_img_.png", "9789504658498", "2019-06-10", 5400.00, 30, "Castellano"),
 (22, 'Daughter of the Deep', "Ana Dakkar is a freshman at Harding-Pencroft Academy, a five-year high school that graduates the best marine scientists, naval warriors, navigators, and underwater explorers in the world. Ana's year culminates with the class's weekend trial at sea, the details of which have been kept secret. She only hopes she has what it'll take to succeed. All her worries are blown out of the water when, on the bus ride to the ship, Ana and her schoolmates witness a terrible tragedy that will change the trajectory of their lives.",
-17, "1712119729656_book_img_.png", "9781368077934", "2021-10-05", 14025.95, 30, "Inglés");
+17, "1712119729656_book_img_.jpg", "9781368077934", "2021-10-05", 14025.95, 30, "Inglés");
 
 UNLOCK TABLES;
 

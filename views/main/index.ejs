@@ -84,7 +84,7 @@
                     <% lastOnes.forEach(book => { %>
                         <article>
                             <a href="/products/<%= book.id %>" class="image-link">
-                                <img id="<%= book.id %>" src="/images/books/<%= book.image %>" alt="<%= book.title %>" class="product_img">
+                                <img id="<%= book.id %>" src="/images/books/<%= book.image ? book.image : 'cover-not-available.png' %>" alt="<%= book.title %>" class="product_img">
                             </a>
                             <div class="main-article">
                                 <i class="fas fa-eye"></i>
