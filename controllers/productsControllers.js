@@ -260,14 +260,6 @@ const productsControllers = {
 
         const {title, abstract, author, editorial, genre, language, date, isbn, price, stock} = req.body;
 
-        console.log(author);
-        console.log("====================================");
-        console.log("====================================");
-        console.log("====================================");
-        console.log(genre)
-        console.log("======================0");
-        console.log(isbn);
-
         const wasSend = wasFileSend(req.file);
         let image = "";
         if(searchedBook.image !== ""){
@@ -278,12 +270,15 @@ const productsControllers = {
         
         //Elimina la imagen anterior para que no hay imagenes de más o duplicadas
         if(wasSend) {
-            fs.unlink(path.join(process.cwd(), 'public/images/books/', searchedBook.image), (err) => {
-                if (err) {
-                    throw err;
-                }
-                console.log("Archivo eliminado y reemplazado correctamente");
-            });
+            if(searchedBook.image){
+                fs.unlink(path.join(process.cwd(), 'public/images/books/', searchedBook.image), (err) => {
+                    if (err) {
+                        throw err;
+                    }
+                    console.log("Archivo eliminado y reemplazado correctamente");
+                });
+            }
+            
         }
 
         searchedBook.set({
