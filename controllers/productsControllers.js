@@ -402,24 +402,22 @@ const productsControllers = {
         //const i = finders.searchProductIndex(parseInt(id), books);
 
         //busca el libro a eliminar
-        const bookToDelete = await db.Book.findOne({
-            where: {
-                id
-            }
-        });
-
+        const bookToDelete = await db.Book.findByPk(Number(id));
         // Elimina la imagen del producto
         //const product = books[i];
         if (bookToDelete && bookToDelete.image) {
-            const imagePath = path.join(process.cwd(), 'public/images/books/', bookToDelete.image);
-            fs.unlinkSync(imagePath);
+            if(bookToDelete.image){
+                const imagePath = path.join(process.cwd(), 'public/images/books/', bookToDelete.image);
+                fs.unlinkSync(imagePath);
+            }
+            
         }
 
         // Elimina el producto
         //books.splice(i, 1);
         db.Book.destroy({
             where: {
-                id
+                id: Number(id)
             }
         }).then(result => {
             res.redirect('/products');
