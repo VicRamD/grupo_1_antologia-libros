@@ -64,7 +64,14 @@ function BookDetailPanel() {
         <div className='row'>
             <h3 className='block'>ÚLTIMO LIBRO AGREGADO</h3>
             <div className='col-short border-column'>
-                <img className='cover' src={'http://localhost:3030' +  bookDetail.image_url} alt='No hallado'/>
+                {bookDetail.image_url !== '/images/books/' &&
+                    <img className='cover' src={'http://localhost:3030' +  bookDetail.image_url} alt='Portada no disponible'/>
+                }
+
+                {bookDetail.image_url === '/images/books/' &&
+                    <img className='cover' src={'/cover-not-available.png'} alt='Posrtada no disponible'/>
+                }
+                
                 <div className='div-info'>
                     <p className='id'><b>Id:</b> {bookDetail.id}</p>
                     <p className='big-screen'><b>ISBN:</b> {bookDetail.isbn}</p>

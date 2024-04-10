@@ -136,7 +136,7 @@ CREATE TABLE `cart_items` (
   `quantity` INT(10),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`cart_id`) REFERENCES `shopping_carts` (`id`),
-  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) 
+  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE
 );
 
 -- Estructura de orders (transacciones finalizadas)
@@ -164,8 +164,8 @@ CREATE TABLE `book_order` (
   `quantity` INT(10) NOT NULL,
   `price_at_purchase` FLOAT(20, 2) NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`),
-  FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`)
+  FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE
 );
 
 -- Estructura de reviews
